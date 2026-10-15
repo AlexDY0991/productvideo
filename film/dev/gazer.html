@@ -1,0 +1,13 @@
+<!doctype html><html><head><meta charset="utf-8"><style>body{margin:0;background:#999}</style></head><body>
+<canvas id="c" width="1920" height="1080"></canvas>
+<script type="module">
+import { drawGazer } from '../src/art/motif.js';
+import { drawFigure, POSES } from '../src/art/figures.js';
+const ctx = document.getElementById('c').getContext('2d');
+ctx.fillStyle = '#cfc7b8'; ctx.fillRect(0, 0, 1920, 1080);
+const extras = [null, 'short', 'long', 'bun', 'cap', 'helmet', 'aviator'];
+extras.forEach((e, i) => drawGazer(ctx, 20 + i * 270, 520, 0.7, { tilt: -0.45, extra: e, style: i % 2 ? 'silhouette' : 'ink', color: '#222', width: 3 }));
+const poses = Object.keys(POSES);
+poses.forEach((p, i) => { const r = drawFigure(ctx, 120 + i * 240, 1020, 360, POSES[p], { color: '#222', child: p === 'kite' }); ctx.fillStyle='red'; ctx.fillRect(r.hand[0]-4, r.hand[1]-4, 8, 8); ctx.font='20px sans-serif'; ctx.fillText(p, 80 + i*240, 1060); });
+window.done = true;
+</script></body></html>

@@ -1,0 +1,38 @@
+<!doctype html><html><head><meta charset="utf-8">
+<script type="importmap">{ "imports": { "three": "../vendor/three/three.module.js", "three/addons/": "../vendor/three/addons/" } }</script>
+<style>body{margin:0;background:#888}</style></head><body>
+<canvas id="c" width="1920" height="1080"></canvas>
+<script type="module">
+import { THREE, initStage, getRenderer, roomEnv, camera, look, shadowLight } from '../src/three/stage.js';
+import * as M from '../src/three/models.js';
+import { urban, loadUrban, loadDream, dreamGLB } from '../src/three/coolfly.js';
+const ctx = document.getElementById('c').getContext('2d');
+initStage(); const r = getRenderer();
+const q = new URLSearchParams(location.search);
+const gltf = await loadUrban('../');
+const dg = await loadDream('../');
+const list = [
+  ['wright', M.wrightFlyer(), 16], ['biplane', M.biplane(), 11], ['dc3', M.dc3(), 30], ['x1', M.x1(), 12],
+  ['concorde', M.concorde(), 62], ['vs300', M.vs300(), 11], ['saturnV', M.saturnV(), 120], ['quad', M.quadcopter(), 0.6],
+  ['evtol', M.evtol(), 13], ['dream', dreamGLB(dg), 7], ['dream (no pilot)', dreamGLB(dg, { pilot: false }), 7], ['urban', urban(gltf), 4.6],
+];
+const view = q.get('view') || 'persp';
+ctx.fillStyle = '#9a9a9a'; ctx.fillRect(0, 0, 1920, 1080);
+const cols = 4, cw = 480, ch = 360;
+list.forEach(([name, m, size], i) => {
+  const s = new THREE.Scene(); s.environment = roomEnv();
+  s.add(new THREE.HemisphereLight(0xffffff, 0x666666, 1.2)); const l = shadowLight(0xffffff, 2, [5, 10, 6], size); s.add(l);
+  s.add(m);
+  const box = new THREE.Box3().setFromObject(m); const c = box.getCenter(new THREE.Vector3());
+  const cam = camera(30); cam.aspect = cw / ch; cam.updateProjectionMatrix();
+  const d = size * 1.9;
+  const dir = view === 'side' ? [0, 0.05, 1] : view === 'top' ? [0.001, 1, 0] : view === 'front' ? [1, 0.1, 0.001] : [0.8, 0.45, 1];
+  const n = Math.hypot(...dir);
+  look(cam, [c.x + dir[0] / n * d, c.y + dir[1] / n * d, c.z + dir[2] / n * d], [c.x, c.y, c.z]);
+  r.setSize(cw, ch, false); r.setClearColor(0xbbbbbb, 1); r.render(s, cam);
+  ctx.drawImage(r.domElement, (i % cols) * cw, Math.floor(i / cols) * ch);
+  ctx.fillStyle = '#000'; ctx.font = '20px sans-serif'; ctx.fillText(name, (i % cols) * cw + 10, Math.floor(i / cols) * ch + 26);
+  if (name === 'urban') { const b = new THREE.Box3().setFromObject(m.userData.src); window.urbanBox = [b.min.toArray(), b.max.toArray()]; }
+});
+window.done = true;
+</script></body></html>
