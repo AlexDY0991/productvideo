@@ -1,0 +1,73 @@
+{
+  "items": [
+    {
+      "type": "video",
+      "mode": "first_last_frame",
+      "model": "seedance_2.0_fast_vip",
+      "ratio": "9:16",
+      "resolution": "720p",
+      "duration": 5,
+      "key": "p04",
+      "title": "小样 04 迎舟",
+      "refs": [
+        "key:k04-b"
+      ],
+      "prompt": "漕船顺水缓缓前行，船工摇橹撑篙，搬运工扛着粮袋在岸边走动，柳枝随风轻摆，水面泛起细微涟漪；镜头极缓慢地向下平移。保持参考图的水墨淡彩画风与宣纸质感，不出现文字，不新增人物肢体畸变。"
+    },
+    {
+      "type": "video",
+      "mode": "first_last_frame",
+      "model": "seedance_2.0_fast_vip",
+      "ratio": "9:16",
+      "resolution": "720p",
+      "duration": 5,
+      "key": "p05",
+      "title": "小样 05 迎工",
+      "refs": [
+        "key:k05-b"
+      ],
+      "prompt": "烟囱冒出的白烟缓缓升腾飘散，小火轮冒着蒸汽从石拱桥中孔下缓缓驶出，工人们在桥面上来回走动，柳枝轻摆；镜头几乎静止。保持参考图的水墨淡彩画风与宣纸质感，不出现文字，不新增人物肢体畸变。"
+    },
+    {
+      "type": "video",
+      "mode": "first_last_frame",
+      "model": "seedance_2.0_fast_vip",
+      "ratio": "9:16",
+      "resolution": "720p",
+      "duration": 5,
+      "key": "p06-scissors",
+      "title": "小样 06 刀剪",
+      "refs": [
+        "key:k06-scissors"
+      ],
+      "prompt": "铁锤有力地落下，锻打砧上通红的钢坯，每一锤都火星四溅，节奏沉稳；镜头静止。保持参考图的水墨淡彩画风与宣纸质感，不出现文字，不新增人物肢体畸变。"
+    },
+    {
+      "type": "video",
+      "mode": "first_last_frame",
+      "model": "seedance_2.0_fast_vip",
+      "ratio": "9:16",
+      "resolution": "720p",
+      "duration": 5,
+      "key": "p06-fan",
+      "title": "小样 06 折扇",
+      "refs": [
+        "key:k06-fan"
+      ],
+      "prompt": "匠人的双手缓缓将黑纸折扇完全展开，竹制扇骨依次散开，动作细致从容；镜头静止。保持参考图的水墨淡彩画风与宣纸质感，不出现文字，不新增人物肢体畸变。"
+    },
+    {
+      "type": "image",
+      "mode": "i2i",
+      "model": "seedream_5.0_pro",
+      "ratio": "9:16",
+      "resolution": "2K",
+      "refs": [
+        "key:kv-a2"
+      ],
+      "key": "k06-umbrella-2",
+      "title": "06 匠·油纸伞（重做）",
+      "prompt": "参考图仅用于统一画风、笔触与色调，画面内容与构图按以下描述重新绘制。竖构图，水墨淡彩近景：一把刚做好的油纸伞斜斜撑开，伞面暖赭色，绘有淡雅的花青兰草，竹制伞骨细密如放射线清晰可见；一位匠人一只手握着唯一的一根伞柄下端，另一只手轻抚伞沿；从侧前方平视；背景留白，淡墨晕染。伞只有一根伞柄。无文字，无印章，无边框。"
+    }
+  ]
+}

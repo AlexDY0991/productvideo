@@ -2,11 +2,272 @@
   "jobKey": "gongchen-scroll",
   "canvasId": "4a351108-0302-416c-b29a-782e263db22b",
   "webUrl": "https://jimeng.jianying.com/ai-tool/ai-canvas/4a351108-0302-416c-b29a-782e263db22b",
-  "creditBudget": { "ceiling": 8000, "planned": 5600, "spent": 0 },
+  "creditBudget": {
+    "ceiling": 8000,
+    "planned": 5600,
+    "spent": 240
+  },
   "items": {
-    "s02-keyframe": { "nodeId": "node_31x8ctqa81", "title": "S1 主视觉·水墨拱宸桥", "status": "draft" },
-    "s02-video": { "nodeId": "node_489ey8kvzm", "title": "S1 墨晕成桥", "status": "draft" },
-    "music": { "nodeId": "node_znb7amf534", "title": "配乐·竖卷", "status": "draft" }
+    "kv-a1": {
+      "nodeId": "node_31x8ctqa81",
+      "title": "主视觉 A1·立轴正面",
+      "type": "image",
+      "status": "succeeded",
+      "submitId": "0fabcfc9-58a3-445b-956d-c04c0912451f",
+      "resourceId": "3fdccf0d-7de7-48bd-bbfd-915965465f8a",
+      "quotedCredits": 8
+    },
+    "kv-a2": {
+      "nodeId": "node_dx5jc7ehfj",
+      "title": "主视觉 A2·立轴正面",
+      "type": "image",
+      "status": "succeeded",
+      "submitId": "9f24879d-0c9d-44cd-a25c-8976d2065e09",
+      "resourceId": "a77cb97b-706c-42c2-8fe9-9954e54e0515",
+      "quotedCredits": 8,
+      "chosen": "风格母版：桥形最接近真实拱宸桥（修长缓拱、中孔大边孔对称），色调克制，顶部留白可放标题"
+    },
+    "kv-b1": {
+      "nodeId": "node_qqan3w0dqh",
+      "title": "主视觉 B1·写意留白",
+      "type": "image",
+      "status": "succeeded",
+      "submitId": "ca7b753a-d3dd-4e1e-8055-634b5f0d1b12",
+      "resourceId": "85d2467e-0751-43d7-8d3d-ae8b6534f36c",
+      "quotedCredits": 8
+    },
+    "kv-b2": {
+      "nodeId": "node_1m3dpq123g",
+      "title": "主视觉 B2·写意留白",
+      "type": "image",
+      "status": "succeeded",
+      "submitId": "f462da39-b87a-426e-aa3a-f8e5e992a423",
+      "resourceId": "49b876c5-046c-401e-be36-dd579a54c3cb",
+      "quotedCredits": 8
+    },
+    "s02-video": {
+      "nodeId": "node_489ey8kvzm",
+      "title": "S1 墨晕成桥",
+      "status": "draft"
+    },
+    "music": {
+      "nodeId": "node_znb7amf534",
+      "title": "配乐·竖卷",
+      "status": "draft"
+    },
+    "k04-a": {
+      "nodeId": "node_xmz8pee7ym",
+      "specHash": "be6bf8a84a07dd87",
+      "type": "image",
+      "title": "04 迎舟·漕运 A",
+      "status": "succeeded",
+      "submitId": "bcae2df4-9269-416a-9967-2757bb4a88d9",
+      "quotedCredits": 8,
+      "resourceId": "321b89d6-f324-4cfa-a8f3-79913eb38508",
+      "sha256": "a5329729440dca64639bd32f68738bcac9dc2663a92362ddff279a0af8b947f5"
+    },
+    "k04-b": {
+      "nodeId": "node_7pn1sjp5vr",
+      "title": "04 迎舟·漕运 B",
+      "type": "image",
+      "specHash": "be6bf8a84a07dd87",
+      "status": "succeeded",
+      "submitId": "4a216467-b318-4131-9a9a-97d018114fbb",
+      "quotedCredits": 8,
+      "resourceId": "28f75d49-9a36-4000-b7ab-7272bb799b7d",
+      "sha256": "e2d4031aa8d9504a6afdf103eebfbfb50c6053d0cf2cbb35aaedee83ee9530d8"
+    },
+    "k05-a": {
+      "nodeId": "node_9f3aj7qhqt",
+      "title": "05 迎工·纱厂 A",
+      "type": "image",
+      "specHash": "2a8c43c233830a8b",
+      "status": "succeeded",
+      "submitId": "1307c4d7-686b-4bda-a060-02cb78c87260",
+      "quotedCredits": 8,
+      "resourceId": "c8b5bd2f-7372-4186-beaf-eb2ea8176c2e",
+      "sha256": "5644365e58deb5d649dc00fbfc21563da207c35ffc8c5cbbbbecb2b5ba3a4458"
+    },
+    "k05-b": {
+      "nodeId": "node_bwcyxnyd7n",
+      "title": "05 迎工·纱厂 B",
+      "type": "image",
+      "specHash": "2a8c43c233830a8b",
+      "status": "succeeded",
+      "submitId": "fdcba42f-4148-4f28-8d7f-e81327af0fb7",
+      "quotedCredits": 8,
+      "resourceId": "6862bfec-54da-42a7-958e-4b737f17d77e",
+      "sha256": "431755e0ee8649ad285472dff790988b91df17116bb610127731e96c6270f340"
+    },
+    "k06-scissors": {
+      "nodeId": "node_ncxn1wyenv",
+      "title": "06 匠·刀剪锻打",
+      "type": "image",
+      "specHash": "8e1b51418d64253a",
+      "status": "succeeded",
+      "submitId": "bab880a2-3326-46e9-84fc-d49f40770a02",
+      "quotedCredits": 8,
+      "resourceId": "35b71358-c45d-4dd3-811d-d4156beeb1ce",
+      "sha256": "d7b1ed7496076da1da97d273806e07817340955239d11d12384ae8d28fdf8d73"
+    },
+    "k06-fan": {
+      "nodeId": "node_90ze382j1d",
+      "title": "06 匠·折扇",
+      "type": "image",
+      "specHash": "1275d86099789eec",
+      "status": "succeeded",
+      "submitId": "211a370e-1881-4485-83d2-5939f8a816f9",
+      "quotedCredits": 8,
+      "resourceId": "51f5aa39-9400-45f4-a808-cd89dde26d7f"
+    },
+    "k06-umbrella": {
+      "nodeId": "node_whqpemk4tf",
+      "title": "06 匠·油纸伞",
+      "type": "image",
+      "specHash": "2f27ecda8898e1fa",
+      "status": "succeeded",
+      "submitId": "f06c039c-e9ec-4847-baa5-d4b09a2af00a",
+      "quotedCredits": 8,
+      "resourceId": "b90273bd-2a5a-4038-893d-99fbbe7e2856",
+      "sha256": "1551964e5062dd6f9d4a893295fc62fc94ef1573f0dd0d093b92767a30bbda66"
+    },
+    "p04": {
+      "nodeId": "node_rdbzzar8b3",
+      "title": "小样 04 迎舟",
+      "type": "video",
+      "specHash": "fc553a93ee53f176",
+      "status": "succeeded",
+      "submitId": "42611f31-8232-48a0-8cf3-5361392f84df",
+      "quotedCredits": 30,
+      "resourceId": "3d2d42d7-7551-4f12-87a0-35c8c299f26e",
+      "sha256": "09d71eb6e32dbed07f0de0bfb6899ea04803aaac76b9f283789d2ea84dcf41be"
+    },
+    "p05": {
+      "nodeId": "node_x62xkrex8b",
+      "title": "小样 05 迎工",
+      "type": "video",
+      "specHash": "db5735a1eb4e8a15",
+      "status": "succeeded",
+      "submitId": "08c48963-742a-487d-a0d6-d9063d2fc85d",
+      "quotedCredits": 30,
+      "resourceId": "d810269d-8adf-4391-acd0-ae9ffa27618e",
+      "sha256": "721ab3c28cafd4d0b737629d5b0763797b0518e3b83f74bd0a2b377b962e682d"
+    },
+    "p06-scissors": {
+      "nodeId": "node_2cv7xvdm27",
+      "title": "小样 06 刀剪",
+      "type": "video",
+      "specHash": "a4a27e7ff781fcb2",
+      "status": "succeeded",
+      "submitId": "8688e0b3-c0db-424e-a2c5-9a99238d3528",
+      "quotedCredits": 30,
+      "resourceId": "16b4a1af-6964-4e13-a215-7dada87dd30d",
+      "sha256": "40d957c2e49780c7241708bde96e414956c15493cf3f518257812af10324e3be"
+    },
+    "p06-fan": {
+      "nodeId": "node_s2q3p9fjbz",
+      "title": "小样 06 折扇",
+      "type": "video",
+      "specHash": "ff43fe37cb1e2357",
+      "status": "succeeded",
+      "submitId": "b50bb96f-e680-4b39-8db9-4232d468e643",
+      "quotedCredits": 30,
+      "resourceId": "e188d7c0-b161-4623-87a3-7e6651c2e047",
+      "sha256": "7e29d286510f0867084339c3082c3f8ba7147bd7c364cccf653563eb18f3eea9"
+    },
+    "k06-umbrella-2": {
+      "nodeId": "node_bxg50thp35",
+      "title": "06 匠·油纸伞（重做）",
+      "type": "image",
+      "specHash": "c95932722794155b",
+      "status": "succeeded",
+      "submitId": "b409850b-cd5f-4b47-9fc3-f77968db5626",
+      "quotedCredits": 8,
+      "resourceId": "f1863ce5-ba64-4c7a-9c91-7d4676b3b7b3",
+      "sha256": "5bdfff9f2d34df19aedb4c47596b76bb580c081fe997fe727481563f6013db4a"
+    },
+    "music-a": {
+      "nodeId": "node_6afzdx4bmb",
+      "title": "配乐 A·古筝洞箫",
+      "type": "audio",
+      "specHash": "9e2d44b0f9ab309a",
+      "status": "succeeded",
+      "submitId": "49effc48-81cd-4e0c-9a7e-7be7fec2debc",
+      "quotedCredits": 6,
+      "resourceId": "bc5b16ec-08b3-4d44-bf67-11a5ec651efc",
+      "sha256": "773f1c92221e14f23b1de418a73e48c13b4a6050882781277a2db49d88df6ba1"
+    },
+    "music-b": {
+      "nodeId": "node_rg24avs9hd",
+      "title": "配乐 B·古琴弦乐",
+      "type": "audio",
+      "specHash": "5e701782fcf82820",
+      "status": "succeeded",
+      "submitId": "05da9eab-f58a-47f4-9036-242cbc6f9ce7",
+      "quotedCredits": 6,
+      "resourceId": "f81ea376-c8b8-450f-b92f-8ef15cafe0a5",
+      "sha256": "193682b6111a54dc559b7fffc1bcb69d9822513269b582cbbed9855a04746fe7"
+    },
+    "vo-2": {
+      "nodeId": "node_jn9gz351gc",
+      "title": "导引配音 2",
+      "type": "audio",
+      "specHash": "f422b56594416f73",
+      "status": "unused-draft"
+    },
+    "vo-3": {
+      "nodeId": "node_1qfgrr7ywg",
+      "title": "导引配音 3",
+      "type": "audio",
+      "specHash": "f7f34bb38997a06d",
+      "status": "unused-draft"
+    },
+    "vo-4": {
+      "nodeId": "node_2c9fpg3s3m",
+      "title": "导引配音 4",
+      "type": "audio",
+      "specHash": "0d067fb765d327dd",
+      "status": "unused-draft"
+    },
+    "vo-5": {
+      "nodeId": "node_0j53j5r953",
+      "title": "导引配音 5",
+      "type": "audio",
+      "specHash": "0b01f99823072b63",
+      "status": "unused-draft"
+    },
+    "vo-6": {
+      "nodeId": "node_84tet7fp15",
+      "title": "导引配音 6",
+      "type": "audio",
+      "specHash": "11fb77680b3fc8af",
+      "status": "unused-draft"
+    },
+    "vo-7": {
+      "nodeId": "node_p7sgr8yag4",
+      "title": "导引配音 7",
+      "type": "audio",
+      "specHash": "8ff3a3c8996bd1a3",
+      "status": "unused-draft"
+    },
+    "vo-8": {
+      "nodeId": "node_t2vdd4hq9d",
+      "title": "导引配音 8",
+      "type": "audio",
+      "specHash": "890fc568ecd39385",
+      "status": "unused-draft"
+    },
+    "vo-all": {
+      "nodeId": "node_xz0kfqvy35",
+      "title": "导引配音·全文",
+      "type": "audio",
+      "specHash": "63b4dd3abd68e103",
+      "status": "succeeded",
+      "submitId": "a383ac5e-5c75-4097-95da-5016d4f91625",
+      "quotedCredits": 12,
+      "resourceId": "a1acfe7e-5ba3-48af-b9a1-f04817690aee",
+      "sha256": "182b722502d2fd232867ae1922cc7da35d6607c32eed3a19e2537a02dd8fd5c8"
+    }
   },
   "quotes": {
     "seedream_5.0_pro 2K image": 8,

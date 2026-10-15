@@ -1,0 +1,488 @@
+{
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "subtitleY": 1600,
+  "segments": [
+    {
+      "id": "s01-open",
+      "dur": 4.0,
+      "src": {
+        "proc": "open",
+        "lineX": 598,
+        "hitY": 700
+      }
+    },
+    {
+      "id": "s02-bridge",
+      "dur": 7.0,
+      "src": {
+        "still": "out/jimeng/kv-a2.jpg",
+        "kb": {
+          "z0": 1.0,
+          "z1": 1.04,
+          "cx0": 0.555,
+          "cy0": 0.62
+        }
+      },
+      "in": {
+        "type": "inkline",
+        "dur": 2.2,
+        "x": 598
+      }
+    },
+    {
+      "id": "s03-name",
+      "dur": 5.0,
+      "src": {
+        "proc": "name",
+        "image": "out/jimeng/kv-a2.jpg",
+        "kb": {
+          "z0": 1.04,
+          "cx0": 0.555,
+          "cy0": 0.62
+        },
+        "arches": [
+          [
+            598,
+            1090,
+            1255,
+            152,
+            0.3
+          ],
+          [
+            348,
+            1152,
+            1255,
+            92,
+            0.9
+          ],
+          [
+            850,
+            1152,
+            1255,
+            95,
+            0.9
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s04-boats",
+      "dur": 8.0,
+      "src": {
+        "clip": "out/jimeng/p04.mp4",
+        "speed": 0.62,
+        "kb": {
+          "z0": 1.0
+        }
+      },
+      "in": {
+        "type": "scroll",
+        "dur": 1.6
+      },
+      "sfx": {
+        "gainDb": -10
+      }
+    },
+    {
+      "id": "s05-mill",
+      "dur": 6.0,
+      "src": {
+        "clip": "out/jimeng/p05.mp4",
+        "speed": 0.8,
+        "kb": {
+          "z0": 1.0,
+          "z1": 1.04
+        }
+      },
+      "in": {
+        "type": "scroll",
+        "dur": 1.6
+      },
+      "sfx": {
+        "gainDb": -10
+      }
+    },
+    {
+      "id": "s06-scissors",
+      "dur": 1.7,
+      "src": {
+        "clip": "out/jimeng/p06-scissors.mp4",
+        "start": 0.6,
+        "kb": {
+          "z0": 1.0
+        }
+      },
+      "in": {
+        "type": "ink",
+        "dur": 0.8,
+        "x": 420,
+        "y": 980
+      },
+      "sfx": {
+        "gainDb": -6,
+        "tail": 0.2
+      }
+    },
+    {
+      "id": "s06-fan",
+      "dur": 1.65,
+      "src": {
+        "clip": "out/jimeng/p06-fan.mp4",
+        "start": 0.5,
+        "speed": 1.4,
+        "kb": {
+          "z0": 1.0
+        }
+      },
+      "in": {
+        "type": "cut"
+      },
+      "sfx": {
+        "gainDb": -8,
+        "tail": 0.2
+      }
+    },
+    {
+      "id": "s06-umbrella",
+      "dur": 1.65,
+      "src": {
+        "still": "out/jimeng/k06-umbrella-2.jpg",
+        "kb": {
+          "z0": 1.0,
+          "z1": 1.06,
+          "cx0": 0.5,
+          "cy0": 0.45
+        }
+      },
+      "in": {
+        "type": "cut"
+      }
+    },
+    {
+      "id": "s07-morning",
+      "dur": 3.7,
+      "src": {
+        "card": "实拍 ｜ 清晨，桥上散步的老人"
+      },
+      "in": {
+        "type": "scroll",
+        "dur": 1.2
+      }
+    },
+    {
+      "id": "s07-commute",
+      "dur": 3.7,
+      "src": {
+        "card": "实拍 ｜ 骑车上班的年轻人"
+      },
+      "in": {
+        "type": "fade",
+        "dur": 0.4
+      }
+    },
+    {
+      "id": "s07-night",
+      "dur": 3.6,
+      "src": {
+        "card": "实拍 ｜ 运河夜游船灯影"
+      },
+      "in": {
+        "type": "fade",
+        "dur": 0.4
+      }
+    },
+    {
+      "id": "s08-finale",
+      "dur": 9.0,
+      "src": {
+        "card": "实拍 ｜ 拱宸桥全景 · 墨线描桥 · 拱手"
+      },
+      "in": {
+        "type": "ink",
+        "dur": 0.9,
+        "x": 540,
+        "y": 1100
+      }
+    }
+  ],
+  "overlays": [
+    {
+      "text": "竖卷·拱宸",
+      "font": "serif900",
+      "size": 116,
+      "vertical": true,
+      "x": 900,
+      "y": 560,
+      "start": 1.9,
+      "end": 6.0,
+      "reveal": 1.4,
+      "fadeOut": 0.9
+    },
+    {
+      "kind": "seal",
+      "text": "拱宸",
+      "size": 64,
+      "x": 900,
+      "y": 1030,
+      "start": 3.3,
+      "end": 6.0
+    },
+    {
+      "text": "明崇祯四年",
+      "font": "serif600",
+      "size": 44,
+      "vertical": true,
+      "x": 110,
+      "y": 300,
+      "start": 5.2,
+      "end": 10.6,
+      "color": "grey",
+      "reveal": 0.9
+    },
+    {
+      "text": "拱",
+      "font": "brush",
+      "size": 300,
+      "x": 598,
+      "y": 430,
+      "start": 11.9,
+      "end": 15.9,
+      "reveal": 0.6
+    },
+    {
+      "text": "拱手相迎",
+      "font": "serif600",
+      "size": 40,
+      "vertical": true,
+      "x": 812,
+      "y": 430,
+      "start": 12.4,
+      "end": 15.9,
+      "color": "grey",
+      "reveal": 0.8
+    },
+    {
+      "text": "宸",
+      "font": "brush",
+      "size": 300,
+      "x": 598,
+      "y": 770,
+      "start": 12.7,
+      "end": 15.9,
+      "reveal": 0.6
+    },
+    {
+      "text": "帝王居所",
+      "font": "serif600",
+      "size": 40,
+      "vertical": true,
+      "x": 812,
+      "y": 770,
+      "start": 13.2,
+      "end": 15.9,
+      "color": "grey",
+      "reveal": 0.8
+    },
+    {
+      "text": "一八九七 · 通益公纱厂",
+      "font": "serif600",
+      "size": 44,
+      "vertical": true,
+      "x": 985,
+      "y": 400,
+      "start": 24.8,
+      "end": 29.6,
+      "color": "grey",
+      "reveal": 1.2
+    },
+    {
+      "text": "二〇一四 · 中国大运河列入世界遗产名录",
+      "font": "serif600",
+      "size": 40,
+      "vertical": true,
+      "x": 985,
+      "y": 520,
+      "start": 41.0,
+      "end": 45.8,
+      "color": "grey",
+      "reveal": 1.6
+    },
+    {
+      "text": "拱宸·迎你",
+      "font": "serif900",
+      "size": 120,
+      "vertical": true,
+      "x": 540,
+      "y": 700,
+      "start": 51.0,
+      "end": 55.0,
+      "reveal": 1.4,
+      "fadeOut": 0.01
+    },
+    {
+      "kind": "seal",
+      "text": "运河新韵",
+      "size": 120,
+      "x": 540,
+      "y": 1250,
+      "start": 52.3,
+      "end": 55.0
+    }
+  ],
+  "subtitles": [
+    {
+      "start": 5.05,
+      "end": 7.75,
+      "text": "一六三一年  大运河的南端"
+    },
+    {
+      "start": 7.8,
+      "end": 9.3,
+      "text": "拱起了一座桥"
+    },
+    {
+      "start": 11.5,
+      "end": 13.5,
+      "text": "相传  “拱宸”二字"
+    },
+    {
+      "start": 13.55,
+      "end": 15.8,
+      "text": "是向帝王拱手相迎"
+    },
+    {
+      "start": 17.05,
+      "end": 20.35,
+      "text": "后来  它迎过南来北往的漕船"
+    },
+    {
+      "start": 24.35,
+      "end": 26.2,
+      "text": "迎过纱厂的汽笛"
+    },
+    {
+      "start": 26.25,
+      "end": 28.0,
+      "text": "早出晚归的工人"
+    },
+    {
+      "start": 30.65,
+      "end": 33.0,
+      "text": "迎过桥西一代代手艺人"
+    },
+    {
+      "start": 35.85,
+      "end": 38.65,
+      "text": "如今  它迎着清晨散步的老人"
+    },
+    {
+      "start": 38.7,
+      "end": 40.6,
+      "text": "骑车上班的年轻人"
+    },
+    {
+      "start": 41.05,
+      "end": 43.1,
+      "text": "也迎着远道而来的你"
+    },
+    {
+      "start": 48.05,
+      "end": 51.2,
+      "text": "四百年  它一直拱着手"
+    }
+  ],
+  "rollup": {
+    "start": 53.6,
+    "dur": 1.4
+  },
+  "audio": {
+    "voice": {
+      "file": "out/jimeng/vo-all.mp3",
+      "gainDb": 0,
+      "lines": [
+        {
+          "from": 0.4,
+          "to": 4.4,
+          "at": 5.0
+        },
+        {
+          "from": 5.15,
+          "to": 9.3,
+          "at": 11.45
+        },
+        {
+          "from": 10.02,
+          "to": 13.2,
+          "at": 17.0
+        },
+        {
+          "from": 13.45,
+          "to": 17.0,
+          "at": 24.3
+        },
+        {
+          "from": 17.35,
+          "to": 19.55,
+          "at": 30.6
+        },
+        {
+          "from": 20.33,
+          "to": 24.95,
+          "at": 35.8
+        },
+        {
+          "from": 25.3,
+          "to": 27.2,
+          "at": 41.0
+        },
+        {
+          "from": 28.03,
+          "to": 31.0,
+          "at": 48.0
+        }
+      ]
+    },
+    "music": {
+      "file": "out/jimeng/music-a.mp3",
+      "from": 0,
+      "at": 0,
+      "gainDb": -4,
+      "duck": 0.5,
+      "fadeOut": 2.5
+    },
+    "sfx": [
+      {
+        "kind": "unroll",
+        "at": 0.0,
+        "gainDb": -8
+      },
+      {
+        "kind": "thud",
+        "at": 1.45,
+        "gainDb": -12
+      },
+      {
+        "kind": "drop",
+        "at": 2.18,
+        "gainDb": -6
+      },
+      {
+        "kind": "seal",
+        "at": 3.3,
+        "gainDb": -12
+      },
+      {
+        "kind": "seal",
+        "at": 52.3,
+        "gainDb": -6
+      },
+      {
+        "kind": "rollup",
+        "at": 53.6,
+        "gainDb": -8
+      }
+    ]
+  }
+}

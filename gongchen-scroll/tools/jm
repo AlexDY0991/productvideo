@@ -8,7 +8,7 @@ out=$(mktemp)
 for attempt in 1 2 3 4 5; do
   dreamina-canvas --format json --non-interactive "$@" >"$out" 2>&1
   code=$?
-  if grep -q '"code":"cli.transport_failed"' "$out"; then
+  if grep -qE '"code":"cli\.(download_)?transport_failed"' "$out"; then
     echo "[jm] transport failure, retry $attempt" >&2; sleep $((attempt * 3)); continue
   fi
   break
