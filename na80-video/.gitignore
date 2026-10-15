@@ -1,0 +1,5 @@
+fonts/*.ttf
+audio/voice.wav
+stage.html
+out/*
+!out/NA80-双余度飞控-科普.mp4
