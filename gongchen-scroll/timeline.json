@@ -164,7 +164,10 @@
       "id": "s07-morning",
       "dur": 3.7,
       "src": {
-        "card": "水墨 ｜ 清晨，桥上散步的老人（照片转绘）"
+        "clip": "out/jimeng/p07-morning.mp4",
+        "kb": {
+          "z0": 1.0
+        }
       },
       "in": {
         "type": "scroll",
@@ -173,37 +176,67 @@
     },
     {
       "id": "s07-commute",
-      "dur": 3.7,
+      "dur": 2.3,
       "src": {
-        "card": "水墨 ｜ 沿河骑车上班的年轻人（照片转绘）"
+        "clip": "out/jimeng/p07-commute.mp4",
+        "start": 0.8,
+        "kb": {
+          "z0": 1.0
+        }
       },
       "in": {
         "type": "fade",
-        "dur": 0.4
+        "dur": 0.5
+      }
+    },
+    {
+      "id": "s07-gongshou",
+      "dur": 3.4,
+      "src": {
+        "still": "out/jimeng/k07-gongshou-a-flop.jpg",
+        "kb": {
+          "z0": 1.0,
+          "z1": 1.06,
+          "cx0": 0.5,
+          "cy0": 0.55
+        }
+      },
+      "in": {
+        "type": "fade",
+        "dur": 0.5
       }
     },
     {
       "id": "s07-night",
-      "dur": 3.6,
+      "dur": 3.0,
       "src": {
-        "card": "水墨 ｜ 运河夜游船灯影（照片转绘）"
+        "clip": "out/jimeng/p07-night.mp4",
+        "kb": {
+          "z0": 1.0
+        }
       },
       "in": {
         "type": "fade",
-        "dur": 0.4
+        "dur": 0.6
       }
     },
     {
       "id": "s08-finale",
-      "dur": 9.0,
+      "dur": 7.6,
       "src": {
-        "card": "水墨 ｜ 暮色拱宸桥 · 墨线描桥 · 拱手（照片转绘）"
+        "clip": "out/jimeng/p08-dusk.mp4",
+        "speed": 0.66,
+        "kb": {
+          "z0": 1.0
+        }
+      },
+      "post": {
+        "paper": 0.3,
+        "desat": 0.15
       },
       "in": {
-        "type": "ink",
-        "dur": 0.9,
-        "x": 540,
-        "y": 1100
+        "type": "scroll",
+        "dur": 1.4
       }
     }
   ],
@@ -304,10 +337,40 @@
       "vertical": true,
       "x": 985,
       "y": 520,
-      "start": 41.0,
-      "end": 45.8,
-      "color": "grey",
-      "reveal": 1.6
+      "start": 44.6,
+      "end": 47.3,
+      "color": "paper",
+      "opacity": 0.9,
+      "reveal": 1.4
+    },
+    {
+      "kind": "arches",
+      "start": 48.6,
+      "end": 53.6,
+      "opacity": 0.7,
+      "arches": [
+        [
+          605,
+          1040,
+          1195,
+          140,
+          48.6
+        ],
+        [
+          350,
+          1105,
+          1195,
+          93,
+          49.2
+        ],
+        [
+          857,
+          1105,
+          1195,
+          90,
+          49.2
+        ]
+      ]
     },
     {
       "text": "拱宸·迎你",
@@ -315,7 +378,7 @@
       "size": 120,
       "vertical": true,
       "x": 540,
-      "y": 700,
+      "y": 560,
       "start": 51.0,
       "end": 55.0,
       "reveal": 1.4,
@@ -324,9 +387,9 @@
     {
       "kind": "seal",
       "text": "运河新韵",
-      "size": 120,
+      "size": 110,
       "x": 540,
-      "y": 1250,
+      "y": 1600,
       "start": 52.3,
       "end": 55.0
     }

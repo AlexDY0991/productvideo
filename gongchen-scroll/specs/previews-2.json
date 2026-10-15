@@ -1,0 +1,60 @@
+{
+  "items": [
+    {
+      "type": "video",
+      "mode": "first_last_frame",
+      "model": "seedance_2.0_fast_vip",
+      "ratio": "9:16",
+      "resolution": "720p",
+      "duration": 5,
+      "key": "p07-morning",
+      "title": "小样 07 清晨",
+      "refs": [
+        "key:k07-morning"
+      ],
+      "prompt": "老人们沿石阶慢慢走上桥，桥顶的老人缓缓打着太极，晨雾轻轻飘移，柳枝轻摆；镜头静止。保持参考图的水墨淡彩画风与宣纸质感，构图与建筑形状保持不变，不出现文字，人物动作自然、肢体不畸变。"
+    },
+    {
+      "type": "video",
+      "mode": "first_last_frame",
+      "model": "seedance_2.0_fast_vip",
+      "ratio": "9:16",
+      "resolution": "720p",
+      "duration": 5,
+      "key": "p07-commute",
+      "title": "小样 07 骑车",
+      "refs": [
+        "key:k07-commute"
+      ],
+      "prompt": "年轻人骑着自行车和电动车沿河边步道轻快地驶过，柳枝随风轻摆，水面泛着晨光；镜头静止。保持参考图的水墨淡彩画风与宣纸质感，构图与建筑形状保持不变，不出现文字，人物动作自然、肢体不畸变。"
+    },
+    {
+      "type": "video",
+      "mode": "first_last_frame",
+      "model": "seedance_2.0_fast_vip",
+      "ratio": "9:16",
+      "resolution": "720p",
+      "duration": 5,
+      "key": "p07-night",
+      "title": "小样 07 夜游",
+      "refs": [
+        "key:k07-night"
+      ],
+      "prompt": "挂着灯笼的游船从石拱桥中孔下缓缓驶出，水面的灯影随波荡漾，两岸灯火微微闪烁；镜头静止。保持参考图的水墨淡彩画风与宣纸质感，构图与建筑形状保持不变，不出现文字，人物动作自然、肢体不畸变。"
+    },
+    {
+      "type": "video",
+      "mode": "first_last_frame",
+      "model": "seedance_2.0_fast_vip",
+      "ratio": "9:16",
+      "resolution": "720p",
+      "duration": 5,
+      "key": "p08-dusk",
+      "title": "小样 08 黄昏",
+      "refs": [
+        "key:k08-dusk"
+      ],
+      "prompt": "暮色中的运河，水面倒映的灯火随细波轻轻晃动，挂灯笼的小船微微起伏，桥上行人缓缓走过，天色渐暗；镜头静止，桥的形状与位置保持不变。保持参考图的水墨淡彩画风与宣纸质感，构图与建筑形状保持不变，不出现文字，人物动作自然、肢体不畸变。"
+    }
+  ]
+}

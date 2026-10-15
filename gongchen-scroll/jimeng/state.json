@@ -5,7 +5,7 @@
   "creditBudget": {
     "ceiling": 8000,
     "planned": 5600,
-    "spent": 240
+    "spent": 448
   },
   "items": {
     "kv-a1": {
@@ -267,6 +267,163 @@
       "quotedCredits": 12,
       "resourceId": "a1acfe7e-5ba3-48af-b9a1-f04817690aee",
       "sha256": "182b722502d2fd232867ae1922cc7da35d6607c32eed3a19e2537a02dd8fd5c8"
+    },
+    "k07-morning": {
+      "nodeId": "node_vjr965accz",
+      "title": "07 迎人·清晨",
+      "type": "image",
+      "specHash": "9aa7d4ea6fdf54e5",
+      "status": "succeeded",
+      "submitId": "adfa64aa-5072-417a-83a2-073ebd147303",
+      "quotedCredits": 8,
+      "resourceId": "5af69e5e-d20e-42ab-91aa-cc7c3ec03fcc",
+      "sha256": "80fb180c86c1d7eaa490b4b1e71e7b7308f87a869a89b04e8008b456d5a511fe"
+    },
+    "k07-commute": {
+      "nodeId": "node_gcptv1frvp",
+      "title": "07 迎人·骑车上班",
+      "type": "image",
+      "specHash": "53361a6c2ab2fc57",
+      "status": "succeeded",
+      "submitId": "51b5203e-5b62-4bb6-8784-63ebba8873f2",
+      "quotedCredits": 8,
+      "resourceId": "bd3d309e-d56d-49a8-a124-ac712764f183",
+      "sha256": "1b525a2cdb5ff0580e4abaf1efc41e7bbbbcfda1b63902fb88ac2428c789d72d"
+    },
+    "k07-hands": {
+      "nodeId": "node_wf0m4kaxbq",
+      "title": "07 迎人·拱手（直出水墨）",
+      "type": "image",
+      "specHash": "375822f0b384a6be",
+      "status": "succeeded",
+      "submitId": "8f4bbaa3-8ef2-43e3-955f-8d691fe9dc69",
+      "quotedCredits": 8,
+      "resourceId": "c7198235-4a3d-49bb-a006-8640bdd4e868",
+      "sha256": "20ccf0c507ad1a60f09ed328075be9895a7c4df4156db4e8ecb370cb3826611a"
+    },
+    "k07-night": {
+      "nodeId": "node_gs263kz650",
+      "title": "07 迎人·夜游（直出水墨）",
+      "type": "image",
+      "specHash": "0f2f9638f9b36f3e",
+      "status": "succeeded",
+      "submitId": "ec0e65ec-8e2d-4e52-a3aa-e5643a338df6",
+      "quotedCredits": 8,
+      "resourceId": "8722297c-1dd1-4de6-a360-7fdf107d5f90",
+      "sha256": "578860d395c6e7646f2b0e98c4ed99e176ba7888be751e06a1bb0b2cf6230e85"
+    },
+    "k08-dusk": {
+      "nodeId": "node_7qvs940srs",
+      "title": "08 收卷·今日黄昏",
+      "type": "image",
+      "specHash": "ae2873d814d11a12",
+      "status": "succeeded",
+      "submitId": "f1e0ba34-4e3d-46af-beeb-6f9cd187b5f7",
+      "quotedCredits": 8,
+      "resourceId": "a94c9a7a-71ec-4b5f-adb0-e6a849c8967f",
+      "sha256": "beefb83b3821dc9857230937ec6a91caf4d4be80ac23411916a3151683832add"
+    },
+    "r07-hands-photo": {
+      "nodeId": "node_r3bx123fqn",
+      "title": "写实底稿·拱手",
+      "type": "image",
+      "specHash": "307124f4e560f355",
+      "status": "succeeded",
+      "submitId": "69ef65a8-f677-4a1b-816b-e59da365a7f2",
+      "quotedCredits": 8,
+      "resourceId": "8f7c6707-070c-48fb-b7bd-f1fcf03a746e",
+      "sha256": "344f752297be6a85dcc1c8fe96c1d39ee187fe6ffe23c2e1b1d08f053ba4112e"
+    },
+    "r07-night-photo": {
+      "nodeId": "node_83j3w5v4cq",
+      "title": "写实底稿·夜游",
+      "type": "image",
+      "specHash": "ad3fdebf1a40e5e6",
+      "status": "succeeded",
+      "submitId": "b27e9261-bc2b-40db-a4da-8976568e40d7",
+      "quotedCredits": 8,
+      "resourceId": "7d5fe735-1fc2-4df5-815f-6c227a074072",
+      "sha256": "7cc885c055ac9e6d3e247189c6aa31569828b14410ffb404d34bddd99e625984"
+    },
+    "k07-hands-p": {
+      "nodeId": "node_zb79cba9x7",
+      "title": "07 迎人·拱手（写实转水墨）",
+      "type": "image",
+      "specHash": "94ed440cb4f84623",
+      "status": "succeeded",
+      "submitId": "abad537d-32e3-494d-a754-c57851f512d9",
+      "quotedCredits": 8,
+      "resourceId": "db675490-219a-4d3d-8aab-ea0529b6ae7d",
+      "sha256": "4deef8419375bfd7f2fb8cb931023bdb10766d22910d27587ace053f6b94983a"
+    },
+    "k07-night-p": {
+      "nodeId": "node_fk740r6cfq",
+      "title": "07 迎人·夜游（写实转水墨）",
+      "type": "image",
+      "specHash": "36afa82679d66a5a",
+      "status": "succeeded",
+      "submitId": "de359de5-ff05-43c1-86a4-9813b12cba05",
+      "quotedCredits": 8,
+      "resourceId": "b99ddc86-9a2c-4e54-96e9-85bcfa38ea21",
+      "sha256": "f8c4e74d498cfc31f982c9168da4ac9e4424116b8d9a71dbe0b0a2f190571850"
+    },
+    "k07-gongshou-a": {
+      "nodeId": "node_902ht90xew",
+      "title": "07 拱手特写 A",
+      "type": "image",
+      "specHash": "b5f02fe3f87b5ffe",
+      "status": "succeeded",
+      "submitId": "4c9927f8-c85c-45d1-a34f-f33439e0650c",
+      "quotedCredits": 8,
+      "resourceId": "2ba7a812-9056-4be9-9c5c-4b6a331de1ff",
+      "sha256": "1aa6578cad6728f3e896c4a9317ee48c48edd1ca714c06ff2067180dc6a15dae"
+    },
+    "k07-gongshou-b": {
+      "nodeId": "node_sndt3nns93",
+      "title": "07 拱手特写 B",
+      "type": "image",
+      "specHash": "c087e02c00f1ee1d",
+      "status": "succeeded",
+      "submitId": "995ad468-6337-4dd7-9553-f5a97def36e8",
+      "quotedCredits": 8,
+      "resourceId": "28d8935a-a6bd-467f-adae-6d5adfce72e4",
+      "sha256": "9f7f31d4be700c28820e0db03cfaa095741c64176fe0f6c796627d4423ad0c28"
+    },
+    "p07-morning": {
+      "nodeId": "node_1gntgsn9h6",
+      "title": "小样 07 清晨",
+      "type": "video",
+      "specHash": "debda175b65b9ac8",
+      "status": "submitted",
+      "submitId": "115da15e-5a30-4774-8ad2-da2a31780d74",
+      "quotedCredits": 30
+    },
+    "p07-commute": {
+      "nodeId": "node_7dcj38aek6",
+      "title": "小样 07 骑车",
+      "type": "video",
+      "specHash": "fbabbcd6f1dc6034",
+      "status": "submitted",
+      "submitId": "993f422e-6820-406a-b50f-af3ab3c66563",
+      "quotedCredits": 30
+    },
+    "p07-night": {
+      "nodeId": "node_ajv2ewg4k0",
+      "title": "小样 07 夜游",
+      "type": "video",
+      "specHash": "3ad822018f9050f5",
+      "status": "submitted",
+      "submitId": "59d2a3f2-cbd7-437c-ad74-1492827174ca",
+      "quotedCredits": 30
+    },
+    "p08-dusk": {
+      "nodeId": "node_ma2v0c57ks",
+      "title": "小样 08 黄昏",
+      "type": "video",
+      "specHash": "52ab2595e67e407e",
+      "status": "submitted",
+      "submitId": "d80bacab-b7ed-46e0-873e-46f034612c5a",
+      "quotedCredits": 30
     }
   },
   "quotes": {

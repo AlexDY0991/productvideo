@@ -326,18 +326,31 @@ def proc_name(seg, t):
     k = m1[0, 0] / m0[0, 0]
     to_x = lambda x: (x - m0[0, 2]) * k + m1[0, 2]
     to_y = lambda y: (y - m0[1, 2]) * k + m1[1, 2]
+    arches = [(to_x(cx), to_y(top), to_y(spring), half * k, start) for cx, top, spring, half, start in p["arches"]]
+    return ink_on(frame, arch_layer(arches, t) * 0.72, CINNABAR_RGB)
+
+
+def arch_layer(arches, t, duration=1.2):
+    """朱砂沿拱圈描线：每孔从左拱脚画到右拱脚，第一孔（中孔）最粗。"""
     layer = np.zeros((H, W), np.float32)
-    for i, (cx, top, spring, half, start) in enumerate(p["arches"]):
-        cx, top, spring, half = to_x(cx), to_y(top), to_y(spring), half * k
-        u = ease_in_out((t - start) / 1.2)
+    for i, (cx, top, spring, half, start) in enumerate(arches):
+        u = ease_in_out((t - start) / duration)
         if u <= 0:
             continue
-        angles = np.linspace(np.pi, np.pi + np.pi * u, max(2, int(80 * u)))  # 从左拱脚沿拱圈画到右拱脚
+        angles = np.linspace(np.pi, np.pi + np.pi * u, max(2, int(80 * u)))
         ry = spring - top
         pts = np.stack([cx + half * np.cos(angles), spring + ry * np.sin(angles)], -1)
         cv2.polylines(layer, [pts.astype(np.int32)], False, 1.0, 9 if i == 0 else 6, cv2.LINE_AA)
     layer = cv2.GaussianBlur(layer, (0, 0), 1.3) * (0.85 + 0.15 * noise_cached(3, 5))
-    return ink_on(frame, np.clip(layer, 0, 1) * 0.72, CINNABAR_RGB)
+    return np.clip(layer, 0, 1)
+
+
+def arches_overlay(frame, item, t):
+    """叠加层版本的拱圈描线（时间用整片绝对时间），用于片尾呼应释名一镜。"""
+    if not (item["start"] <= t < item["end"]):
+        return frame
+    fade = 1 - smooth((t - (item["end"] - 0.6)) / 0.6)
+    return ink_on(frame, arch_layer(item["arches"], t) * item.get("opacity", 0.72) * fade, CINNABAR_RGB)
 
 
 PROCS = {"open": proc_open, "name": proc_name}
@@ -527,7 +540,8 @@ def render_frame(t):
         frame = frame * (1 - post.get("desat", 0.2)) + grey * post.get("desat", 0.2)
         frame = multiply(frame, paper() / PAPER_RGB.max(), post["paper"])
     for item in TL.get("overlays", []):
-        frame = seal_overlay(frame, item, t) if item.get("kind") == "seal" else text_overlay(frame, item, t)
+        kind = item.get("kind", "text")
+        frame = {"seal": seal_overlay, "arches": arches_overlay, "text": text_overlay}[kind](frame, item, t)
     for sub in TL.get("subtitles", []):
         frame = subtitle_overlay(frame, sub, t)
     if "rollup" in TL:

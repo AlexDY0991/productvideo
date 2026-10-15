@@ -18,6 +18,7 @@ spec 格式：
 """
 import hashlib
 import json
+import re
 import secrets
 import subprocess
 import sys
@@ -72,8 +73,10 @@ def save_node(item, state):
     action = "edit" if entry.get("specHash") else "create"
     entry.setdefault("nodeId", new_node_id())
     save_state(state)
+    # 正文里的 {{key:<业务键>}} 换成该键节点的 {{node:<id>}}，用于把多张参考图绑定到正文中的具体角色
+    prompt = re.sub(r"\{\{key:([\w-]+)\}\}", lambda m: "{{node:" + state["items"][m.group(1)]["nodeId"] + "}}", item["prompt"])
     args = ["node", action, item["type"], "--project-id", state["canvasId"], "--node-id", entry["nodeId"],
-            "--update-id", str(uuid.uuid4()), "--title", item["title"], "--mode", item["mode"], "--prompt", item["prompt"]]
+            "--update-id", str(uuid.uuid4()), "--title", item["title"], "--mode", item["mode"], "--prompt", prompt]
     for flag in ("model", "ratio", "resolution", "duration", "scenario"):
         if item.get(flag) is not None:
             args += [f"--{flag}", item[flag]]

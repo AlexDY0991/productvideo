@@ -1,0 +1,32 @@
+{
+  "items": [
+    {
+      "type": "image",
+      "mode": "i2i",
+      "model": "seedream_5.0_pro",
+      "ratio": "9:16",
+      "resolution": "2K",
+      "refs": [
+        "key:r07-hands-photo",
+        "key:kv-a2"
+      ],
+      "key": "k07-hands-p",
+      "title": "07 迎人·拱手（写实转水墨）",
+      "prompt": "将{{key:r07-hands-photo}}转绘为{{key:kv-a2}}的中国水墨淡彩画风：保持图一的人物、动作、构图与背景完全一致，用宣纸纹理、淡墨晕染、花青与赭石淡彩重新绘制，灯火用赭石与朱砂淡淡点染，笔墨简练；画面顶部与底部边缘渐隐为留白宣纸。无文字，无印章，无边框。双手结构保持正确。"
+    },
+    {
+      "type": "image",
+      "mode": "i2i",
+      "model": "seedream_5.0_pro",
+      "ratio": "9:16",
+      "resolution": "2K",
+      "refs": [
+        "key:r07-night-photo",
+        "key:kv-a2"
+      ],
+      "key": "k07-night-p",
+      "title": "07 迎人·夜游（写实转水墨）",
+      "prompt": "将{{key:r07-night-photo}}转绘为{{key:kv-a2}}的中国水墨淡彩画风：保持图一的人物、动作、构图与背景完全一致，用宣纸纹理、淡墨晕染、花青与赭石淡彩重新绘制，灯火用赭石与朱砂淡淡点染，笔墨简练；画面顶部与底部边缘渐隐为留白宣纸。无文字，无印章，无边框。"
+    }
+  ]
+}
