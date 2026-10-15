@@ -382,7 +382,8 @@
       "start": 51.0,
       "end": 55.0,
       "reveal": 1.4,
-      "fadeOut": 0.01
+      "fadeOut": 0.01,
+      "color": "paper"
     },
     {
       "kind": "seal",

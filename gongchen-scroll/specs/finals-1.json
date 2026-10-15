@@ -83,6 +83,62 @@
         "key:k06-umbrella-2"
       ],
       "prompt": "匠人握着伞柄将油纸伞缓缓转动，伞面随之旋转，光线透过暖赭色的伞面，兰草纹样流转；镜头静止。伞只有一根伞柄。保持参考图的水墨淡彩画风与宣纸质感，构图与建筑形状保持不变，不出现文字，人物动作自然、肢体不畸变。"
+    },
+    {
+      "type": "video",
+      "mode": "first_last_frame",
+      "model": "seedance_2.0_vip",
+      "ratio": "9:16",
+      "resolution": "1080p",
+      "key": "f07-morning",
+      "title": "正片 07 清晨",
+      "duration": 5,
+      "refs": [
+        "key:k07-morning"
+      ],
+      "prompt": "老人们沿石阶慢慢走上桥，桥顶的老人缓缓打着太极，晨雾轻轻飘移，柳枝轻摆；镜头静止。保持参考图的水墨淡彩画风与宣纸质感，构图与建筑形状保持不变，不出现文字，人物动作自然、肢体不畸变。"
+    },
+    {
+      "type": "video",
+      "mode": "first_last_frame",
+      "model": "seedance_2.0_vip",
+      "ratio": "9:16",
+      "resolution": "1080p",
+      "key": "f07-commute",
+      "title": "正片 07 骑车",
+      "duration": 5,
+      "refs": [
+        "key:k07-commute"
+      ],
+      "prompt": "年轻人骑着自行车和电动车沿河边步道轻快地驶过，柳枝随风轻摆，水面泛着晨光；镜头静止。保持参考图的水墨淡彩画风与宣纸质感，构图与建筑形状保持不变，不出现文字，人物动作自然、肢体不畸变。"
+    },
+    {
+      "type": "video",
+      "mode": "first_last_frame",
+      "model": "seedance_2.0_vip",
+      "ratio": "9:16",
+      "resolution": "1080p",
+      "key": "f07-night",
+      "title": "正片 07 夜游",
+      "duration": 5,
+      "refs": [
+        "key:k07-night"
+      ],
+      "prompt": "挂着灯笼的游船从石拱桥中孔下缓缓驶出，水面的灯影随波荡漾，两岸灯火微微闪烁；镜头静止。保持参考图的水墨淡彩画风与宣纸质感，构图与建筑形状保持不变，不出现文字，人物动作自然、肢体不畸变。"
+    },
+    {
+      "type": "video",
+      "mode": "first_last_frame",
+      "model": "seedance_2.5",
+      "ratio": "9:16",
+      "resolution": "1080p",
+      "key": "f08-dusk",
+      "title": "正片 08 黄昏",
+      "duration": 8,
+      "refs": [
+        "key:k08-dusk"
+      ],
+      "prompt": "暮色中的运河，天色由黄昏缓缓转入夜色，水面倒映的灯火随细波轻轻晃动，挂灯笼的小船微微起伏，桥上行人缓缓走过；镜头静止，桥的形状与位置保持不变。保持参考图的水墨淡彩画风与宣纸质感，构图与建筑形状保持不变，不出现文字，人物动作自然、肢体不畸变。"
     }
   ]
 }

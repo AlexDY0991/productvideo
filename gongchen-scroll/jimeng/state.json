@@ -394,36 +394,44 @@
       "title": "小样 07 清晨",
       "type": "video",
       "specHash": "debda175b65b9ac8",
-      "status": "submitted",
+      "status": "succeeded",
       "submitId": "115da15e-5a30-4774-8ad2-da2a31780d74",
-      "quotedCredits": 30
+      "quotedCredits": 30,
+      "resourceId": "e5a1d5f0-d364-48d6-8981-7130f87694d8",
+      "sha256": "70da3b5910990406b8fdd5113d516b2ca07c87a23338e39a31e1646ecebab1a3"
     },
     "p07-commute": {
       "nodeId": "node_7dcj38aek6",
       "title": "小样 07 骑车",
       "type": "video",
       "specHash": "fbabbcd6f1dc6034",
-      "status": "submitted",
+      "status": "succeeded",
       "submitId": "993f422e-6820-406a-b50f-af3ab3c66563",
-      "quotedCredits": 30
+      "quotedCredits": 30,
+      "resourceId": "86b1ee1b-239c-4e2a-a096-d4977f8f8697",
+      "sha256": "159f363851a5141d0cd37c8a1057c645b620550196e4524e9447bd2c34d07263"
     },
     "p07-night": {
       "nodeId": "node_ajv2ewg4k0",
       "title": "小样 07 夜游",
       "type": "video",
       "specHash": "3ad822018f9050f5",
-      "status": "submitted",
+      "status": "succeeded",
       "submitId": "59d2a3f2-cbd7-437c-ad74-1492827174ca",
-      "quotedCredits": 30
+      "quotedCredits": 30,
+      "resourceId": "1abf5ea2-9fd0-447a-804c-a6607d88bf88",
+      "sha256": "fdc7f6001595b5f6b3d62dc0d2db636b8934044195afabff09a1db6917e37760"
     },
     "p08-dusk": {
       "nodeId": "node_ma2v0c57ks",
       "title": "小样 08 黄昏",
       "type": "video",
       "specHash": "52ab2595e67e407e",
-      "status": "submitted",
+      "status": "succeeded",
       "submitId": "d80bacab-b7ed-46e0-873e-46f034612c5a",
-      "quotedCredits": 30
+      "quotedCredits": 30,
+      "resourceId": "42f9cf8d-78fb-4b9c-b0e6-85aeaabd5c2a",
+      "sha256": "25c2bdbc94b1ab825c881df9106f30708a3e961ec52ba3eb117c1fa7301f63d6"
     }
   },
   "quotes": {
