@@ -4,6 +4,8 @@
 
 *A five-minute motion film on the human dream of flight, from myth to machine, ending on CoolFly's two personal aircraft: Urban (standing flight) and Dream (seated flight).*
 
+**成片下载：[`dist/looking-up-coolfly-720p.mp4`](dist/looking-up-coolfly-720p.mp4)**（720p · 5:00 · 57 MB · 中英双语字幕 + 英文旁白 + 配乐）。1080p 母版超过 GitHub 单文件 100 MB 的上限，没有放进仓库，可按下文「渲染母版」重新生成。
+
 整部片子由代码生成：每一帧都是时间 `t` 的确定函数，所以可以在浏览器里实时播放，也可以逐帧渲染成母版视频。2D 画面用 Canvas 绘制，飞行器用 three.js 实时渲染，配乐和音效用 numpy 程序合成，旁白用本地神经网络 TTS 生成。
 
 ---
