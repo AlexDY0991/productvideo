@@ -38,7 +38,7 @@ SPOKEN = [
     "The flapping wings and spirals on his pages would wait four hundred years.",
     "Sky lanterns rise. Warm air, lifting light.",
     "We began to believe that something lighter than air could carry us up.",
-    "Paris. The twenty-first of November, seventeen eighty-three. A Mon-gol-fee-ay balloon carries two men aloft.",
+    "Paris, seventeen eighty-three. A Mon-gol-fee-ay balloon carries two men aloft.",
     "For the first time, humans left the ground.",
     "The seventeenth of December, nineteen oh three. Kitty Hawk, North Carolina.",
     "Spruce, muslin, and a twelve-horsepower engine.",
@@ -47,7 +47,7 @@ SPOKEN = [
     "Wood, canvas and wire matured fast, in the smoke of war.",
     "The sky became a nation's frontier.",
     "Aluminium and rivets turned adventure into travel.",
-    "Nineteen twenty-seven. Lindbergh flies the Atlantic alone. Nineteen thirty-six. The D C three enters airline service.",
+    "Nineteen twenty-seven: Lindbergh crosses the Atlantic alone. Nineteen thirty-six: the D C three enters service.",
     "The sky began to belong to passengers.",
     "Wind tunnels. Blueprints. Slide rules.",
     "October the fourteenth, nineteen forty-seven. The X one breaks the sound barrier.",
@@ -108,24 +108,30 @@ def main():
     N = int(TL['duration'] * SR_OUT)
     vo = np.zeros(N, np.float32)
     report = []
+    prev_end = 0.0
     for i, (s, text) in enumerate(zip(subs, SPOKEN)):
         nxt = subs[i + 1]['a'] if i + 1 < len(subs) else TL['duration']
-        window = min(nxt - 0.15, s['b'] + 0.9) - (s['a'] - 0.1)
+        end_limit = min(nxt - 0.2, s['b'] + 0.9)
+        start = s['a'] - 0.1
+        earliest = max(prev_end + 0.35, s['a'] - 1.2)       # may begin a little early if the previous line is done
         speed = args.speed
-        for attempt in range(4):
+        for attempt in range(5):
             a, sr = k.create(text, voice=style, speed=speed, lang=args.lang)
             a = trim(np.asarray(a, np.float32), sr)
             dur = len(a) / sr
-            if dur <= window or speed >= 1.08:
+            if start + dur > end_limit:
+                start = max(earliest, end_limit - dur)
+            if start + dur <= end_limit or speed >= 1.1:
                 break
-            speed = min(1.08, speed * (dur / window) * 1.02)
+            speed = min(1.1, speed * (dur / (end_limit - start)) * 1.02)
+        window = end_limit - start
         # resample 24k → 48k (linear is adequate here; the voice is band-limited)
         x = np.interp(np.arange(int(len(a) * SR_OUT / sr)) / SR_OUT, np.arange(len(a)) / sr, a).astype(np.float32)
         sf.write(clipdir / f'{i:02d}.wav', x, SR_OUT)
-        start = s['a'] - 0.1
         i0 = int(start * SR_OUT)
         n = min(len(x), N - i0)
         vo[i0:i0 + n] += x[:n]
+        prev_end = start + dur
         report.append((i, round(start, 2), round(dur, 2), round(window, 2), round(speed, 3), text[:48]))
         print(f'{i:02d} @{start:7.2f}s  {dur:5.2f}s / {window:5.2f}s  speed {speed:.3f}  {text[:60]}')
     out = ROOT / 'out' / 'audio'
