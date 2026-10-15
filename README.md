@@ -53,7 +53,7 @@ node tools/render.mjs --workers 4 --audio out/audio/mix.wav --out out/video/look
 
 ## 旁白
 
-`tools/voiceover.py` 用 [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M)（Apache-2.0，ONNX 版 `onnx-community/Kokoro-82M-v1.0-ONNX`）离线合成英文男声，默认是两种英式男声的混合（`bm_george:0.55,bm_lewis:0.45`），语速 0.9。每句旁白对齐到对应字幕，放不下时自动略微提速。人声链路：高通、暖音 EQ、齿音衰减、压缩、轻微空间混响、响度归一；配乐在人声出现时自动避让（sidechain）。
+`tools/voiceover.py` 用 [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M)（Apache-2.0，ONNX 版 `onnx-community/Kokoro-82M-v1.0-ONNX`）离线合成英文男声，选用美式男声 `am_michael`（`--voice` 也支持多音色按权重混合，如 `bm_george:0.55,bm_lewis:0.45`），语速 0.9。每句旁白对齐到对应字幕，放不下时自动略微提速。人声链路：高通、暖音 EQ、齿音衰减、压缩、轻微空间混响、响度归一；配乐在人声出现时自动避让（sidechain）。
 
 `--model` 指向一个包含 `model.onnx` 和 `voices.npz` 的目录（`voices.npz` 由该仓库 `voices/*.bin` 打包而成，每个音色为 `(510, 1, 256)` 的 float32 数组）。如需换成火山引擎等云端 TTS，只需按 `out/timeline.json` 里的字幕时间生成同样的分句音频，替换 `out/audio/vo_raw.wav`，后面的处理和混音流程不变。
 

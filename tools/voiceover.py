@@ -6,7 +6,7 @@ The clips are assembled on the film timeline, processed (EQ, compression, a touc
 and mixed with the score, which ducks under the voice.
 
 Usage:
-  python3 tools/voiceover.py --model <dir with model.onnx + voices.npz> [--voice bm_george:0.55,bm_lewis:0.45]
+  python3 tools/voiceover.py --model <dir with model.onnx + voices.npz> [--voice am_michael] [--lang en-us]
 Outputs: out/audio/vo.wav, out/audio/mix.wav, film/assets/audio/score.m4a
 """
 import argparse
@@ -91,8 +91,8 @@ def trim(a, sr, thr=0.008, pad=0.06):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--model', required=True)
-    ap.add_argument('--voice', default='bm_george:0.55,bm_lewis:0.45')
-    ap.add_argument('--lang', default='en-gb')
+    ap.add_argument('--voice', default='am_michael')          # chosen narrator; weighted blends like 'bm_george:0.55,bm_lewis:0.45' also work
+    ap.add_argument('--lang', default='en-us')
     ap.add_argument('--speed', type=float, default=0.9)
     ap.add_argument('--clips', default=str(ROOT / 'out' / 'audio' / 'vo_clips'))
     args = ap.parse_args()
