@@ -47,8 +47,8 @@ SPOKEN = [
     "Wood, canvas and wire matured fast, in the smoke of war.",
     "The sky became a nation's frontier.",
     "Aluminium and rivets turned adventure into travel.",
-    "Nineteen twenty-seven: Lindbergh crosses the Atlantic alone. Nineteen thirty-six: the D C three enters service.",
-    "The sky began to belong to passengers.",
+    "Nineteen twenty-seven. Lindbergh flies the Atlantic, alone.",
+    "Nineteen thirty-six. The D C three enters service, and the sky begins to belong to passengers.",
     "Wind tunnels. Blueprints. Slide rules.",
     "October the fourteenth, nineteen forty-seven. The X one breaks the sound barrier.",
     "Nineteen fifty-two. The first jet airliner enters service.",
@@ -56,7 +56,7 @@ SPOKEN = [
     "Nineteen thirty-nine. Sikorsky's V S three hundred lifts straight up.",
     "Leonardo's paper spiral finally began to turn.",
     "Flight no longer needed a runway.",
-    "Nineteen fifty-seven. The first artificial satellite crosses the night sky.",
+    "Nineteen fifty-seven. The first satellite crosses the night sky.",
     "Nineteen sixty-one. Yuri Gagarin says: Pah-yeh-hah-lee. Let's go!",
     "The twentieth of July, nineteen sixty-nine. Humans set foot on the Moon.",
     "In those same years, we looked back at the Earth, for the first time.",
@@ -112,8 +112,9 @@ def main():
     for i, (s, text) in enumerate(zip(subs, SPOKEN)):
         nxt = subs[i + 1]['a'] if i + 1 < len(subs) else TL['duration']
         end_limit = min(nxt - 0.2, s['b'] + 0.9)
-        start = s['a'] - 0.1
-        earliest = max(prev_end + 0.35, s['a'] - 1.2)       # may begin a little early if the previous line is done
+        GAP = 0.45                                           # minimum breath between lines
+        start = max(s['a'] - 0.1, prev_end + GAP)
+        earliest = max(prev_end + GAP, s['a'] - 1.2)        # may begin a little early if the previous line is done
         speed = args.speed
         for attempt in range(5):
             a, sr = k.create(text, voice=style, speed=speed, lang=args.lang)
