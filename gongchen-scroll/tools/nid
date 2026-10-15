@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+python3 -c 'import secrets;a="0123456789abcdefghjkmnpqrstvwxyz";print("node_"+"".join(secrets.choice(a) for _ in range(10)))'

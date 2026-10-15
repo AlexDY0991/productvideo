@@ -1,0 +1,10 @@
+# 中间产物与原始素材不入库，只提交源码与定稿
+out/
+frames/
+footage/
+audio/raw/
+fonts/*.ttf
+fonts/*.otf
+node_modules/
+*.mov
+*.MOV

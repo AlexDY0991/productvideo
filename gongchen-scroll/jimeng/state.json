@@ -1,0 +1,22 @@
+{
+  "jobKey": "gongchen-scroll",
+  "canvasId": "4a351108-0302-416c-b29a-782e263db22b",
+  "webUrl": "https://jimeng.jianying.com/ai-tool/ai-canvas/4a351108-0302-416c-b29a-782e263db22b",
+  "creditBudget": { "ceiling": 8000, "planned": 5600, "spent": 0 },
+  "items": {
+    "s02-keyframe": { "nodeId": "node_31x8ctqa81", "title": "S1 主视觉·水墨拱宸桥", "status": "draft" },
+    "s02-video": { "nodeId": "node_489ey8kvzm", "title": "S1 墨晕成桥", "status": "draft" },
+    "music": { "nodeId": "node_znb7amf534", "title": "配乐·竖卷", "status": "draft" }
+  },
+  "quotes": {
+    "seedream_5.0_pro 2K image": 8,
+    "seedance_2.5 1080p 5s": 320,
+    "seedance_2.5 1080p 10s": 640,
+    "seedance_2.5 720p 5s": 100,
+    "seedance_2.0_vip 1080p 5s": 165,
+    "seedance_2.0_fast_vip 720p 5s": 30,
+    "wan_3.0 1080P 5s": 165,
+    "happyhorse_1.1 1080P 5s": 90,
+    "seed_music_1.0 60s": 6
+  }
+}
