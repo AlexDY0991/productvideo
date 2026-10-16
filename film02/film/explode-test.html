@@ -4,7 +4,7 @@
 <style>html,body{margin:0;background:#070708;overflow:hidden}canvas{display:block;width:1920px;height:1080px}</style></head>
 <body><canvas id="c"></canvas><script type="module">
 import { createExplode } from './explode.js';
-const ex = await createExplode(document.getElementById('c'));
+const ex = await createExplode(document.getElementById('c'), { lineArt: true });
 console.log('parts', ex.parts);
 window.__comp = { width: 1920, height: 1080, fps: 24, duration: 5 };
 window.__seek = async (t) => ex.render(t);

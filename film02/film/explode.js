@@ -11,7 +11,8 @@ const easeInCubic = (x) => x * x * x;
 const clamp01 = (x) => Math.min(1, Math.max(0, x));
 const lerp = (a, b, x) => a + (b - a) * x;
 
-export async function createExplode(canvas, { base = '../../', W = 1920, H = 1080 } = {}) {
+export async function createExplode(canvas, opts = {}) {
+  const { base = '../../', W = 1920, H = 1080 } = opts;
   const r = new THREE.WebGLRenderer({ canvas, antialias: true, preserveDrawingBuffer: true });
   r.setSize(W, H, false); r.setPixelRatio(1);
   r.toneMapping = THREE.ACESFilmicToneMapping; r.toneMappingExposure = 1.05; r.outputColorSpace = THREE.SRGBColorSpace;
@@ -43,25 +44,54 @@ export async function createExplode(canvas, { base = '../../', W = 1920, H = 108
   // arms/motors/props slide out along the arm; the coaxial pair at each tip splits up/down; the body opens as a
   // vertical stack (floor plates down, seat and cage up). Parts only translate.
   const smooth = (a, b, x) => { const u = clamp01((x - a) / (b - a)); return u * u * (3 - 2 * u); };
+  // Rule-based groups in model space (metres, x = width, z = length, nose at +z), measured from the GLB:
+  // arms + motors + props outside |x| 0.75 slide out along their own axis and the coaxial pair splits up/down;
+  // nose and tail fairings move fore/aft; side panels move sideways; seat rises; the roll-cage top lifts;
+  // the floor plates drop. Everything else (the main rails) stays: that is the reference the eye holds on to.
   const parts = [], tmp = new THREE.Box3(), pc = new THREE.Vector3();
-  const armY = (() => { let s = 0, n = 0; g.traverse((o) => { if (!o.isMesh) return; tmp.setFromObject(o); tmp.getCenter(pc);
-    if (Math.hypot(pc.x - ctr.x, pc.z - ctr.z) > 1.6) { s += pc.y; n++; } }); return n ? s / n : ctr.y; })();
+  const textured = (m) => !!(m && m.map);
   g.traverse((o) => {
     if (!o.isMesh || !o.visible) return;
     tmp.setFromObject(o); tmp.getCenter(pc);
-    const dx = pc.x - ctr.x, dz = pc.z - ctr.z, h = Math.hypot(dx, dz), yn = (pc.y - box.min.y) / size.y;
-    const outer = smooth(0.7, 1.3, h), tip = smooth(1.9, 2.5, h);
-    const w = new THREE.Vector3(h > 1e-3 ? dx / h : 0, 0, h > 1e-3 ? dz / h : 0).multiplyScalar(0.75 * outer + 0.35 * tip);
-    w.y = (1 - outer) * (yn - 0.4) * 1.5 + tip * Math.sign(pc.y - armY) * 0.34;
+    const m = inner.worldToLocal(pc.clone()).multiplyScalar(0.1);      // model space in metres
+    const w = new THREE.Vector3();
+    if (Math.abs(m.x) >= 0.75) {
+      const dir = new THREE.Vector3(m.x, 0, m.z - Math.sign(m.z) * 0.6).normalize();
+      const r = Math.hypot(m.x, m.z);
+      w.addScaledVector(dir, 0.5 + (r > 2.6 ? 0.25 : 0));
+      if (r > 2.6) w.y = m.y > -0.27 ? 0.3 : -0.3;
+    } else if (textured(o.material) || (o.material && o.material.name === 'Material #278')) {
+      if (m.z > 1.3) w.set(0, 0.12, 0.6);
+      else if (m.z < -1.3) w.set(0, 0.12, -0.6);
+      else w.set(Math.sign(m.x) * 0.45, 0.05, 0);
+    } else if (m.y > 0.12 && m.y < 0.4 && Math.abs(m.z) < 1.2 && o.material && /#2825274|#2825331/.test(o.material.name)) {
+      w.set(0, 0.55, 0);                                                // seat
+    } else if (m.y > 0.05) {
+      w.set(0, 0.85, 0);                                                // roll-cage top
+    } else if (m.y < -0.6) {
+      w.set(0, -0.5, 0);                                                // floor plates
+    }
     const local = o.parent.worldToLocal(o.getWorldPosition(new THREE.Vector3()).add(w)).sub(o.position);
     parts.push({ o, home: o.position.clone(), delta: local });
   });
+  // Engineering line-art look: matte near-black solids + feature edges (bone; orange on the painted fairings).
+  if (opts.lineArt) {
+    const solid = new THREE.MeshStandardMaterial({ color: 0x17171a, roughness: 0.5, metalness: 0.25, polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1 });
+    const boneLine = new THREE.LineBasicMaterial({ color: 0xf2efea, transparent: true, opacity: 0.85 });
+    const signalLine = new THREE.LineBasicMaterial({ color: 0xff5a00, transparent: true, opacity: 0.9 });
+    for (const p of parts) {
+      const o = p.o, painted = o.material && /#2791|#278$/.test(o.material.name || '');   // fairings only (#2821 is carbon)
+      const edges = new THREE.LineSegments(new THREE.EdgesGeometry(o.geometry, 28), painted ? signalLine : boneLine);
+      o.add(edges);
+      o.material = solid;
+    }
+  }
   // studio floor: dark, with the top light's pool, like the generated keyframes
   const cv = document.createElement('canvas'); cv.width = cv.height = 512; const cx = cv.getContext('2d');
-  const gr = cx.createRadialGradient(256, 256, 0, 256, 256, 256); gr.addColorStop(0, '#2a2a2c'); gr.addColorStop(0.45, '#121213'); gr.addColorStop(1, '#070708');
+  const gr = cx.createRadialGradient(256, 256, 0, 256, 256, 256); gr.addColorStop(0, '#161618'); gr.addColorStop(0.35, '#0c0c0d'); gr.addColorStop(1, '#070708');
   cx.fillStyle = gr; cx.fillRect(0, 0, 512, 512);
-  const floor = new THREE.Mesh(new THREE.PlaneGeometry(26, 26), new THREE.MeshBasicMaterial({ map: new THREE.CanvasTexture(cv) }));
-  floor.rotation.x = -Math.PI / 2; floor.position.y = box.min.y - 0.6; scene.add(floor);
+  const floor = new THREE.Mesh(new THREE.PlaneGeometry(26, 26), new THREE.MeshBasicMaterial({ map: Object.assign(new THREE.CanvasTexture(cv), { colorSpace: THREE.SRGBColorSpace }), toneMapped: false }));
+  floor.rotation.x = -Math.PI / 2; floor.position.y = box.min.y - 0.6; floor.visible = !opts.lineArt; scene.add(floor);
 
   const cam = new THREE.PerspectiveCamera(26, W / H, 0.05, 200);
   const radius = size.length() / 2;

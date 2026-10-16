@@ -170,7 +170,8 @@
    "title": "V5 video · S1 桨叶开场",
    "submitId": "10a19363-30f0-4441-a50b-e39c657ffa6b",
    "submitted": true,
-   "resourceId": "6bd09864-8156-464a-86cc-3b26bf87cc98"
+   "resourceId": "6bd09864-8156-464a-86cc-3b26bf87cc98",
+   "result": "film02/clips/V5.mp4"
   },
   "V3": {
    "updateId": "d19f35ad-7216-4397-b776-adc1f197818c",
@@ -178,7 +179,8 @@
    "title": "V3 video · S2 光带扫过侧面",
    "submitId": "e9aa8998-7653-48dc-bc83-221431dc0b8d",
    "submitted": true,
-   "resourceId": "bcd33cae-18a8-465d-b23f-42e6e34aeae3"
+   "resourceId": "bcd33cae-18a8-465d-b23f-42e6e34aeae3",
+   "result": "film02/clips/V3.mp4"
   },
   "V9": {
    "updateId": "188e971f-39f4-4590-a72e-47e56d4f3382",
@@ -186,7 +188,8 @@
    "title": "V9 video · S6 沿机臂推进",
    "submitId": "cb92e364-5510-4863-a287-fdda7ba82c0b",
    "submitted": true,
-   "resourceId": "8e244840-946c-471f-8ae2-bd0b9949c223"
+   "resourceId": "8e244840-946c-471f-8ae2-bd0b9949c223",
+   "result": "film02/clips/V9.mp4"
   },
   "V10": {
    "updateId": "7baa71f8-c1d0-4889-8a59-7c8ee770b866",
@@ -194,7 +197,8 @@
    "title": "V10 video · S11 水面起飞",
    "submitId": "8ea8119f-dcc2-4d91-b854-650c49d2b24e",
    "submitted": true,
-   "resourceId": "2ef58771-558f-499e-b715-842ed6d92f8e"
+   "resourceId": "2ef58771-558f-499e-b715-842ed6d92f8e",
+   "result": "film02/clips/V10.mp4"
   },
   "V4b": {
    "updateId": "329d3276-2941-4425-a389-c18274e9f180",
@@ -202,7 +206,8 @@
    "title": "V4b video · S14 崖边悬停起飞",
    "submitId": "64d742f5-7260-4c96-ac33-6dce9d7ab87f",
    "submitted": true,
-   "resourceId": "a80de899-037e-491c-a335-6a9bb4ac434c"
+   "resourceId": "a80de899-037e-491c-a335-6a9bb4ac434c",
+   "result": "film02/clips/V4b.mp4"
   },
   "V11": {
    "updateId": "42853504-4d70-4a59-b58a-fbde7c6c993e",
@@ -210,7 +215,8 @@
    "title": "V11 video · S15 海岸跟飞",
    "submitId": "3f0e7cc5-2237-4e9d-ab4b-eb77aa7a53d4",
    "submitted": true,
-   "resourceId": "c1d2097b-98f6-4727-8f83-8b0f62cbfafc"
+   "resourceId": "c1d2097b-98f6-4727-8f83-8b0f62cbfafc",
+   "result": "film02/clips/V11.mp4"
   },
   "V12": {
    "updateId": "6a3bd0b4-68bd-4269-914f-c34e979025ca",
@@ -218,13 +224,14 @@
    "title": "V12 video · S16 低空掠海",
    "submitId": "208aad4e-0994-46ba-9512-e79860ea5636",
    "submitted": true,
-   "resourceId": "2d645e0c-8a1a-47aa-9d74-be5031712b66"
+   "resourceId": "2d645e0c-8a1a-47aa-9d74-be5031712b66",
+   "result": "film02/clips/V12.mp4"
   },
   "M1": {
    "nodeId": "node_89g868h3pb",
    "title": "M1 · 配乐 60s",
    "submitted": true,
-   "result": "film02/audio/M1.wav"
+   "result": "film02/audio/M1.mp3"
   },
   "M2": {
    "nodeId": "node_43500bxt6v",
