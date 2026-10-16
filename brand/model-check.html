@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="frame" content="1920x1080">
+<title>CoolFly model check</title>
+<!-- Load check for the two supplied GLB models (Dream: Draco, decimetres, nose +Z; Urban: metres).
+     Render: node <skill>/scripts/render.mjs <out> brand/model-check.html --serve . -->
+<script>window.__ready = false;</script>
+<script type="importmap">
+{ "imports": { "three": "../vendor/three/three.module.js", "three/addons/": "../vendor/three/addons/" } }
+</script>
+<style>
+  html, body { margin: 0; background: #f3f3f1; overflow: hidden; }
+  canvas { display: block; }
+  .lbl { position: absolute; bottom: 72px; font: 600 28px/1 system-ui, sans-serif; letter-spacing: .08em; color: #111; }
+</style>
+</head>
+<body>
+<div class="lbl" style="left:120px">DREAM</div>
+<div class="lbl" style="left:1080px">URBAN</div>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const W = 1920, H = 1080;
+const r = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+r.setSize(W, H); r.setPixelRatio(1);
+r.toneMapping = THREE.ACESFilmicToneMapping; r.outputColorSpace = THREE.SRGBColorSpace;
+r.shadowMap.enabled = true; r.shadowMap.type = THREE.PCFSoftShadowMap;
+document.body.prepend(r.domElement);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xf3f3f1);
+scene.environment = new THREE.PMREMGenerator(r).fromScene(new RoomEnvironment(), 0.04).texture;
+const sun = new THREE.DirectionalLight(0xffffff, 1.6);
+sun.position.set(4, 8, 5); sun.castShadow = true; sun.shadow.mapSize.set(2048, 2048);
+Object.assign(sun.shadow.camera, { left: -6, right: 6, top: 6, bottom: -6 });
+scene.add(sun);
+const ground = new THREE.Mesh(new THREE.PlaneGeometry(40, 40), new THREE.ShadowMaterial({ opacity: 0.18 }));
+ground.rotation.x = -Math.PI / 2; ground.receiveShadow = true; scene.add(ground);
+
+const dl = new DRACOLoader(); dl.setDecoderPath('../vendor/three/addons/libs/draco/');
+const loader = new GLTFLoader(); loader.setDRACOLoader(dl);
+const [dream, urban] = await Promise.all([loader.loadAsync('models/dream.glb'), loader.loadAsync('models/urban.glb')]);
+
+// sit a model on y=0, centred, scaled to metres; returns its size
+function place(gltf, scale, rotY, x) {
+  const src = gltf.scene;
+  const drop = []; src.traverse((o) => { if (o.isCamera || o.isLight) drop.push(o); }); drop.forEach((o) => o.parent.remove(o));
+  src.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } });
+  // Dream side decals: 011/012 are blank backs; 010's logo faces inward
+  src.traverse((o) => { if (o.name === 'Plane011' || o.name === 'Plane012') o.visible = false; });
+  const g = new THREE.Group(); g.add(src); src.scale.setScalar(scale); g.rotation.y = rotY;
+  scene.add(g); g.updateMatrixWorld(true);
+  const b = new THREE.Box3().setFromObject(g), c = b.getCenter(new THREE.Vector3());
+  g.position.set(x - c.x, -b.min.y, -c.z);
+  return b.getSize(new THREE.Vector3());
+}
+const sd = place(dream, 0.1, Math.PI * 0.78, -3.4);
+const su = place(urban, 1, Math.PI * 0.2, 3.0);
+console.log('dream size m', sd.toArray().map((v) => v.toFixed(2)).join(' x '), '| urban size m', su.toArray().map((v) => v.toFixed(2)).join(' x '));
+
+const cam = new THREE.PerspectiveCamera(30, W / H, 0.1, 200);
+cam.position.set(0, 4.2, 15.5); cam.lookAt(0, 0.9, 0);
+r.render(scene, cam);
+window.__ready = true;
+</script>
+</body>
+</html>
