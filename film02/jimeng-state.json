@@ -238,6 +238,186 @@
    "title": "M2 · 配乐 60s 暗调",
    "submitted": true,
    "failed": "serviceCode 20107"
+  },
+  "N1": {
+   "updateId": "dae4de38-37ad-4d62-b29a-3a29951ed437",
+   "nodeId": "node_a4hhjzsvjx",
+   "title": "N1 · 机库顶灯",
+   "submitId": "a48c3749-253c-4e2c-9a6f-95561c1d396e",
+   "submitted": true,
+   "resourceId": "94609a6e-70d2-49bf-8045-1f5e5513223c",
+   "result": "film02/keyframes/N1.png"
+  },
+  "N2": {
+   "updateId": "a4dc18b4-8797-4f50-a015-a3544af158d0",
+   "nodeId": "node_ps5sc5ds2g",
+   "title": "N2 · 驾驶员剪影",
+   "submitId": "2d0192e2-5330-4c7b-849f-b61dcd7c1235",
+   "submitted": true,
+   "resourceId": "b678272e-1e87-47a2-9577-23a004af6f23",
+   "result": "film02/keyframes/N2.png"
+  },
+  "N3": {
+   "updateId": "1041b16a-1a41-419d-9c6f-2e6e48ffa2f4",
+   "nodeId": "node_bqn02nadjv",
+   "title": "N3 · 眼睛微距",
+   "submitId": "09013a2a-5213-4e3d-8c05-f7d81786a48a",
+   "submitted": true,
+   "resourceId": "c6dc5804-7857-448c-90a7-8de2933aaef0",
+   "result": "film02/keyframes/N3.png"
+  },
+  "N4": {
+   "updateId": "0271ec69-33a8-4a9d-8cd6-ef3f8a2904ca",
+   "nodeId": "node_mcc8wzt8gr",
+   "title": "N4 · 掠过镜头 机腹",
+   "submitId": "c057b526-53e0-43eb-b2c2-32c67180f4d1",
+   "submitted": true,
+   "resourceId": "3c780578-9e5a-4440-a0d4-14caa0f386a4",
+   "result": "film02/keyframes/N4.png"
+  },
+  "N5": {
+   "updateId": "0ad4af86-3c65-475a-a134-a19a54ed9689",
+   "nodeId": "node_hss3qa6xgc",
+   "title": "N5 · 贴海高速跟拍",
+   "submitId": "ac968356-acc9-41b3-86cd-a6e71ea98be5",
+   "submitted": true,
+   "resourceId": "1aae6df5-980d-4b24-b636-c219fe41682c",
+   "result": "film02/keyframes/N5.png"
+  },
+  "N6": {
+   "updateId": "a76e6e2d-4f33-4bed-b9e9-07b3a36c8ec6",
+   "nodeId": "node_jcpnnn0xfn",
+   "title": "N6 · 俯拍越过海岸线",
+   "submitId": "fba15c15-0fdb-4243-9971-8ee4e66aa518",
+   "submitted": true,
+   "resourceId": "bd9bafae-5e7f-46f6-bc00-294e3f7f5f75",
+   "result": "film02/keyframes/N6.png"
+  },
+  "N7": {
+   "updateId": "2562694f-91e8-448e-bcaf-18be6afe859b",
+   "nodeId": "node_m2rejnyx1q",
+   "title": "N7 · 绕海蚀柱侧倾",
+   "submitId": "9f4e4b34-4176-4acb-bf64-680cc2889286",
+   "submitted": true,
+   "resourceId": "4f7a5dc5-6e34-4ab0-93e3-3b2ae8bce99d",
+   "result": "film02/keyframes/N7.png"
+  },
+  "N8": {
+   "updateId": "02cbfecf-cb21-4968-aecf-d87e8d011988",
+   "nodeId": "node_48257yewn4",
+   "title": "N8 · 迎面冲镜",
+   "submitId": "92b5f327-5745-4ac5-a604-af3f8acb9112",
+   "submitted": true,
+   "resourceId": "adec075c-dbd0-484c-ab8f-acebca639928",
+   "result": "film02/keyframes/N8.png"
+  },
+  "N9": {
+   "updateId": "5d8ca466-be6b-4a92-b4c3-3ecd33abb226",
+   "nodeId": "node_30p03exsv2",
+   "title": "N9 · 黄昏逆光悬停",
+   "submitId": "1e9d93a6-5334-478f-ad5b-d09ad5d1face",
+   "submitted": true,
+   "resourceId": "8837b02a-5c16-4197-bbcb-a68792d7a5ad",
+   "result": "film02/keyframes/N9.png"
+  },
+  "M3": {
+   "updateId": "384e9ae9-415d-4fbe-a2d7-c563a3e18c18",
+   "nodeId": "node_37nphjqyt0",
+   "title": "M3 · 配乐 预告片式 A",
+   "submitId": "f1a0f853-4e79-4b25-9a7f-0d70496e9fd0",
+   "submitted": true,
+   "resourceId": "e7a68c7c-78b1-4673-ae7a-4a85ee5e8916",
+   "result": "film02/audio/M3.mp3"
+  },
+  "M4": {
+   "updateId": "936e7631-37a2-4859-b440-901e3d9b2680",
+   "nodeId": "node_ajkn9y9sem",
+   "title": "M4 · 配乐 预告片式 B",
+   "submitId": "595b5af6-f46f-48e2-83b7-64bbf939a14e",
+   "submitted": true,
+   "resourceId": "a954a469-b975-4155-8dd9-e55e7e79dac4",
+   "result": "film02/audio/M4.mp3"
+  },
+  "N9b": {
+   "updateId": "3e45f54c-fc4e-4769-af9c-9af75a94436c",
+   "nodeId": "node_y92jnankk9",
+   "title": "N9b · 黄昏逆光悬停（全画幅）",
+   "submitId": "324cb366-4c6c-4768-883b-37f0d53c98fe",
+   "submitted": true,
+   "resourceId": "2cf55c74-7209-4bb6-a861-7b7c6c9b1020",
+   "result": "film02/keyframes/N9b.png"
+  },
+  "VN1": {
+   "updateId": "68c3320e-ae94-4c73-81db-858848d007ae",
+   "nodeId": "node_yfph3r31ra",
+   "title": "VN1 video · 机库顶灯依次亮起",
+   "submitId": "889a6b68-4da2-4e0c-a39b-338b28ad2e60",
+   "submitted": true,
+   "resourceId": "1dc6c170-56fb-461b-bce1-09094c2ac34b"
+  },
+  "VN2": {
+   "updateId": "57168e5f-a24b-4482-8f76-68b2ef4618ee",
+   "nodeId": "node_fa2c5mbm8b",
+   "title": "VN2 video · 剪影转头",
+   "submitId": "98ae23e6-cdb5-4178-8fb9-a06c81cba66e",
+   "submitted": true,
+   "resourceId": "9cd0b401-a219-4a9c-a165-7194a29d5d30"
+  },
+  "VN3": {
+   "updateId": "09eb0c26-c73b-4d3e-a6cc-12e7788c7904",
+   "nodeId": "node_keh6grms4t",
+   "title": "VN3 video · 眼睛眨眼与橙光",
+   "submitId": "1df6e90e-ec38-4002-92ef-b20b946a90f9",
+   "submitted": true,
+   "resourceId": "a44007b5-17c8-482b-9c83-5a50b55dd300"
+  },
+  "VN4": {
+   "updateId": "5e29b519-538d-4b21-bf13-82c9c9926d9e",
+   "nodeId": "node_gqsbd05th4",
+   "title": "VN4 video · 头顶掠过",
+   "submitId": "5c5fb7a1-7d4f-42a7-9c90-b942e832f757",
+   "submitted": true,
+   "resourceId": "d4a9ac7b-c11f-4826-9bec-9579595b4d46"
+  },
+  "VN5": {
+   "updateId": "cee41f03-b87f-46cc-a079-309b4c7d0679",
+   "nodeId": "node_6046bsqdpn",
+   "title": "VN5 video · 贴海高速追拍",
+   "submitId": "0f73bc24-6918-47fa-b157-49b0dfe87a2e",
+   "submitted": true,
+   "resourceId": "6f741467-8c6b-486c-b5cb-bf3f9cc883a1"
+  },
+  "VN6": {
+   "updateId": "a3fafd14-1ecd-4ba8-a794-b832247e4617",
+   "nodeId": "node_nv1s1zapda",
+   "title": "VN6 video · 俯拍越过海岸线",
+   "submitId": "ace20401-39f0-4b11-adb5-5dce6ad08363",
+   "submitted": true,
+   "resourceId": "bbcc5c47-0bbc-468e-acb7-c000be89b250"
+  },
+  "VN7": {
+   "updateId": "f3c69034-4212-4aa3-8785-368d43ec40b3",
+   "nodeId": "node_5vmqsrcjkp",
+   "title": "VN7 video · 侧倾绕海蚀柱 甩镜",
+   "submitId": "7a95536b-bbc6-4c14-8228-6cd5eeb3df1e",
+   "submitted": true,
+   "resourceId": "6ce3d9b7-fb73-4695-a88e-00c87728c60e"
+  },
+  "VN8": {
+   "updateId": "2aa690b3-f769-4604-8004-c73f7d1bea14",
+   "nodeId": "node_sxnch0bvg4",
+   "title": "VN8 video · 迎面冲镜 掠过",
+   "submitId": "46c6c325-78e2-42f5-b13f-325b41db7395",
+   "submitted": true,
+   "resourceId": "8fe633e1-3730-40fd-802f-62e38361035e"
+  },
+  "VN9": {
+   "updateId": "94196b40-97f4-4e56-b3f6-7747e7a85249",
+   "nodeId": "node_tqamccwh4z",
+   "title": "VN9 video · 黄昏悬停",
+   "submitId": "61c02e06-dadb-45d2-a43d-a6afeb3a7a18",
+   "submitted": true,
+   "resourceId": "8f5f86be-df8f-4d7e-a9a8-254ca3335bfe"
   }
  },
  "ledger": {
@@ -392,6 +572,132 @@
     "credits": 256,
     "submitId": "208aad4e-0994-46ba-9512-e79860ea5636",
     "at": "2026-10-16 09:18"
+   },
+   {
+    "key": "N1",
+    "credits": 8,
+    "submitId": "a48c3749-253c-4e2c-9a6f-95561c1d396e",
+    "at": "2026-10-16 17:07"
+   },
+   {
+    "key": "N2",
+    "credits": 8,
+    "submitId": "2d0192e2-5330-4c7b-849f-b61dcd7c1235",
+    "at": "2026-10-16 17:07"
+   },
+   {
+    "key": "N3",
+    "credits": 8,
+    "submitId": "09013a2a-5213-4e3d-8c05-f7d81786a48a",
+    "at": "2026-10-16 17:07"
+   },
+   {
+    "key": "N4",
+    "credits": 8,
+    "submitId": "c057b526-53e0-43eb-b2c2-32c67180f4d1",
+    "at": "2026-10-16 17:07"
+   },
+   {
+    "key": "N5",
+    "credits": 8,
+    "submitId": "ac968356-acc9-41b3-86cd-a6e71ea98be5",
+    "at": "2026-10-16 17:07"
+   },
+   {
+    "key": "N6",
+    "credits": 8,
+    "submitId": "fba15c15-0fdb-4243-9971-8ee4e66aa518",
+    "at": "2026-10-16 17:07"
+   },
+   {
+    "key": "N7",
+    "credits": 8,
+    "submitId": "9f4e4b34-4176-4acb-bf64-680cc2889286",
+    "at": "2026-10-16 17:07"
+   },
+   {
+    "key": "N8",
+    "credits": 8,
+    "submitId": "92b5f327-5745-4ac5-a604-af3f8acb9112",
+    "at": "2026-10-16 17:07"
+   },
+   {
+    "key": "N9",
+    "credits": 8,
+    "submitId": "1e9d93a6-5334-478f-ad5b-d09ad5d1face",
+    "at": "2026-10-16 17:07"
+   },
+   {
+    "key": "M3",
+    "credits": 6,
+    "submitId": "f1a0f853-4e79-4b25-9a7f-0d70496e9fd0",
+    "at": "2026-10-16 17:07"
+   },
+   {
+    "key": "M4",
+    "credits": 6,
+    "submitId": "595b5af6-f46f-48e2-83b7-64bbf939a14e",
+    "at": "2026-10-16 17:07"
+   },
+   {
+    "key": "N9b",
+    "credits": 8,
+    "submitId": "324cb366-4c6c-4768-883b-37f0d53c98fe",
+    "at": "2026-10-16 17:15"
+   },
+   {
+    "key": "VN1",
+    "credits": 256,
+    "submitId": "889a6b68-4da2-4e0c-a39b-338b28ad2e60",
+    "at": "2026-10-16 17:17"
+   },
+   {
+    "key": "VN2",
+    "credits": 256,
+    "submitId": "98ae23e6-cdb5-4178-8fb9-a06c81cba66e",
+    "at": "2026-10-16 17:17"
+   },
+   {
+    "key": "VN3",
+    "credits": 256,
+    "submitId": "1df6e90e-ec38-4002-92ef-b20b946a90f9",
+    "at": "2026-10-16 17:17"
+   },
+   {
+    "key": "VN4",
+    "credits": 256,
+    "submitId": "5c5fb7a1-7d4f-42a7-9c90-b942e832f757",
+    "at": "2026-10-16 17:17"
+   },
+   {
+    "key": "VN5",
+    "credits": 256,
+    "submitId": "0f73bc24-6918-47fa-b157-49b0dfe87a2e",
+    "at": "2026-10-16 17:17"
+   },
+   {
+    "key": "VN6",
+    "credits": 256,
+    "submitId": "ace20401-39f0-4b11-adb5-5dce6ad08363",
+    "at": "2026-10-16 17:17"
+   },
+   {
+    "key": "VN7",
+    "credits": 256,
+    "submitId": "7a95536b-bbc6-4c14-8228-6cd5eeb3df1e",
+    "at": "2026-10-16 17:17"
+   },
+   {
+    "key": "VN8",
+    "credits": 256,
+    "submitId": "46c6c325-78e2-42f5-b13f-325b41db7395",
+    "at": "2026-10-16 17:17"
+   },
+   {
+    "key": "VN9",
+    "credits": 256,
+    "submitId": "61c02e06-dadb-45d2-a43d-a6afeb3a7a18",
+    "at": "2026-10-16 17:18"
    }
   ]
  }
