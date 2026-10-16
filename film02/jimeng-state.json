@@ -1,0 +1,391 @@
+{
+ "projectId": "cdac4ce4-f845-4758-b9fa-841d6f0bffb0",
+ "webUrl": "https://jimeng.jianying.com/ai-tool/ai-canvas/cdac4ce4-f845-4758-b9fa-841d6f0bffb0",
+ "nodes": {
+  "G-v1-front34": {
+   "nodeId": "node_072azg0jp9",
+   "title": "REF · Dream GLB · v1-front34"
+  },
+  "G-v2-side": {
+   "nodeId": "node_51q2db7e02",
+   "title": "REF · Dream GLB · v2-side"
+  },
+  "G-v3-front": {
+   "nodeId": "node_n4n7qhxsgr",
+   "title": "REF · Dream GLB · v3-front"
+  },
+  "G-v4-top": {
+   "nodeId": "node_5k7gjv3x8d",
+   "title": "REF · Dream GLB · v4-top"
+  },
+  "G-v5-rear34": {
+   "nodeId": "node_71fmwywspy",
+   "title": "REF · Dream GLB · v5-rear34"
+  },
+  "G-v6-low": {
+   "nodeId": "node_tb5ye0yfke",
+   "title": "REF · Dream GLB · v6-low"
+  },
+  "K1": {
+   "nodeId": "node_k72gw1hqkq",
+   "submitId": "10fb59c3-3943-473a-a51e-9a10916e477e",
+   "submitted": true,
+   "result": "film02/keyframes/K1.png"
+  },
+  "K2": {
+   "nodeId": "node_tpjrxx06s3",
+   "submitId": "39ab9b34-733d-491a-865b-1c805d0b682d",
+   "submitted": true,
+   "result": "film02/keyframes/K2.png"
+  },
+  "K3": {
+   "nodeId": "node_e0p32kezh2",
+   "submitId": "64db503b-f50c-46bf-adcf-4ba395d88c2a",
+   "submitted": true,
+   "result": "film02/keyframes/K3.png"
+  },
+  "K4": {
+   "nodeId": "node_cgvdwy52v3",
+   "submitId": "d6689cff-ca9d-4f84-889b-1e49d7c24573",
+   "submitted": true,
+   "result": "film02/keyframes/K4.png"
+  },
+  "V1": {
+   "nodeId": "node_v1sj99jhdh",
+   "title": "V1 video · S3-4 亮相慢推",
+   "updateId": "1f42fc50-5ad4-442c-9f8f-185eee7236cc",
+   "submitId": "102bd92b-b100-4d1d-b565-abf1f87ea6a8",
+   "submitted": true,
+   "resourceId": "dcdac1a9-780b-4fa9-8820-5a85da92a197",
+   "result": "film02/clips/V1.mp4"
+  },
+  "V2": {
+   "nodeId": "node_zwv50yhej6",
+   "title": "V2 video · S7 电机启动",
+   "updateId": "5b6913a1-4853-43f6-99c2-de5abb0d7fe3",
+   "submitId": "c98b90bd-676e-4dc5-8d68-ce9887b169b3",
+   "submitted": true,
+   "resourceId": "01622d8a-35ce-4a0c-8ced-bcee487fcfd3",
+   "result": "film02/clips/V2.mp4"
+  },
+  "K1z": {
+   "uploadResourceId": "b275c1ca-0c8f-4c9a-b8e9-12b3c5e95df6",
+   "updateId": "bf4fead6-2cb4-4b60-aa98-6aaebb813939",
+   "nodeId": "node_7z506mrqs5",
+   "title": "REF · K1z"
+  },
+  "K5": {
+   "updateId": "7b1d5272-317f-46a6-a892-c10e487f46f9",
+   "nodeId": "node_zvn6jdvqbw",
+   "title": "K5 · S1 桨尖微距",
+   "submitId": "3e580baf-b491-4d3b-b9f9-109d3ab3a186",
+   "submitted": true,
+   "resourceId": "69c5cfe0-0e2b-408f-8af4-04561fe0c3c5",
+   "result": "film02/keyframes/K5.png"
+  },
+  "K6": {
+   "updateId": "47a7913f-a6e6-44a8-ba36-77d3f517518b",
+   "nodeId": "node_gd2rb8xtta",
+   "title": "K6 · S5a 钢管焊点微距",
+   "submitId": "639b9cf4-535f-4745-bc08-106cb53a4955",
+   "submitted": true,
+   "resourceId": "cb431449-6795-445e-a9ea-5d4b25e1ea15",
+   "result": "film02/keyframes/K6.png"
+  },
+  "K7": {
+   "updateId": "7352a9bc-ea9d-42cc-8db3-1fea86cbdce1",
+   "nodeId": "node_ktd4rxr92x",
+   "title": "K7 · S5b 碳纤维机臂纹理",
+   "submitId": "0bcdfe90-1d4d-492f-8074-a1dbcac0ff8c",
+   "submitted": true,
+   "resourceId": "4317fa2b-9dce-4c01-af9f-47a095e1d4b8",
+   "result": "film02/keyframes/K7.png"
+  },
+  "K8": {
+   "updateId": "43dc3099-4ded-4546-8764-b328953d0488",
+   "nodeId": "node_yjfectq4ky",
+   "title": "K8 · S5c 车头条纹微距",
+   "submitId": "f09cf50b-8021-4bb1-8a6a-2d3ebfd2533e",
+   "submitted": true,
+   "resourceId": "5fc247bb-a9a5-410a-b7f5-2a605703bfdc",
+   "result": "film02/keyframes/K8.png"
+  },
+  "K9": {
+   "updateId": "5367695d-d3e8-468a-a97e-bb8ef635c626",
+   "nodeId": "node_kws4f8q1y6",
+   "title": "K9 · S6 沿机臂单点透视",
+   "submitId": "96070720-c827-4bb6-a675-87f298a1aaff",
+   "submitted": true,
+   "resourceId": "58642b03-2059-43da-809f-eec469acbbdd",
+   "result": "film02/keyframes/K9.png"
+  },
+  "K10": {
+   "updateId": "446f70ca-0fe4-478b-930b-c7483f0aa3b3",
+   "nodeId": "node_zh7wskn9va",
+   "title": "K10 · S11 水面影棚起飞前",
+   "submitId": "aebf52fc-0980-4686-b334-3b881942838f",
+   "submitted": true,
+   "resourceId": "229f50f5-dce7-439a-a574-a9fd7499a50b",
+   "result": "film02/keyframes/K10.png"
+  },
+  "K4b": {
+   "updateId": "2a04ca84-d4aa-47c9-9a11-a85ee2ed3822",
+   "nodeId": "node_wrxgdcc25v",
+   "title": "K4b · S14 后方跟拍 崖顶起飞",
+   "submitId": "9d921b29-d78a-4eef-9766-9edd09bdd879",
+   "submitted": true,
+   "resourceId": "c290ff51-e67e-4a2c-8832-08863aafc413",
+   "result": "film02/keyframes/K4b.png"
+  },
+  "K11": {
+   "updateId": "b12b51e2-e90a-473c-a1c5-a07f03643c23",
+   "nodeId": "node_wqc25dds8k",
+   "title": "K11 · S15 海岸航拍跟飞",
+   "submitId": "c0cf8977-874f-47fd-8888-011ac7bbaadd",
+   "submitted": true,
+   "resourceId": "ba53e32c-e258-423e-a231-ce6b655bd9cd",
+   "result": "film02/keyframes/K11.png"
+  },
+  "K12": {
+   "updateId": "1b0080c9-964f-45d7-bb40-df9b5ca2e8f6",
+   "nodeId": "node_s31nhmdk8w",
+   "title": "K12 · S16 低空掠海",
+   "submitId": "e0080062-6782-464d-9f86-614e4b7d6ebe",
+   "submitted": true,
+   "resourceId": "6c3a0c9b-420c-4441-813e-e95cac27f453",
+   "result": "film02/keyframes/K12.png"
+  },
+  "K13": {
+   "updateId": "b022ad3f-c8c4-4232-aff5-e546420e8926",
+   "nodeId": "node_jsayaxtyxy",
+   "title": "K13 · S17 整流罩反光",
+   "submitId": "fb896dfc-b3d2-42d1-b48b-1c6a8d7d9866",
+   "submitted": true,
+   "resourceId": "be9f1968-2ddd-41dd-95c6-513d1eaf2f73",
+   "result": "film02/keyframes/K13.png"
+  },
+  "V5": {
+   "updateId": "0f2a28c7-f712-4e80-a942-eda357821eb9",
+   "nodeId": "node_6t0s114e7v",
+   "title": "V5 video · S1 桨叶开场",
+   "submitId": "10a19363-30f0-4441-a50b-e39c657ffa6b",
+   "submitted": true,
+   "resourceId": "6bd09864-8156-464a-86cc-3b26bf87cc98"
+  },
+  "V3": {
+   "updateId": "d19f35ad-7216-4397-b776-adc1f197818c",
+   "nodeId": "node_vwd8eem0c6",
+   "title": "V3 video · S2 光带扫过侧面",
+   "submitId": "e9aa8998-7653-48dc-bc83-221431dc0b8d",
+   "submitted": true,
+   "resourceId": "bcd33cae-18a8-465d-b23f-42e6e34aeae3"
+  },
+  "V9": {
+   "updateId": "188e971f-39f4-4590-a72e-47e56d4f3382",
+   "nodeId": "node_s2snerb1ep",
+   "title": "V9 video · S6 沿机臂推进",
+   "submitId": "cb92e364-5510-4863-a287-fdda7ba82c0b",
+   "submitted": true,
+   "resourceId": "8e244840-946c-471f-8ae2-bd0b9949c223"
+  },
+  "V10": {
+   "updateId": "7baa71f8-c1d0-4889-8a59-7c8ee770b866",
+   "nodeId": "node_175tc5h0sh",
+   "title": "V10 video · S11 水面起飞",
+   "submitId": "8ea8119f-dcc2-4d91-b854-650c49d2b24e",
+   "submitted": true,
+   "resourceId": "2ef58771-558f-499e-b715-842ed6d92f8e"
+  },
+  "V4b": {
+   "updateId": "329d3276-2941-4425-a389-c18274e9f180",
+   "nodeId": "node_x3xjyctj25",
+   "title": "V4b video · S14 崖边悬停起飞",
+   "submitId": "64d742f5-7260-4c96-ac33-6dce9d7ab87f",
+   "submitted": true,
+   "resourceId": "a80de899-037e-491c-a335-6a9bb4ac434c"
+  },
+  "V11": {
+   "updateId": "42853504-4d70-4a59-b58a-fbde7c6c993e",
+   "nodeId": "node_vj17pag284",
+   "title": "V11 video · S15 海岸跟飞",
+   "submitId": "3f0e7cc5-2237-4e9d-ab4b-eb77aa7a53d4",
+   "submitted": true,
+   "resourceId": "c1d2097b-98f6-4727-8f83-8b0f62cbfafc"
+  },
+  "V12": {
+   "updateId": "6a3bd0b4-68bd-4269-914f-c34e979025ca",
+   "nodeId": "node_gebcsx66r9",
+   "title": "V12 video · S16 低空掠海",
+   "submitId": "208aad4e-0994-46ba-9512-e79860ea5636",
+   "submitted": true,
+   "resourceId": "2d645e0c-8a1a-47aa-9d74-be5031712b66"
+  },
+  "M1": {
+   "nodeId": "node_89g868h3pb",
+   "title": "M1 · 配乐 60s",
+   "submitted": true,
+   "result": "film02/audio/M1.wav"
+  },
+  "M2": {
+   "nodeId": "node_43500bxt6v",
+   "title": "M2 · 配乐 60s 暗调",
+   "submitted": true,
+   "failed": "serviceCode 20107"
+  }
+ },
+ "ledger": {
+  "budget": 7000,
+  "runs": [
+   {
+    "key": "K1",
+    "credits": 8,
+    "submitId": "10fb59c3-3943-473a-a51e-9a10916e477e",
+    "at": "2026-10-16 16:55"
+   },
+   {
+    "key": "K2",
+    "credits": 8,
+    "submitId": "39ab9b34-733d-491a-865b-1c805d0b682d",
+    "at": "2026-10-16 16:55"
+   },
+   {
+    "key": "K3",
+    "credits": 8,
+    "submitId": "64db503b-f50c-46bf-adcf-4ba395d88c2a",
+    "at": "2026-10-16 16:55"
+   },
+   {
+    "key": "K4",
+    "credits": 8,
+    "submitId": "d6689cff-ca9d-4f84-889b-1e49d7c24573",
+    "at": "2026-10-16 16:55"
+   },
+   {
+    "key": "V1",
+    "credits": 320,
+    "submitId": "102bd92b-b100-4d1d-b565-abf1f87ea6a8",
+    "at": "2026-10-16 09:10"
+   },
+   {
+    "key": "V2",
+    "credits": 256,
+    "submitId": "c98b90bd-676e-4dc5-8d68-ce9887b169b3",
+    "at": "2026-10-16 09:10"
+   },
+   {
+    "key": "K5",
+    "credits": 8,
+    "submitId": "3e580baf-b491-4d3b-b9f9-109d3ab3a186",
+    "at": "2026-10-16 09:10"
+   },
+   {
+    "key": "K6",
+    "credits": 8,
+    "submitId": "639b9cf4-535f-4745-bc08-106cb53a4955",
+    "at": "2026-10-16 09:10"
+   },
+   {
+    "key": "K7",
+    "credits": 8,
+    "submitId": "0bcdfe90-1d4d-492f-8074-a1dbcac0ff8c",
+    "at": "2026-10-16 09:10"
+   },
+   {
+    "key": "K8",
+    "credits": 8,
+    "submitId": "f09cf50b-8021-4bb1-8a6a-2d3ebfd2533e",
+    "at": "2026-10-16 09:10"
+   },
+   {
+    "key": "K9",
+    "credits": 8,
+    "submitId": "96070720-c827-4bb6-a675-87f298a1aaff",
+    "at": "2026-10-16 09:10"
+   },
+   {
+    "key": "K10",
+    "credits": 8,
+    "submitId": "aebf52fc-0980-4686-b334-3b881942838f",
+    "at": "2026-10-16 09:10"
+   },
+   {
+    "key": "K4b",
+    "credits": 8,
+    "submitId": "9d921b29-d78a-4eef-9766-9edd09bdd879",
+    "at": "2026-10-16 09:10"
+   },
+   {
+    "key": "K11",
+    "credits": 8,
+    "submitId": "c0cf8977-874f-47fd-8888-011ac7bbaadd",
+    "at": "2026-10-16 09:10"
+   },
+   {
+    "key": "K12",
+    "credits": 8,
+    "submitId": "e0080062-6782-464d-9f86-614e4b7d6ebe",
+    "at": "2026-10-16 09:10"
+   },
+   {
+    "key": "K13",
+    "credits": 8,
+    "submitId": "fb896dfc-b3d2-42d1-b48b-1c6a8d7d9866",
+    "at": "2026-10-16 09:10"
+   },
+   {
+    "key": "M1",
+    "credits": 6,
+    "submitId": "(recovered)",
+    "at": "2026-10-16 17:12"
+   },
+   {
+    "key": "M2",
+    "credits": 6,
+    "submitId": "(recovered)",
+    "at": "2026-10-16 17:12"
+   },
+   {
+    "key": "V5",
+    "credits": 256,
+    "submitId": "10a19363-30f0-4441-a50b-e39c657ffa6b",
+    "at": "2026-10-16 09:18"
+   },
+   {
+    "key": "V3",
+    "credits": 256,
+    "submitId": "e9aa8998-7653-48dc-bc83-221431dc0b8d",
+    "at": "2026-10-16 09:18"
+   },
+   {
+    "key": "V9",
+    "credits": 256,
+    "submitId": "cb92e364-5510-4863-a287-fdda7ba82c0b",
+    "at": "2026-10-16 09:18"
+   },
+   {
+    "key": "V10",
+    "credits": 256,
+    "submitId": "8ea8119f-dcc2-4d91-b854-650c49d2b24e",
+    "at": "2026-10-16 09:18"
+   },
+   {
+    "key": "V4b",
+    "credits": 256,
+    "submitId": "64d742f5-7260-4c96-ac33-6dce9d7ab87f",
+    "at": "2026-10-16 09:18"
+   },
+   {
+    "key": "V11",
+    "credits": 256,
+    "submitId": "3f0e7cc5-2237-4e9d-ab4b-eb77aa7a53d4",
+    "at": "2026-10-16 09:18"
+   },
+   {
+    "key": "V12",
+    "credits": 256,
+    "submitId": "208aad4e-0994-46ba-9512-e79860ea5636",
+    "at": "2026-10-16 09:18"
+   }
+  ]
+ }
+}

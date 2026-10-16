@@ -1,0 +1,12 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="frame" content="1920x1080"><title>explode test</title>
+<script>window.__ready = false;</script>
+<script type="importmap">{ "imports": { "three": "../../vendor/three/three.module.js", "three/addons/": "../../vendor/three/addons/" } }</script>
+<style>html,body{margin:0;background:#070708;overflow:hidden}canvas{display:block;width:1920px;height:1080px}</style></head>
+<body><canvas id="c"></canvas><script type="module">
+import { createExplode } from './explode.js';
+const ex = await createExplode(document.getElementById('c'));
+console.log('parts', ex.parts);
+window.__comp = { width: 1920, height: 1080, fps: 24, duration: 5 };
+window.__seek = async (t) => ex.render(t);
+window.__ready = true;
+</script></body></html>
