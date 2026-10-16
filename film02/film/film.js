@@ -39,7 +39,7 @@ const SHOTS = [
 // ---------------------------------------------------------------- text over footage
 const OVER = [
   { a: 2 * BAR + B, b: 4 * BAR - 0.25, html: '<div class="title">Dream</div>', css: 'left:0;right:0;top:118px;text-align:center' },
-  { a: 2 * BAR + 3 * B, b: 4 * BAR - 0.25, html: '<div class="sub">Personal electric aircraft</div>', css: 'left:0;right:0;bottom:104px;text-align:center' },
+  { a: 2 * BAR + 3 * B, b: 4 * BAR - 0.25, html: '<div class="sub">Personal electric aircraft</div>', css: 'left:140px;bottom:120px' },
   { a: 5 * BAR + B, b: 6 * BAR - 0.2, html: '<div class="rule" style="margin-bottom:26px"></div><div class="label">Carbon-fibre arms</div>', css: 'left:140px;bottom:132px' },
   { a: 6 * BAR + 2 * B, b: 7 * BAR - 0.2, html: '<div class="rule" style="margin-bottom:26px"></div><div class="label">Coaxial motors</div>', css: 'left:140px;bottom:132px' },
 ];
@@ -47,17 +47,17 @@ const OVER = [
 // ---------------------------------------------------------------- cards
 const CARDS = {
   flight: `<div class="col"><div class="num"><span id="cnt">0</span><span class="unit">min</span></div>
-           <div class="label t-in" style="margin-top:72px">Flight time</div><div class="note t-in" style="margin-top:22px">Dream Pro · with a 70 kg pilot</div></div>`,
+           <div class="label" data-in="2" style="margin-top:72px">Flight time</div><div class="note" data-in="2.5" style="margin-top:22px">Dream Pro · with a 70 kg pilot</div></div>`,
   perf: `<div style="display:flex;gap:220px;align-items:flex-start">
-           <div class="col"><div class="num s">100<span class="unit">km/h</span></div><div class="label" style="margin-top:64px">Top speed</div><div class="note" style="margin-top:22px">Dream Pro · Dream ST</div></div>
-           <div class="col"><div class="num s">120<span class="unit">kg</span></div><div class="label" style="margin-top:64px">Payload</div><div class="note" style="margin-top:22px">Dream Pro</div></div></div>`,
+           <div class="col" data-in="0"><div class="num s">100<span class="unit">km/h</span></div><div class="label" style="margin-top:64px">Top speed</div><div class="note" style="margin-top:22px">Dream Pro · Dream ST</div></div>
+           <div class="col" data-in="1.5"><div class="num s">120<span class="unit">kg</span></div><div class="label" style="margin-top:64px">Payload</div><div class="note" style="margin-top:22px">Dream Pro</div></div></div>`,
   lineup: `<img src="${K('K1')}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.26;filter:blur(2px)">
            <div style="position:relative;display:flex;gap:240px;align-items:flex-start">
-             <div class="col"><div class="title" style="font-size:84px;letter-spacing:.32em;margin-right:-.32em">Dream Pro</div><div class="rule" style="margin:34px 0 40px"></div>
+             <div class="col" data-in="0"><div class="title" style="font-size:84px;letter-spacing:.32em;margin-right:-.32em">Dream Pro</div><div class="rule" style="margin:34px 0 40px"></div>
                <div class="spec"><span class="k">Flight time</span><span>40 min</span><span class="k">Payload</span><span>120 kg</span><span class="k">Top speed</span><span>100 km/h</span></div></div>
-             <div class="col"><div class="title" style="font-size:84px;letter-spacing:.32em;margin-right:-.32em">Dream ST</div><div class="rule" style="margin:34px 0 40px;background:#8A8A8E"></div>
+             <div class="col" data-in="1"><div class="title" style="font-size:84px;letter-spacing:.32em;margin-right:-.32em">Dream ST</div><div class="rule" style="margin:34px 0 40px;background:#8A8A8E"></div>
                <div class="spec"><span class="k">Flight time</span><span>16 min</span><span class="k">Payload</span><span>95 kg</span><span class="k">Top speed</span><span>100 km/h</span></div></div></div>
-           <div class="note" style="position:absolute;bottom:92px;left:0;right:0;text-align:center;font-size:28px">Flight time with a 70 kg pilot.</div>`,
+           <div class="note" data-in="2.5" style="position:absolute;bottom:92px;left:0;right:0;text-align:center;font-size:28px">Flight time with a 70 kg pilot.</div>`,
   end: `<div class="col"><div id="logo" style="width:860px"></div><div class="label" style="margin-top:86px;font-size:40px;letter-spacing:.6em;margin-right:-.6em">Dream</div></div>`,
 };
 
@@ -120,7 +120,13 @@ window.__seek = async (t) => {
   if (imgA.src && !imgA.complete) await imgA.decode().catch(() => {});
 
   // cards: 6-frame fade in from black, hard cut out
-  for (const [k, el] of Object.entries(cardEls)) el.style.opacity = (s.kind === 'card' && s.card === k) ? easeOutCubic(clamp((t - s.a) / (6 / FPS))) : 0;
+  for (const [k, el] of Object.entries(cardEls)) {
+    const on = s.kind === 'card' && s.card === k;
+    el.style.opacity = on ? easeOutCubic(clamp((t - s.a) / (6 / FPS))) : 0;
+    if (!on) continue;
+    if (k !== 'end') el.style.transform = `scale(${lerp(1, 1.035, easeInOut(u))})`;
+    el.querySelectorAll('[data-in]').forEach((c) => textAnim(c, t, s.a + parseFloat(c.dataset.in) * B, s.b + 1));
+  }
   if (s.kind === 'card' && s.card === 'flight') {
     document.getElementById('cnt').textContent = String(Math.round(40 * easeOutCubic(clamp((t - s.a - 0.15) / 0.9))));
   }
