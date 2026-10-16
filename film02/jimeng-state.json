@@ -353,7 +353,8 @@
    "title": "VN1 video · 机库顶灯依次亮起",
    "submitId": "889a6b68-4da2-4e0c-a39b-338b28ad2e60",
    "submitted": true,
-   "resourceId": "1dc6c170-56fb-461b-bce1-09094c2ac34b"
+   "resourceId": "1dc6c170-56fb-461b-bce1-09094c2ac34b",
+   "result": "film02/clips/VN1.mp4"
   },
   "VN2": {
    "updateId": "57168e5f-a24b-4482-8f76-68b2ef4618ee",
@@ -361,7 +362,8 @@
    "title": "VN2 video · 剪影转头",
    "submitId": "98ae23e6-cdb5-4178-8fb9-a06c81cba66e",
    "submitted": true,
-   "resourceId": "9cd0b401-a219-4a9c-a165-7194a29d5d30"
+   "resourceId": "9cd0b401-a219-4a9c-a165-7194a29d5d30",
+   "result": "film02/clips/VN2.mp4"
   },
   "VN3": {
    "updateId": "09eb0c26-c73b-4d3e-a6cc-12e7788c7904",
@@ -369,7 +371,8 @@
    "title": "VN3 video · 眼睛眨眼与橙光",
    "submitId": "1df6e90e-ec38-4002-92ef-b20b946a90f9",
    "submitted": true,
-   "resourceId": "a44007b5-17c8-482b-9c83-5a50b55dd300"
+   "resourceId": "a44007b5-17c8-482b-9c83-5a50b55dd300",
+   "result": "film02/clips/VN3.mp4"
   },
   "VN4": {
    "updateId": "5e29b519-538d-4b21-bf13-82c9c9926d9e",
@@ -377,7 +380,8 @@
    "title": "VN4 video · 头顶掠过",
    "submitId": "5c5fb7a1-7d4f-42a7-9c90-b942e832f757",
    "submitted": true,
-   "resourceId": "d4a9ac7b-c11f-4826-9bec-9579595b4d46"
+   "resourceId": "d4a9ac7b-c11f-4826-9bec-9579595b4d46",
+   "result": "film02/clips/VN4.mp4"
   },
   "VN5": {
    "updateId": "cee41f03-b87f-46cc-a079-309b4c7d0679",
@@ -385,7 +389,8 @@
    "title": "VN5 video · 贴海高速追拍",
    "submitId": "0f73bc24-6918-47fa-b157-49b0dfe87a2e",
    "submitted": true,
-   "resourceId": "6f741467-8c6b-486c-b5cb-bf3f9cc883a1"
+   "resourceId": "6f741467-8c6b-486c-b5cb-bf3f9cc883a1",
+   "result": "film02/clips/VN5.mp4"
   },
   "VN6": {
    "updateId": "a3fafd14-1ecd-4ba8-a794-b832247e4617",
@@ -393,7 +398,8 @@
    "title": "VN6 video · 俯拍越过海岸线",
    "submitId": "ace20401-39f0-4b11-adb5-5dce6ad08363",
    "submitted": true,
-   "resourceId": "bbcc5c47-0bbc-468e-acb7-c000be89b250"
+   "resourceId": "bbcc5c47-0bbc-468e-acb7-c000be89b250",
+   "result": "film02/clips/VN6.mp4"
   },
   "VN7": {
    "updateId": "f3c69034-4212-4aa3-8785-368d43ec40b3",
@@ -401,7 +407,8 @@
    "title": "VN7 video · 侧倾绕海蚀柱 甩镜",
    "submitId": "7a95536b-bbc6-4c14-8228-6cd5eeb3df1e",
    "submitted": true,
-   "resourceId": "6ce3d9b7-fb73-4695-a88e-00c87728c60e"
+   "resourceId": "6ce3d9b7-fb73-4695-a88e-00c87728c60e",
+   "result": "film02/clips/VN7.mp4"
   },
   "VN8": {
    "updateId": "2aa690b3-f769-4604-8004-c73f7d1bea14",
@@ -409,7 +416,8 @@
    "title": "VN8 video · 迎面冲镜 掠过",
    "submitId": "46c6c325-78e2-42f5-b13f-325b41db7395",
    "submitted": true,
-   "resourceId": "8fe633e1-3730-40fd-802f-62e38361035e"
+   "resourceId": "8fe633e1-3730-40fd-802f-62e38361035e",
+   "result": "film02/clips/VN8.mp4"
   },
   "VN9": {
    "updateId": "94196b40-97f4-4e56-b3f6-7747e7a85249",
@@ -417,7 +425,8 @@
    "title": "VN9 video · 黄昏悬停",
    "submitId": "61c02e06-dadb-45d2-a43d-a6afeb3a7a18",
    "submitted": true,
-   "resourceId": "8f5f86be-df8f-4d7e-a9a8-254ca3335bfe"
+   "resourceId": "8f5f86be-df8f-4d7e-a9a8-254ca3335bfe",
+   "result": "film02/clips/VN9.mp4"
   }
  },
  "ledger": {
