@@ -1,0 +1,11 @@
+/* DREAM Anatomy type system v0.1 — bone on black, orange only as a thin sweep in the unit. */
+:root { --bone: #F2EFEA; --grey: #8A8A8E; --signal: #FF5A00; --black: #070708; }
+html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--black); color: var(--bone); font-family: 'Jost', sans-serif; -webkit-font-smoothing: antialiased; }
+.stage { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.num { font-weight: 300; font-size: 300px; line-height: .9; letter-spacing: -0.01em; display: flex; align-items: baseline; gap: 34px; }
+.unit { font-weight: 300; font-size: 120px; letter-spacing: .02em; position: relative; color: var(--bone); }
+.unit::after { content: ''; position: absolute; left: 0; right: 0; bottom: 6px; height: 4px; background: linear-gradient(90deg, transparent, var(--signal) 30%, var(--signal) 70%, transparent); }
+.label { margin-top: 64px; font-weight: 500; font-size: 34px; letter-spacing: .26em; text-transform: uppercase; margin-right: -.26em; }
+.note { margin-top: 22px; font-weight: 400; font-size: 30px; letter-spacing: .04em; color: var(--grey); }
+.title { font-weight: 300; font-size: 168px; letter-spacing: .42em; margin-right: -.42em; text-transform: uppercase; }
+.sub { margin-top: 40px; font-weight: 400; font-size: 40px; letter-spacing: .08em; color: var(--grey); }
