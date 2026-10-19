@@ -7,6 +7,9 @@ import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.j
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 
 const W = 1920, H = 1080, ASPECT = W / H;
+// 分层输出（剪辑工程用）：plate = 只有三维画面，overlay = 只有标尺和标注（透明底）
+const LAYER = new URLSearchParams(location.search).get('layer') || '';
+document.documentElement.dataset.layer = LAYER;
 const TL = await (await fetch('../timeline.json')).json();
 const DUR = TL.duration;
 
@@ -637,12 +640,15 @@ function render(t) {
   cam.updateProjectionMatrix();
 
   // 渲染：常规 → 机体 X 光描边 → 全息部件
-  r.shadowMap.needsUpdate = true;
-  r.autoClear = true; cam.layers.set(0); r.render(scene, cam);
-  r.autoClear = false; scene.background = null;   // 颜色背景会让每一遍都清屏
-  if (xray > 0.01) { cam.layers.set(1); scene.overrideMaterial = ghostMat; r.render(scene, cam); scene.overrideMaterial = null; }
-  cam.layers.set(2); r.render(scene, cam);
-  cam.layers.set(0); r.autoClear = true; scene.background = BG;
+  if (LAYER === 'overlay') cam.updateMatrixWorld();   // 只要标注层时不画三维，但标注仍按镜头投影
+  else {
+    r.shadowMap.needsUpdate = true;
+    r.autoClear = true; cam.layers.set(0); r.render(scene, cam);
+    r.autoClear = false; scene.background = null;   // 颜色背景会让每一遍都清屏
+    if (xray > 0.01) { cam.layers.set(1); scene.overrideMaterial = ghostMat; r.render(scene, cam); scene.overrideMaterial = null; }
+    cam.layers.set(2); r.render(scene, cam);
+    cam.layers.set(0); r.autoClear = true; scene.background = BG;
+  }
 
   // 叠加层
   const scene_ = TL.scenes.find((s) => t >= s.start && t < s.end) || TL.scenes[TL.scenes.length - 1];
@@ -723,6 +729,17 @@ window.timeRender = (t, opts = {}) => {
   if (opts.size) r.setSize(opts.size[0], opts.size[1], false);
   const t0 = performance.now(); render(t); glc.readPixels(0, 0, 1, 1, glc.RGBA, glc.UNSIGNED_BYTE, px); return performance.now() - t0;
 };
+// 剪辑工程用：剪映里做成原生文字 / 图片的元素，以及每场、每句配音的出入点（秒）
+window.editData = () => ({
+  fps: 30, duration: DUR,
+  scenes: TL.scenes.map((s) => ({ id: s.id, title: s.title, en: s.en, start: s.start, end: s.end })),
+  lines: TL.scenes.flatMap((s) => s.lines.map((l, i) => ({ id: `${s.id}-${i}`, text: l.text, start: l.start, end: l.end }))),
+  titles: TL.scenes.filter((s) => s.title).map((s) => ({ text: s.title, en: s.en, in: s.start + 0.3, out: s.id === 'open' ? C.layers + 0.3 : s.end, fadeIn: 0.5, fadeOut: s.id === 'open' ? 0.5 : 0.3 })),
+  layers: [...ui.layers.children].map((el, i) => ({ num: el.querySelector('b').textContent, zh: el.childNodes[1].textContent.trim(), en: el.querySelector('span').textContent, in: C.layers + i * 0.35, out: C.motorsStart + 0.3, fadeIn: 0.4, fadeOut: 0.5 })),
+  subs: SUBS.map((x) => ({ text: x.text, in: x.a, out: x.hold })),
+  corner: { in: 0, out: C.endStart + 0.8, fadeOut: 1.0 },
+  end: { in: C.endStart - 0.2, out: DUR, fadeIn: 1.0 },
+});
 window.seek = (t) => { render(t); return new Promise((done) => requestAnimationFrame(() => requestAnimationFrame(done))); };
 await document.fonts.ready;
 const params = new URLSearchParams(location.search);

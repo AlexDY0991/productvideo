@@ -16,6 +16,27 @@
 - 渲染：无头 Chromium + SwiftShader（软件 WebGL），约 2 秒一帧。软件 WebGL 已经吃满所有 CPU 核，开多个 worker 提升不大。
 - 示意部分：NA80 安装位置、表决器外形、降落伞圆桶、机身安全气囊、驾驶员都是示意，详见 SCRIPT.md。
 
+## 剪映工程（可再剪辑的分层版本）
+
+`jianying/` 把成片拆成分层素材，生成剪映草稿：
+
+- 三维画面：按场景分段，不带文字；
+- 透明标注层：标尺和标注框，ProRes 4444；
+- 剪映原生文字：标题、三层列表、角标文字、片尾、SRT 字幕；
+- 分句配音。
+
+素材包里的文件名全部用英文，草稿里的素材路径用占位符代替。用户解压后双击 `install-draft.bat`，脚本会把占位符换成本机路径，并把草稿复制进剪映的草稿目录。
+
+```bash
+SP=/tmp/jy
+node render/render.mjs --edit-data $SP/edit.json                                   # 标题、字幕、片尾的出入点和版式
+python3 jianying/render_layers.py --out $SP/render --scenes 1-4                   # 分层渲染（整片约 2 小时，分两批）
+python3 jianying/render_layers.py --out $SP/render --scenes 5-7
+python3 jianying/build.py --edit $SP/edit.json --render $SP/render --out $SP/DreamPro-Safety-ZH --name DreamPro-Safety-ZH
+```
+
+需要 `pip install pyJianYingDraft`。剪映字号与像素的换算写在 `build.py` 的 `PX_PER_SIZE`，按剪映里的实际效果校准。
+
 ## 配音
 
 - 火山引擎：`tts/volc.mjs`（豆包语音合成 HTTP V3）。

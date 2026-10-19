@@ -45,6 +45,9 @@ html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#050506
 .end{position:absolute;inset:0;background:#050506;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0}
 .end img{height:84px}
 .end .tag{margin-top:44px;font-family:'Barlow Condensed';font-weight:600;font-size:24px;letter-spacing:.4em;padding-left:.4em;color:var(--accent)}
+html[data-layer=plate] .ovl > :not(.vignette):not(.shade-b){display:none}
+html[data-layer=overlay],html[data-layer=overlay] body{background:transparent}
+html[data-layer=overlay] #c,html[data-layer=overlay] .ovl > :not(.ruler):not(.callouts){display:none}
 .end .url{margin-top:56px;font-family:'JetBrains Mono';font-size:18px;letter-spacing:.1em;color:#8d8e93}
 </style>
 <script type="importmap">{"imports":{"three":"../vendor/three/three.module.js","three/addons/":"../vendor/three/addons/"}}</script>
