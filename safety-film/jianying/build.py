@@ -250,6 +250,7 @@ def main():
             return ROOT_TOKEN + "\\" + node[len(pkg) + 1:].replace("/", "\\")
         return node
     content = relink(content)
+    content["tracks"] = [t for t in content["tracks"] if t["segments"]]   # 没用到的轨道（例如小样里的片尾）不出现在剪映里
     dumped = json.dumps(content, ensure_ascii=False)
     assert pkg not in dumped, "草稿里还有本机路径"
     open(content_path, "w", encoding="utf-8").write(dumped)
