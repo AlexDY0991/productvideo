@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>style test</title>
+<style>
+@font-face{font-family:'Noto Sans SC';font-weight:500;src:url(../../na80-video/fonts/NotoSansSC-500.ttf)}
+@font-face{font-family:'Noto Sans SC';font-weight:700;src:url(../../na80-video/fonts/NotoSansSC-700.ttf)}
+@font-face{font-family:'Barlow Condensed';font-weight:600;src:url(../../na80-video/fonts/BarlowCondensed-600.ttf)}
+@font-face{font-family:'JetBrains Mono';font-weight:400;src:url(../../na80-video/fonts/JetBrainsMono-400.ttf)}
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#060607}
+canvas{position:absolute;inset:0;width:1920px;height:1080px}
+.ovl{position:absolute;inset:0;pointer-events:none;font-family:'Noto Sans SC'}
+.title{position:absolute;left:96px;bottom:118px}
+.title h1{margin:0;font-weight:700;font-size:64px;letter-spacing:.04em;color:#f2f1ec}
+.title .en{margin-top:14px;font-family:'Barlow Condensed';font-weight:600;font-size:22px;letter-spacing:.22em;color:#9a9ba0;text-transform:uppercase}
+.title .sub{margin-top:8px;font-size:22px;color:#b9bab5}
+.ruler{position:absolute;right:96px;top:150px;height:520px;width:150px;font-family:'JetBrains Mono';font-size:13px;color:#8a8b90;text-align:right}
+.ruler .cap{letter-spacing:.14em;margin-bottom:14px}
+.ruler .tick{position:absolute;right:0;display:flex;gap:10px;align-items:center}
+.ruler .tick i{display:inline-block;width:10px;border-top:1px solid #55565b}
+.ruler .bar{position:absolute;right:0;top:34px;bottom:0;border-right:1px solid #3a3b40}
+.ruler .now{position:absolute;right:0;display:flex;gap:10px;align-items:center;color:#ff5a00;font-size:18px}
+.ruler .now i{display:inline-block;width:26px;border-top:2px solid #ff5a00}
+.callout{position:absolute;transform:translate(-50%,-100%);display:flex;flex-direction:column;align-items:center}
+.callout .box{background:rgba(14,14,16,.86);border:1px solid #3a3b40;padding:7px 12px;font-size:17px;color:#f2f1ec;white-space:nowrap;text-align:center;line-height:1.35}
+.callout .box small{display:block;font-family:'Barlow Condensed';letter-spacing:.12em;font-size:14px;color:#8a8b90}
+.callout .stem{width:1px;height:46px;background:#8a8b90}
+.callout .pin{width:7px;height:7px;border-radius:50%;background:#ff5a00;box-shadow:0 0 10px #ff5a00}
+.callout.alert .box{border-color:#ff3b30}.callout.alert .pin{background:#ff3b30;box-shadow:0 0 10px #ff3b30}
+</style>
+<script type="importmap">{"imports":{"three":"../vendor/three/three.module.js","three/addons/":"../vendor/three/addons/"}}</script>
+</head><body>
+<canvas id="c" width="1920" height="1080"></canvas>
+<div class="ovl" id="ovl"></div>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const canvas = document.getElementById('c');
+const r = new THREE.WebGLRenderer({ canvas, antialias: true, preserveDrawingBuffer: true });
+r.setSize(1920, 1080, false); r.setPixelRatio(1);
+r.toneMapping = THREE.ACESFilmicToneMapping; r.toneMappingExposure = 1.0; r.outputColorSpace = THREE.SRGBColorSpace;
+r.shadowMap.enabled = true; r.shadowMap.type = THREE.PCFSoftShadowMap;
+const scene = new THREE.Scene(); scene.background = new THREE.Color(0x060607);
+scene.fog = new THREE.Fog(0x060607, 9, 26);
+scene.environment = new THREE.PMREMGenerator(r).fromScene(new RoomEnvironment(), 0.04).texture; scene.environmentIntensity = 0.42;
+const key = new THREE.SpotLight(0xffffff, 900, 0, 0.55, 0.85, 2); key.position.set(1.5, 11, 3); key.castShadow = true; key.shadow.mapSize.set(2048, 2048); key.shadow.bias = -0.0004; scene.add(key);
+const rim = new THREE.DirectionalLight(0xdfe6ff, 2.2); rim.position.set(-7, 3, -6); scene.add(rim);
+const fill = new THREE.DirectionalLight(0xffe2cc, 0.6); fill.position.set(6, 2, 6); scene.add(fill);
+
+// floor: a dark studio floor with a faint grid, fading into fog
+const floor = new THREE.Mesh(new THREE.PlaneGeometry(80, 80), new THREE.MeshStandardMaterial({ color: 0x0b0b0d, roughness: 0.55, metalness: 0.0 }));
+floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true; scene.add(floor);
+const grid = new THREE.GridHelper(40, 80, 0x1c1c20, 0x141417); grid.position.y = 0.002; scene.add(grid);
+
+const dl = new DRACOLoader(); dl.setDecoderPath('../vendor/three/addons/libs/draco/');
+const loader = new GLTFLoader(); loader.setDRACOLoader(dl);
+const t0 = performance.now();
+const gltf = await loader.loadAsync('../models/dream.glb');
+const src = gltf.scene;
+const drop = []; src.traverse((o) => { if (o.isCamera || o.isLight) drop.push(o); }); drop.forEach((o) => o.parent.remove(o));
+src.traverse((o) => {
+  if (!o.isMesh) return;
+  o.castShadow = true; o.receiveShadow = true;
+  if (o.name === 'Plane011' || o.name === 'Plane012') o.visible = false;
+  if (o.name === 'Plane010' && o.material.map) { o.material = o.material.clone(); const tx = o.material.map.clone(); tx.wrapS = THREE.RepeatWrapping; tx.repeat.x = -1; tx.offset.x = 1; tx.needsUpdate = true; o.material.map = tx; }
+});
+const mixer = new THREE.AnimationMixer(src); gltf.animations.forEach((a) => mixer.clipAction(a).play()); mixer.setTime(0.07);
+const inner = new THREE.Group(); inner.add(src); inner.scale.setScalar(0.1);
+const g = new THREE.Group(); g.add(inner); scene.add(g); g.updateMatrixWorld(true);
+let box = new THREE.Box3().setFromObject(inner); const c0 = box.getCenter(new THREE.Vector3());
+inner.position.set(-c0.x, -box.min.y, -c0.z);
+g.position.y = 1.4; // hovering
+g.updateMatrixWorld(true);
+box = new THREE.Box3().setFromObject(g);
+const size = box.getSize(new THREE.Vector3());
+const loadMs = performance.now() - t0;
+
+const cam = new THREE.PerspectiveCamera(32, 1920 / 1080, 0.05, 200);
+function shot(name) {
+  const ovl = document.getElementById('ovl');
+  if (name === 'wide') {
+    cam.position.set(6.4, 3.6, 7.6); cam.lookAt(0, 1.7, 0);
+    ovl.innerHTML = rulerHtml('≈ 6.2 m', 0.22) + titleHtml('第一层 · 冗余', 'Layer 1 · Redundancy', '四根机臂 · 八个独立电机 · 两组独立电池 · 双余度飞控');
+  } else {
+    // close on one arm tip (coaxial pair)
+    const tips = [];
+    src.traverse((o) => { if (/^组(169|167|175|178|188|186|198|196)$/.test(o.name)) { const p = new THREE.Vector3(); o.getWorldPosition(p); tips.push([o.name, p]); } });
+    tips.sort((a, b) => (b[1].x + b[1].z) - (a[1].x + a[1].z));
+    const p = tips[0][1];
+    cam.position.set(p.x + 1.1, p.y + 0.55, p.z + 1.5); cam.lookAt(p.x, p.y - 0.05, p.z);
+    ovl.innerHTML = rulerHtml('≈ 82 cm', 0.45) + titleHtml('单个电机失效', 'One motor out · keeps flying', '其余电机即时补偿，Dream Pro 继续保持稳定飞行');
+  }
+  cam.updateProjectionMatrix();
+}
+function rulerHtml(now, frac) {
+  const labels = ['10 m', '1 m', '10 cm', '1 cm', '1 mm'];
+  return `<div class="ruler"><div class="cap">视野 · FIELD OF VIEW</div><div class="bar"></div>${labels.map((l, i) => `<div class="tick" style="top:${34 + i * 120}px">${l}<i></i></div>`).join('')}<div class="now" style="top:${34 + frac * 480 - 10}px">${now}<i></i></div></div>`;
+}
+function titleHtml(zh, en, sub) { return `<div class="title"><h1>${zh}</h1><div class="en">${en}</div><div class="sub">${sub}</div></div>`; }
+function callout(world, text, small, cls = '') {
+  const v = world.clone().project(cam);
+  const x = (v.x * 0.5 + 0.5) * 1920, y = (-v.y * 0.5 + 0.5) * 1080;
+  document.getElementById('ovl').insertAdjacentHTML('beforeend', `<div class="callout ${cls}" style="left:${x}px;top:${y}px"><div class="box">${text}<small>${small}</small></div><div class="stem"></div><div class="pin"></div></div>`);
+}
+window.renderShot = (name) => {
+  shot(name);
+  const t = performance.now();
+  r.render(scene, cam);
+  const ms = performance.now() - t;
+  if (name === 'wide') {
+    const tips = []; src.traverse((o) => { if (/^组(169|175|188|198)$/.test(o.name)) { const p = new THREE.Vector3(); o.getWorldPosition(p); tips.push(p); } });
+    tips.sort((a, b) => b.x - a.x);
+    callout(tips[0].clone().add(new THREE.Vector3(0, 0.2, 0)), '共轴电机 ×8', 'COAXIAL MOTORS');
+    callout(new THREE.Vector3(0, 2.15, 0.2), 'NA80 双余度飞控', 'DUAL-REDUNDANT FLIGHT CONTROL');
+  }
+  return { ms, loadMs, size: size.toArray().map((v) => +v.toFixed(2)) };
+};
+window.ready = true;
+</script></body></html>
