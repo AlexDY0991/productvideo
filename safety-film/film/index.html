@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>酷飞 Dream Pro · 安全</title>
+<style>
+@font-face{font-family:'Noto Sans SC';font-weight:400;src:url(../fonts/NotoSansSC-400.ttf)}
+@font-face{font-family:'Noto Sans SC';font-weight:500;src:url(../fonts/NotoSansSC-500.ttf)}
+@font-face{font-family:'Noto Sans SC';font-weight:700;src:url(../fonts/NotoSansSC-700.ttf)}
+@font-face{font-family:'Noto Sans SC';font-weight:900;src:url(../fonts/NotoSansSC-900.ttf)}
+@font-face{font-family:'Barlow Condensed';font-weight:600;src:url(../fonts/BarlowCondensed-600.ttf)}
+@font-face{font-family:'Barlow Condensed';font-weight:700;src:url(../fonts/BarlowCondensed-700.ttf)}
+@font-face{font-family:'JetBrains Mono';font-weight:400;src:url(../fonts/JetBrainsMono-400.ttf)}
+@font-face{font-family:'JetBrains Mono';font-weight:500;src:url(../fonts/JetBrainsMono-500.ttf)}
+:root{--accent:#ff5a00;--fault:#ff3b30;--holo:#9fd6ff;--ink:#f2f1ec;--muted:#8d8e93}
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#050506}
+#c{position:absolute;inset:0;width:1920px;height:1080px;display:block}
+.ovl{position:absolute;inset:0;pointer-events:none;font-family:'Noto Sans SC',sans-serif;color:var(--ink)}
+.vignette{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%)}
+.shade-b{position:absolute;left:0;right:0;bottom:0;height:320px;background:linear-gradient(to bottom,rgba(5,5,6,0),rgba(5,5,6,.78))}
+.logo{position:absolute;left:96px;top:70px;height:24px}
+.tr{position:absolute;right:96px;top:74px;font-family:'Barlow Condensed';font-weight:600;font-size:18px;letter-spacing:.24em;color:#77787d}
+.title{position:absolute;left:96px;bottom:150px}
+.title h1{margin:0;font-weight:700;font-size:58px;letter-spacing:.05em;line-height:1.1}
+.title .en{margin-top:12px;font-family:'Barlow Condensed';font-weight:600;font-size:21px;letter-spacing:.26em;color:var(--muted)}
+.layers{position:absolute;left:96px;bottom:150px;display:flex;flex-direction:column;gap:14px}
+.layers div{display:flex;align-items:baseline;gap:18px;font-size:30px;font-weight:500}
+.layers b{font-family:'Barlow Condensed';font-weight:700;font-size:26px;color:var(--accent);letter-spacing:.06em;width:36px}
+.layers span{font-family:'Barlow Condensed';font-weight:600;font-size:17px;letter-spacing:.22em;color:var(--muted)}
+.sub{position:absolute;left:0;right:0;bottom:64px;text-align:center;font-size:34px;font-weight:500;letter-spacing:.03em;text-shadow:0 2px 12px rgba(0,0,0,.9),0 0 3px rgba(0,0,0,.95)}
+.ruler{position:absolute;right:96px;top:150px;width:170px;height:600px;font-family:'JetBrains Mono';font-size:13px;color:#7c7d82;text-align:right}
+.ruler .cap{letter-spacing:.14em;white-space:nowrap}
+.ruler .bar{position:absolute;right:0;top:40px;bottom:0;border-right:1px solid #34353a}
+.ruler .tick{position:absolute;right:0;display:flex;gap:10px;align-items:center;transform:translateY(-50%)}
+.ruler .tick i{display:inline-block;width:10px;border-top:1px solid #4a4b50}
+.ruler .now{position:absolute;right:0;display:flex;gap:10px;align-items:center;transform:translateY(-50%);color:var(--accent);font-size:19px;font-weight:500;white-space:nowrap}
+.ruler .now i{display:inline-block;width:28px;border-top:2px solid var(--accent)}
+.callouts{position:absolute;inset:0}
+.co{position:absolute;display:flex;flex-direction:column;align-items:center;transform:translate(-50%,-100%)}
+.co .box{background:rgba(12,12,14,.82);border:1px solid #3c3d42;padding:8px 14px;font-size:19px;white-space:nowrap;text-align:center;line-height:1.35}
+.co .box small{display:block;font-family:'Barlow Condensed';font-weight:600;letter-spacing:.14em;font-size:14px;color:var(--muted)}
+.co .box em{font-style:normal;color:var(--accent)}
+.co .stem{width:1px;background:#7c7d82}
+.co .pin{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent)}
+.co.fault .box{border-color:var(--fault)}.co.fault .box em{color:var(--fault)}.co.fault .pin{background:var(--fault);box-shadow:0 0 12px var(--fault)}
+.co.holo .pin{background:var(--holo);box-shadow:0 0 12px var(--holo)}
+.co .gauge{display:block;margin:6px auto 0}
+.end{position:absolute;inset:0;background:#050506;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0}
+.end img{height:84px}
+.end .tag{margin-top:44px;font-family:'Barlow Condensed';font-weight:600;font-size:24px;letter-spacing:.4em;padding-left:.4em;color:var(--accent)}
+.end .url{margin-top:56px;font-family:'JetBrains Mono';font-size:18px;letter-spacing:.1em;color:#8d8e93}
+</style>
+<script type="importmap">{"imports":{"three":"../vendor/three/three.module.js","three/addons/":"../vendor/three/addons/"}}</script>
+</head><body>
+<canvas id="c" width="1920" height="1080"></canvas>
+<div class="ovl">
+  <div class="vignette"></div><div class="shade-b"></div>
+  <img class="logo" data-fade src="../assets/coolfly-logo-white.png" alt="CoolFly">
+  <div class="tr" data-fade>DREAM PRO · SAFETY</div>
+  <div class="ruler" data-ruler data-fade></div>
+  <div class="callouts" data-callouts></div>
+  <div class="title" data-title><h1></h1><div class="en"></div></div>
+  <div class="layers" data-layers>
+    <div><b>01</b>冗余<span>REDUNDANCY</span></div>
+    <div><b>02</b>主动安全<span>ACTIVE SAFETY</span></div>
+    <div><b>03</b>被动安全<span>PASSIVE SAFETY</span></div>
+  </div>
+  <div class="sub" data-sub></div>
+  <div class="end" data-end>
+    <img src="../assets/coolfly-logo-white.png" alt="CoolFly">
+    <div class="tag">BORN TO RISE</div>
+    <div class="url">www.coolflyaircraft.com</div>
+  </div>
+</div>
+<audio data-voice src="../audio/voice.wav" preload="auto"></audio>
+<script type="module" src="film.js"></script>
+</body></html>

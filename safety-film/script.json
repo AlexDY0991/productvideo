@@ -1,0 +1,89 @@
+{
+  "title": "酷飞 Dream Pro · 安全",
+  "note": "口径：单电机失效仍能继续飞行；电池写安全降落；不写 No Exposed Blades、RTK、硬件参数；运行纪律不提地面团队。",
+  "gapSentence": 0.34,
+  "gapScene": 0.8,
+  "scenes": [
+    {
+      "id": "open",
+      "title": "安全",
+      "en": "SAFETY · DREAM PRO",
+      "tail": 1.2,
+      "lines": [
+        "让人飞起来并不难，难的是让人放心地飞。",
+        "Dream Pro 的安全，分为三层。"
+      ]
+    },
+    {
+      "id": "motors",
+      "title": "第一层 · 冗余",
+      "en": "LAYER 1 · REDUNDANCY",
+      "tail": 2.2,
+      "lines": [
+        "安全的第一层，是冗余。",
+        "Dream Pro 有四根机臂、八个独立电机，上下两两共轴。",
+        "即使其中一个电机失效，飞控即时调整其余电机，Dream Pro 依然能够继续飞行。"
+      ]
+    },
+    {
+      "id": "battery",
+      "title": "双电池",
+      "en": "DUAL BATTERIES",
+      "lines": [
+        "两组电池彼此独立，共同供电。",
+        "一组出现问题，另一组仍能支撑飞行器安全降落。"
+      ],
+      "tail": 1.2
+    },
+    {
+      "id": "fc",
+      "title": "NA80 双余度飞控",
+      "en": "DUAL-REDUNDANT FLIGHT CONTROL",
+      "tail": 1.2,
+      "lines": [
+        "控制的核心，是 NA80 双余度飞控：两台飞控同时在线，三组 IMU 互相校验。",
+        "没有哪一个部件，能单独决定飞行。"
+      ]
+    },
+    {
+      "id": "active",
+      "title": "第二层 · 主动安全",
+      "en": "LAYER 2 · ACTIVE SAFETY",
+      "lines": [
+        "第二层，是主动安全。",
+        "飞行器时刻监测自己的姿态、高度、电量和位置，在小问题变成大问题之前，提前介入。",
+        "人负责飞行，系统守住安全边界。"
+      ],
+      "tail": 1.0
+    },
+    {
+      "id": "passive",
+      "title": "第三层 · 被动安全",
+      "en": "LAYER 3 · PASSIVE SAFETY",
+      "tail": 3.6,
+      "lines": [
+        "第三层，是被动安全。",
+        "万一仍有意外，整机降落伞和安全气囊，是留给驾驶员的最后一层保护。"
+      ]
+    },
+    {
+      "id": "zone",
+      "title": "只在指定区域飞行",
+      "en": "DESIGNATED AREAS ONLY",
+      "tail": 1.4,
+      "lines": [
+        "而这一切，都运行在一条简单的规则里：只在指定区域飞行，远离建筑和人群。",
+        "技术是安全的一半，纪律是另一半。"
+      ]
+    },
+    {
+      "id": "end",
+      "title": "",
+      "en": "",
+      "tail": 3.4,
+      "lines": [
+        "酷飞。Born to Rise。"
+      ]
+    }
+  ]
+}
