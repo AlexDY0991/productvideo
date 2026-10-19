@@ -40,8 +40,11 @@ const C = {
   battLand: cue('battery', 1, '安全降落'),
   fcStart: sceneOf('fc').start,
   fcTwo: cue('fc', 0, '两台飞控'),
-  fcImu: cue('fc', 0, '三组 IMU'),
-  fcSingle: cue('fc', 1, '单独决定'),
+  fcVoter: cue('fc', 0, '表决器'),
+  fcFault: cue('fc', 1, '异常'),
+  fcSwitch: cue('fc', 1, '毫秒级'),
+  fcImu: cue('fc', 2, '三组 IMU'),
+  fcNone: cue('fc', 2, '没有哪一个'),
   activeStart: sceneOf('active').start,
   monitor: cue('active', 1, '姿态'),
   intervene: cue('active', 1, '提前介入'),
@@ -49,10 +52,10 @@ const C = {
   passiveStart: sceneOf('passive').start,
   accident: cue('passive', 1, '意外'),
   chute: cue('passive', 1, '降落伞'),
-  bags: cue('passive', 1, '安全气囊'),
-  zoneStart: sceneOf('zone').start,
-  zoneRule: cue('zone', 0, '指定区域'),
-  zoneHalf: cue('zone', 1, '技术'),
+  bags: cue('passive', 1, '机身安全气囊'),
+  pilot: cue('passive', 2, '驾驶员'),
+  suit: cue('passive', 2, '安全气囊服'),
+  helmet: cue('passive', 2, '头盔'),
   endStart: sceneOf('end').start,
 };
 
@@ -75,7 +78,6 @@ scene.add(key, key.target);
 const rim = new THREE.DirectionalLight(0xdfe6ff, 2.4); rim.position.set(-8, 4, -7); scene.add(rim);
 const rim2 = new THREE.DirectionalLight(0xffffff, 1.2); rim2.position.set(9, 3, -4); scene.add(rim2);
 const fill = new THREE.DirectionalLight(0xffe6d2, 0.45); fill.position.set(4, 2, 9); scene.add(fill);
-const sun = new THREE.DirectionalLight(0xdfe8ff, 0); sun.position.set(-300, 600, 400); scene.add(sun);
 
 const floorMat = new THREE.MeshStandardMaterial({ color: 0x08080a, roughness: 0.78, metalness: 0.0, transparent: true });
 const floor = new THREE.Mesh(new THREE.CircleGeometry(80, 96), floorMat);
@@ -282,27 +284,55 @@ function makeNA80() {
 }
 const FC_MOUNT = P(0, 0.47, 0.22);
 const fcGroup = new THREE.Group(); fcGroup.position.copy(FC_MOUNT); TILT.add(fcGroup);
-const plate = new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.003, 0.13), new THREE.MeshStandardMaterial({ color: 0x1e1f22, roughness: 0.5, metalness: 0.4 }));
-plate.position.y = -0.0015; fcGroup.add(plate);
+const plate = new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.003, 0.2), new THREE.MeshStandardMaterial({ color: 0x1e1f22, roughness: 0.5, metalness: 0.4 }));
+plate.position.set(0, -0.0015, 0.035); fcGroup.add(plate);
 const NA = [makeNA80(), makeNA80()];
 NA[0].g.position.set(-0.045, 0, 0); NA[1].g.position.set(0.045, 0, 0);
 NA.forEach((u) => fcGroup.add(u.g));
-const fcHoloMat = holo(0xffb070);
-for (const u of NA) { const h = new THREE.Mesh(new THREE.BoxGeometry(u.Wd, u.Hh, u.L), fcHoloMat); h.position.y = u.Hh / 2; h.layers.set(2); u.g.add(h); }
+const fcHolo = NA.map((u) => { const m = holo(0xffb070); const h = new THREE.Mesh(new THREE.BoxGeometry(u.Wd, u.Hh, u.L), m); h.position.y = u.Hh / 2; h.layers.set(2); u.g.add(h); return m; });
 fcGroup.visible = true;
-// 三组 IMU 互相校验（A 机）
+// 三组 IMU 互相校验（接管后的从飞控）
+const IMU_U = NA[1];
 const imuLink = lineM(0xff7a2a); imuLink.uniforms.uDash.value = 0.004; imuLink.uniforms.uSpeed.value = 0.01;
 const imuLinkBad = lineM(0xff3b30); imuLinkBad.uniforms.uDash.value = 0.004; imuLinkBad.uniforms.uSpeed.value = 0.01;
 {
-  const p = NA[0].imus.map((m) => m.position.clone().add(new THREE.Vector3(0, 0.0012, 0)));
-  NA[0].g.add(polyline([p[0], p[1]].map((v) => v.toArray()), imuLink));
-  NA[0].g.add(polyline([p[1], p[2]].map((v) => v.toArray()), imuLinkBad));
-  NA[0].g.add(polyline([p[2], p[0]].map((v) => v.toArray()), imuLinkBad));
+  const p = IMU_U.imus.map((m) => m.position.clone().add(new THREE.Vector3(0, 0.0012, 0)));
+  IMU_U.g.add(polyline([p[0], p[1]].map((v) => v.toArray()), imuLink));
+  IMU_U.g.add(polyline([p[1], p[2]].map((v) => v.toArray()), imuLinkBad));
+  IMU_U.g.add(polyline([p[2], p[0]].map((v) => v.toArray()), imuLinkBad));
 }
-const imuGlow = NA[0].imus.map((m, i) => { const mat = holo(i === 2 ? 0xff3b30 : 0xff9a50, { base: 0.12 }); const h = new THREE.Mesh(m.geometry, mat); h.scale.set(1.3, 1.6, 1.3); h.layers.set(2); m.add(h); return mat; });
+const imuGlow = IMU_U.imus.map((m, i) => { const mat = holo(i === 2 ? 0xff3b30 : 0xff9a50, { base: 0.12 }); const h = new THREE.Mesh(m.geometry, mat); h.scale.set(1.3, 1.6, 1.3); h.layers.set(2); m.add(h); return mat; });
 // 双机同步线
 const syncMat = lineM(0xe8e8e4); syncMat.uniforms.uDash.value = 0.012; syncMat.uniforms.uSpeed.value = 0.03;
 fcGroup.add(polyline([[-0.045, 0.0352, 0.03], [0, 0.05, 0.03], [0.045, 0.0352, 0.03]], syncMat));
+// 表决器（外形示意）：主、从两路输出都接到这里，由它监测双机健康、仲裁哪一路送往执行机构
+const VOTER = [0, 0, 0.098];
+function voterLabel() {
+  const c = document.createElement('canvas'); c.width = 512; c.height = 280; const x = c.getContext('2d');
+  x.fillStyle = '#1b1c1f'; x.fillRect(0, 0, 512, 280);
+  x.strokeStyle = '#ff5a00'; x.lineWidth = 6; x.beginPath(); x.moveTo(0, 6); x.lineTo(512, 6); x.stroke();
+  x.fillStyle = '#d9d9d0'; x.textAlign = 'center'; x.textBaseline = 'middle';
+  x.font = '700 92px "Barlow Condensed"'; x.fillText('VOTER', 256, 92);
+  x.font = '500 40px "JetBrains Mono"'; x.fillText('A', 116, 214); x.fillText('B', 396, 214);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; return t;
+}
+const voter = new THREE.Group(); voter.position.set(...VOTER); fcGroup.add(voter);
+const voterLed = [0, 1].map(() => new THREE.MeshStandardMaterial({ color: 0x222222, emissive: 0xff5a00, emissiveIntensity: 0 }));
+const voterHolo = holo(0xffb070);
+{
+  const body = new THREE.Mesh(chamfered(0.056, 0, 0.02, 0.034, 0.004), darkAl); body.castShadow = true; body.receiveShadow = true; voter.add(body);
+  const label = new THREE.Mesh(new THREE.PlaneGeometry(0.046, 0.025), new THREE.MeshStandardMaterial({ map: voterLabel(), roughness: 0.5, metalness: 0.2 }));
+  label.rotation.x = -Math.PI / 2; label.position.y = 0.0201; voter.add(label);
+  // 灯在标签上 A / B 字样旁边
+  [-1, 1].forEach((sx, i) => { const l = new THREE.Mesh(new THREE.CylinderGeometry(0.0018, 0.0018, 0.0008, 16), voterLed[i]); l.position.set(sx * 0.0115 + 0.0045, 0.0204, 0.0068); voter.add(l); });
+  const h = new THREE.Mesh(new THREE.BoxGeometry(0.056, 0.02, 0.034), voterHolo); h.position.y = 0.01; h.layers.set(2); voter.add(h);
+}
+// 控制通道：主 → 表决器（在控，橙）、从 → 表决器（热备，白），表决器 → 执行机构
+const pathA = lineM(0xff7a2a), pathB = lineM(0xe8e8e4), pathOut = lineM(0xff7a2a);
+for (const m of [pathA, pathB, pathOut]) { m.uniforms.uDash.value = 0.01; m.uniforms.uSpeed.value = 0.04; }
+fcGroup.add(polyline([[-0.045, 0.018, 0.057], [-0.045, 0.018, 0.07], [-0.014, 0.01, 0.081]], pathA));
+fcGroup.add(polyline([[0.045, 0.018, 0.057], [0.045, 0.018, 0.07], [0.014, 0.01, 0.081]], pathB));
+fcGroup.add(polyline([[0, 0.01, 0.115], [0, 0.006, 0.135], [0, -0.04, 0.2]], pathOut));
 
 // ───────── 降落伞（后舱圆桶，示意）─────────
 const CAN = P(0, 1.38, -1.33);
@@ -330,6 +360,36 @@ for (const [x, w] of [[-0.42, 0.62], [0.42, 0.62]]) { const b = new THREE.Mesh(n
 for (const z of [-1.3, 1.3]) { const b = new THREE.Mesh(new RoundedBoxGeometry(1.5, 0.46, 0.6, 6, 0.22), bagMat); b.position.set(0, -0.2, z); b.castShadow = true; bags.add(b); }
 bags.visible = false;
 
+// ───────── 驾驶员（全息示意）：安全气囊服 + 头盔 ─────────
+const pilot = new THREE.Group(); TILT.add(pilot); pilot.visible = false;
+const bodyMat = holo(0x9fd6ff, { base: 0.1 }), suitMat = holo(0xff7a2a, { base: 0.14 }), helmetMat = holo(0xe8e8e4, { base: 0.16 });
+const UP = new THREE.Vector3(0, 1, 0);
+function limb(a, b, r, mat, parent = pilot) {
+  const A = P(...a), B = P(...b), d = B.clone().sub(A);
+  const m = new THREE.Mesh(new THREE.CapsuleGeometry(r, d.length(), 6, 18), mat);
+  m.position.copy(A).add(B).multiplyScalar(0.5); m.quaternion.setFromUnitVectors(UP, d.normalize());
+  m.layers.set(2); parent.add(m); return m;
+}
+// 坐姿（模型坐标）：背靠座椅，双手在身前，脚伸向前方
+const PILOT = { pelvis: [0, 0.5, -0.74], chest: [0, 1.1, -0.88], neck: [0, 1.22, -0.9], head: [0, 1.38, -0.9] };
+limb(PILOT.pelvis, PILOT.chest, 0.11, bodyMat).scale.set(1.45, 1, 1);
+limb(PILOT.chest, PILOT.neck, 0.045, bodyMat);
+{ const h = new THREE.Mesh(new THREE.SphereGeometry(0.095, 24, 16), bodyMat); h.position.copy(P(...PILOT.head)); h.layers.set(2); pilot.add(h); }
+for (const sx of [-1, 1]) {
+  limb([sx * 0.27, 1.06, -0.86], [sx * 0.36, 0.78, -0.7], 0.042, bodyMat);
+  limb([sx * 0.36, 0.78, -0.7], [sx * 0.2, 0.74, -0.38], 0.037, bodyMat);
+  limb([sx * 0.13, 0.5, -0.72], [sx * 0.16, 0.7, -0.14], 0.068, bodyMat);
+  limb([sx * 0.16, 0.7, -0.14], [sx * 0.16, 0.28, 0.2], 0.048, bodyMat);
+  limb([sx * 0.16, 0.28, 0.2], [sx * 0.16, 0.24, 0.42], 0.035, bodyMat);
+}
+// 安全气囊服：躯干外一层 + 护颈，充气时鼓起
+const suit = new THREE.Group(); pilot.add(suit);
+const suitTorso = limb([0, 0.62, -0.77], PILOT.chest, 0.125, suitMat, suit);
+const collar = new THREE.Mesh(new THREE.TorusGeometry(0.085, 0.034, 14, 40), suitMat);
+collar.position.copy(P(0, 1.17, -0.89)); collar.rotation.x = Math.PI / 2 - 0.15; collar.layers.set(2); suit.add(collar);
+const helmet = new THREE.Mesh(new THREE.SphereGeometry(0.128, 32, 20), helmetMat);
+helmet.position.copy(P(0, 1.4, -0.91)); helmet.layers.set(2); pilot.add(helmet);
+
 // ───────── 主动安全：边界墙 ─────────
 const fenceMat = new THREE.ShaderMaterial({
   uniforms: { uOpacity: { value: 0 }, uGlow: { value: 0 }, uColor: { value: new THREE.Color(0xff5a00) } },
@@ -342,58 +402,6 @@ const fenceMat = new THREE.ShaderMaterial({
 });
 const fence = new THREE.Mesh(new THREE.PlaneGeometry(7, 3.6), fenceMat);
 fence.rotation.y = Math.PI / 2; fence.position.set(3.6, 1.8, 0); scene.add(fence);
-
-// ───────── 高空：指定飞行区域 ─────────
-const aerial = new THREE.Group(); scene.add(aerial);
-const aerMats = [];
-const aMat = (o) => { const m = new THREE.MeshStandardMaterial({ transparent: true, opacity: 0, ...o }); aerMats.push(m); return m; };
-const land = new THREE.Mesh(new THREE.PlaneGeometry(5000, 5000), aMat({ color: 0x2a2b2f, roughness: 1 }));
-land.rotation.x = -Math.PI / 2; land.position.y = -0.05; aerial.add(land);
-const ZONE = { x0: -170, x1: 190, z0: -130, z1: 150 };
-const PLAZA = { x0: -400, x1: -260, z0: 170, z1: 330 };   // 区域外的人群广场
-const COAST = -760;                                        // 远处是水面
-{
-  // 形状在 (x, -z) 平面里画，再转到地面上（法线朝上）
-  const s = new THREE.Shape(); s.moveTo(-2500, -COAST);
-  for (let x = -2500; x <= 2500; x += 50) s.lineTo(x, -COAST + 18 * Math.sin(x * 0.006) + 10 * Math.sin(x * 0.017 + 1));
-  s.lineTo(2500, 2500); s.lineTo(-2500, 2500); s.closePath();
-  const water = new THREE.Mesh(new THREE.ShapeGeometry(s), aMat({ color: 0x0a1726, roughness: 0.2, metalness: 0.3 }));
-  water.rotation.x = -Math.PI / 2; water.position.y = -0.04; aerial.add(water);
-}
-{
-  let seed = 7; const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
-  const near = (r, x, z, m) => x > r.x0 - m && x < r.x1 + m && z > r.z0 - m && z < r.z1 + m;
-  // 街区：60 m 网格里随机落楼，空出飞行区域和广场
-  const bMat = aMat({ color: 0x55565c, roughness: 0.8 });
-  const m4 = new THREE.Matrix4(), list = [];
-  for (let gx = -1400; gx < 1400; gx += 60) for (let gz = COAST + 60; gz < 1100; gz += 60) {
-    const x = gx + 30 + (rnd() - 0.5) * 16, z = gz + 30 + (rnd() - 0.5) * 16;
-    if (rnd() > 0.72 || near(ZONE, x, z, 110) || near(PLAZA, x, z, 30)) continue;
-    const w = 16 + rnd() * 26, d = 16 + rnd() * 26, h = 8 + Math.pow(rnd(), 2.2) * 95;
-    list.push(m4.clone().compose(new THREE.Vector3(x, h / 2, z), new THREE.Quaternion(), new THREE.Vector3(w, h, d)));
-  }
-  const inst = new THREE.InstancedMesh(new THREE.BoxGeometry(1, 1, 1), bMat, list.length);
-  list.forEach((m, i) => inst.setMatrixAt(i, m)); aerial.add(inst);
-  const crowdMat = aMat({ color: 0x9a9ba0, roughness: 0.9 });
-  const NC = 900; const crowd = new THREE.InstancedMesh(new THREE.CylinderGeometry(1, 1, 1.7, 6), crowdMat, NC);
-  for (let i = 0; i < NC; i++) { const x = mix(PLAZA.x0 + 10, PLAZA.x1 - 10, rnd()), z = mix(PLAZA.z0 + 10, PLAZA.z1 - 10, rnd()); m4.compose(new THREE.Vector3(x, 0.85, z), new THREE.Quaternion(), new THREE.Vector3(1, 1, 1)); crowd.setMatrixAt(i, m4); }
-  aerial.add(crowd);
-}
-const zoneFillMat = new THREE.MeshBasicMaterial({ color: 0xff5a00, transparent: true, opacity: 0, depthWrite: false, blending: THREE.AdditiveBlending });
-const zoneFill = new THREE.Mesh(new THREE.PlaneGeometry(ZONE.x1 - ZONE.x0, ZONE.z1 - ZONE.z0), zoneFillMat);
-zoneFill.rotation.x = -Math.PI / 2; zoneFill.position.set((ZONE.x0 + ZONE.x1) / 2, 0.02, (ZONE.z0 + ZONE.z1) / 2); aerial.add(zoneFill);
-const dashMat = new THREE.MeshBasicMaterial({ color: 0xff5a00, transparent: true, opacity: 0 });
-{
-  const per = [[ZONE.x0, ZONE.z0], [ZONE.x1, ZONE.z0], [ZONE.x1, ZONE.z1], [ZONE.x0, ZONE.z1], [ZONE.x0, ZONE.z0]];
-  const geo = new THREE.BoxGeometry(1, 0.2, 1); const inst = new THREE.InstancedMesh(geo, dashMat, 200); let n = 0; const m4 = new THREE.Matrix4();
-  for (let i = 0; i < 4; i++) {
-    const [ax, az] = per[i], [bx, bz] = per[i + 1]; const len = Math.hypot(bx - ax, bz - az); const ux = (bx - ax) / len, uz = (bz - az) / len;
-    for (let d = 0; d < len; d += 16) { const L = Math.min(9, len - d); m4.compose(new THREE.Vector3(ax + ux * (d + L / 2), 0.1, az + uz * (d + L / 2)), new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), -Math.atan2(uz, ux)), new THREE.Vector3(L, 1, 2.4)); inst.setMatrixAt(n++, m4); }
-  }
-  inst.count = n; aerial.add(inst);
-}
-const markerMat = new THREE.MeshBasicMaterial({ color: 0xff5a00, transparent: true, opacity: 0, depthWrite: false });
-const marker = new THREE.Mesh(new THREE.RingGeometry(0.75, 1, 48), markerMat); marker.rotation.x = -Math.PI / 2; marker.position.y = 0.06; scene.add(marker);
 
 // ───────── 状态（全部是 t 的函数）─────────
 const HOVER = 1.15;
@@ -448,7 +456,8 @@ function activeState(t) {
 // ───────── 镜头 ─────────
 const acPos = (t) => new THREE.Vector3(0, acY(t), 0);
 const fcWorld = (t, off = [0, 0.02, 0]) => new THREE.Vector3(FC_MOUNT.x + off[0], acY(t) + FC_MOUNT.y + off[1], FC_MOUNT.z + off[2]);
-const imuWorld = (t) => fcWorld(t, [-0.045 + 0.006, 0.012, 0.006]);
+const pilotWorld = (t, p) => P(...p).add(new THREE.Vector3(0, acY(t), 0));
+const imuWorld = (t) => fcWorld(t, [0.045 + 0.006, 0.012, 0.006]);
 const SHOTS = [
   { t: -1, d: 0.01, tg: () => new THREE.Vector3(0, 1.4, 0), az: 32, el: 9, dist: 8.8, fov: 30 },
   { t: C.layers - 0.4, d: 3.0, tg: () => new THREE.Vector3(0.9, 1.4, 0), az: 22, el: 12, dist: 9.4, fov: 30 },
@@ -458,16 +467,17 @@ const SHOTS = [
   { t: C.still - 0.5, d: 2.6, tg: () => new THREE.Vector3(0, 1.25, 0), az: 58, el: 16, dist: 9.2, fov: 30 },
   { t: C.battStart - 0.3, d: 2.4, tg: (t) => new THREE.Vector3(0, acY(t) + 0.55, 0.05), az: 88, el: 12, dist: 5.6, fov: 32 },
   { t: C.battLand - 0.6, d: 2.2, tg: (t) => new THREE.Vector3(0, acY(t) + 0.6, 0.05), az: 74, el: 14, dist: 6.8, fov: 32 },
-  { t: C.fcStart - 0.4, d: 2.6, tg: (t) => fcWorld(t), az: 58, el: 30, dist: 0.9, fov: 32 },
-  { t: C.fcTwo - 0.5, d: 1.6, tg: (t) => fcWorld(t), az: 40, el: 38, dist: 0.36, fov: 32 },
+  { t: C.fcStart - 0.4, d: 2.6, tg: (t) => fcWorld(t, [0, 0.02, 0.03]), az: 58, el: 30, dist: 0.9, fov: 32 },
+  { t: C.fcTwo - 0.5, d: 1.6, tg: (t) => fcWorld(t, [0, 0.02, 0.03]), az: 40, el: 40, dist: 0.42, fov: 32 },
+  { t: C.fcVoter - 0.5, d: 1.6, tg: (t) => fcWorld(t, [0, 0.015, 0.05]), az: 16, el: 36, dist: 0.4, fov: 32 },
+  { t: C.fcFault - 0.3, d: 2.4, tg: (t) => fcWorld(t, [0, 0.015, 0.05]), az: 8, el: 42, dist: 0.36, fov: 32 },
   { t: C.fcImu - 0.4, d: 1.8, tg: (t) => imuWorld(t), az: 30, el: 62, dist: 0.075, fov: 32 },
-  { t: C.fcSingle - 0.5, d: 2.2, tg: (t) => imuWorld(t), az: 50, el: 56, dist: 0.062, fov: 32 },
+  { t: C.fcNone - 0.5, d: 2.2, tg: (t) => imuWorld(t), az: 50, el: 56, dist: 0.062, fov: 32 },
   { t: C.activeStart - 0.6, d: 3.2, tg: (t) => new THREE.Vector3(0.6, acY(t) + 0.4, 0), az: 18, el: 9, dist: 11.5, fov: 30 },
   { t: C.passiveStart - 0.4, d: 2.6, tg: (t) => new THREE.Vector3(0, acY(t) + 0.5, 0), az: 34, el: 2, dist: 11, fov: 30 },
   { t: popAt - 0.3, d: 1.8, tg: (t) => new THREE.Vector3(0, acY(t) + 3.7, 0), az: 34, el: -2, dist: 22.5, fov: 30 },
-  { t: C.zoneStart - 0.3, d: 1.6, tg: () => new THREE.Vector3(0, 1.2, 0), az: 30, el: 26, dist: 16, fov: 30 },
-  { t: C.zoneStart + 1.2, d: 5.6, tg: () => new THREE.Vector3(10, 0, -60), az: 18, el: 58, dist: 1250, fov: 30 },
-  { t: C.zoneHalf, d: 4.5, tg: () => new THREE.Vector3(10, 0, -70), az: 12, el: 62, dist: 1350, fov: 30 },
+  { t: C.pilot - 0.6, d: 2.4, tg: (t) => pilotWorld(t, [0, 0.95, -0.55]), az: 2, el: 17, dist: 3.2, fov: 30 },
+  { t: C.helmet - 0.4, d: 2.6, tg: (t) => pilotWorld(t, [0, 1.05, -0.62]), az: -4, el: 13, dist: 2.6, fov: 30 },
 ];
 function camState(t) {
   let i = 0; while (i + 1 < SHOTS.length && SHOTS[i + 1].t <= t) i++;
@@ -485,9 +495,9 @@ const cam = new THREE.PerspectiveCamera(30, ASPECT, 0.01, 6000);
 // ───────── 叠加层 ─────────
 const $ = (s) => document.querySelector(s);
 const ui = { sub: $('[data-sub]'), title: $('[data-title]'), h1: $('[data-title] h1'), en: $('[data-title] .en'), layers: $('[data-layers]'), ruler: $('[data-ruler]'), co: $('[data-callouts]'), end: $('[data-end]'), fades: [...document.querySelectorAll('[data-fade]')] };
-const LOG_TOP = Math.log10(1000), LOG_BOT = Math.log10(0.01);
+const LOG_TOP = Math.log10(100), LOG_BOT = Math.log10(0.01);
 const rulerFrac = (w) => clamp01((LOG_TOP - Math.log10(w)) / (LOG_TOP - LOG_BOT));
-ui.ruler.innerHTML = `<div class="cap">视野 · FIELD OF VIEW</div><div class="bar"></div>` + ['1 km', '100 m', '10 m', '1 m', '10 cm', '1 cm'].map((l, i) => `<div class="tick" style="top:${40 + (i / 5) * 560}px">${l}<i></i></div>`).join('') + `<div class="now" data-now><span></span><i></i></div>`;
+ui.ruler.innerHTML = `<div class="cap">视野 · FIELD OF VIEW</div><div class="bar"></div>` + ['100 m', '10 m', '1 m', '10 cm', '1 cm'].map((l, i) => `<div class="tick" style="top:${40 + (i / 4) * 560}px">${l}<i></i></div>`).join('') + `<div class="now" data-now><span></span><i></i></div>`;
 const rulerNow = ui.ruler.querySelector('[data-now]'), rulerText = rulerNow.querySelector('span');
 const fmtLen = (w) => (w >= 1000 ? `≈ ${(w / 1000).toFixed(1)} km` : w >= 10 ? `≈ ${Math.round(w)} m` : w >= 1 ? `≈ ${w.toFixed(1)} m` : w >= 0.1 ? `≈ ${Math.round(w * 100)} cm` : w >= 0.01 ? `≈ ${(w * 100).toFixed(1)} cm` : `≈ ${Math.round(w * 1000)} mm`);
 const SUBS = [];
@@ -524,7 +534,7 @@ function render(t) {
   // X 光（机体半透明）与全息部件
   const cs = camState(t);
   const near = clamp01(cs.dist / 2.5);
-  const xray = Math.max(win(t, C.battStart + 0.3, C.battFault + 2.2, 0.8), win(t, C.fcStart - 0.2, C.activeStart - 0.2, 0.9), win(t, C.passiveStart + 0.6, C.chute + 0.4, 0.6) * 0.7);
+  const xray = Math.max(win(t, C.battStart + 0.3, C.battFault + 2.2, 0.8), win(t, C.fcStart - 0.2, C.activeStart - 0.2, 0.9), win(t, C.passiveStart + 0.6, C.chute + 0.4, 0.6) * 0.7, win(t, C.pilot - 0.3, C.endStart + 1.0, 0.7) * 0.55);
   for (const s of matState) {
     if (xray > 0.01) { s.m.transparent = true; s.m.opacity = s.opacity * (1 - mix(0.97, 0.82, near) * xray); s.m.depthWrite = xray < 0.5; }
     else { s.m.transparent = s.transparent; s.m.opacity = s.opacity; s.m.depthWrite = s.depthWrite; }
@@ -541,15 +551,30 @@ function render(t) {
   ringFail.uniforms.uOpacity.value = win(t, C.fail + 0.1, C.battStart + 0.4, 0.3) * (0.75 + 0.25 * Math.sin(t * 10));
   ringComp.uniforms.uOpacity.value = win(t, C.adjust - 0.1, C.battStart + 0.4, 0.4) * 0.8;
   const fcIn = win(t, C.fcStart + 0.2, C.activeStart, 0.6);
-  fcHoloMat.uniforms.uOpacity.value = fcIn * (1 - ramp(t, C.fcTwo, 0.8)) * 0.9;
+  const intro = fcIn * (1 - ramp(t, C.fcTwo, 0.8)) * 0.9;
+  const faultA = ramp(t, C.fcFault, 0.15) * (1 - ramp(t, C.activeStart - 1.0, 0.6));   // 主飞控异常（演示）
+  const sw = ramp(t, C.fcSwitch, 0.12);                                                // 表决器切到从飞控
+  const pulse = 0.6 + 0.4 * Math.sin(t * 10);
+  fcHolo[0].uniforms.uColor.value.set(0xffb070).lerp(new THREE.Color(0xff3b30), faultA);
+  fcHolo[0].uniforms.uOpacity.value = Math.max(intro, faultA * pulse * win(t, C.fcFault, C.fcImu - 0.4, 0.2));
+  fcHolo[1].uniforms.uOpacity.value = Math.max(intro, 0.8 * burst(t - C.fcSwitch, 0.08, 0.7));
+  const pathsOn = win(t, C.fcVoter - 0.3, C.fcImu - 0.2, 0.4);
+  pathA.uniforms.uColor.value.set(0xff7a2a).lerp(new THREE.Color(0xff3b30), faultA);
+  pathA.uniforms.uOpacity.value = pathsOn * (1 - 0.75 * sw);
+  pathB.uniforms.uColor.value.set(0xe8e8e4).lerp(new THREE.Color(0xff7a2a), sw);
+  pathB.uniforms.uOpacity.value = pathsOn * (0.45 + 0.55 * sw);
+  pathOut.uniforms.uOpacity.value = pathsOn;
+  voterHolo.uniforms.uOpacity.value = 0.9 * win(t, C.fcVoter - 0.2, C.fcVoter + 1.4, 0.3) + 0.9 * burst(t - C.fcSwitch, 0.05, 0.5);
+  voterLed[0].emissive.set(0xff5a00).lerp(new THREE.Color(0xff3b30), faultA); voterLed[0].emissiveIntensity = 2.5 * fcIn * (1 - sw) + 2.5 * faultA * sw * (0.5 + 0.5 * Math.sin(t * 12));
+  voterLed[1].emissive.set(0xff5a00); voterLed[1].emissiveIntensity = 2.5 * fcIn * sw;
   const lidOpen = smoother((t - (C.fcImu - 0.6)) / 1.0) * (1 - smoother((t - (C.activeStart - 1.2)) / 0.8));
-  NA[0].lid.position.set(-0.07 * lidOpen, 0.12 * lidOpen, -0.0015);
-  NA[0].lid.rotation.z = 0.45 * lidOpen;
-  NA[0].ledMat.emissive.set(0xff5a00); NA[0].ledMat.emissiveIntensity = 2.5 * fcIn;
-  NA[1].ledMat.emissive.set(0xe8e8e4); NA[1].ledMat.emissiveIntensity = 1.6 * fcIn * (0.6 + 0.4 * Math.sin(t * 4));
-  syncMat.uniforms.uOpacity.value = win(t, C.fcTwo + 0.3, C.fcImu, 0.4);
+  IMU_U.lid.position.set(0.07 * lidOpen, 0.12 * lidOpen, -0.0015);
+  IMU_U.lid.rotation.z = -0.45 * lidOpen;
+  NA[0].ledMat.emissive.set(0xff5a00).lerp(new THREE.Color(0xff3b30), faultA); NA[0].ledMat.emissiveIntensity = 2.5 * fcIn * (faultA > 0.5 ? 0.5 + 0.5 * Math.sin(t * 12) : 1);
+  NA[1].ledMat.emissive.set(0xe8e8e4).lerp(new THREE.Color(0xff5a00), sw); NA[1].ledMat.emissiveIntensity = fcIn * mix(1.6 * (0.6 + 0.4 * Math.sin(t * 4)), 2.5, sw);
+  syncMat.uniforms.uOpacity.value = win(t, C.fcTwo + 0.3, C.fcVoter, 0.4);
   const imuOn = win(t, C.fcImu + 0.4, C.activeStart - 0.6, 0.4);
-  const outvote = win(t, C.fcSingle - 0.2, C.activeStart - 0.9, 0.3);
+  const outvote = win(t, C.fcNone - 0.2, C.activeStart - 0.9, 0.3);
   imuGlow.forEach((m, i) => (m.uniforms.uOpacity.value = 0.6 * imuOn * (i === 2 ? 0.8 + 0.9 * outvote * (0.5 + 0.5 * Math.sin(t * 14)) : 1)));
   imuGlow[2].uniforms.uColor.value.set(0xff9a50).lerp(new THREE.Color(0xff3b30), outvote);
   imuLink.uniforms.uOpacity.value = imuOn;
@@ -576,7 +601,7 @@ function render(t) {
     canopy.position.set(cx, cy, cz);
     canopy.scale.set(R * breathe, mix(R * 2.4, R * 0.78, inflate) * (1 - 0.8 * collapse), R * breathe);
     canopy.rotation.z = collapse * 1.1;
-    canopyMat.opacity = 1;
+    canopyMat.opacity = 1 - ramp(t, C.pilot - 0.8, 1.0);
     const pts = [];
     for (let k = 0; k < 16; k++) {
       const a = (k / 16) * Math.PI * 2;
@@ -584,8 +609,17 @@ function render(t) {
       pts.push(rim, top);
     }
     shroud.geometry.setFromPoints(pts);
-    shroud.material.opacity = 0.8 * (1 - collapse);
+    shroud.material.opacity = 0.8 * (1 - collapse) * canopyMat.opacity;
   }
+  const pilotOn = win(t, C.pilot - 0.5, C.endStart + 0.8, 0.5);
+  pilot.visible = pilotOn > 0.001;
+  const suitInf = smoother((t - C.suit) / 0.45);
+  bodyMat.uniforms.uOpacity.value = 0.95 * pilotOn;
+  suitMat.uniforms.uOpacity.value = 0.8 * pilotOn * ramp(t, C.suit - 0.15, 0.2) * (1 + 0.5 * burst(t - C.suit, 0.1, 0.6));
+  suitTorso.scale.set(1.45 * mix(0.9, 1.22, suitInf), mix(0.95, 1.04, suitInf), mix(0.9, 1.25, suitInf));
+  collar.scale.setScalar(mix(0.5, 1.15, suitInf));
+  helmetMat.uniforms.uColor.value.set(0xe8e8e4).lerp(new THREE.Color(0xff7a2a), ramp(t, C.helmet - 0.1, 0.3));
+  helmetMat.uniforms.uOpacity.value = pilotOn * (0.75 + 0.6 * burst(t - C.helmet, 0.1, 0.7));
   const bagInf = t > bagAt ? smoother((t - bagAt) / 0.28) : 0;
   bags.visible = bagInf > 0.001 && t < C.endStart;
   bags.scale.set(mix(0.4, 1, bagInf), mix(0.05, 1, bagInf) * (1 - 0.18 * landSquash), mix(0.5, 1, bagInf));
@@ -595,18 +629,6 @@ function render(t) {
   const fenceOn = win(t, C.intervene - 0.8, C.passiveStart - 0.3, 0.6);
   fenceMat.uniforms.uOpacity.value = fenceOn;
   fenceMat.uniforms.uGlow.value = act.gust + 0.6 * win(t, C.boundary - 0.3, C.boundary + 1.8, 0.4);
-
-  // 高空
-  const aer = smoother((Math.log(cs.dist) - Math.log(30)) / (Math.log(140) - Math.log(30)));
-  for (const m of aerMats) m.opacity = aer;
-  aerial.visible = aer > 0.002; marker.visible = aer > 0.002;
-  floorMat.opacity = 1 - aer; grid.material.opacity = 0.7 * (1 - aer);
-  zoneFillMat.opacity = 0.1 * ramp(t, C.zoneRule - 0.5, 1.0) * aer;
-  dashMat.opacity = ramp(t, C.zoneRule - 0.5, 1.0) * aer;
-  sun.intensity = 2.2 * aer; sun.visible = aer > 0.002; key.intensity = KEY_I * (1 - aer);
-  scene.fog.near = mix(12, 2000, aer); scene.fog.far = mix(42, 5000, aer);
-  markerMat.opacity = aer * ramp(t, C.zoneStart + 2, 1);
-  marker.scale.setScalar(Math.max(1, cs.dist * 0.012));
 
   // 镜头
   const pos = new THREE.Vector3(Math.cos(cs.el) * Math.sin(cs.az), Math.sin(cs.el), Math.cos(cs.el) * Math.cos(cs.az)).multiplyScalar(cs.dist).add(cs.tg);
@@ -662,10 +684,12 @@ function callouts(t, st) {
   add(win(t, C.battLand + 1.2, C.fcStart - 0.3, 0.3), at(new THREE.Vector3(0, 1.9, 0)), '安全降落', 'SAFE LANDING');
   // 飞控
   const fcOn = win(t, C.fcStart + 0.8, C.fcImu - 0.5, 0.4);
-  add(fcOn, fcWorld(t, [-0.045, 0.04, 0]), 'NA80 · <em>主</em>', 'PRIMARY · 示意位置', '', 30);
-  add(fcOn, fcWorld(t, [0.045, 0.04, 0]), 'NA80 · 从', 'SECONDARY · 示意位置', 'holo', 30);
+  const fA = t > C.fcFault, sB = t > C.fcSwitch + 0.15;
+  add(fcOn, fcWorld(t, [-0.045, 0.04, 0]), fA ? '<em>主飞控 · 异常</em>' : 'NA80 · <em>主</em>', fA ? 'PRIMARY · FAULT' : 'PRIMARY · 示意位置', fA ? 'fault' : '', 30);
+  add(fcOn, fcWorld(t, [0.045, 0.04, 0]), sB ? 'NA80 · 从 · <em>接管</em>' : 'NA80 · 从', sB ? 'SECONDARY · IN CONTROL' : 'SECONDARY · 示意位置', sB ? '' : 'holo', 30);
+  add(win(t, C.fcVoter + 0.1, C.fcImu - 0.5, 0.4), fcWorld(t, [0, 0.022, VOTER[2]]), sB ? '表决器 · <em>毫秒级切换</em>' : '<em>表决器</em>', sB ? 'VOTER · FAILOVER' : 'VOTER · 监测 · 仲裁 · 示意', '', 24);
   const imuOn = win(t, C.fcImu + 0.6, C.activeStart - 0.6, 0.4);
-  NA[0].imus.forEach((m, i) => { const wp = m.getWorldPosition(new THREE.Vector3()).add(new THREE.Vector3(0, 0.003, 0)); add(imuOn, wp, i === 2 && st.outvote > 0.5 ? `<em>IMU ${i + 1}</em> · 被识别` : `IMU ${i + 1}`, i === 2 && st.outvote > 0.5 ? 'OUTVOTED' : 'CROSS-CHECK', i === 2 && st.outvote > 0.5 ? 'fault' : '', 26); });
+  IMU_U.imus.forEach((m, i) => { const wp = m.getWorldPosition(new THREE.Vector3()).add(new THREE.Vector3(0, 0.003, 0)); add(imuOn, wp, i === 2 && st.outvote > 0.5 ? `<em>IMU ${i + 1}</em> · 被识别` : `IMU ${i + 1}`, i === 2 && st.outvote > 0.5 ? 'OUTVOTED' : 'CROSS-CHECK', i === 2 && st.outvote > 0.5 ? 'fault' : '', 26); });
   // 主动安全
   const hud = (k, i) => win(t, C.monitor + i * 0.45, C.passiveStart - 0.3, 0.35);
   const P0 = (v) => v.clone().applyMatrix4(TILT.matrixWorld);
@@ -677,13 +701,9 @@ function callouts(t, st) {
   // 被动安全
   const canWorld = CAN.clone().add(new THREE.Vector3(0, 0.2, 0)).applyMatrix4(TILT.matrixWorld);
   add(win(t, C.passiveStart + 1.2, popAt + 0.2, 0.4), canWorld, '整机降落伞', 'PARACHUTE · 示意', 'holo', 60);
-  add(win(t, bagAt + 0.4, C.zoneStart + 0.6, 0.3), new THREE.Vector3(1.3, 0.35, 1.4), '安全气囊', 'AIRBAGS · 示意', '', 40);
-  // 指定区域
-  const zOn = win(t, C.zoneRule - 0.2, C.endStart - 0.2, 0.6);
-  add(zOn, new THREE.Vector3(ZONE.x1, 0, ZONE.z0), '指定飞行区域', 'DESIGNATED AREA', '', 40);
-  add(zOn, new THREE.Vector3((PLAZA.x0 + PLAZA.x1) / 2, 2, (PLAZA.z0 + PLAZA.z1) / 2), '人群', 'CROWDS · 区域之外', 'fault', 40);
-  add(zOn, new THREE.Vector3(-50, 60, -300), '建筑', 'BUILDINGS · 区域之外', 'fault', 40);
-  add(zOn * ramp(t, C.zoneStart + 2, 1), new THREE.Vector3(0, 0, 0), 'Dream Pro', 'IN ZONE', '', 30);
+  add(win(t, bagAt + 0.4, C.pilot - 0.2, 0.3), new THREE.Vector3(1.3, 0.35, 1.4), '机身安全气囊', 'AIRBAGS · 示意', '', 40);
+  add(win(t, C.suit + 0.2, C.endStart - 0.1, 0.3), P0(P(0.18, 0.9, -0.72)), '<em>安全气囊服</em>', 'AIRBAG SUIT · 示意', '', 40);
+  add(win(t, C.helmet + 0.1, C.endStart - 0.1, 0.3), P0(P(0, 1.58, -0.91)), '<em>头盔</em>', 'HELMET', '', 30);
 
   const html = [];
   for (const c of list) {
