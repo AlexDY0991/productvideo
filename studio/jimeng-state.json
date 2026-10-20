@@ -1,0 +1,11 @@
+{
+ "projectId": "TODO",
+ "webUrl": "TODO",
+ "canvasName": "CoolFly 做图",
+ "nodes": {},
+ "ledger": {
+  "budget": 1000,
+  "note": "本画布单独记账；即梦账户与 film02 视频项目共用，总上限 7000 见 film02 账本（这里不读写它）",
+  "runs": []
+ }
+}

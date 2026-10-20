@@ -6,7 +6,7 @@ so a later session can resume. Every run is quoted first and refused if it would
 ledger past the budget.
 
   jm.py STATE upload KEY FILE                      upload a local image and pin it as an image node
-  jm.py STATE img KEY --title T --prompt P [--ref KEY ...] [--res 2K] [--model M]
+  jm.py STATE img KEY --title T --prompt P [--ref KEY ...] [--res 2K] [--model M] [--ratio 16:9]
   jm.py STATE vid KEY --title T --prompt P --first KEY [--last KEY] [--dur 4] [--res 1080p] [--model M] [--mode first_last_frame|m2v] [--ref KEY ...]
   jm.py STATE quote KEY ...
   jm.py STATE run KEY ...                          quote → check budget → confirm → run
@@ -103,7 +103,8 @@ def main():
         key = argv.pop(0)
         title, prompt = opt(argv, "--title"), opt(argv, "--prompt")
         refs, res, model = opt(argv, "--ref", many=True), opt(argv, "--res", "2K"), opt(argv, "--model", "seedream_5.0_pro")
-        g = ["--mode", "i2i" if refs else "t2i", "--model", model, "--ratio", "16:9", "--resolution", res, "--count", "1", "--prompt", prompt]
+        ratio = opt(argv, "--ratio", "16:9")
+        g = ["--mode", "i2i" if refs else "t2i", "--model", model, "--ratio", ratio, "--resolution", res, "--count", "1", "--prompt", prompt]
         for r in refs:
             g += ["--ref", "node:" + st.nid(r)]
         save_node(st, key, "image", g, title)
