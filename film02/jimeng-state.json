@@ -620,7 +620,8 @@
    "title": "v07 P1 Takeoff 480p",
    "submitId": "efaa614b-7f4e-4d2a-9fa4-cefa7c5c1481",
    "submitted": true,
-   "resourceId": "f6e82f47-1639-409c-a8de-fa8476d4be56"
+   "resourceId": "f6e82f47-1639-409c-a8de-fa8476d4be56",
+   "result": "film02/clips/v07-draft/V7P1.mp4"
   },
   "V7P2": {
    "updateId": "2b4040f2-8fa2-4c9f-a66e-9fa04d021220",
@@ -628,7 +629,8 @@
    "title": "v07 P2 Coast 480p",
    "submitId": "991d2f3e-367e-464d-9d55-5efaf705fc45",
    "submitted": true,
-   "resourceId": "d20f2b2c-41b0-4d85-9e98-cf916cae08ff"
+   "resourceId": "d20f2b2c-41b0-4d85-9e98-cf916cae08ff",
+   "result": "film02/clips/v07-draft/V7P2.mp4"
   },
   "V7P3": {
    "updateId": "a29df9d9-fb61-4cc7-ad40-4e08327b83db",
@@ -636,7 +638,8 @@
    "title": "v07 P3 Home 480p",
    "submitId": "e1b39a41-0eda-4614-9993-65b698ceff5f",
    "submitted": true,
-   "resourceId": "cd75e046-7721-440c-a0c4-0b0d82d221b6"
+   "resourceId": "cd75e046-7721-440c-a0c4-0b0d82d221b6",
+   "result": "film02/clips/v07-draft/V7P3.mp4"
   }
  },
  "ledger": {
