@@ -501,19 +501,28 @@
    "updateId": "31f47c11-4f97-4e58-83d0-1450f623250d",
    "nodeId": "node_0xgtx66s14",
    "title": "v05 S1 Ignition 480p",
-   "result": "film02/clips/V5S1.mp4"
+   "result": "film02/clips/V5S1.mp4",
+   "submitId": "407c8dd1-4745-41a9-9363-da2dec0032d6",
+   "submitted": true,
+   "resourceId": "c1c4598e-7209-410f-bb26-fbfae470d483"
   },
   "V5S2": {
    "updateId": "de00e469-3890-4f27-b437-7fb3c07a8ada",
    "nodeId": "node_dhgx7gwt1f",
    "title": "v05 S2 Coast 480p",
-   "result": "film02/clips/V5S2.mp4"
+   "result": "film02/clips/V5S2.mp4",
+   "submitId": "e369a2eb-c9fc-4d36-9f3a-6a914fb671a2",
+   "submitted": true,
+   "resourceId": "611c9cbd-a929-4da9-81a1-27999d5a772d"
   },
   "V5S3": {
    "updateId": "b0bf3f30-46cb-4019-b11a-d59009676a43",
    "nodeId": "node_vdzs9nvswh",
    "title": "v05 S3 Arrival 480p",
-   "result": "film02/clips/V5S3.mp4"
+   "result": "film02/clips/V5S3.mp4",
+   "submitId": "20e821f7-1a85-40d2-bed2-9f3f62609cdc",
+   "submitted": true,
+   "resourceId": "e6b2bc92-7d27-4f0c-8168-ad0c4c7eb40f"
   }
  },
  "ledger": {
@@ -854,6 +863,24 @@
     "credits": 72,
     "submitId": "3e09ec58-e0e6-432d-a652-a3951e6b47f1",
     "at": "2026-10-20 08:22"
+   },
+   {
+    "key": "V5S1",
+    "credits": 108,
+    "submitId": "407c8dd1-4745-41a9-9363-da2dec0032d6",
+    "at": "2026-10-20 09:00"
+   },
+   {
+    "key": "V5S2",
+    "credits": 90,
+    "submitId": "e369a2eb-c9fc-4d36-9f3a-6a914fb671a2",
+    "at": "2026-10-20 09:00"
+   },
+   {
+    "key": "V5S3",
+    "credits": 54,
+    "submitId": "20e821f7-1a85-40d2-bed2-9f3f62609cdc",
+    "at": "2026-10-20 09:00"
    }
   ]
  }
