@@ -364,35 +364,142 @@ for (const [x, w] of [[-0.42, 0.62], [0.42, 0.62]]) { const b = new THREE.Mesh(n
 for (const z of [-1.3, 1.3]) { const b = new THREE.Mesh(new RoundedBoxGeometry(1.5, 0.46, 0.6, 6, 0.22), bagMat); b.position.set(0, -0.2, z); b.castShadow = true; bags.add(b); }
 bags.visible = false;
 
-// ───────── 驾驶员（全息示意）：安全气囊服 + 头盔 ─────────
+// ───────── 驾驶员：安全气囊服（按 CoolFly 背心样式）+ 全盔（示意）─────────
 const pilot = new THREE.Group(); TILT.add(pilot); pilot.visible = false;
-const bodyMat = holo(0x9fd6ff, { base: 0.1 }), suitMat = holo(0xff7a2a, { base: 0.14 }), helmetMat = holo(0xe8e8e4, { base: 0.16 });
-const UP = new THREE.Vector3(0, 1, 0);
-function limb(a, b, r, mat, parent = pilot) {
-  const A = P(...a), B = P(...b), d = B.clone().sub(A);
-  const m = new THREE.Mesh(new THREE.CapsuleGeometry(r, d.length(), 6, 18), mat);
-  m.position.copy(A).add(B).multiplyScalar(0.5); m.quaternion.setFromUnitVectors(UP, d.normalize());
-  m.layers.set(2); parent.add(m); return m;
+const PILOT_MATS = [];
+const pmat = (o) => { const m = new THREE.MeshStandardMaterial({ transparent: true, ...o }); m.userData.base = 1; PILOT_MATS.push(m); return m; };
+const sleeveMat = pmat({ color: 0x17181b, roughness: 0.8 });
+const pantsMat = pmat({ color: 0x1c1d20, roughness: 0.85 });
+const gloveMat = pmat({ color: 0x111214, roughness: 0.6 });
+const bootMat = pmat({ color: 0x17181b, roughness: 0.5 });
+const logoImg = new Image(); logoImg.src = '../assets/coolfly-logo-white.png'; await logoImg.decode();
+// 背心贴图：u = 0 / 1 是正面中线（拉链），0.25 是穿着者左侧，0.5 是背部中线；v 从下摆到领口
+function vestTexture() {
+  const TW = 2048, TH = 1024, c = document.createElement('canvas'); c.width = TW; c.height = TH; const x = c.getContext('2d');
+  const DARK = '#2a2c32', MESH = '#66686d', DOT = '#45474c', PIPE = '#d9dadc';
+  const U = (u) => u * TW, V = (v) => v * TH;
+  const mesh = (u0, v0, u1, v1) => {
+    x.fillStyle = MESH; x.fillRect(U(u0), V(v0), U(u1 - u0), V(v1 - v0));
+    x.fillStyle = DOT;
+    for (let yy = V(v0) + 3, row = 0; yy < V(v1); yy += 8, row++) for (let xx = U(u0) + (row % 2) * 4; xx < U(u1); xx += 8) x.fillRect(xx, yy, 3.5, 3.5);
+  };
+  x.fillStyle = DARK; x.fillRect(0, 0, TW, TH);
+  // 网眼：正面和两侧到下摆以上，背部中间一条竖带加两侧
+  mesh(0, 0.05, 1, 0.74);
+  x.fillStyle = DARK; x.fillRect(U(0.36), V(0.3), U(0.09), V(0.62)); x.fillRect(U(0.55), V(0.3), U(0.09), V(0.62));
+  // 肩部（育克）：正面从袖窿弧线落到拉链，背部一整块
+  const yoke = (side) => {
+    x.beginPath(); x.moveTo(U(side ? 1 : 0), 0);
+    for (let i = 0; i <= 40; i++) { const k = i / 40, u = 0.2 * k; x.lineTo(U(side ? 1 - u : u), V(0.3 - 0.24 * Math.pow(k, 1.6))); }
+    x.lineTo(U(side ? 0.8 : 0.2), 0); x.closePath();
+  };
+  for (const side of [0, 1]) { x.fillStyle = DARK; yoke(side); x.fill(); }
+  x.fillRect(U(0.27), 0, U(0.46), V(0.3));
+  x.fillRect(0, V(0.74), TW, V(0.26));
+  // 反光边：育克下沿、背部横线、袖窿、口袋斜条
+  x.strokeStyle = PIPE; x.lineWidth = 7; x.lineCap = 'round';
+  for (const side of [0, 1]) {
+    x.beginPath();
+    for (let i = 0; i <= 40; i++) { const k = i / 40, u = 0.2 * k; const px = U(side ? 1 - u : u), py = V(0.3 - 0.24 * Math.pow(k, 1.6)); i ? x.lineTo(px, py) : x.moveTo(px, py); }
+    x.stroke();
+  }
+  x.beginPath(); x.moveTo(U(0.27), V(0.3)); x.lineTo(U(0.73), V(0.3)); x.stroke();
+  for (const u of [0.25, 0.75]) { x.beginPath(); x.ellipse(U(u), V(0.06), U(0.05), V(0.2), 0, 0, Math.PI); x.stroke(); }
+  // 正面口袋（带翻盖和斜向反光条）
+  for (const [cu, dir] of [[0.105, 1], [0.895, -1]]) {
+    const w = 0.105, u0 = cu - w / 2;
+    x.fillStyle = '#272a2f'; x.fillRect(U(u0), V(0.5), U(w), V(0.34));
+    x.strokeStyle = '#1d1f23'; x.lineWidth = 4; x.strokeRect(U(u0), V(0.5), U(w), V(0.34));
+    x.fillStyle = '#2f3238'; x.fillRect(U(u0 - 0.004), V(0.48), U(w + 0.008), V(0.11));
+    x.strokeStyle = '#1c1e22'; x.strokeRect(U(u0 - 0.004), V(0.48), U(w + 0.008), V(0.11));
+    x.strokeStyle = PIPE; x.lineWidth = 6;
+    x.beginPath(); x.moveTo(U(cu - dir * w * 0.42), V(0.62)); x.lineTo(U(cu + dir * w * 0.38), V(0.78)); x.stroke();
+  }
+  // 拉链
+  x.fillStyle = '#121316'; x.fillRect(0, 0, 9, TH); x.fillRect(TW - 9, 0, 9, TH);
+  x.fillStyle = '#2a2c30'; for (let yy = 0; yy < TH; yy += 6) { x.fillRect(0, yy, 6, 3); x.fillRect(TW - 6, yy + 3, 6, 3); }
+  // CoolFly：左胸小标、背部大标（正背面横向被椭圆截面拉宽约 1.3 倍，画窄一点抵消）
+  const logo = (cu, cv, wu) => { const w = U(wu) / 1.3, h = w * logoImg.height / logoImg.width; x.drawImage(logoImg, U(cu) - w / 2, V(cv) - h / 2, w, h); };
+  logo(0.1, 0.21, 0.11); logo(0.5, 0.15, 0.22);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; return t;
 }
-// 坐姿（模型坐标）：背靠座椅，双手在身前，脚伸向前方
-const PILOT = { pelvis: [0, 0.5, -0.74], chest: [0, 1.1, -0.88], neck: [0, 1.22, -0.9], head: [0, 1.38, -0.9] };
-limb(PILOT.pelvis, PILOT.chest, 0.11, bodyMat).scale.set(1.45, 1, 1);
-limb(PILOT.chest, PILOT.neck, 0.045, bodyMat);
-{ const h = new THREE.Mesh(new THREE.SphereGeometry(0.095, 24, 16), bodyMat); h.position.copy(P(...PILOT.head)); h.layers.set(2); pilot.add(h); }
+// 躯干：背心本身就是躯干外形（旋转体 + 椭圆截面），随座椅靠背后仰
+const torso = new THREE.Group(); torso.position.copy(P(0, 0.54, -0.75)); torso.rotation.x = -Math.atan2(0.16, 0.72); pilot.add(torso);
+const VEST_PROFILE = [[0.15, 0], [0.148, 0.08], [0.15, 0.2], [0.16, 0.31], [0.158, 0.38], [0.138, 0.43], [0.1, 0.47], [0.068, 0.5], [0.058, 0.506]];
+// 按弧长等距重采样：LatheGeometry 的 v 按点的序号分配，点不均匀时贴图会被挤到领口
+const vestGeo = new THREE.LatheGeometry(new THREE.SplineCurve(VEST_PROFILE.map(([r, y]) => new THREE.Vector2(r, y))).getSpacedPoints(48), 72);
+const vestMat = pmat({ map: vestTexture(), roughness: 0.85, side: THREE.DoubleSide });
+const vest = new THREE.Mesh(vestGeo, vestMat); vest.scale.set(1.3, 1, 0.78); torso.add(vest);
+const suitGlowMat = holo(0xff7a2a, { base: 0.1 });
+const vestGlow = new THREE.Mesh(vestGeo, suitGlowMat); vestGlow.layers.set(2); torso.add(vestGlow);
+function limbIn(parent, A, B, r, mat) {
+  const d = B.clone().sub(A);
+  const m = new THREE.Mesh(new THREE.CapsuleGeometry(r, d.length(), 8, 20), mat);
+  m.position.copy(A).add(B).multiplyScalar(0.5); m.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), d.normalize());
+  parent.add(m); return m;
+}
+const V3 = (x, y, z) => new THREE.Vector3(x, y, z);
 for (const sx of [-1, 1]) {
-  limb([sx * 0.27, 1.06, -0.86], [sx * 0.36, 0.78, -0.7], 0.042, bodyMat);
-  limb([sx * 0.36, 0.78, -0.7], [sx * 0.2, 0.74, -0.38], 0.037, bodyMat);
-  limb([sx * 0.13, 0.5, -0.72], [sx * 0.16, 0.7, -0.14], 0.068, bodyMat);
-  limb([sx * 0.16, 0.7, -0.14], [sx * 0.16, 0.28, 0.2], 0.048, bodyMat);
-  limb([sx * 0.16, 0.28, 0.2], [sx * 0.16, 0.24, 0.42], 0.035, bodyMat);
+  limbIn(torso, V3(sx * 0.185, 0.43, 0), V3(sx * 0.23, 0.17, 0.1), 0.046, sleeveMat);
+  limbIn(torso, V3(sx * 0.23, 0.17, 0.1), V3(sx * 0.15, 0.1, 0.35), 0.04, sleeveMat);
+  const g = new THREE.Mesh(new THREE.SphereGeometry(0.047, 20, 14), gloveMat); g.position.set(sx * 0.15, 0.1, 0.37); g.scale.set(0.9, 0.8, 1.2); torso.add(g);
+  limbIn(pilot, P(sx * 0.12, 0.52, -0.7), P(sx * 0.16, 0.72, -0.12), 0.072, pantsMat);
+  limbIn(pilot, P(sx * 0.16, 0.72, -0.12), P(sx * 0.16, 0.3, 0.2), 0.052, pantsMat);
+  limbIn(pilot, P(sx * 0.16, 0.27, 0.16), P(sx * 0.16, 0.25, 0.44), 0.05, bootMat);
 }
-// 安全气囊服：躯干外一层 + 护颈，充气时鼓起
-const suit = new THREE.Group(); pilot.add(suit);
-const suitTorso = limb([0, 0.62, -0.77], PILOT.chest, 0.125, suitMat, suit);
-const collar = new THREE.Mesh(new THREE.TorusGeometry(0.085, 0.034, 14, 40), suitMat);
-collar.position.copy(P(0, 1.17, -0.89)); collar.rotation.x = Math.PI / 2 - 0.15; collar.layers.set(2); suit.add(collar);
-const helmet = new THREE.Mesh(new THREE.SphereGeometry(0.128, 32, 20), helmetMat);
-helmet.position.copy(P(0, 1.4, -0.91)); helmet.layers.set(2); pilot.add(helmet);
+limbIn(pilot, P(-0.13, 0.55, -0.72), P(0.13, 0.55, -0.72), 0.1, pantsMat);
+limbIn(torso, V3(0, 0.47, 0), V3(0, 0.58, 0.02), 0.074, pmat({ color: 0x15161a, roughness: 0.9 }));   // 黑色围脖
+// 头盔：白色半盔 + 彩虹镀膜面罩 + 航空耳机（按参考照片示意），围脖遮住脖子和下巴
+const helmet = new THREE.Group(); helmet.position.set(0, 0.66, 0.025); torso.add(helmet);
+const HR = 0.13;
+function helmetTexture() {
+  const TW = 1024, TH = 512, c = document.createElement('canvas'); c.width = TW; c.height = TH; const x = c.getContext('2d');
+  x.fillStyle = '#f2f2ef'; x.fillRect(0, 0, TW, TH);
+  // 灰色 CoolFly：前额和后脑各一个。球面 u 向一圈约 0.6 m、v 向整个盔顶弧长约 0.15 m，按实际比例画
+  const tmp = document.createElement('canvas'); tmp.width = logoImg.width; tmp.height = logoImg.height; const tx = tmp.getContext('2d');
+  tx.drawImage(logoImg, 0, 0); tx.globalCompositeOperation = 'source-in'; tx.fillStyle = '#6b6d72'; tx.fillRect(0, 0, tmp.width, tmp.height);
+  const wM = 0.075, hM = wM * logoImg.height / logoImg.width;
+  const w = (wM / 0.6) * TW, h = (hM / (0.36 * Math.PI * HR)) * TH;
+  for (const u of [0.25, 0.75]) x.drawImage(tmp, u * TW - w / 2, 0.72 * TH - h / 2, w, h);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; return t;
+}
+const shellMat = pmat({ map: helmetTexture(), roughness: 0.18, metalness: 0.05 });
+const helmetBlack = pmat({ color: 0x141518, roughness: 0.6 });
+// 盔顶一圈到额头；两侧和后脑往下包到耳朵以下，正面留出脸
+const dome = new THREE.Mesh(new THREE.SphereGeometry(HR, 64, 24, 0, Math.PI * 2, 0, Math.PI * 0.36), shellMat);
+const skirt = new THREE.Mesh(new THREE.SphereGeometry(HR, 64, 16, Math.PI / 2 + 1.05, Math.PI * 2 - 2.1, Math.PI * 0.36, Math.PI * 0.27), shellMat);
+skirt.material = shellMat; helmet.add(dome, skirt);
+const trim = new THREE.Mesh(new THREE.TorusGeometry(HR * Math.sin(Math.PI * 0.63), 0.006, 8, 64, Math.PI * 2 - 2.1), helmetBlack);
+trim.rotation.set(Math.PI / 2, 0, Math.PI / 2 + 1.05); trim.position.y = HR * Math.cos(Math.PI * 0.63); helmet.add(trim);
+// 脸（只是一团肤色，被面罩和围脖挡住大半）与黑色围脖
+const face = new THREE.Mesh(new THREE.SphereGeometry(0.098, 32, 24), pmat({ color: 0x6e5244, roughness: 0.7 })); face.position.set(0, -0.012, 0.012); face.scale.set(0.92, 1.1, 1); helmet.add(face);
+// 面罩：大片弧形镜片，彩虹干涉色 + 环境反光，半透明
+// 彩虹镀膜：上方蓝紫、中间品红、下方金绿的渐变贴图，再加金属反光（软件渲染下干涉色出不来，用贴图做）
+function visorTexture() {
+  const c = document.createElement('canvas'); c.width = 64; c.height = 256; const x = c.getContext('2d');
+  const g = x.createLinearGradient(0, 0, 0, 256);
+  [[0, '#4b5bd6'], [0.3, '#8a4fd0'], [0.5, '#d4569a'], [0.72, '#e2a64a'], [1, '#7cc48a']].forEach(([k, col]) => g.addColorStop(k, col));
+  x.fillStyle = g; x.fillRect(0, 0, 64, 256);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
+}
+const visorMat = new THREE.MeshStandardMaterial({ map: visorTexture(), color: 0x9a9aa8, metalness: 0.75, roughness: 0.08, transparent: true, opacity: 0.86, side: THREE.DoubleSide, depthWrite: false });
+visorMat.userData.base = 0.86; PILOT_MATS.push(visorMat);
+const visor = new THREE.Mesh(new THREE.SphereGeometry(HR * 1.07, 64, 24, Math.PI / 2 - 1.15, 2.3, Math.PI * 0.29, Math.PI * 0.42), visorMat);
+visor.position.z = 0.006; helmet.add(visor);
+for (const sx of [-1, 1]) { const pin = new THREE.Mesh(new THREE.CylinderGeometry(0.016, 0.016, 0.012, 20), helmetBlack); pin.rotation.z = Math.PI / 2; pin.position.set(sx * HR * 1.04, 0.03, 0.02); helmet.add(pin); }
+// 航空耳机：灰绿色耳罩 + 左侧麦克风杆
+const cupMat = pmat({ color: 0x8e9a87, roughness: 0.55 });
+for (const sx of [-1, 1]) {
+  const cup = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.05, 0.038, 32), cupMat); cup.rotation.z = Math.PI / 2; cup.position.set(sx * (HR + 0.014), -0.035, -0.005); helmet.add(cup);
+  const cap = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.01, 20), helmetBlack); cap.rotation.z = Math.PI / 2; cap.position.set(sx * (HR + 0.036), -0.035, -0.005); helmet.add(cap);
+}
+const boom = new THREE.CatmullRomCurve3([V3(HR + 0.03, -0.05, 0.02), V3(HR + 0.02, -0.085, 0.07), V3(0.085, -0.11, 0.125), V3(0.03, -0.105, 0.14)]);
+helmet.add(new THREE.Mesh(new THREE.TubeGeometry(boom, 24, 0.004, 8), helmetBlack));
+const mic = new THREE.Mesh(new THREE.SphereGeometry(0.013, 16, 12), helmetBlack); mic.position.copy(boom.getPoint(1)); helmet.add(mic);
+helmet.scale.set(1, 1, 1.1);
+const helmetGlowMat = holo(0xff7a2a, { base: 0.08 });
+const helmetGlow = new THREE.Mesh(new THREE.SphereGeometry(HR * 1.05, 48, 24, 0, Math.PI * 2, 0, Math.PI * 0.62), helmetGlowMat); helmetGlow.layers.set(2); helmet.add(helmetGlow);
+pilot.traverse((o) => { if (o.isMesh && o.layers.mask === 1) { o.castShadow = true; o.receiveShadow = true; } });
 
 // ───────── 主动安全：边界墙 ─────────
 const fenceMat = new THREE.ShaderMaterial({
@@ -480,8 +587,8 @@ const SHOTS = [
   { t: C.activeStart - 0.6, d: 3.2, tg: (t) => new THREE.Vector3(0.6, acY(t) + 0.4, 0), az: 18, el: 9, dist: 11.5, fov: 30 },
   { t: C.passiveStart - 0.4, d: 2.6, tg: (t) => new THREE.Vector3(0, acY(t) + 0.5, 0), az: 34, el: 2, dist: 11, fov: 30 },
   { t: popAt - 0.3, d: 1.8, tg: (t) => new THREE.Vector3(0, acY(t) + 3.7, 0), az: 34, el: -2, dist: 22.5, fov: 30 },
-  { t: C.pilot - 0.6, d: 2.4, tg: (t) => pilotWorld(t, [0, 0.95, -0.55]), az: 2, el: 17, dist: 3.2, fov: 30 },
-  { t: C.helmet - 0.4, d: 2.6, tg: (t) => pilotWorld(t, [0, 1.05, -0.62]), az: -4, el: 13, dist: 2.6, fov: 30 },
+  { t: C.pilot - 0.6, d: 2.4, tg: (t) => pilotWorld(t, [0, 0.98, -0.6]), az: 2, el: 14, dist: 2.6, fov: 30 },
+  { t: C.helmet - 0.4, d: 2.6, tg: (t) => pilotWorld(t, [0, 1.12, -0.66]), az: -6, el: 12, dist: 2.0, fov: 30 },
 ];
 function camState(t) {
   let i = 0; while (i + 1 < SHOTS.length && SHOTS[i + 1].t <= t) i++;
@@ -538,7 +645,7 @@ function render(t) {
   // X 光（机体半透明）与全息部件
   const cs = camState(t);
   const near = clamp01(cs.dist / 2.5);
-  const xray = Math.max(win(t, C.battStart + 0.3, C.battFault + 2.2, 0.8), win(t, C.fcStart - 0.2, C.activeStart - 0.2, 0.9), win(t, C.passiveStart + 0.6, C.chute + 0.4, 0.6) * 0.7, win(t, C.pilot - 0.3, C.endStart + 1.0, 0.7) * 0.55);
+  const xray = Math.max(win(t, C.battStart + 0.3, C.battFault + 2.2, 0.8), win(t, C.fcStart - 0.2, C.activeStart - 0.2, 0.9), win(t, C.passiveStart + 0.6, C.chute + 0.4, 0.6) * 0.7, win(t, C.pilot - 0.3, C.endStart + 1.0, 0.7) * 0.8);
   for (const s of matState) {
     if (xray > 0.01) { s.m.transparent = true; s.m.opacity = s.opacity * (1 - mix(0.97, 0.82, near) * xray); s.m.depthWrite = xray < 0.5; }
     else { s.m.transparent = s.transparent; s.m.opacity = s.opacity; s.m.depthWrite = s.depthWrite; }
@@ -619,12 +726,12 @@ function render(t) {
   const pilotOn = win(t, C.pilot - 0.5, C.endStart + 0.8, 0.5);
   pilot.visible = pilotOn > 0.001;
   const suitInf = smoother((t - C.suit) / 0.45);
-  bodyMat.uniforms.uOpacity.value = 0.95 * pilotOn;
-  suitMat.uniforms.uOpacity.value = 0.8 * pilotOn * ramp(t, C.suit - 0.15, 0.2) * (1 + 0.5 * burst(t - C.suit, 0.1, 0.6));
-  suitTorso.scale.set(1.45 * mix(0.9, 1.22, suitInf), mix(0.95, 1.04, suitInf), mix(0.9, 1.25, suitInf));
-  collar.scale.setScalar(mix(0.5, 1.15, suitInf));
-  helmetMat.uniforms.uColor.value.set(0xe8e8e4).lerp(new THREE.Color(0xff7a2a), ramp(t, C.helmet - 0.1, 0.3));
-  helmetMat.uniforms.uOpacity.value = pilotOn * (0.75 + 0.6 * burst(t - C.helmet, 0.1, 0.7));
+  for (const m of PILOT_MATS) m.opacity = m.userData.base * pilotOn;
+  // 气囊服充气：整件略微鼓起，橙色光晕提示
+  vest.scale.set(1.3 * mix(1, 1.12, suitInf), mix(1, 1.03, suitInf), 0.78 * mix(1, 1.15, suitInf));
+  vestGlow.scale.copy(vest.scale).multiplyScalar(1.015);
+  suitGlowMat.uniforms.uOpacity.value = pilotOn * ramp(t, C.suit - 0.1, 0.2) * (0.3 + 0.9 * burst(t - C.suit, 0.1, 0.8));
+  helmetGlowMat.uniforms.uOpacity.value = pilotOn * ramp(t, C.helmet - 0.1, 0.2) * (0.25 + 0.9 * burst(t - C.helmet, 0.1, 0.8));
   const bagInf = t > bagAt ? smoother((t - bagAt) / 0.28) : 0;
   bags.visible = bagInf > 0.001 && t < C.endStart;
   bags.scale.set(mix(0.4, 1, bagInf), mix(0.05, 1, bagInf) * (1 - 0.18 * landSquash), mix(0.5, 1, bagInf));
@@ -710,8 +817,8 @@ function callouts(t, st) {
   const canWorld = CAN.clone().add(new THREE.Vector3(0, 0.2, 0)).applyMatrix4(TILT.matrixWorld);
   add(win(t, C.passiveStart + 1.2, popAt + 0.2, 0.4), canWorld, '整机降落伞', 'PARACHUTE · 示意', 'holo', 60);
   add(win(t, bagAt + 0.4, C.pilot - 0.2, 0.3), new THREE.Vector3(1.3, 0.35, 1.4), '机身安全气囊', 'AIRBAGS · 示意', '', 40);
-  add(win(t, C.suit + 0.2, C.endStart - 0.1, 0.3), P0(P(0.18, 0.9, -0.72)), '<em>安全气囊服</em>', 'AIRBAG SUIT · 示意', '', 40);
-  add(win(t, C.helmet + 0.1, C.endStart - 0.1, 0.3), P0(P(0, 1.58, -0.91)), '<em>头盔</em>', 'HELMET', '', 30);
+  add(win(t, C.suit + 0.2, C.endStart - 0.1, 0.3), torso.localToWorld(V3(0.13, 0.3, 0.13)), '<em>安全气囊服</em>', 'AIRBAG SUIT', '', 40);
+  add(win(t, C.helmet + 0.1, C.endStart - 0.1, 0.3), torso.localToWorld(V3(0, 0.84, 0.0)), '<em>头盔</em>', 'HELMET', '', 30);
 
   const html = [];
   for (const c of list) {
