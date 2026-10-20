@@ -235,7 +235,6 @@ def i005():
 
 EMBASSY = "INVITED BY THE EMBASSY OF THE PEOPLE’S REPUBLIC OF CHINA IN THE REPUBLIC OF MALDIVES"
 HEADLINE = "MALDIVES’ FIRST PERSONAL AIRCRAFT FLIGHT DISPLAY"
-SHOW = "DREAM ST LIVE  ·  INTER-ISLAND FLIGHT SHOW"
 
 
 def i006():
@@ -248,10 +247,9 @@ def i006():
     p.text((1540, 1124), "EXPO 2026", font("Archivo800.ttf", 30), teal, spacing=4)
     # darken the foot of the water panel so the copy reads over the ripples
     p.shade(1930, 2236, (4, 30, 34), 200, box=(61, 1176, 1668, 2237))
-    p.text((W / 2, 2050), HEADLINE, font("Archivo800.ttf", 41), cream, spacing=3)
-    p.text((W / 2, 2110), SHOW, font("Archivo800.ttf", 34), orange, spacing=3)
-    p.text((W / 2, 2172), "MALDIVES EXPO 2026  ·  " + DATES, font("Archivo700.ttf", 30), cream, spacing=3)
-    p.text((W / 2, 2272), EMBASSY, font("Archivo700.ttf", 24), teal, spacing=2)
+    p.text((W / 2, 2085), HEADLINE, font("Archivo800.ttf", 42), cream, spacing=3)
+    p.text((W / 2, 2152), "MALDIVES EXPO 2026  ·  " + DATES, font("Archivo800.ttf", 34), orange, spacing=3)
+    p.text((W / 2, 2272), EMBASSY, font("Archivo700.ttf", 26), teal, spacing=2)
     p.save()
 
 
@@ -264,11 +262,10 @@ def i007():
     p.text((bb[0] - 55, 168), "oct 25 – nov 2", font("Montserrat600.ttf", 38), terra, anchor="rm")
     p.text((bb[2] + 55, 168), "2026", font("Montserrat600.ttf", 38), terra, anchor="lm")
     p.shade(1780, p.H, (0, 22, 38), 230)
-    p.paste(coolfly(230, (255, 255, 255)), W / 2, 1985, shadow=5)
-    p.text((W / 2, 2062), HEADLINE, font("Montserrat600.ttf", 44), (255, 255, 255), spacing=2, shadow=5)
-    p.text((W / 2, 2124), SHOW, font("Montserrat600.ttf", 34), (255, 196, 150), spacing=4, shadow=5)
-    p.text((W / 2, 2182), "MALDIVES EXPO 2026  ·  " + DATES, font("Montserrat600.ttf", 30), (255, 255, 255), spacing=3, shadow=4)
-    p.text((W / 2, 2264), EMBASSY, font("Montserrat500.ttf", 24), (255, 255, 255), spacing=2, shadow=4, opacity=0.9)
+    p.paste(coolfly(230, (255, 255, 255)), W / 2, 2005, shadow=5)
+    p.text((W / 2, 2085), HEADLINE, font("Montserrat600.ttf", 45), (255, 255, 255), spacing=2, shadow=5)
+    p.text((W / 2, 2147), "MALDIVES EXPO 2026  ·  " + DATES, font("Montserrat600.ttf", 34), (255, 196, 150), spacing=3, shadow=5)
+    p.text((W / 2, 2255), EMBASSY, font("Montserrat500.ttf", 26), (255, 255, 255), spacing=2, shadow=4)
     p.save()
 
 if __name__ == "__main__":
