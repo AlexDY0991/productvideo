@@ -243,8 +243,7 @@ def i006():
     W = p.W
     teal, cream, orange = (20, 58, 66), (248, 240, 224), (255, 128, 48)
     p.paste(coolfly(240, (24, 30, 32)), 190, 1095)
-    p.text((1540, 1078), "MALDIVES", font("Archivo800.ttf", 38), teal, spacing=4)
-    p.text((1540, 1124), "EXPO 2026", font("Archivo800.ttf", 30), teal, spacing=4)
+    p.paste(expo(250), 1540, 1095)
     # darken the foot of the water panel so the copy reads over the ripples
     p.shade(1930, 2236, (4, 30, 34), 200, box=(61, 1176, 1668, 2237))
     p.text((W / 2, 2085), HEADLINE, font("Archivo800.ttf", 42), cream, spacing=3)
@@ -262,7 +261,10 @@ def i007():
     p.text((bb[0] - 55, 168), "oct 25 – nov 2", font("Montserrat600.ttf", 38), terra, anchor="rm")
     p.text((bb[2] + 55, 168), "2026", font("Montserrat600.ttf", 38), terra, anchor="lm")
     p.shade(1780, p.H, (0, 22, 38), 230)
-    p.paste(coolfly(230, (255, 255, 255)), W / 2, 2005, shadow=5)
+    # partner lockup: CoolFly | Maldives Expo 2026
+    p.paste(coolfly(220, (255, 255, 255)), W / 2 - 160, 1988, shadow=5)
+    ImageDraw.Draw(p.im).line([(W / 2, 1956), (W / 2, 2020)], fill=(255, 255, 255), width=2)
+    p.paste(expo(230), W / 2 + 160, 1988)
     p.text((W / 2, 2085), HEADLINE, font("Montserrat600.ttf", 45), (255, 255, 255), spacing=2, shadow=5)
     p.text((W / 2, 2147), "MALDIVES EXPO 2026  ·  " + DATES, font("Montserrat600.ttf", 34), (255, 196, 150), spacing=3, shadow=5)
     p.text((W / 2, 2255), EMBASSY, font("Montserrat500.ttf", 26), (255, 255, 255), spacing=2, shadow=4)
