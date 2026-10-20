@@ -103,7 +103,7 @@ SHOTS
 
 6.5–8.5s — 24mm from a rock ledge close to the sea stack. The aircraft banks hard around the stack, tilted about 20 degrees, passing close to the camera; the camera whips to follow as it clears the stack at 8.0s, without stopping. BACKGROUND: surf exploding at the base of the stack, the lighthouse beyond. Hard cut at 8.5s.
 
-8.5–10.0s — 50mm close-up of the pilot's helmet from a camera rig flying alongside, front three-quarter, outside the roll cage; the roll cage tubes frame the edges. The dark visor reflects the coastline and the low sun. At 9.4s the reflected sun slides across the visor and fills it with warm light. The clip ends on the bright sun filling the visor.
+8.5–10.0s — 50mm close-up of the pilot's helmet from a camera rig flying alongside, front three-quarter, outside the roll cage; the camera pushes in until the visor fills most of the frame. The dark visor reflects the coastline and the low sun. At 9.2s the reflected sun slides into the centre of the visor and blooms until warm golden light fills the entire visor and most of the frame by 10.0s. The clip ends on the bright sun filling the visor.
 
 SOUND
 No music: the score is added in post. Diegetic sound only: outdoor wind; the rotor roar rising and falling with distance; surf against the cliffs; a close rotor pass with a natural Doppler shift at 8.0s; inside the last shot the rotor heard slightly muffled through the helmet. No dialogue, voices, narrator, stings or added whooshes.
@@ -130,7 +130,7 @@ REFERENCES
 @loc_pad — the cliff-top landing pad at dusk. The plate's camera angle IS the first shot's angle; the pad is empty until the aircraft lands.
 
 LOOK
-Clean modern digital cinema, 24–85mm lenses. The sun just above the horizon, warm golden backlight, long soft shadows, glittering sea, deep clean blacks in the silhouettes. The aircraft's orange glows in the backlight. Slow, weighted camera moves.
+Clean modern digital cinema, 24–85mm lenses. The sun just above the horizon, warm golden backlight, long soft shadows, glittering sea, deep clean blacks in the silhouettes. The aircraft's orange fairing is the strongest colour; natural light only, no glow or light effects on the aircraft. Slow, weighted camera moves.
 
 CHARACTERS
 The pilot — the same American man as @char_pilot3: short dark-brown hair, light stubble, grey-green eyes. Calm. After landing he lifts the visor, breathes out once and looks at the sea. Never speaks, never looks into the lens, never smiles broadly.
@@ -144,7 +144,7 @@ The circular concrete pad with its thin orange ring lies on the grassy cliff top
 SHOTS
 0.0–2.0s — THE VERY FIRST FRAME OF THE CLIP IS THIS: exactly the angle of @loc_pad, low on the grass, the sun just above the horizon in the centre of frame, the empty pad in the foreground. At 0.3s the aircraft enters from the left of frame, silhouetted against the sun, and descends toward the pad. The camera pushes in slowly. BACKGROUND: sun, sea, the stone wall at right. Hard cut at 2.0s.
 
-2.0–3.6s — 35mm side-on at pad height. The aircraft settles onto the centre of the ring at 2.6s; the grass around the pad bends flat in the downwash; the propellers slow toward visible blades. A golden rim light runs along the roll cage and arms. BACKGROUND: the glittering sea and the low sun. Hard cut at 3.6s.
+2.0–3.6s — 35mm side-on at pad height. The aircraft settles onto the centre of the ring at 2.6s; the grass around the pad bends flat in the downwash; the propellers slow toward visible blades. The orange front fairing with its white stripes and the number 05 faces the camera side; the dark-grey roll cage and carbon arms stay matte and unlit, lit only by the natural sunset. BACKGROUND: the glittering sea and the low sun. Hard cut at 3.6s.
 
 3.6–6.0s — 85mm front three-quarter on the seated pilot, through the roll cage, a slow push-in that eases to a stop by 5.6s and holds. At 4.0s he lifts the visor with one gloved finger; his face, the same man as @char_pilot3, is lit by the warm sunset; the CoolFly wordmark on his chest catches the light. At 4.9s he breathes out once, calm, and looks out to the sea. BACKGROUND: soft golden sea and sky. The clip ends on this held frame at 6.0s.
 
@@ -157,6 +157,8 @@ KEEP CONSISTENT
 - Exactly one pilot; his face matches @char_pilot3 and is seen only after 4.0s.
 - The pad, the orange ring and the stone wall never move.
 - Cuts at 2.0s and 3.6s are hard cuts; the clip ends on the held frame at 6.0s.
+- The roll cage, arms and fairing never glow, light up or turn into outlines; no light trails, rim-light effects or added light effects anywhere.
+- The orange front fairing with two white stripes and the number 05 is visible whenever the aircraft is in frame.
 - Warm and rich colour, never washed out.
 - Apart from the two CoolFly wordmarks on the suit, no subtitles, on-screen text, other logos or watermarks.
 ```
