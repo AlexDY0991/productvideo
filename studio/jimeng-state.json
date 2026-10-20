@@ -2,10 +2,57 @@
  "projectId": "86a8e01c-7a4a-4267-9dd0-eb3a9bfa7608",
  "webUrl": "https://jimeng.jianying.com/ai-tool/ai-canvas/86a8e01c-7a4a-4267-9dd0-eb3a9bfa7608",
  "canvasName": "CoolFly 做图",
- "nodes": {},
+ "nodes": {
+  "R_poster": {
+   "uploadResourceId": "09191564-b895-44d6-a51e-21c6d43244e1",
+   "updateId": "84730aed-44db-463c-a098-a0a460665ef1",
+   "nodeId": "node_hhmh2psnbx",
+   "title": "REF · R_poster"
+  },
+  "R_expo": {
+   "uploadResourceId": "4182dd7f-c6d1-4aac-8c19-101b3640cf02",
+   "updateId": "bd64f280-85f0-4efa-82b8-aa1952fe4cc3",
+   "nodeId": "node_h0qkd70kqn",
+   "title": "REF · R_expo"
+  },
+  "R_dream": {
+   "uploadResourceId": "1fbfcb42-f95a-4986-9837-2721f785cac6",
+   "updateId": "e6e56eb4-13cf-4ea7-a52e-a90a2fda9758",
+   "nodeId": "node_w3rrfbd2ej",
+   "title": "REF · R_dream"
+  },
+  "R_dream3": {
+   "uploadResourceId": "e97f8320-e5c0-416c-89d7-14bd1ad2c441",
+   "updateId": "bdaaed80-83fe-42ad-a6b9-2774becd9607",
+   "nodeId": "node_tkg2r6k4hz",
+   "title": "REF · R_dream3"
+  },
+  "R_logo": {
+   "uploadResourceId": "e35f69a6-785d-46b4-a52e-60db7963fb0c",
+   "updateId": "5c20220e-f018-4c78-a624-24abaa5c6811",
+   "nodeId": "node_7rha08w7wf",
+   "title": "REF · R_logo"
+  },
+  "I001": {
+   "updateId": "6e36c3fa-59db-45d9-984c-830b4fe6263b",
+   "nodeId": "node_n35fceaaag",
+   "title": "I001 · Maldives Expo 邀请海报 v1",
+   "submitId": "873cc095-d4d3-4557-bb8f-a8102d2abc13",
+   "submitted": true,
+   "resourceId": "b9ae16b6-4a7f-4bf4-8056-7a5b4259124c",
+   "result": "studio/out/I001.png"
+  }
+ },
  "ledger": {
   "budget": 1000,
   "note": "本画布单独记账；即梦账户与 film02 视频项目共用，总上限 7000 见 film02 账本（这里不读写它）",
-  "runs": []
+  "runs": [
+   {
+    "key": "I001",
+    "credits": 8,
+    "submitId": "873cc095-d4d3-4557-bb8f-a8102d2abc13",
+    "at": "2026-10-20 14:53"
+   }
+  ]
  }
 }
