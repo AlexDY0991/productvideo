@@ -523,10 +523,96 @@
    "submitId": "20e821f7-1a85-40d2-bed2-9f3f62609cdc",
    "submitted": true,
    "resourceId": "e6b2bc92-7d27-4f0c-8168-ad0c4c7eb40f"
+  },
+  "char_pilot4": {
+   "updateId": "91c9a5db-666b-4650-b8d4-57c3bc958648",
+   "nodeId": "node_nv82hgs013",
+   "title": "@char_pilot4 · 主演 透明面罩",
+   "submitId": "f5fb1003-155f-48ff-8c05-91c4934b1284",
+   "submitted": true,
+   "resourceId": "9e10e6c9-5ffa-4506-9077-e105d3059393",
+   "result": "film02/assets/char_pilot4.png"
+  },
+  "char_family": {
+   "updateId": "dd0bc142-d630-41bd-8caf-1d6ceb8ce7df",
+   "nodeId": "node_hh95gjvfvv",
+   "title": "@char_family · 妻子和女儿",
+   "result": "film02/assets/char_family.png",
+   "submitId": "6caf675c-6706-49fc-b951-60eb49c0bad6",
+   "submitted": true,
+   "resourceId": "f94689ac-2719-4344-bb73-98be16f6dd03"
+  },
+  "loc_garage": {
+   "updateId": "8642c27d-c05a-4757-b8f1-71462441c581",
+   "nodeId": "node_48nywpt5r6",
+   "title": "@loc_garage · 崖边住宅车库 黎明前",
+   "submitId": "7a0ebc5a-d4ef-47b0-aa9e-4b925d7d00de",
+   "submitted": true,
+   "resourceId": "94dad547-484a-4aa8-97fb-61841063f6b8",
+   "result": "film02/assets/loc_garage.png"
+  },
+  "loc_coast_us": {
+   "updateId": "4c43b315-dbda-44c6-a5fc-4db9c95aa954",
+   "nodeId": "node_e00z1x3vnh",
+   "title": "@loc_coast_us · 加州海岸 拱桥",
+   "submitId": "5160af2d-fd6c-4333-bb18-7ad6ba93a49f",
+   "submitted": true,
+   "resourceId": "93b2a805-24a6-42b0-b5d1-442ff9ca51e4",
+   "result": "film02/assets/loc_coast_us.png"
+  },
+  "loc_clouds": {
+   "updateId": "727a9131-d922-4258-84fd-8726fe58225e",
+   "nodeId": "node_t1ca30hvde",
+   "title": "@loc_clouds · 云海日出",
+   "submitId": "67d00287-ccf3-4cfd-a00d-f4592c259ef3",
+   "submitted": true,
+   "resourceId": "313a49cf-858a-43fd-ab42-dc961e962303",
+   "result": "film02/assets/loc_clouds.png"
+  },
+  "loc_breakfast": {
+   "updateId": "bd4754da-30b0-4329-8833-eba99e8d9e96",
+   "nodeId": "node_5bf827y3j5",
+   "title": "@loc_breakfast · 崖顶早餐",
+   "result": "film02/assets/loc_breakfast.png",
+   "submitId": "ced2e9e0-f040-453f-90a6-8e2d116e8af5",
+   "submitted": true,
+   "resourceId": "faa7448d-ca4f-49c5-8b5b-fa934af1c5c3"
+  },
+  "V6A1": {
+   "updateId": "eb2e017c-b3e1-48ee-8460-17fc8288f857",
+   "nodeId": "node_v87ty85eke",
+   "title": "v06 A1 Garage 480p",
+   "submitId": "be397b5e-08bf-408b-b0f7-c1eb73486823",
+   "submitted": true,
+   "resourceId": "7dfe2b1c-249e-4efd-9882-5bddc2e0f729"
+  },
+  "V6A2": {
+   "updateId": "97b62f67-8084-4b5a-bf42-26bd2ac7e830",
+   "nodeId": "node_gjnwnyfswh",
+   "title": "v06 A2 Coast 480p",
+   "submitId": "01547065-2360-44e9-98df-298564d4cd72",
+   "submitted": true,
+   "resourceId": "ed913332-41e6-4410-ba7a-6b733e709476"
+  },
+  "V6A3": {
+   "updateId": "62ca6829-eaec-4d48-aeca-539c5fbab580",
+   "nodeId": "node_acn319cjjz",
+   "title": "v06 A3 Above 480p",
+   "submitId": "451ef92d-b67e-44e9-a725-c6ce44867566",
+   "submitted": true,
+   "resourceId": "f92bbb71-f6f1-4015-9a4c-49b961dcc848"
+  },
+  "V6A4": {
+   "updateId": "1c4c4154-3d32-40ae-b143-de5b9c16de1a",
+   "nodeId": "node_9d0x7dk9h4",
+   "title": "v06 A4 Home 480p",
+   "submitId": "83c07075-32c8-4941-b37a-17e57e67c7e7",
+   "submitted": true,
+   "resourceId": "86169fe0-4930-4fd3-ab97-79bf51bd0e99"
   }
  },
  "ledger": {
-  "budget": 7000,
+  "budget": 9532,
   "runs": [
    {
     "key": "K1",
@@ -881,6 +967,78 @@
     "credits": 54,
     "submitId": "20e821f7-1a85-40d2-bed2-9f3f62609cdc",
     "at": "2026-10-20 09:00"
+   },
+   {
+    "key": "char_pilot4",
+    "credits": 8,
+    "submitId": "f5fb1003-155f-48ff-8c05-91c4934b1284",
+    "at": "2026-10-20 09:40"
+   },
+   {
+    "key": "char_family",
+    "credits": 8,
+    "submitId": "dbe915bd-abf1-4dd9-bb94-23466357cd6e",
+    "at": "2026-10-20 09:40"
+   },
+   {
+    "key": "loc_garage",
+    "credits": 8,
+    "submitId": "7a0ebc5a-d4ef-47b0-aa9e-4b925d7d00de",
+    "at": "2026-10-20 09:40"
+   },
+   {
+    "key": "loc_coast_us",
+    "credits": 8,
+    "submitId": "5160af2d-fd6c-4333-bb18-7ad6ba93a49f",
+    "at": "2026-10-20 09:40"
+   },
+   {
+    "key": "loc_clouds",
+    "credits": 8,
+    "submitId": "67d00287-ccf3-4cfd-a00d-f4592c259ef3",
+    "at": "2026-10-20 09:40"
+   },
+   {
+    "key": "loc_breakfast",
+    "credits": 8,
+    "submitId": "937daf36-3127-4d68-9f93-a5de3aedc281",
+    "at": "2026-10-20 09:40"
+   },
+   {
+    "key": "char_family",
+    "credits": 8,
+    "submitId": "6caf675c-6706-49fc-b951-60eb49c0bad6",
+    "at": "2026-10-20 09:45"
+   },
+   {
+    "key": "loc_breakfast",
+    "credits": 8,
+    "submitId": "ced2e9e0-f040-453f-90a6-8e2d116e8af5",
+    "at": "2026-10-20 09:45"
+   },
+   {
+    "key": "V6A1",
+    "credits": 99,
+    "submitId": "be397b5e-08bf-408b-b0f7-c1eb73486823",
+    "at": "2026-10-20 09:56"
+   },
+   {
+    "key": "V6A2",
+    "credits": 90,
+    "submitId": "01547065-2360-44e9-98df-298564d4cd72",
+    "at": "2026-10-20 09:56"
+   },
+   {
+    "key": "V6A3",
+    "credits": 108,
+    "submitId": "451ef92d-b67e-44e9-a725-c6ce44867566",
+    "at": "2026-10-20 09:56"
+   },
+   {
+    "key": "V6A4",
+    "credits": 81,
+    "submitId": "83c07075-32c8-4941-b37a-17e57e67c7e7",
+    "at": "2026-10-20 09:56"
    }
   ]
  }
