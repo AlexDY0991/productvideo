@@ -656,7 +656,8 @@
    "title": "v08 P1 Takeoff 480p",
    "submitId": "14d6d345-b6de-4006-97fd-e31329d49a63",
    "submitted": true,
-   "resourceId": "c2f5544c-fff3-4ebf-853b-68da984c15cf"
+   "resourceId": "c2f5544c-fff3-4ebf-853b-68da984c15cf",
+   "result": "film02/clips/v08-draft/V8P1.mp4"
   },
   "V8P2": {
    "updateId": "3b0795a5-3507-421f-b8b1-8a9494cb2b45",
@@ -664,7 +665,8 @@
    "title": "v08 P2 Coast 480p",
    "submitId": "a7b10568-c0ec-42f1-85a0-f498e0bf3e1b",
    "submitted": true,
-   "resourceId": "f61fa784-cd4e-4ad3-985c-2e81572a6e64"
+   "resourceId": "f61fa784-cd4e-4ad3-985c-2e81572a6e64",
+   "result": "film02/clips/v08-draft/V8P2.mp4"
   },
   "V8P3": {
    "updateId": "2f46429c-ce1e-4c53-ac79-2fbc9a1e81e6",
@@ -672,7 +674,8 @@
    "title": "v08 P3 Home 480p",
    "submitId": "5f8be228-ed67-4eb4-863f-edf23b78d2b9",
    "submitted": true,
-   "resourceId": "833dd615-d129-4398-96d3-85311f71686f"
+   "resourceId": "833dd615-d129-4398-96d3-85311f71686f",
+   "result": "film02/clips/v08-draft/V8P3.mp4"
   },
   "V8P4": {
    "updateId": "645fc8f8-fb22-4fee-93fb-6031f80da639",
@@ -680,7 +683,8 @@
    "title": "v08 P4 Finale 480p",
    "submitId": "3c135bb3-25df-45e2-87f0-776161b21b40",
    "submitted": true,
-   "resourceId": "5f537226-f9d2-484f-8455-3648398b0eb3"
+   "resourceId": "5f537226-f9d2-484f-8455-3648398b0eb3",
+   "result": "film02/clips/v08-draft/V8P4.mp4"
   }
  },
  "ledger": {
