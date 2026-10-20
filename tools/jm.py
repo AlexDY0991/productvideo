@@ -153,6 +153,8 @@ def main():
                 sys.exit(f"confirm failed {json.dumps(c.get('error'), ensure_ascii=False)[:400]}")
             token = c["data"].get("creditConfirmationToken") or c["data"].get("token")
         for k in keys:
+            if st.node(k).pop("submitted", False):  # a re-run of an edited node is a new submission
+                st.node(k)["submitId"] = str(uuid.uuid4())
             st.node(k).setdefault("submitId", str(uuid.uuid4()))
         st.save()
         args = ["node", "run", "--project-id", st.P]
