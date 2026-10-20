@@ -31,8 +31,12 @@ last_frame() {
 step() {  # key title idx dur refs...
   local key="$1" title="$2" idx="$3" dur="$4"; shift 4
   local refs=(); for r in "$@"; do refs+=(--ref "$r"); done
-  python3 tools/jm.py $S vid "$key" --title "$title $RES" --prompt "$(prompt "$idx")" --mode m2v \
-    "${refs[@]}" --dur "$dur" --res "$RES" --model "$MODEL"
+  local text; text="$(prompt "$idx")"
+  for try in 1 2 3; do  # the service sometimes rejects a valid save once (service.2); retry
+    python3 tools/jm.py $S vid "$key" --title "$title $RES" --prompt "$text" --mode m2v \
+      "${refs[@]}" --dur "$dur" --res "$RES" --model "$MODEL" && break
+    [ "$try" = 3 ] && exit 1; sleep 5
+  done
   python3 tools/jm.py $S run "$key"
   python3 tools/jm.py $S wait "$OUT" "$key"
 }

@@ -700,6 +700,14 @@
    "updateId": "8ce22f95-c0e1-4ea7-aa41-6aead92b8d43",
    "nodeId": "node_ej0kgvje6f",
    "title": "REF · p1_end"
+  },
+  "V9P2": {
+   "updateId": "98906427-6915-4d65-94b9-056d4cd85106",
+   "nodeId": "node_6k1na2qkts",
+   "title": "v09 P2 Coast 480p",
+   "submitId": "a2df4d98-20c6-4bb4-81c5-9362c7634a66",
+   "submitted": true,
+   "resourceId": "529caa2e-fb26-4fcc-8028-d7a2386fbbe4"
   }
  },
  "ledger": {
@@ -1184,6 +1192,12 @@
     "credits": 8,
     "submitId": "5b114918-cbeb-40c6-9506-aa2b9dbbd4c3",
     "at": "2026-10-20 15:29"
+   },
+   {
+    "key": "V9P2",
+    "credits": 99,
+    "submitId": "a2df4d98-20c6-4bb4-81c5-9362c7634a66",
+    "at": "2026-10-20 15:41"
    }
   ]
  }
