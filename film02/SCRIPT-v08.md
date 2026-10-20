@@ -1,6 +1,7 @@
 # CoolFly DREAM · v08 脚本「First Light」— 运镜 + 动作转场重写 · 四段
 
 > 状态：**待用户确认**。故事、人物、20 米高度、家人至少离 40 米这些规则都沿用 v07。
+> 第二轮修改（用户意见）：① 从封闭车库里直接飞出去不现实，改成崖顶牧场的**开放式机库**（`@loc_hangar_us`），Dream 停在门外的起降圈上，从室外起飞；② 全片要有快慢切换，新增「节奏设计」一节，按它重排了镜头长度。
 > 结构：4 次 Seedance 2.5 生成（11 + 11 + 10 + 8 = 40 s），后期接 3 s 整屏橙色 logo 卡，全片 43 s，16:9。
 
 ## 用户对 v07 的意见
@@ -26,7 +27,7 @@
   - **穿越：** 跟着飞行器从桥下穿过去；镜头从防滚架顶部向下穿进驾驶舱，看到脚下。
   - **光线转场：** 从桥的阴影里冲出来，进入阳光。
 - **段与段之间也要有动机：**
-  - 第 1 段结尾，FPV 镜头跟着 Dream 从崖边俯冲到海面；第 2 段开头接着同一个方向、同样的速度继续追（运动匹配）。
+  - 第 1 段结尾，FPV 镜头跟着 Dream 从停机坪起飞、俯冲出崖边到海面；第 2 段开头接着同一个方向、同样的速度继续追（运动匹配）。
   - 第 2 段结尾，Dream 朝画面右侧的崖顶飞去；第 3 段开头，它从画面右侧进来降落（方向一致）。
   - 第 3 段结尾是他看着女儿笑；第 4 段开头是一杯咖啡放在桌上，呼应片头放咖啡的动作，前后首尾呼应。
   - 第 4 段结尾，镜头推进橙色整流罩，直到橙色漆面铺满画面；后期直接切到同样橙色的整屏 logo 卡（颜色匹配）。
@@ -35,10 +36,29 @@
 
 | 段 | 时长 | 运镜和转场 | 情绪 |
 |---|---|---|---|
-| 1 · TAKEOFF | 11 s | 从屋顶横梁降下的升降镜头 → 防滚架管子前景遮挡 → 横移跟拍检查螺旋桨 → 切在他坐下的动作上 → 环绕拍戴头盔 → 头盔外壳遮满画面 → 从黑色里拉出：车库外，玻璃门升起 → 升降镜头跟着离地 → 机腹从头顶掠过，镜头翻转 180° 跟着俯冲出崖边 | 仪式感 → 期待 |
-| 2 · THE COAST | 11 s | FPV 贴海追飞 → 侧拍大笑 → 顺着他的目光甩镜到拱桥 → 跟着从桥下穿过 → 从阴影冲进阳光，环绕拍张开的手 → 越过防滚架顶部向下穿进驾驶舱，看到脚下的海浪 → 拉出，目送他飞向崖顶 | 速度 → 自由 |
+| 1 · TAKEOFF | 11 s | 机库里，他放下咖啡、推开巨大的推拉门，门板扫过画面当前景遮挡，门外是停在起降圈上的 Dream → 横移跟拍检查螺旋桨 → 切在他坐下的动作上 → 环绕拍戴头盔 → **三个 0.5–0.7 秒快切**：螺旋桨转起来、手推操纵杆、下洗气流吹开尘土 → 从停机坪起飞，升降镜头跟拍 → 机腹从头顶掠过，镜头翻转 180°，跟着俯冲出崖边 | 仪式感 → 爆发 |
+| 2 · THE COAST | 11 s | FPV 贴海追飞 → 贴着水面，飞行器从镜头旁呼啸而过 → 侧拍大笑 → 甩镜到拱桥 → 跟着从桥下穿过，冲进阳光 → **升格慢动作 2.6 秒**：张开左手感受风，声音只剩风声 → 速度和声音同时猛地恢复：越过防滚架顶部向下穿进驾驶舱，看到脚下的海浪 → 拉出，目送他飞向崖顶 | 速度 → 喘息 → 自由 |
 | 3 · HOME | 10 s | 穿过前景野花的升降镜头，落在家人身上 → 低机位滑向远处降落的 Dream → 从停住的螺旋桨移焦到远处跑来的女儿 → 环绕拍：摘头盔、抱起女儿 → 切在动作上 → 推近，移焦到他的笑 | 温暖 |
-| 4 · FINALE | 8 s | 微距：咖啡杯放下 → 横移露出一家人在早餐桌旁，远处停着 Dream → 低机位环绕 Dream 的英雄镜头 → 连续滑过细节：共轴电机、碳纤维机臂、05 号 → 推进橙色整流罩，直到橙色铺满画面 → 后期切到橙色 logo 卡 | 回味 → 品牌 |
+| 4 · FINALE | 8 s | 微距：咖啡杯放下 → 横移露出一家人在早餐桌旁，远处停着 Dream → 低机位慢慢环绕 Dream 的英雄镜头 → **三个 0.5 秒细节快切**：碳纤维机臂、共轴电机、05 号 → 慢慢推进橙色整流罩，直到橙色铺满画面 → 后期切到橙色 logo 卡 | 回味 → 品牌 |
+
+## 节奏设计（快慢切换）
+
+参考片的做法：Xiaomi 先用一个长镜头蓄势，再连续 0.2–0.4 秒快切，然后突然停住；Eletre 是微距慢、飞驰快。v08 全片的节奏曲线如下：
+
+| 时间（全片） | 段 | 节奏 | 镜头长度 | 声音 |
+|---|---|---|---|---|
+| 0–6 s | 1 | **慢**：推门、检查、戴头盔，仪式感 | 1.6–2.4 s | 安静：门轨、脚步、咔嗒 |
+| 6–11 s | 1 | **爆发**：螺旋桨、手、气流三个快切 → 起飞 → 俯冲 | 0.5–0.7 s，再到 1.4–1.6 s | 电机声突然响起，轰鸣 |
+| 11–17 s | 2 | **快**：贴海追飞、擦身而过、甩镜、穿桥 | 0.4–1.8 s | 风、浪、桥下回声 |
+| 17–19.6 s | 2 | **慢动作喘息**：张开手，全片唯一的升格 | 2.6 s | 突然只剩风声和呼吸 |
+| 19.6–22 s | 2 | **再快**：脚下的海浪，拉出 | 1.0–1.4 s | 声音猛地恢复 |
+| 22–32 s | 3 | **慢、温柔**：降落、女儿跑来、戴头盔 | 1.6–2.4 s | 草地、风、笑声 |
+| 32–36.4 s | 4 | **慢**：咖啡、一家人、环绕 Dream | 2.0–2.4 s | 安静 |
+| 36.4–37.9 s | 4 | **三个快拍**：机臂、电机、05 | 0.5 s | 配乐踩点 |
+| 37.9–40 s | 4 | **慢推**到橙色铺满 | 2.1 s | 收 |
+| 40–43 s | 卡 | 整屏橙色 + 黑色 logo | 3 s | 最后一拍 |
+
+后期配乐会在 6 秒（起飞爆发）、17 秒（慢动作）、19.6 秒（恢复）和 36.4 秒（三个快拍）这几处踩点。
 
 ## 积分
 
@@ -55,52 +75,57 @@
 ## 第 1 段 · TAKEOFF · 11.0 s
 
 ```
-An 11-second live-action commercial opening, 16:9, the blue hour before dawn at a clifftop house on the California coast. A man walks into his private glass garage where a CoolFly Dream stands in the bay where a car would be, checks it by hand, sits, puts on his helmet; the glass door rises to the sea, the aircraft lifts off, sweeps out directly over the camera, and the camera spins round and dives after it off the cliff edge toward the sunrise. The camera never stops moving; every cut is hidden in movement or occlusion.
+An 11-second live-action commercial opening, 16:9, the blue hour before dawn at a clifftop ranch on the California coast. A man slides open the huge door of his private hangar; the CoolFly Dream already stands outside on the landing circle of the apron; he checks it by hand, sits and puts on his helmet in a slow, deliberate ritual — then the rhythm explodes: rapid close-ups of the propellers, the grip and the downwash, the aircraft lifts off the apron, sweeps over the camera, and the camera spins round and dives after it off the cliff edge toward the sunrise. Slow build, then a burst of fast cuts. The camera never stops moving.
 
 REFERENCES
 @prop_dream — the aircraft. Take every detail of shape, livery, arms, motors and propellers; ignore its grey studio backdrop.
 @char_pilot4 — the pilot. Take his face, hair, flight suit with both CoolFly wordmarks, gloves and the black helmet with the perfectly clear visor; ignore the grey backdrop and the sheet layout.
-@loc_garage — the garage: board-formed concrete floor, timber ceiling with exposed beams, walnut workbench with a brass lamp on the left wall, the tall full-width glass door to the cliff and the ocean. The plate shows an empty centre bay; in this clip the aircraft stands in it.
+@loc_hangar_us — the hangar and apron: the long dark timber-and-steel hangar on the left with its two huge sliding doors, the warm-lit interior with the walnut workbench and brass lamp, the concrete apron with the large white landing circle, the golden grass, the cliff edge and the Pacific on the right. The plate shows the doors open and the circle empty; in this clip the doors start closed and the aircraft stands in the centre of the circle.
 
 LOOK
-High-end automotive commercial, clean modern digital cinema, 24–85mm lenses, deep clean blacks, crisp detail. Cool blue pre-dawn light through the glass mixed with one warm brass lamp; outside, the sky over the ocean warms toward sunrise by the end; the aircraft's orange is the strongest colour in every shot. The camera is always moving — crane, dolly, orbit, FPV — with weighted, physically plausible motion, slow and deliberate inside the garage, then accelerating hard at take-off. No locked-off shots.
+High-end automotive commercial, clean modern digital cinema, 24–100mm lenses including macro, deep clean blacks, crisp detail. Deep blue pre-dawn light outside, warm lamplight spilling from the hangar, the first gold on the horizon growing by the end; the aircraft's orange is the strongest colour in every shot. RHYTHM: 0.0–6.2s is slow and deliberate — long, smooth, weighted camera moves; 6.2–11.0s explodes into fast cuts of 0.5–0.7s and hard, accelerating moves. The camera is always moving; no locked-off shots.
 
 CHARACTERS
-The pilot — an American man in his mid-30s, short dark-brown hair, light stubble, grey-green eyes, real skin. Calm, competent, quietly excited. He never speaks and never looks into the lens. He carries the helmet in his hand until he puts it on in the 3.8–6.4s shot; after that the clear visor is down and his face stays clearly visible through it.
+The pilot — an American man in his mid-30s, short dark-brown hair, light stubble, grey-green eyes, real skin. Calm, competent, quietly excited. He never speaks and never looks into the lens. He carries the helmet in his hand until he puts it on in the 4.0–6.2s shot; after that the clear visor is down and his face stays clearly visible through it.
 
 SUIT RULE
 Matte black one-piece flight suit exactly as @char_pilot4: the CoolFly wordmark printed small on the left chest and large across the upper back, 'Cool' in off-white and 'Fly' in orange, the same slanted stencil letters, never misspelled, mirrored or redesigned. These two prints are the only text allowed in the clip.
 
 AIRCRAFT RULE
-Exactly one CoolFly Dream, identical to @prop_dream in every frame: orange glossy front fairing with two white vertical stripes and the number 05, dark-grey tubular steel roll cage with an arched roof, white bucket seat with harness, four carbon-fibre arms in an X layout, a coaxial pair of black motors at each arm tip (one above, one below) with two-blade carbon propellers, eight propellers in total, open perforated steel floor. Never redesigned, never round or spherical; no extra or missing parts; no added logos or text. Its small status lights are tiny and soft and never light up the aircraft or the floor. Propellers are still until 7.2s; after that they are translucent spinning discs. It never flies higher than about 20 metres above the ground or the water.
+Exactly one CoolFly Dream, identical to @prop_dream in every frame: orange glossy front fairing with two white vertical stripes and the number 05, dark-grey tubular steel roll cage with an arched roof, white bucket seat with harness, four carbon-fibre arms in an X layout, a coaxial pair of black motors at each arm tip (one above, one below) with two-blade carbon propellers, eight propellers in total, open perforated steel floor. Never redesigned, never round, spherical or hexagonal; no extra or missing parts; no added logos or text. Its small status lights are tiny and soft and never light up the aircraft or the ground. It stands outside on the landing circle the whole time and takes off from there, never inside the hangar. Propellers are still until 6.2s; after that they are translucent spinning discs. It never flies higher than about 20 metres above the ground or the water.
 
 WHERE EVERYTHING IS — fixed for the whole clip
-The aircraft stands in the centre bay, nose toward the glass door; beyond the door: a concrete apron, the cliff edge, the Pacific. The workbench and lamp are on the left wall. The pilot enters from screen right and works on the aircraft's right side.
+From the apron looking toward the sea: the hangar on the left with its sliding doors; the aircraft in the centre of the white landing circle on the apron, nose toward the ocean; the golden grass, the cliff edge and the Pacific on the right and ahead. Inside the hangar, the workbench and lamp on its left wall.
 
 SHOTS
-0.0–2.2s — THE VERY FIRST FRAME OF THE CLIP IS THIS: high among the timber ceiling beams of @loc_garage, looking down at the aircraft standing in silhouette against the glass door and the blue ocean. The camera cranes down and forward in one smooth move. At 0.6s the pilot walks into frame from the right, helmet in his left hand; at 1.5s he sets a steaming coffee mug on the workbench and the camera, now at chest height, glides past the mug in the near foreground. At 2.0s the camera slides behind a dark roll-cage tube that crosses the whole frame as a foreground wipe. BACKGROUND: the glass door, the ocean, the warm lamp.
+0.0–2.4s — THE VERY FIRST FRAME OF THE CLIP IS THIS: inside the dark hangar, low, looking at the closed sliding doors, a thin line of blue dawn light along their edge. At 0.3s the pilot sets a steaming coffee mug down on the workbench in the near foreground, then grips a door handle and slides one huge door open; the camera dollies slowly forward behind him as the door panel glides across the whole frame — a natural foreground wipe — and deep blue dawn floods in, revealing the apron, the aircraft standing on the landing circle and the ocean beyond. SLOW. BACKGROUND: the door, then the apron and the sea.
 
-2.2–3.8s — out of the wipe: 50mm lateral dolly at chest height alongside the pilot as he walks the right side of the aircraft, face fully visible, a faint private smile, the CoolFly wordmark on his left chest. He runs his gloved right hand slowly along the leading edge of a still carbon propeller blade. The camera arcs behind him; at 3.3s the large CoolFly wordmark across his back is readable; at 3.6s he swings himself down into the seat — cut on that movement at 3.8s. BACKGROUND: the orange fairing and roll cage, the timber ceiling.
+2.4–4.0s — outside on the apron, 50mm, a slow lateral dolly at chest height alongside the pilot as he walks around the parked aircraft, helmet in his left hand, face fully visible, a faint private smile, the CoolFly wordmark on his left chest. He runs his gloved right hand slowly along the leading edge of a still carbon propeller blade; at 3.4s the large CoolFly wordmark across his back is readable as he turns to the seat; at 3.8s he swings down into the seat — cut on that movement at 4.0s. SLOW. BACKGROUND: the warm open hangar behind, the ocean.
 
-3.8–6.4s — 85mm, one continuous slow orbit of about 60 degrees around the seated pilot, from his left three-quarter to almost frontal, never stopping. At 4.0s he clicks the harness buckle shut; at 4.4s he lifts the helmet from his lap with both hands, raises it above his head and at 4.9s pulls it down over his head in one clear, visible motion; at 5.4s he fastens the chin strap; at 5.9s he lowers the perfectly clear visor with one finger; through it his eyes look ahead, focused, the corner of his mouth lifting. At 6.1s the orbit carries the camera close past the side of the helmet until the matte black shell fills the whole frame, every edge and corner.
+4.0–6.2s — 85mm, one continuous slow orbit of about 60 degrees around the seated pilot, never stopping. At 4.2s he clicks the harness buckle; at 4.5s he lifts the helmet from his lap with both hands, raises it above his head and at 5.0s pulls it down over his head in one clear, visible motion; at 5.5s he fastens the chin strap; at 5.9s he lowers the perfectly clear visor; through it his eyes look ahead at the sea, focused, the corner of his mouth lifting. SLOW. BACKGROUND: the hangar glow, the deep blue sky.
 
-6.4–8.2s — out of the black: the camera is outside on the apron, pulling slowly back; the black was the dark bottom edge of the glass door, which rolls up from 6.4s to 7.4s, revealing the aircraft inside with the pilot seated, the warm lamp behind. At 7.2s the propellers begin to turn; dust and a little mist stir across the floor and roll out toward the lens. The camera begins to push in toward the opening. BACKGROUND: the lit garage interior.
+6.2–6.8s — FAST: 100mm macro on a coaxial motor pair as the two-blade propeller snaps into motion and blurs into a translucent disc, the camera whipping past it.
 
-8.2–9.6s — continuing the push, the camera sweeps low into the garage at floor level and then cranes up with the aircraft as it lifts smoothly and vertically between 8.4s and 9.4s to about 1.5 metres, perfectly level, the propeller discs above the lens, dust swirling, the seated pilot visible through the cage. BACKGROUND: the timber ceiling, then the open door.
+6.8–7.3s — FAST: 100mm macro of his gloved right hand pushing the control grip forward, the camera rushing in.
 
-9.6–11.0s — the aircraft glides forward out of the door directly over the camera; its belly and open perforated floor sweep across the lens at 9.8s; the camera tilts over and spins 180 degrees to follow it in one continuous move, then dives off the cliff edge after it like an FPV drone, dropping toward the sea and chasing it low over the water toward the first gold of sunrise, accelerating. The clip ends mid-chase, the camera still moving fast.
+7.3–8.0s — FAST: ground level at the edge of the landing circle, the camera sliding fast; the downwash blasts a ring of dust and grass outward across the concrete toward the lens.
+
+8.0–9.4s — 35mm low wide from the apron, the camera craning up fast as the aircraft lifts smoothly and vertically off the circle to about 4 metres between 8.1s and 9.2s, perfectly level, the pilot visible in the seat, the hangar glowing behind.
+
+9.4–11.0s — FAST: the aircraft surges forward directly over the camera, its belly and open perforated floor sweeping across the lens at 9.6s; the camera tilts over and spins 180 degrees to follow in one continuous move, then dives off the cliff edge after it like an FPV drone, dropping toward the sea and chasing it low over the water toward the first gold of sunrise, accelerating. The clip ends mid-chase, the camera still moving fast.
 
 SOUND
-No music: the score is added in post. Diegetic sound only: room tone and distant surf; footsteps on concrete from 0.6s; the soft knock of the mug on wood at 1.5s; a gloved hand brushing carbon at 2.8s; seat and harness sounds at 3.6s; a crisp buckle click at 4.0s; helmet shell and strap sounds 4.9–5.4s; a visor click at 5.9s; the glass door's motor hum 6.4–7.4s with wind and surf rushing in; motor whine rising from 7.2s; deep rotor roar from 8.4s; a huge rotor pass overhead at 9.8s; wind and surf rushing as the camera dives. No dialogue, voices, narrator, stings or added whooshes.
+No music: the score is added in post. Diegetic sound only: dawn wind and distant surf; the soft knock of the mug on wood at 0.3s; the heavy rumble of the sliding door on its rail 0.6–2.2s; footsteps on concrete from 2.4s; a gloved hand brushing carbon at 3.0s; seat and harness sounds at 3.8s; a crisp buckle click at 4.2s; helmet shell and strap sounds 5.0–5.5s; a visor click at 5.9s; then a sudden sharp motor whine at 6.2s, a grip click at 6.8s, a blast of downwash at 7.3s, a deep rotor roar from 8.1s, a huge rotor pass overhead at 9.6s, then wind and surf rushing as the camera dives. No dialogue, voices, narrator, stings or added whooshes.
 
 KEEP CONSISTENT
-- The clip opens high among the ceiling beams craning down, never on a close-up.
-- The camera never stops; no locked-off shots; every transition is hidden in a wipe, a movement or the helmet occlusion, exactly as written.
-- The helmet is in his hand until 4.4s and goes on only in the 3.8–6.4s orbit, in one clear visible motion; it never simply appears on his head.
-- Exactly one aircraft, identical to @prop_dream; eight propellers; its status lights never glow on the aircraft or the floor.
-- Exactly one pilot, identical to @char_pilot4, both CoolFly wordmarks; after 5.9s the clear visor is down and his face stays visible through it; he is in the seat in every shot after 3.8s.
+- The clip opens inside the dark hangar on the closed doors, never on a close-up of the aircraft.
+- The aircraft stands outside on the landing circle and takes off from there; it never flies inside the hangar or through a door.
+- Rhythm: slow until 6.2s, then fast cuts at 6.8s, 7.3s and 8.0s, then the climb and the dive.
+- The camera never stops; no locked-off shots.
+- The helmet is in his hand until 4.5s and goes on only in the 4.0–6.2s orbit, in one clear visible motion; it never simply appears on his head.
+- Exactly one aircraft, identical to @prop_dream; eight propellers; its status lights never glow on the aircraft or the ground.
+- Exactly one pilot, identical to @char_pilot4, both CoolFly wordmarks; after 5.9s the clear visor is down; he is in the seat in every shot after 4.0s.
 - The aircraft never flies higher than about 20 metres; no birds, no clouds below it.
-- Propellers are still until 7.2s.
 - Colour stays rich and clean, never washed out.
 - Apart from the two CoolFly wordmarks on the suit, no subtitles, on-screen text, other logos or watermarks.
 ```
@@ -108,7 +133,7 @@ KEEP CONSISTENT
 ## 第 2 段 · THE COAST · 11.0 s
 
 ```
-An 11-second live-action commercial flight sequence, 16:9, sunrise on the Big Sur coast of California. Opens mid-move: an FPV camera is already chasing the aircraft low over the Pacific at full speed, exactly as the previous clip ended. The pilot grins, the camera whips to the towering arch bridge ahead and flies under it with him, bursts out of its shadow into sunlight, circles him as he opens his hand to the wind, dives through the roll cage to show the sea racing beneath his boots, and pulls back as he banks toward a green clifftop. The camera never stops moving; every transition is driven by movement.
+An 11-second live-action commercial flight sequence, 16:9, sunrise on the Big Sur coast of California. Opens mid-move: an FPV camera is already chasing the aircraft low over the Pacific at full speed, exactly as the previous clip ended. The pilot grins, the camera whips to the towering arch bridge ahead and flies under it with him, bursts out of its shadow into sunlight, circles him as he opens his hand to the wind, dives through the roll cage to show the sea racing beneath his boots, and pulls back as he banks toward a green clifftop. Rhythm: fast and punchy, then one slow-motion breath as he opens his hand to the wind, then fast again. The camera never stops moving; every transition is driven by movement.
 
 REFERENCES
 @prop_dream — the aircraft. Every detail of shape, livery, arms, motors and propellers; ignore the grey backdrop.
@@ -116,7 +141,7 @@ REFERENCES
 @loc_coast_us — the coastline: golden-grass hills, dark cliffs, the concrete arch bridge carrying the two-lane coastal highway high above a canyon mouth, the ocean. Take the geography and light; the camera heights here are lower, as written per shot.
 
 LOOK
-High-end automotive commercial, clean modern digital cinema, 16–85mm lenses. Low warm sunrise light from the right over the ocean, long shadows on the golden hills, deep blue Pacific, white surf, soft morning mist in the canyon mouths; the aircraft's orange is the strongest colour. The camera is always moving: FPV chases, whip pans, fly-throughs and orbits with real speed, weight and inertia; the flying itself is confident and controlled, never reckless. No locked-off shots.
+High-end automotive commercial, clean modern digital cinema, 16–85mm lenses. Low warm sunrise light from the right over the ocean, long shadows on the golden hills, deep blue Pacific, white surf, soft morning mist in the canyon mouths; the aircraft's orange is the strongest colour. The camera is always moving: FPV chases, whip pans, fly-throughs and orbits with real speed, weight and inertia; the flying itself is confident and controlled, never reckless. No locked-off shots. RHYTHM: 0.0–6.0s fast (shots of 0.4–1.8s); 6.0–8.6s a speed ramp into smooth slow motion, the one quiet breath of the film; 8.6–11.0s back to full speed.
 
 CHARACTERS
 The pilot — the same American man as @char_pilot4, seated and harnessed, right hand always on the control grip, clear visor down, his face and eyes clearly visible through it. Focus turning into pure, open joy. Never speaks, never looks into the lens.
@@ -128,24 +153,29 @@ WHERE EVERYTHING IS — fixed for the whole clip
 Looking north along the coast: the hills, cliffs, the coastal highway and the arch bridge are on the left (land side); the open Pacific is on the right; the sun is low over the ocean on the right. The aircraft always flies north over the water, never over people or traffic. At the end it banks toward a green clifftop meadow ahead on the right.
 
 SHOTS
-0.0–2.4s — THE VERY FIRST FRAME OF THE CLIP IS THIS: an FPV camera low behind the aircraft, three metres above the swells, chasing it at full speed toward the sunrise, the pilot's helmet visible in the cage, foam and swells rushing under the lens with motion blur, its downwash drawing a line of spray. The camera swoops up and slides out to the aircraft's left side, overtaking a little; cut on that sideways swoop at 2.4s. BACKGROUND: the golden hills and cliffs on the left, the coast running ahead.
+0.0–1.4s — THE VERY FIRST FRAME OF THE CLIP IS THIS: FAST — an FPV camera low behind the aircraft, three metres above the swells, chasing it at full speed toward the sunrise, the pilot's helmet visible in the cage, foam and swells rushing under the lens with motion blur, its downwash drawing a line of spray. BACKGROUND: the golden hills and cliffs on the left.
 
-2.4–4.6s — 85mm side tracking at the aircraft's height, keeping pace, the aircraft side-on travelling left to right. Through the clear visor his face is clearly visible: at 2.8s his focus breaks into a wide, open grin and he shakes his head once, delighted. Behind him, soft, the coastal highway runs along the cliffs with one small car moving slowly. At 4.2s he looks ahead and the camera whip-pans right along his gaze in a fast motion-blurred swish. BACKGROUND: golden hills, the highway.
+1.4–2.2s — FAST: a camera skimming just above the water, the aircraft roars past close beside the lens from left to right, spray kicking up — cut on the pass at 2.2s.
 
-4.6–7.0s — the whip lands: a wide low over the water at the canyon mouth, the huge concrete arch bridge towering ahead across the top of the frame, its deck far above. The aircraft flies toward it just above the water and the camera follows close behind; at 5.6s both pass under the arch, the bridge's shadow sweeping over the lens and darkening the frame; at 6.6s they burst out of the shadow into blazing sunlight that flares across the lens. BACKGROUND: the arch, the canyon walls, the bright sky.
+2.2–3.8s — 85mm side tracking at the aircraft's height, keeping pace, the aircraft side-on travelling left to right. Through the clear visor his face is clearly visible: at 2.5s his focus breaks into a wide, open grin and he shakes his head once, delighted. Behind him, soft, the coastal highway runs along the cliffs with one small car moving slowly. At 3.5s he looks ahead and the camera whip-pans right along his gaze.
 
-7.0–8.8s — in the sunlight, 35mm, the camera orbits around the left side of the cockpit, close, never stopping. His right hand stays firmly on the control grip; at 7.3s he lifts his left gloved hand and opens it slowly into the airflow, fingers spread, feeling the wind. The orbit rises over the arched roof of the roll cage and at 8.5s tilts straight down, passing between the roof tubes into the cockpit. BACKGROUND: the sunlit ocean, the cliffs.
+3.8–4.2s — FAST: the whip pan, a motion-blurred swish across the coast.
 
-8.8–9.8s — continuing the same move straight down between his knees: his black boots on the open perforated steel floor, and through its holes and past its edges the sunlit swells and white foam stream past about 15 metres below.
+4.2–6.0s — the whip lands: a wide low over the water at the canyon mouth, the huge concrete arch bridge towering ahead across the top of the frame, its deck far above. The aircraft flies toward it just above the water and the camera follows close behind; at 4.9s both pass under the arch, the bridge's shadow sweeping over the lens; at 5.7s they burst out of the shadow into blazing sunlight that flares across the lens.
 
-9.8–11.0s — the camera pulls straight up and back out of the cage, rising and falling behind as the aircraft banks gently to the right in a wide, graceful curve toward a green clifftop meadow ahead on the right, the sun lighting the propeller discs. The clip ends with the aircraft heading off toward the meadow at screen right.
+6.0–8.6s — SLOW MOTION: the action ramps smoothly down into slow motion; 35mm, the camera orbits slowly around the left side of the cockpit. His right hand stays firmly on the control grip; at 6.3s he lifts his left gloved hand and opens it slowly into the airflow, fingers spread, the sleeve rippling, sunlight sliding across his clear visor and his calm, overjoyed face. The orbit rises over the arched roof of the roll cage and at 8.3s tilts straight down between the roof tubes into the cockpit. BACKGROUND: the sunlit ocean, the cliffs.
+
+8.6–9.6s — FAST: real speed snaps back; straight down between his knees: his black boots on the open perforated steel floor, and through its holes and past its edges the sunlit swells and white foam stream past about 15 metres below.
+
+9.6–11.0s — the camera pulls straight up and back out of the cage, rising and falling behind as the aircraft banks gently to the right in a wide, graceful curve toward a green clifftop meadow ahead on the right, the sun lighting the propeller discs. The clip ends with the aircraft heading off toward the meadow at screen right.
 
 SOUND
-No music: the score is added in post. Diegetic sound only: wind and rushing water; the rotor roar rising and falling; a distant car on the highway at 3.2s; the natural air rush of the whip pan at 4.2s; the rotor booming and echoing under the bridge at 5.6s, opening out into bright wind at 6.6s; air rushing past the open hand from 7.3s; the hiss of waves below from 8.8s. No dialogue, voices, narrator, stings or added whooshes.
+No music: the score is added in post. Diegetic sound only: wind and rushing water; the rotor roar rising and falling; a close rotor pass at 1.8s; a distant car on the highway at 2.9s; the natural air rush of the whip pan at 3.8s; the rotor booming and echoing under the bridge at 4.9s, opening out into bright wind at 5.7s; during the slow motion 6.0–8.6s everything drops to a low, soft rush of wind and his calm breathing inside the helmet; full sound slams back at 8.6s with the hiss of waves below. No dialogue, voices, narrator, stings or added whooshes.
 
 KEEP CONSISTENT
 - The clip opens mid-chase low over the water, never on a wide or a close-up.
-- The camera never stops; no locked-off shots; transitions exactly as written: swoop cut, whip pan, bridge shadow, orbit through the roof.
+- Rhythm: fast to 6.0s, one smooth slow-motion breath 6.0–8.6s, full speed again from 8.6s.
+- The camera never stops; no locked-off shots; transitions exactly as written: pass-by cut, whip pan, bridge shadow, orbit through the roof.
 - Exactly one aircraft, identical to @prop_dream, eight spinning propellers, never round or hexagonal; the pilot is in the seat in every shot.
 - It always flies about 10–20 metres above the water, far below the bridge deck; no clouds below it, no birds anywhere.
 - His right hand stays on the control grip the whole time; only the left hand opens to the wind.
@@ -220,7 +250,7 @@ REFERENCES
 @loc_breakfast — the clifftop meadow with the breakfast table on the left and the long open meadow to the right.
 
 LOOK
-High-end automotive commercial packshot, clean modern digital cinema, 35–100mm lenses including macro, shallow depth of field. Warm low golden sun backlighting the aircraft, a soft natural sheen on the orange clear coat, real carbon weave, morning mist over the ocean beyond the cliff edge. Natural light only; nothing on the aircraft glows. The camera is always moving: a slow lateral glide, a slow orbit, a gliding macro move, a final push-in. Calm, confident, premium.
+High-end automotive commercial packshot, clean modern digital cinema, 35–100mm lenses including macro, shallow depth of field. Warm low golden sun backlighting the aircraft, a soft natural sheen on the orange clear coat, real carbon weave, morning mist over the ocean beyond the cliff edge. Natural light only; nothing on the aircraft glows. The camera is always moving: a slow lateral glide, a slow orbit, three quick macro beats of 0.5s, a final slow push-in. Calm, confident, premium. RHYTHM: slow 0.0–4.4s, three quick beats 4.4–5.9s, slow final push 5.9–8.0s.
 
 CHARACTERS
 The pilot — the same American man as @char_pilot3, no helmet, black flight suit, relaxed, laughing with his family. Never looks into the lens.
@@ -235,9 +265,13 @@ SHOTS
 
 2.0–4.4s — 35mm low hero orbit around the parked aircraft on the grass, the camera circling slowly from its front three-quarter to its side, the low sun behind it flaring softly through the roll cage and rimming the arms, the grass moving in the breeze; far behind, the family at the table, soft and small.
 
-4.4–6.0s — one continuous gliding macro move, 100mm: along a carbon-fibre arm with its real weave, over the black coaxial motor pair and the still two-blade propeller, and along the curve of the orange fairing to its two white stripes and the number 05.
+4.4–4.9s — QUICK: 100mm macro gliding along a carbon-fibre arm, the real weave catching the light.
 
-6.0–8.0s — the camera pushes straight and slowly into the glossy orange fairing between the stripes, the reflection of the sky sliding across the clear coat, until the orange paint fills the whole frame, every edge and corner, softly out of focus. The clip ends on the full orange frame.
+4.9–5.4s — QUICK: 100mm macro sliding over the black coaxial motor pair and a still two-blade propeller.
+
+5.4–5.9s — QUICK: 100mm macro across the two white stripes and the number 05 on the orange fairing.
+
+5.9–8.0s — SLOW: the camera pushes straight and slowly into the glossy orange fairing between the stripes, the reflection of the sky sliding across the clear coat, until the orange paint fills the whole frame, every edge and corner, softly out of focus. The clip ends on the full orange frame.
 
 SOUND
 No music: the score is added in post. Diegetic sound only: the soft knock of the mug on the table at 0.4s; the family's quiet laughter at 1.0s, no words; meadow wind, distant surf and birdsong; then only a soft breeze. No dialogue, words, narrator, stings or added whooshes.
@@ -254,8 +288,8 @@ KEEP CONSISTENT
 
 ## 时间码校验
 
-- 第 1 段：0.0–2.2 · 2.2–3.8 · 3.8–6.4 · 6.4–8.2 · 8.2–9.6 · 9.6–11.0，连续，结束 = 11.0 s
-- 第 2 段：0.0–2.4 · 2.4–4.6 · 4.6–7.0 · 7.0–8.8 · 8.8–9.8 · 9.8–11.0，连续，结束 = 11.0 s
+- 第 1 段：0.0–2.4 · 2.4–4.0 · 4.0–6.2 · 6.2–6.8 · 6.8–7.3 · 7.3–8.0 · 8.0–9.4 · 9.4–11.0，连续，结束 = 11.0 s
+- 第 2 段：0.0–1.4 · 1.4–2.2 · 2.2–3.8 · 3.8–4.2 · 4.2–6.0 · 6.0–8.6 · 8.6–9.6 · 9.6–11.0，连续，结束 = 11.0 s
 - 第 3 段：0.0–2.2 · 2.2–4.0 · 4.0–5.6 · 5.6–7.6 · 7.6–10.0，连续，结束 = 10.0 s
-- 第 4 段：0.0–2.0 · 2.0–4.4 · 4.4–6.0 · 6.0–8.0，连续，结束 = 8.0 s
+- 第 4 段：0.0–2.0 · 2.0–4.4 · 4.4–4.9 · 4.9–5.4 · 5.4–5.9 · 5.9–8.0，连续，结束 = 8.0 s
 - 没有台词；SOUND 里的时间点与镜头动作一致

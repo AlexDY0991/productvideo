@@ -640,6 +640,15 @@
    "submitted": true,
    "resourceId": "cd75e046-7721-440c-a0c4-0b0d82d221b6",
    "result": "film02/clips/v07-draft/V7P3.mp4"
+  },
+  "loc_hangar_us": {
+   "updateId": "733a4fd0-4c62-466d-9fde-c6bea4cc7fca",
+   "nodeId": "node_5xs4w6nkxx",
+   "title": "@loc_hangar_us · 崖顶牧场开放式机库 黎明前",
+   "submitId": "6641c48e-9b80-40d0-91fd-50cb46640904",
+   "submitted": true,
+   "resourceId": "6739fc71-1656-4c4a-aa2c-183b3820eada",
+   "result": "film02/assets/loc_hangar_us.png"
   }
  },
  "ledger": {
@@ -1088,6 +1097,12 @@
     "credits": 126,
     "submitId": "e1b39a41-0eda-4614-9993-65b698ceff5f",
     "at": "2026-10-20 10:17"
+   },
+   {
+    "key": "loc_hangar_us",
+    "credits": 8,
+    "submitId": "6641c48e-9b80-40d0-91fd-50cb46640904",
+    "at": "2026-10-20 14:46"
    }
   ]
  }

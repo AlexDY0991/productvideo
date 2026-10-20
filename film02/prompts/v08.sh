@@ -18,7 +18,7 @@ PY
 }
 
 python3 tools/jm.py $S vid V8P1 --title "v08 P1 Takeoff $RES" --prompt "$(prompt 0)" --mode m2v \
-  --ref char_pilot4 --ref prop_dream --ref loc_garage --dur 11 --res "$RES" --model "$MODEL"
+  --ref char_pilot4 --ref prop_dream --ref loc_hangar_us --dur 11 --res "$RES" --model "$MODEL"
 python3 tools/jm.py $S vid V8P2 --title "v08 P2 Coast $RES" --prompt "$(prompt 1)" --mode m2v \
   --ref char_pilot4 --ref prop_dream --ref loc_coast_us --dur 11 --res "$RES" --model "$MODEL"
 python3 tools/jm.py $S vid V8P3 --title "v08 P3 Home $RES" --prompt "$(prompt 2)" --mode m2v \
