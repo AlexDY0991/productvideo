@@ -36,7 +36,8 @@ const server = createServer((req, res) => {
   createReadStream(path).pipe(res);
 });
 await new Promise((done) => server.listen(0, "127.0.0.1", done));
-const URL_ = `http://127.0.0.1:${server.address().port}/film/index.html?render${LAYER ? `&layer=${LAYER}` : ""}`;
+const PAGE = arg("--page", "index.html");   // 调试用：换一个页面（例如 dev.html）
+const URL_ = `http://127.0.0.1:${server.address().port}/film/${PAGE}?render${LAYER ? `&layer=${LAYER}` : ""}`;
 
 async function open(browser) {
   const page = await browser.newPage({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1 });

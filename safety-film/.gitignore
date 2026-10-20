@@ -3,3 +3,5 @@ audio/voice.wav
 tools/node_modules/
 out/*
 !out/酷飞-DreamPro-安全-中文.mp4
+film/film-dev.js
+film/dev.html
