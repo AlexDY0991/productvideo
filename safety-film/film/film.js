@@ -211,7 +211,7 @@ for (const m of [MOTORS[0], MOTORS[2], MOTORS[4], MOTORS[6]]) {
   flowLines.add(polyline([[BF.x, BF.y + 0.05, BF.z], [0, BF.y + 0.1, root.z * 0.5], [root.x, root.y, root.z], [m.x, m.y - 0.22, m.z]], flowMat));
 }
 
-// ───────── NA80 × 2（真实外形 93.2 × 66.1 × 35.2 mm；安装位置为示意）─────────
+// ───────── NA80 × 2（真实外形 93.2 × 66.1 × 35.2 mm）─────────
 const silver = new THREE.MeshStandardMaterial({ color: 0xb8bbc1, metalness: 0.85, roughness: 0.3 });
 const darkAl = new THREE.MeshStandardMaterial({ color: 0x1b1c1f, metalness: 0.6, roughness: 0.45 });
 const blackPlastic = new THREE.MeshStandardMaterial({ color: 0x141416, metalness: 0.2, roughness: 0.6 });
@@ -285,7 +285,8 @@ function makeNA80() {
   g.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } });
   return { g, lid, ledMat, imus, L, Wd, Hh };
 }
-const FC_MOUNT = P(0, 0.47, 0.22);
+// 安装位置：机头整流罩里、鼻锥接缝下方的中间碳板（分电盒底座）上，接头朝机头
+const FC_MOUNT = P(0, 1.26, 2.0);
 const fcGroup = new THREE.Group(); fcGroup.position.copy(FC_MOUNT); TILT.add(fcGroup);
 const plate = new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.003, 0.2), new THREE.MeshStandardMaterial({ color: 0x1e1f22, roughness: 0.5, metalness: 0.4 }));
 plate.position.set(0, -0.0015, 0.035); fcGroup.add(plate);
@@ -570,7 +571,8 @@ function render(t) {
   voterHolo.uniforms.uOpacity.value = 0.9 * win(t, C.fcVoter - 0.2, C.fcVoter + 1.4, 0.3) + 0.9 * burst(t - C.fcSwitch, 0.05, 0.5);
   voterLed[0].emissive.set(0xff5a00).lerp(new THREE.Color(0xff3b30), faultA); voterLed[0].emissiveIntensity = 2.5 * fcIn * (1 - sw) + 2.5 * faultA * sw * (0.5 + 0.5 * Math.sin(t * 12));
   voterLed[1].emissive.set(0xff5a00); voterLed[1].emissiveIntensity = 2.5 * fcIn * sw;
-  const lidOpen = smoother((t - (C.fcImu - 0.6)) / 1.0) * (1 - smoother((t - (C.activeStart - 1.2)) / 0.8));
+  // 镜头拉远（> 0.5 m）之后再合盖，否则拉出时会贴着银色盖板顶面
+  const lidOpen = smoother((t - (C.fcImu - 0.6)) / 1.0) * (1 - smoother((t - (C.activeStart + 0.9)) / 0.8));
   IMU_U.lid.position.set(0.07 * lidOpen, 0.12 * lidOpen, -0.0015);
   IMU_U.lid.rotation.z = -0.45 * lidOpen;
   NA[0].ledMat.emissive.set(0xff5a00).lerp(new THREE.Color(0xff3b30), faultA); NA[0].ledMat.emissiveIntensity = 2.5 * fcIn * (faultA > 0.5 ? 0.5 + 0.5 * Math.sin(t * 12) : 1);
@@ -691,8 +693,8 @@ function callouts(t, st) {
   // 飞控
   const fcOn = win(t, C.fcStart + 0.8, C.fcImu - 0.5, 0.4);
   const fA = t > C.fcFault, sB = t > C.fcSwitch + 0.15;
-  add(fcOn, fcWorld(t, [-0.045, 0.04, 0]), fA ? '<em>主飞控 · 异常</em>' : 'NA80 · <em>主</em>', fA ? 'PRIMARY · FAULT' : 'PRIMARY · 示意位置', fA ? 'fault' : '', 30);
-  add(fcOn, fcWorld(t, [0.045, 0.04, 0]), sB ? 'NA80 · 从 · <em>接管</em>' : 'NA80 · 从', sB ? 'SECONDARY · IN CONTROL' : 'SECONDARY · 示意位置', sB ? '' : 'holo', 30);
+  add(fcOn, fcWorld(t, [-0.045, 0.04, 0]), fA ? '<em>主飞控 · 异常</em>' : 'NA80 · <em>主</em>', fA ? 'PRIMARY · FAULT' : 'PRIMARY', fA ? 'fault' : '', 30);
+  add(fcOn, fcWorld(t, [0.045, 0.04, 0]), sB ? 'NA80 · 从 · <em>接管</em>' : 'NA80 · 从', sB ? 'SECONDARY · IN CONTROL' : 'SECONDARY', sB ? '' : 'holo', 30);
   add(win(t, C.fcVoter + 0.1, C.fcImu - 0.5, 0.4), fcWorld(t, [0, 0.022, VOTER[2]]), sB ? '表决器 · <em>毫秒级切换</em>' : '<em>表决器</em>', sB ? 'VOTER · FAILOVER' : 'VOTER · 监测 · 仲裁 · 示意', '', 24);
   const imuOn = win(t, C.fcImu + 0.6, C.activeStart - 0.6, 0.4);
   IMU_U.imus.forEach((m, i) => { const wp = m.getWorldPosition(new THREE.Vector3()).add(new THREE.Vector3(0, 0.003, 0)); add(imuOn, wp, i === 2 && st.outvote > 0.5 ? `<em>IMU ${i + 1}</em> · 被识别` : `IMU ${i + 1}`, i === 2 && st.outvote > 0.5 ? 'OUTVOTED' : 'CROSS-CHECK', i === 2 && st.outvote > 0.5 ? 'fault' : '', 26); });

@@ -92,6 +92,7 @@ def main():
     ap.add_argument("--name", required=True)
     ap.add_argument("--alpha-test", action="store_true")
     ap.add_argument("--reference", default=None)
+    ap.add_argument("--split-overlay", action="store_true", help="标注层单独打一个 zip（整片时文件大）")
     a = ap.parse_args()
 
     ed = json.load(open(a.edit, encoding="utf-8"))
@@ -119,8 +120,8 @@ def main():
         s["plate"] = os.path.join(dirs["plate"], f"{tag}.mp4")
         s["overlay"] = os.path.join(dirs["overlay"], f"{tag}.mov")
         shutil.copy(os.path.join(a.render, f"plate-{i:02d}.mp4"), s["plate"])
-        # 标注层转成 ProRes 4444（带 alpha，剪映和大多数剪辑软件都认）
-        ffmpeg("-i", os.path.join(a.render, f"overlay-{i:02d}.mov"), "-c:v", "prores_ks", "-profile:v", "4444",
+        # 标注层转成 ProRes 4444（带 alpha，剪映和大多数剪辑软件都认）；qscale 4 画质看不出差别，体积小两成
+        ffmpeg("-i", os.path.join(a.render, f"overlay-{i:02d}.mov"), "-c:v", "prores_ks", "-profile:v", "4444", "-qscale:v", "4",
                "-pix_fmt", "yuva444p10le", "-alpha_bits", "16", "-vendor", "apl0", s["overlay"])
 
     # ── 配音：从整条配音里按句切出来（与时间轴完全一致）──
@@ -283,15 +284,25 @@ def main():
     readme = open(os.path.join(HERE, "README-package.txt"), encoding="utf-8").read().replace("{DRAFT}", a.name)
     if not a.alpha_test:   # “需要确认”一节只给小样
         readme = readme.split("四、")[0].rstrip() + "\n"
+    if a.split_overlay:
+        readme = readme.replace("一、安装剪映草稿（Windows）\n", "一、安装剪映草稿（Windows）\n\n"
+                                "0. 一共两个压缩包：{0}.zip 和 {0}-overlay.zip。\n"
+                                "   请把两个都解压到同一个位置（同一个文件夹下），它们会合并成一个 {0} 文件夹。\n".format(a.name))
     open(os.path.join(pkg, "README.txt"), "w", encoding="utf-8-sig", newline="\r\n").write(readme)
 
-    zpath = pkg.rstrip(os.sep) + ".zip"
-    with zipfile.ZipFile(zpath, "w", zipfile.ZIP_DEFLATED) as z:
-        for base, _, files in os.walk(pkg):
-            for fn in sorted(files):
-                full = os.path.join(base, fn)
-                z.write(full, os.path.join(os.path.basename(pkg), os.path.relpath(full, pkg)))
-    print("→", zpath, f"{os.path.getsize(zpath) / 1e6:.1f} MB")
+    # 压缩包里都带顶层文件夹，分包时解压到同一位置会自动合并
+    overlay_dir = os.path.join(media, "overlay")
+    zips = {pkg.rstrip(os.sep) + ".zip": lambda full: not (a.split_overlay and full.startswith(overlay_dir + os.sep))}
+    if a.split_overlay:
+        zips[pkg.rstrip(os.sep) + "-overlay.zip"] = lambda full: full.startswith(overlay_dir + os.sep)
+    for zpath, keep in zips.items():
+        with zipfile.ZipFile(zpath, "w", zipfile.ZIP_DEFLATED) as z:
+            for base, _, files in os.walk(pkg):
+                for fn in sorted(files):
+                    full = os.path.join(base, fn)
+                    if keep(full):
+                        z.write(full, os.path.join(os.path.basename(pkg), os.path.relpath(full, pkg)))
+        print("→", zpath, f"{os.path.getsize(zpath) / 1e6:.1f} MB")
 
 
 if __name__ == "__main__":
