@@ -613,6 +613,30 @@
    "submitted": true,
    "resourceId": "86169fe0-4930-4fd3-ab97-79bf51bd0e99",
    "result": "film02/clips/v06-draft/V6A4.mp4"
+  },
+  "V7P1": {
+   "updateId": "ffb50129-377e-4daf-8fd1-5a3539936edc",
+   "nodeId": "node_15s1wha42y",
+   "title": "v07 P1 Takeoff 480p",
+   "submitId": "efaa614b-7f4e-4d2a-9fa4-cefa7c5c1481",
+   "submitted": true,
+   "resourceId": "f6e82f47-1639-409c-a8de-fa8476d4be56"
+  },
+  "V7P2": {
+   "updateId": "2b4040f2-8fa2-4c9f-a66e-9fa04d021220",
+   "nodeId": "node_5x9kt523kk",
+   "title": "v07 P2 Coast 480p",
+   "submitId": "991d2f3e-367e-464d-9d55-5efaf705fc45",
+   "submitted": true,
+   "resourceId": "d20f2b2c-41b0-4d85-9e98-cf916cae08ff"
+  },
+  "V7P3": {
+   "updateId": "a29df9d9-fb61-4cc7-ad40-4e08327b83db",
+   "nodeId": "node_vf3mzg0nhq",
+   "title": "v07 P3 Home 480p",
+   "submitId": "e1b39a41-0eda-4614-9993-65b698ceff5f",
+   "submitted": true,
+   "resourceId": "cd75e046-7721-440c-a0c4-0b0d82d221b6"
   }
  },
  "ledger": {
@@ -1043,6 +1067,24 @@
     "credits": 81,
     "submitId": "83c07075-32c8-4941-b37a-17e57e67c7e7",
     "at": "2026-10-20 09:56"
+   },
+   {
+    "key": "V7P1",
+    "credits": 126,
+    "submitId": "efaa614b-7f4e-4d2a-9fa4-cefa7c5c1481",
+    "at": "2026-10-20 10:17"
+   },
+   {
+    "key": "V7P2",
+    "credits": 126,
+    "submitId": "991d2f3e-367e-464d-9d55-5efaf705fc45",
+    "at": "2026-10-20 10:17"
+   },
+   {
+    "key": "V7P3",
+    "credits": 126,
+    "submitId": "e1b39a41-0eda-4614-9993-65b698ceff5f",
+    "at": "2026-10-20 10:17"
    }
   ]
  }
