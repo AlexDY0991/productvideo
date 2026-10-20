@@ -49,11 +49,16 @@ class Poster:
         self.im = Image.open(f"studio/out/{key}.png").convert("RGBA")
         self.W, self.H = self.im.size
 
-    def shade(self, y0, y1, rgb, max_alpha):
-        """Vertical gradient from transparent at y0 to max_alpha at y1, for legibility over busy ground."""
+    def shade(self, y0, y1, rgb, max_alpha, box=None):
+        """Vertical gradient from transparent at y0 to max_alpha at y1, for legibility over busy ground.
+        box=(x0, y0, x1, y1) clips it to a panel."""
         a = np.zeros((self.H, self.W), np.float32)
         ramp = np.clip((np.arange(self.H) - y0) / max(1, y1 - y0), 0, 1) ** 1.5 * max_alpha
         a[:] = ramp[:, None]
+        if box:
+            m = np.zeros_like(a)
+            m[box[1]:box[3], box[0]:box[2]] = 1
+            a *= m
         lay = Image.new("RGBA", self.im.size, rgb + (0,))
         lay.putalpha(Image.fromarray(a.astype(np.uint8)))
         self.im.alpha_composite(lay)
@@ -237,31 +242,34 @@ def i006():
     """Editorial (THE EDGE): masthead in the paper band, copy on the water, embassy credit at the foot."""
     p = Poster("I006")
     W = p.W
-    teal, cream = (24, 64, 72), (244, 234, 216)
-    p.paste(coolfly(230, (24, 30, 32)), 190, 1095)
-    p.text((1540, 1078), "MALDIVES", font("Archivo800.ttf", 36), teal, spacing=4)
-    p.text((1540, 1122), "2026", font("Archivo700.ttf", 30), teal, spacing=4)
-    p.text((W / 2, 2072), HEADLINE, font("Archivo700.ttf", 37), cream, spacing=3)
-    p.text((W / 2, 2128), SHOW, font("Archivo700.ttf", 31), ORANGE, spacing=3)
-    p.text((W / 2, 2271), EMBASSY, font("Archivo700.ttf", 22), teal, spacing=2)
+    teal, cream, orange = (20, 58, 66), (248, 240, 224), (255, 128, 48)
+    p.paste(coolfly(240, (24, 30, 32)), 190, 1095)
+    p.text((1540, 1078), "MALDIVES", font("Archivo800.ttf", 38), teal, spacing=4)
+    p.text((1540, 1124), "EXPO 2026", font("Archivo800.ttf", 30), teal, spacing=4)
+    # darken the foot of the water panel so the copy reads over the ripples
+    p.shade(1930, 2236, (4, 30, 34), 200, box=(61, 1176, 1668, 2237))
+    p.text((W / 2, 2050), HEADLINE, font("Archivo800.ttf", 41), cream, spacing=3)
+    p.text((W / 2, 2110), SHOW, font("Archivo800.ttf", 34), orange, spacing=3)
+    p.text((W / 2, 2172), "MALDIVES EXPO 2026  ·  " + DATES, font("Archivo700.ttf", 30), cream, spacing=3)
+    p.text((W / 2, 2272), EMBASSY, font("Archivo700.ttf", 24), teal, spacing=2)
     p.save()
 
 
 def i007():
-    """Travel (SPAIN): script title line on the paper, show copy and embassy credit over the lagoon."""
+    """Travel (SPAIN): script "First Flight" over the knockout MALDIVES, so it reads as the Maldives' first flight."""
     p = Poster("I007")
+    terra = (180, 70, 38)
     W = p.W
-    terra = (186, 78, 44)
-    p.paste(coolfly(170, (40, 40, 40)), W / 2, 58)
-    p.text((W / 2, 175), "Dream ST Live", font("KaushanScript.ttf", 92), terra)
-    p.text((420, 182), "hulhumalé", font("Montserrat500.ttf", 36), terra)
-    p.text((W - 420, 182), "2026", font("Montserrat500.ttf", 36), terra)
-    p.shade(1880, p.H, (0, 24, 40), 190)
-    p.text((W / 2, 2110), HEADLINE, font("Montserrat600.ttf", 40), (255, 255, 255), spacing=2, shadow=5)
-    p.text((W / 2, 2170), "INTER-ISLAND FLIGHT SHOW", font("Montserrat600.ttf", 32), (255, 196, 150), spacing=8, shadow=5)
-    p.text((W / 2, 2262), EMBASSY, font("Montserrat500.ttf", 22), (255, 255, 255), spacing=2, shadow=4, opacity=0.9)
+    bb = p.text((W / 2, 140), "First Flight", font("KaushanScript.ttf", 168), terra)
+    p.text((bb[0] - 55, 168), "oct 25 – nov 2", font("Montserrat600.ttf", 38), terra, anchor="rm")
+    p.text((bb[2] + 55, 168), "2026", font("Montserrat600.ttf", 38), terra, anchor="lm")
+    p.shade(1780, p.H, (0, 22, 38), 230)
+    p.paste(coolfly(230, (255, 255, 255)), W / 2, 1985, shadow=5)
+    p.text((W / 2, 2062), HEADLINE, font("Montserrat600.ttf", 44), (255, 255, 255), spacing=2, shadow=5)
+    p.text((W / 2, 2124), SHOW, font("Montserrat600.ttf", 34), (255, 196, 150), spacing=4, shadow=5)
+    p.text((W / 2, 2182), "MALDIVES EXPO 2026  ·  " + DATES, font("Montserrat600.ttf", 30), (255, 255, 255), spacing=3, shadow=4)
+    p.text((W / 2, 2264), EMBASSY, font("Montserrat500.ttf", 24), (255, 255, 255), spacing=2, shadow=4, opacity=0.9)
     p.save()
-
 
 if __name__ == "__main__":
     todo = sys.argv[1:] or ["I002", "I003", "I004", "I005"]
