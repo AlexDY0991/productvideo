@@ -1,6 +1,6 @@
 # CoolFly DREAM · v04 脚本「First Light」（按 higgsfield-timed-prompts 方法）
 
-> 状态：脚本待确认；资产图（第一步）正在生成；视频还没生成。
+> 状态：脚本待确认；资产图（第一步）已完成，见 `film02/assets/`；视频还没生成。
 > 结构：3 场戏 = 3 次 Seedance 2.5 生成（16 s + 18 s + 8 s = 42 s），后期再加 3 s 橙色 logo 卡，全片 45 s，16:9。
 > 每场戏内部的镜头、运镜、转场和原生音效都写进提示词，由模型一次拍出；后期只加配乐、数据字幕和结尾卡。
 
@@ -12,11 +12,11 @@
 
 | 标签 | 内容 | 状态 |
 |---|---|---|
-| `@char_pilot` | 驾驶员三联定妆照：东亚男性约 30 岁，黑色飞行服、黑手套、黑色全盔 | 生成中 |
-| `@prop_dream` | Dream 三视图：3/4 前侧、正侧、俯视（照片级，基于 3D 模型参考） | 生成中 |
-| `@loc_hangar` | 夜间机库：积水地面、6 排顶灯、中央起降方块、左侧工具车、右侧小门、远端卷帘门外是黎明的海 | 生成中 |
-| `@loc_coast` | 清晨海岸航拍：玄武岩悬崖、海蚀柱、远处灯塔 | 生成中 |
-| `@loc_pad` | 黄昏崖顶起降台：橙色圆环、草地、夕阳在海平线上 | 生成中 |
+| `@char_pilot2` | 驾驶员三联定妆照：东亚男性约 30 岁，黑色飞行服、黑手套、黑色全盔 | ✓ |
+| `@prop_dream` | Dream 三视图：3/4 前侧、正侧、俯视（照片级，基于 3D 模型参考） | ✓ |
+| `@loc_hangar` | 夜间机库：积水地面、6 排顶灯、中央起降方块、左侧工具车、右侧小门、远端卷帘门外是黎明的海 | ✓ |
+| `@loc_coast` | 清晨海岸航拍：玄武岩悬崖、海蚀柱、远处灯塔 | ✓ |
+| `@loc_pad` | 黄昏崖顶起降台：橙色圆环、草地、夕阳在海平线上 | ✓ |
 
 ## 三场戏一览
 
@@ -45,7 +45,7 @@ A 16-second live-action launch film, 16:9. Night in an aircraft hangar: the ceil
 
 REFERENCES
 @prop_dream — the aircraft. Take every detail of shape, livery, arms, motors and propellers from it; ignore its grey studio backdrop.
-@char_pilot — the pilot. Take his face, hair, flight suit, gloves and helmet; ignore the grey backdrop and the sheet layout.
+@char_pilot2 — the pilot. Take his face, hair, flight suit, gloves and helmet; ignore the grey backdrop and the sheet layout.
 @loc_hangar — the hangar. The plate's camera angle IS the first shot's angle. The plate shows an empty pad; in this clip the aircraft stands on it.
 
 LOOK
@@ -84,7 +84,7 @@ No music: the score is added in post. Diegetic sound only: hangar room tone; a h
 KEEP CONSISTENT
 - The clip opens on the dark hangar at the angle of @loc_hangar, never on a close-up.
 - Exactly one aircraft, identical to @prop_dream in every frame; eight propellers, never more or fewer.
-- Exactly one pilot, identical to @char_pilot; his face is seen only before 4.6s.
+- Exactly one pilot, identical to @char_pilot2; his face is seen only before 4.6s.
 - The helmet stays on and the visor stays down after 5.6s.
 - Pad, tool cart, side door and rolling door never move; screen geography flips only on the reverse angle at 10.5s, as stated.
 - Propellers are still until 8.3s.
@@ -100,7 +100,7 @@ An 18-second live-action flight sequence, 16:9, early morning on a rocky coast. 
 
 REFERENCES
 @prop_dream — the aircraft. Every detail of shape, livery, arms, motors and propellers; ignore the grey backdrop.
-@char_pilot — the pilot's suit, gloves and helmet. His visor stays down for the whole clip; his face is never seen.
+@char_pilot2 — the pilot's suit, gloves and helmet. His visor stays down for the whole clip; his face is never seen.
 @loc_coast — the coastline geography: basalt cliffs, the offshore sea stack, the lighthouse on the far headland. The plate's camera angle IS the angle of the 5.0–8.0s shot.
 
 LOOK
@@ -113,12 +113,12 @@ AIRCRAFT RULE
 Exactly one CoolFly Dream, identical to @prop_dream in every frame: orange front fairing with two white stripes and the number 05, dark-grey tubular roll cage, white seat, four carbon arms in an X layout, coaxial motor pairs at each tip, eight two-blade carbon propellers spinning as translucent discs the whole time, open perforated steel floor. Never redesigned, no extra or missing parts, no added logos or text.
 
 WHERE EVERYTHING IS — fixed for the whole clip
-The coast runs from the near cliff top toward the far headland with the lighthouse. Looking along the coast toward the lighthouse, the open sea is on the left and the cliffs are on the right; the sea stack stands offshore in the middle distance. The aircraft always flies along the coast toward the lighthouse. Screen direction never flips: in side shots it travels left to right; in chase shots it moves away from the camera.
+The coast runs from the near cliff top toward the far headland with the lighthouse. Looking along the coast toward the lighthouse, the cliffs are on the left and the open sea is on the right; the sea stack stands offshore in the middle distance, just right of the cliffs. The aircraft always flies along the coast toward the lighthouse. Screen direction never flips: in side shots it travels left to right; in chase shots it moves away from the camera.
 
 SHOTS
 0.0–2.0s — THE VERY FIRST FRAME OF THE CLIP IS THIS: the aircraft's belly, open steel floor and arms fill the whole frame, every edge and corner, seen from below with strong motion blur. The aircraft keeps moving away; by 0.8s the frame uncovers and reveals it climbing away over the edge of a cliff top, the grey sea and the far coastline beyond. The camera, low on the cliff-top grass, tilts up to follow and holds steady. BACKGROUND: silver sky and the sea horizon. Hard cut at 2.0s.
 
-2.0–5.0s — 24mm chase from behind and to the left, three metres above the water, keeping pace. The aircraft skims low over the sea at full speed, its downwash ploughing a white trail of mist; waves rush under the lens with strong motion blur. At 4.4s the aircraft pulls ahead of the camera. BACKGROUND: the cliffs on the right, the lighthouse headland far ahead. Hard cut at 5.0s.
+2.0–5.0s — 24mm chase from behind and to the left, three metres above the water, keeping pace. The aircraft skims low over the sea at full speed, its downwash ploughing a white trail of mist; waves rush under the lens with strong motion blur. At 4.4s the aircraft pulls ahead of the camera. BACKGROUND: the cliffs on the left, the lighthouse headland far ahead. Hard cut at 5.0s.
 
 5.0–8.0s — exactly the angle of @loc_coast: aerial 35mm from about 40 metres, looking along the coast. The aircraft enters from the lower left of frame and flies along the cliffs toward the lighthouse, small in frame, its shadow travelling on the water below; the camera drifts forward with it. BACKGROUND: basalt cliffs, the sea stack, the lighthouse. Hard cut at 8.0s.
 
@@ -126,7 +126,7 @@ SHOTS
 
 10.5–13.5s — 24mm from a rock ledge close to the sea stack. The aircraft banks hard around the stack, tilted about 20 degrees, passing close to the camera; the camera whips to follow as it clears the stack at 12.8s, without stopping. BACKGROUND: surf exploding at the base of the stack, the lighthouse beyond. Hard cut at 13.5s.
 
-13.5–16.0s — straight-down top shot, 24mm, from about 40 metres, tracking with the aircraft. It crosses from the sea over the cliff edge onto the land; the X of the four arms, the spinning discs and the orange fairing are clearly visible, its shadow sliding across black rocks and white surf. BACKGROUND: sea at the left of frame, rocks at the right. Hard cut at 16.0s.
+13.5–16.0s — straight-down top shot, 24mm, from about 40 metres, tracking with the aircraft. It crosses from the sea at the right of frame over the cliff edge onto the land at the left; the X of the four arms, the spinning discs and the orange fairing are clearly visible, its shadow sliding across white surf and then black rock. BACKGROUND: sea at the right of frame, rocks at the left. Hard cut at 16.0s.
 
 16.0–18.0s — 50mm close-up of the pilot's helmet from a camera rig flying alongside, front three-quarter, outside the roll cage; the roll cage tubes frame the edges. The dark visor reflects the coastline and the low sun. At 17.4s the reflected sun slides across the visor and fills it with warm light. The clip ends on the bright sun filling the visor.
 
@@ -138,7 +138,7 @@ KEEP CONSISTENT
 - Exactly one aircraft, identical to @prop_dream, eight spinning propellers.
 - The pilot's visor is down in every frame; his face is never seen.
 - The aircraft always flies toward the lighthouse; screen direction never flips.
-- Sea on the left, cliffs on the right when looking toward the lighthouse; the sea stack and lighthouse never move.
+- Cliffs on the left, sea on the right when looking toward the lighthouse; the sea stack and lighthouse never move.
 - All cuts are hard cuts; the clip ends on the sun filling the visor at 18.0s.
 - Colour stays rich and punchy, never washed out or hazy.
 - No subtitles, on-screen text, logos or watermarks.
@@ -151,7 +151,7 @@ An 8-second live-action finale, 16:9, at dusk. Opens on a match: the low sun tha
 
 REFERENCES
 @prop_dream — the aircraft; every detail; ignore the grey backdrop.
-@char_pilot — the pilot. His face, identical to the portrait panel, is seen after 5.6s.
+@char_pilot2 — the pilot. His face, identical to the portrait panel, is seen after 5.6s.
 @loc_pad — the cliff-top landing pad at dusk. The plate's camera angle IS the first shot's angle; the pad is empty until the aircraft lands.
 
 LOOK
@@ -171,7 +171,7 @@ SHOTS
 
 2.5–5.0s — 35mm side-on at pad height. The aircraft settles onto the centre of the ring at 3.6s; the grass around the pad bends flat in the downwash; the propellers slow from discs to visible blades by 4.8s. A golden rim light runs along the roll cage and arms. BACKGROUND: the glittering sea and the low sun. Hard cut at 5.0s.
 
-5.0–8.0s — 85mm front three-quarter on the seated pilot, through the roll cage, a slow push-in that eases to a stop by 7.6s and holds. At 5.6s he lifts the visor with one gloved finger; his face, the same man as @char_pilot, is lit by the warm sunset. At 6.6s he breathes out once, calm, and looks out to the sea. BACKGROUND: soft golden sea and sky. The clip ends on this held frame at 8.0s.
+5.0–8.0s — 85mm front three-quarter on the seated pilot, through the roll cage, a slow push-in that eases to a stop by 7.6s and holds. At 5.6s he lifts the visor with one gloved finger; his face, the same man as @char_pilot2, is lit by the warm sunset. At 6.6s he breathes out once, calm, and looks out to the sea. BACKGROUND: soft golden sea and sky. The clip ends on this held frame at 8.0s.
 
 SOUND
 No music: the score is added in post. Diegetic sound only: wind on the cliff top; surf far below; the rotor roar descending; a soft touchdown thump at 3.6s; motor spin-down whine 3.6–6.0s; a visor click at 5.6s; one calm exhale at 6.6s; then only the wind. No dialogue, voices, narrator, stings or added whooshes.
@@ -179,7 +179,7 @@ No music: the score is added in post. Diegetic sound only: wind on the cliff top
 KEEP CONSISTENT
 - The clip opens on the sun at the angle of @loc_pad, never on a close-up.
 - Exactly one aircraft, identical to @prop_dream, eight propellers.
-- Exactly one pilot; his face matches @char_pilot and is seen only after 5.6s.
+- Exactly one pilot; his face matches @char_pilot2 and is seen only after 5.6s.
 - The pad, the orange ring and the stone wall never move.
 - Cuts at 2.5s and 5.0s are hard cuts; the clip ends on the held frame at 8.0s.
 - Warm and rich colour, never washed out.

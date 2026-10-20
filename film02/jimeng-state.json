@@ -429,7 +429,58 @@
    "result": "film02/clips/VN9.mp4"
   },
   "char_pilot": {
-   "updateId": "15c58fb8-60bb-442f-bed9-7bca8fd0478d"
+   "updateId": "cf9ff422-67b1-445d-a5f4-1e4e14a17638",
+   "nodeId": "node_dxp39vebht",
+   "title": "@char_pilot · 驾驶员三联定妆照",
+   "submitId": "0c7f15b0-8e3f-487c-931f-7f0a6f88c906",
+   "submitted": true,
+   "resourceId": "bcb48a6e-d1eb-4eb0-8eb0-2fc3e04eb078",
+   "result": "film02/assets/char_pilot.png"
+  },
+  "prop_dream": {
+   "updateId": "f90ec807-771f-4f8a-8d50-631d56ecfaa3",
+   "nodeId": "node_wf2qdjb9n2",
+   "title": "@prop_dream · Dream 三视图",
+   "submitId": "dff916cd-5808-468b-9fb3-b809decf3b37",
+   "submitted": true,
+   "resourceId": "aef4601a-e2db-4deb-99e7-1dbf78219cac",
+   "result": "film02/assets/prop_dream.png"
+  },
+  "loc_hangar": {
+   "updateId": "8f5eedc9-971f-4b5e-8dec-0a9618e398c3",
+   "nodeId": "node_j5jgt50xzf",
+   "title": "@loc_hangar · 机库",
+   "submitId": "f02cd4e6-0224-4d85-b4ec-a0771f9290c4",
+   "submitted": true,
+   "resourceId": "8bad21fb-81ae-4583-8cf3-bea462ab1f73",
+   "result": "film02/assets/loc_hangar.png"
+  },
+  "loc_coast": {
+   "updateId": "ce296d0a-20c4-4a70-9d22-11c3e1674ea7",
+   "nodeId": "node_xw8f1p6315",
+   "title": "@loc_coast · 海岸",
+   "submitId": "5bab1e0c-9520-472b-82d5-33cdf2cf0b16",
+   "submitted": true,
+   "resourceId": "7f9341f8-f8d8-473a-8dd9-daad08831d90",
+   "result": "film02/assets/loc_coast.png"
+  },
+  "loc_pad": {
+   "updateId": "28c298bf-3c62-4f81-bf25-fe6ab2527959",
+   "nodeId": "node_1s1rtrswq3",
+   "title": "@loc_pad · 崖顶起降台 黄昏",
+   "submitId": "67bd987c-d805-4e2d-bb5c-3b965c8f8ea3",
+   "submitted": true,
+   "resourceId": "9ebc9e63-3562-47a0-81d2-8b15b2797794",
+   "result": "film02/assets/loc_pad.png"
+  },
+  "char_pilot2": {
+   "updateId": "89934c64-a100-4ed9-867f-ac3818c1571d",
+   "nodeId": "node_tp7xx6kj50",
+   "title": "@char_pilot2 · 驾驶员定妆照（修正裁切）",
+   "submitId": "f56d55be-aa36-471b-beb4-34ad8d366a8f",
+   "submitted": true,
+   "resourceId": "768fff33-821b-45a8-b18c-66ccd0cf0a56",
+   "result": "film02/assets/char_pilot2.png"
   }
  },
  "ledger": {
@@ -710,6 +761,42 @@
     "credits": 256,
     "submitId": "61c02e06-dadb-45d2-a43d-a6afeb3a7a18",
     "at": "2026-10-16 17:18"
+   },
+   {
+    "key": "char_pilot",
+    "credits": 8,
+    "submitId": "0c7f15b0-8e3f-487c-931f-7f0a6f88c906",
+    "at": "2026-10-20 07:27"
+   },
+   {
+    "key": "prop_dream",
+    "credits": 8,
+    "submitId": "dff916cd-5808-468b-9fb3-b809decf3b37",
+    "at": "2026-10-20 07:27"
+   },
+   {
+    "key": "loc_hangar",
+    "credits": 8,
+    "submitId": "f02cd4e6-0224-4d85-b4ec-a0771f9290c4",
+    "at": "2026-10-20 07:27"
+   },
+   {
+    "key": "loc_coast",
+    "credits": 8,
+    "submitId": "5bab1e0c-9520-472b-82d5-33cdf2cf0b16",
+    "at": "2026-10-20 07:27"
+   },
+   {
+    "key": "loc_pad",
+    "credits": 8,
+    "submitId": "67bd987c-d805-4e2d-bb5c-3b965c8f8ea3",
+    "at": "2026-10-20 07:27"
+   },
+   {
+    "key": "char_pilot2",
+    "credits": 8,
+    "submitId": "f56d55be-aa36-471b-beb4-34ad8d366a8f",
+    "at": "2026-10-20 07:30"
    }
   ]
  }
