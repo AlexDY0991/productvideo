@@ -707,7 +707,38 @@
    "title": "v09 P2 Coast 480p",
    "submitId": "a2df4d98-20c6-4bb4-81c5-9362c7634a66",
    "submitted": true,
-   "resourceId": "529caa2e-fb26-4fcc-8028-d7a2386fbbe4"
+   "resourceId": "529caa2e-fb26-4fcc-8028-d7a2386fbbe4",
+   "result": "film02/clips/v09-draft/V9P2.mp4"
+  },
+  "p2_end": {
+   "uploadResourceId": "e08f285c-c44b-40bc-a2ac-409c6039ba20",
+   "updateId": "466f3287-3739-48fd-9774-9649842e78d5",
+   "nodeId": "node_1047vmcnfg",
+   "title": "REF · p2_end"
+  },
+  "V9P3": {
+   "updateId": "0623f144-c6ff-4553-a5aa-b77f14e0577a",
+   "nodeId": "node_gw2n4aq1f9",
+   "title": "v09 P3 Home 480p",
+   "submitId": "d5c3ea98-fbe7-4561-b56e-e537733d9b04",
+   "submitted": true,
+   "resourceId": "6f750c2c-f20e-49d4-be11-e2fbffbb649e",
+   "result": "film02/clips/v09-draft/V9P3.mp4"
+  },
+  "p3_end": {
+   "uploadResourceId": "b0b17001-93ba-43ae-8fba-2efadd6b2de3",
+   "updateId": "35edde81-5668-4209-9e3d-a3fd1482b050",
+   "nodeId": "node_0m3k5s2pad",
+   "title": "REF · p3_end"
+  },
+  "V9P4": {
+   "updateId": "72e57017-ef87-4850-bf5c-e511c0966ee3",
+   "nodeId": "node_b1d2kwyp5b",
+   "title": "v09 P4 Finale 480p",
+   "submitId": "92fe1093-41a1-41f3-855f-b25ca4f8879c",
+   "submitted": true,
+   "resourceId": "32bd20b3-f4dd-4b7a-9a9d-e37f2c51f4d0",
+   "result": "film02/clips/v09-draft/V9P4.mp4"
   }
  },
  "ledger": {
@@ -1198,6 +1229,18 @@
     "credits": 99,
     "submitId": "a2df4d98-20c6-4bb4-81c5-9362c7634a66",
     "at": "2026-10-20 15:41"
+   },
+   {
+    "key": "V9P3",
+    "credits": 90,
+    "submitId": "d5c3ea98-fbe7-4561-b56e-e537733d9b04",
+    "at": "2026-10-20 15:44"
+   },
+   {
+    "key": "V9P4",
+    "credits": 90,
+    "submitId": "92fe1093-41a1-41f3-855f-b25ca4f8879c",
+    "at": "2026-10-20 15:49"
    }
   ]
  }
