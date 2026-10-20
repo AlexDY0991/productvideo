@@ -41,6 +41,72 @@
    "submitted": true,
    "resourceId": "b9ae16b6-4a7f-4bf4-8056-7a5b4259124c",
    "result": "studio/out/I001.png"
+  },
+  "R_s1": {
+   "uploadResourceId": "63cfda68-d2db-4571-af30-c3b7d3482a3e",
+   "updateId": "f8b6acc7-8fe1-455a-9aea-d5ad9d6dec06",
+   "nodeId": "node_a73zhzks7g",
+   "title": "REF · R_s1"
+  },
+  "R_s2": {
+   "uploadResourceId": "41154250-a128-4bc8-9746-62d4461764f6",
+   "updateId": "59dc1ae7-d574-4f7f-9fe3-5764dd6b71b7",
+   "nodeId": "node_g25amzxgh7",
+   "title": "REF · R_s2"
+  },
+  "R_s3": {
+   "uploadResourceId": "d95b7134-6931-4d77-9912-06f3611cc5ef",
+   "updateId": "9da56ffd-f2f8-447f-a2ea-ed0eb02cccf1",
+   "nodeId": "node_4ch7kh4kwc",
+   "title": "REF · R_s3"
+  },
+  "R_s4": {
+   "uploadResourceId": "c391d802-e65f-4104-b4b3-8d28a24a67cb",
+   "updateId": "e0fb638e-f810-4bbe-927a-b1c0ea56adda",
+   "nodeId": "node_zxnc6mvbcc",
+   "title": "REF · R_s4"
+  },
+  "R_dtop": {
+   "uploadResourceId": "299e90c9-1c53-46bb-8100-60ae1b8975dd",
+   "updateId": "ca0a72c2-9b3a-474a-8c8f-e8d1c6b64388",
+   "nodeId": "node_ccqmgncs0q",
+   "title": "REF · R_dtop"
+  },
+  "I002": {
+   "updateId": "e292c405-5397-4717-b32d-5f652d5f774f",
+   "nodeId": "node_vt5sjdt4zc",
+   "title": "Maldives poster 1 · 航拍路面大字",
+   "result": "studio/out/I002.png",
+   "submitId": "d74d8827-498d-4e7c-b67f-a0597b6bcfa0",
+   "submitted": true,
+   "resourceId": "24e7e3a2-b44e-4dd8-b2d9-21d9e8a48388"
+  },
+  "I003": {
+   "updateId": "ce3464f1-34ed-440a-b1ba-bc290f1a8d80",
+   "nodeId": "node_9tv8tfvhpn",
+   "title": "Maldives poster 2 · 俯拍海面",
+   "submitId": "802272fd-78c7-4165-b755-65b079680515",
+   "submitted": true,
+   "resourceId": "3734b52e-e8ae-40aa-9508-27fe7f854100",
+   "result": "studio/out/I003.png"
+  },
+  "I004": {
+   "updateId": "fe4d47cf-e7d8-4c4e-bbe5-b172bcac2272",
+   "nodeId": "node_8zejp7c647",
+   "title": "Maldives poster 3 · 海上远去",
+   "submitId": "e50ae569-de96-4f75-9880-2a265c21a91f",
+   "submitted": true,
+   "resourceId": "1b6c115d-a3b1-433d-bcf8-1538e17c7794",
+   "result": "studio/out/I004.png"
+  },
+  "I005": {
+   "updateId": "e9a0e125-848d-4e15-8add-40a0c32900b2",
+   "nodeId": "node_rmz4dvfaag",
+   "title": "Maldives poster 4 · 黑白栈桥",
+   "submitId": "d94718f9-f7f3-43ed-bd24-8d7a82f1bb9c",
+   "submitted": true,
+   "resourceId": "0aa0787b-52ca-490a-93ce-ab875e63ba04",
+   "result": "studio/out/I005.png"
   }
  },
  "ledger": {
@@ -52,6 +118,42 @@
     "credits": 8,
     "submitId": "873cc095-d4d3-4557-bb8f-a8102d2abc13",
     "at": "2026-10-20 14:53"
+   },
+   {
+    "key": "I002",
+    "credits": 8,
+    "submitId": "462c75da-a981-4c3f-8179-89ed756252b4",
+    "at": "2026-10-20 16:56"
+   },
+   {
+    "key": "I003",
+    "credits": 8,
+    "submitId": "802272fd-78c7-4165-b755-65b079680515",
+    "at": "2026-10-20 16:56"
+   },
+   {
+    "key": "I004",
+    "credits": 8,
+    "submitId": "e50ae569-de96-4f75-9880-2a265c21a91f",
+    "at": "2026-10-20 16:56"
+   },
+   {
+    "key": "I005",
+    "credits": 8,
+    "submitId": "d94718f9-f7f3-43ed-bd24-8d7a82f1bb9c",
+    "at": "2026-10-20 16:56"
+   },
+   {
+    "key": "I002",
+    "credits": 8,
+    "submitId": "9ff4d577-9583-48df-b28d-dc47d7a2ec82",
+    "at": "2026-10-20 17:00"
+   },
+   {
+    "key": "I002",
+    "credits": 8,
+    "submitId": "d74d8827-498d-4e7c-b67f-a0597b6bcfa0",
+    "at": "2026-10-20 17:03"
    }
   ]
  }
