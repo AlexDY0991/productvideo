@@ -584,7 +584,8 @@
    "title": "v06 A1 Garage 480p",
    "submitId": "be397b5e-08bf-408b-b0f7-c1eb73486823",
    "submitted": true,
-   "resourceId": "7dfe2b1c-249e-4efd-9882-5bddc2e0f729"
+   "resourceId": "7dfe2b1c-249e-4efd-9882-5bddc2e0f729",
+   "result": "film02/clips/v06-draft/V6A1.mp4"
   },
   "V6A2": {
    "updateId": "97b62f67-8084-4b5a-bf42-26bd2ac7e830",
@@ -592,7 +593,8 @@
    "title": "v06 A2 Coast 480p",
    "submitId": "01547065-2360-44e9-98df-298564d4cd72",
    "submitted": true,
-   "resourceId": "ed913332-41e6-4410-ba7a-6b733e709476"
+   "resourceId": "ed913332-41e6-4410-ba7a-6b733e709476",
+   "result": "film02/clips/v06-draft/V6A2.mp4"
   },
   "V6A3": {
    "updateId": "62ca6829-eaec-4d48-aeca-539c5fbab580",
@@ -600,7 +602,8 @@
    "title": "v06 A3 Above 480p",
    "submitId": "451ef92d-b67e-44e9-a725-c6ce44867566",
    "submitted": true,
-   "resourceId": "f92bbb71-f6f1-4015-9a4c-49b961dcc848"
+   "resourceId": "f92bbb71-f6f1-4015-9a4c-49b961dcc848",
+   "result": "film02/clips/v06-draft/V6A3.mp4"
   },
   "V6A4": {
    "updateId": "1c4c4154-3d32-40ae-b143-de5b9c16de1a",
@@ -608,7 +611,8 @@
    "title": "v06 A4 Home 480p",
    "submitId": "83c07075-32c8-4941-b37a-17e57e67c7e7",
    "submitted": true,
-   "resourceId": "86169fe0-4930-4fd3-ab97-79bf51bd0e99"
+   "resourceId": "86169fe0-4930-4fd3-ab97-79bf51bd0e99",
+   "result": "film02/clips/v06-draft/V6A4.mp4"
   }
  },
  "ledger": {
