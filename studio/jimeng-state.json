@@ -107,6 +107,36 @@
    "submitted": true,
    "resourceId": "0aa0787b-52ca-490a-93ce-ab875e63ba04",
    "result": "studio/out/I005.png"
+  },
+  "R_s5": {
+   "uploadResourceId": "a47be783-3f6e-4f80-b7a8-fac671c41600",
+   "updateId": "7d3447f6-1176-4e63-8324-c6a4e7b4c53e",
+   "nodeId": "node_kmf6ey0vbp",
+   "title": "REF · R_s5"
+  },
+  "R_s6": {
+   "uploadResourceId": "2345bdf0-d7dc-4582-bc7e-1d592479b19e",
+   "updateId": "bacd1504-1355-40bd-b766-96b2569c3e22",
+   "nodeId": "node_zh19gvn53s",
+   "title": "REF · R_s6"
+  },
+  "I006": {
+   "updateId": "5f39d3cd-c28f-4e72-befe-9a129f702dbb",
+   "nodeId": "node_y90bytq6sb",
+   "title": "Maldives 品牌海报 A · THE EDGE 风格",
+   "result": "studio/out/I006.png",
+   "submitId": "fc96c45b-136b-4367-8562-43390abfcbbb",
+   "submitted": true,
+   "resourceId": "55b72637-49a3-4c2b-a852-0f7b64248e05"
+  },
+  "I007": {
+   "updateId": "d49aa11e-ae12-4efb-97ca-ac39dd4733d5",
+   "nodeId": "node_kg2cmsg3rg",
+   "title": "Maldives 品牌海报 B · SPAIN 风格",
+   "submitId": "20aa7527-b907-453d-b430-094eedccd8db",
+   "submitted": true,
+   "resourceId": "fd148814-6e56-4b95-9b93-1aa0a68f75ae",
+   "result": "studio/out/I007.png"
   }
  },
  "ledger": {
@@ -154,6 +184,24 @@
     "credits": 8,
     "submitId": "d74d8827-498d-4e7c-b67f-a0597b6bcfa0",
     "at": "2026-10-20 17:03"
+   },
+   {
+    "key": "I006",
+    "credits": 8,
+    "submitId": "002573cd-cc0e-451f-93c7-c2098a8cc641",
+    "at": "2026-10-20 17:36"
+   },
+   {
+    "key": "I007",
+    "credits": 8,
+    "submitId": "20aa7527-b907-453d-b430-094eedccd8db",
+    "at": "2026-10-20 17:36"
+   },
+   {
+    "key": "I006",
+    "credits": 8,
+    "submitId": "fc96c45b-136b-4367-8562-43390abfcbbb",
+    "at": "2026-10-20 17:38"
    }
   ]
  }

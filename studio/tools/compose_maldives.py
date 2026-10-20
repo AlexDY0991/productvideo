@@ -228,6 +228,41 @@ def i005():
     p.save()
 
 
+EMBASSY = "INVITED BY THE EMBASSY OF THE PEOPLE’S REPUBLIC OF CHINA IN THE REPUBLIC OF MALDIVES"
+HEADLINE = "MALDIVES’ FIRST PERSONAL AIRCRAFT FLIGHT DISPLAY"
+SHOW = "DREAM ST LIVE  ·  INTER-ISLAND FLIGHT SHOW"
+
+
+def i006():
+    """Editorial (THE EDGE): masthead in the paper band, copy on the water, embassy credit at the foot."""
+    p = Poster("I006")
+    W = p.W
+    teal, cream = (24, 64, 72), (244, 234, 216)
+    p.paste(coolfly(230, (24, 30, 32)), 190, 1095)
+    p.text((1540, 1078), "MALDIVES", font("Archivo800.ttf", 36), teal, spacing=4)
+    p.text((1540, 1122), "2026", font("Archivo700.ttf", 30), teal, spacing=4)
+    p.text((W / 2, 2072), HEADLINE, font("Archivo700.ttf", 37), cream, spacing=3)
+    p.text((W / 2, 2128), SHOW, font("Archivo700.ttf", 31), ORANGE, spacing=3)
+    p.text((W / 2, 2271), EMBASSY, font("Archivo700.ttf", 22), teal, spacing=2)
+    p.save()
+
+
+def i007():
+    """Travel (SPAIN): script title line on the paper, show copy and embassy credit over the lagoon."""
+    p = Poster("I007")
+    W = p.W
+    terra = (186, 78, 44)
+    p.paste(coolfly(170, (40, 40, 40)), W / 2, 58)
+    p.text((W / 2, 175), "Dream ST Live", font("KaushanScript.ttf", 92), terra)
+    p.text((420, 182), "hulhumalé", font("Montserrat500.ttf", 36), terra)
+    p.text((W - 420, 182), "2026", font("Montserrat500.ttf", 36), terra)
+    p.shade(1880, p.H, (0, 24, 40), 190)
+    p.text((W / 2, 2110), HEADLINE, font("Montserrat600.ttf", 40), (255, 255, 255), spacing=2, shadow=5)
+    p.text((W / 2, 2170), "INTER-ISLAND FLIGHT SHOW", font("Montserrat600.ttf", 32), (255, 196, 150), spacing=8, shadow=5)
+    p.text((W / 2, 2262), EMBASSY, font("Montserrat500.ttf", 22), (255, 255, 255), spacing=2, shadow=4, opacity=0.9)
+    p.save()
+
+
 if __name__ == "__main__":
     todo = sys.argv[1:] or ["I002", "I003", "I004", "I005"]
     for k in todo:
