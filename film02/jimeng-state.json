@@ -481,6 +481,21 @@
    "submitted": true,
    "resourceId": "768fff33-821b-45a8-b18c-66ccd0cf0a56",
    "result": "film02/assets/char_pilot2.png"
+  },
+  "ref_logo": {
+   "uploadResourceId": "bf48290f-68e5-41fe-8ab8-bcf3687bfcf8",
+   "updateId": "d609c62c-8b30-4a47-9476-8ebfb8a265bf",
+   "nodeId": "node_2m6hhejyzx",
+   "title": "REF · ref_logo"
+  },
+  "char_pilot3": {
+   "updateId": "d0a3ed0c-1219-40e1-8933-99210e7e018d",
+   "nodeId": "node_167qx5myg9",
+   "title": "@char_pilot3 · 主演（美国）+ CoolFly logo",
+   "submitId": "037ccb1a-c260-4007-bc8b-0abcb4dfc68e",
+   "submitted": true,
+   "resourceId": "b16c7281-c7bc-47a8-88f2-cff2f0bb95ac",
+   "result": "film02/assets/char_pilot3.png"
   }
  },
  "ledger": {
@@ -797,6 +812,12 @@
     "credits": 8,
     "submitId": "f56d55be-aa36-471b-beb4-34ad8d366a8f",
     "at": "2026-10-20 07:30"
+   },
+   {
+    "key": "char_pilot3",
+    "credits": 8,
+    "submitId": "037ccb1a-c260-4007-bc8b-0abcb4dfc68e",
+    "at": "2026-10-20 07:36"
    }
   ]
  }

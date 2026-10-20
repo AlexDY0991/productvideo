@@ -1,0 +1,5 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="frame" content="2000x700"><script>window.__ready=false;</script>
+<style>html,body{margin:0;width:2000px;height:700px;background:#0b0b0c;display:flex;align-items:center;justify-content:center}#l{width:1600px}</style></head>
+<body><div id="l"></div><script>
+fetch('../../../brand/coolfly-logo.svg').then(r=>r.text()).then(s=>{document.getElementById('l').innerHTML=s.replace('fill="#000"','fill="#F2EFEA"').replace('<svg ','<svg width="100%" ');window.__ready=true;});
+</script></body></html>
