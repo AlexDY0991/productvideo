@@ -6,21 +6,21 @@ parts = [
   ("P1", "TAKEOFF", "起飞", 0, 11, "机库推门 → 室外检查、戴头盔（慢） → 三个快切 → 起飞俯冲（爆发）"),
   ("P2", "THE COAST", "海岸", 11, 11, "贴海追飞、擦身而过、甩镜、穿桥（快） → 张手慢动作（喘息） → 脚下海浪（快）"),
   ("P3", "HOME", "回家", 22, 10, "远处降落、螺旋桨停稳 → 女儿跑来 → 戴头盔 → 父亲的笑（慢、温柔）"),
-  ("P4", "FINALE", "收尾", 32, 8, "咖啡、一家人、环绕 Dream（慢） → 三个细节快拍 → 推进橙色铺满（慢）"),
+  ("P4", "FINALE", "收尾", 32, 10, "咖啡、一家人、环绕 Dream（慢） → 三个细节快拍 → 定版：一家人和 Dream 在崖边看海，静止约 5 秒"),
 ]
-tempo = [(0,6,"slow"),(6,11,"fast"),(11,17,"fast"),(17,19.6,"slowmo"),(19.6,22,"fast"),(22,32,"slow"),(32,36.4,"slow"),(36.4,37.9,"fast"),(37.9,40,"slow"),(40,43,"card")]
-label = {"slow":"慢","fast":"快","slowmo":"慢动作","card":"logo 卡"}
+tempo = [(0,6,"slow"),(6,11,"fast"),(11,17,"fast"),(17,19.6,"slowmo"),(19.6,22,"fast"),(22,32,"slow"),(32,35.6,"slow"),(35.6,37.1,"fast"),(37.1,42,"still"),(42,45,"card")]
+label = {"slow":"慢","fast":"快","slowmo":"慢动作","still":"定版静止","card":"logo 卡"}
 cuts=[]
 for (k,_,_,off,d,_),b in zip(parts,blocks):
     for a,c in re.findall(r"^(\d+\.\d)–(\d+\.\d)s — ",b,re.M):
         cuts.append(off+float(c))
-total=43.0
+total=45.0
 W=1000
 def x(t): return t/total*W
-segs="".join(f'<rect x="{x(a):.1f}" y="{ {"slow":34,"slowmo":46,"fast":14,"card":24}[k] }" width="{x(b)-x(a):.1f}" height="{ {"slow":26,"slowmo":14,"fast":46,"card":36}[k] }" class="t-{k}"><title>{a}–{b}s {label[k]}</title></rect>' for a,b,k in tempo)
-cutl="".join(f'<line x1="{x(c):.1f}" x2="{x(c):.1f}" y1="64" y2="72" class="cut"/>' for c in cuts if c<40)
-partl="".join(f'<line x1="{x(off):.1f}" x2="{x(off):.1f}" y1="4" y2="76" class="pb"/><text x="{x(off)+4:.1f}" y="92" class="pl">{k} · {name}</text>' for k,name,_,off,_,_ in parts)+f'<line x1="{x(40):.1f}" x2="{x(40):.1f}" y1="4" y2="76" class="pb"/><text x="{x(40)+4:.1f}" y="92" class="pl">LOGO</text>'
-ticks="".join(f'<text x="{x(t):.1f}" y="108" class="tk" text-anchor="middle">{t}s</text>' for t in [0,6,11,17,22,32,40,43])
+segs="".join(f'<rect x="{x(a):.1f}" y="{ {"slow":34,"slowmo":46,"still":54,"fast":14,"card":24}[k] }" width="{x(b)-x(a):.1f}" height="{ {"slow":26,"slowmo":14,"still":6,"fast":46,"card":36}[k] }" class="t-{k}"><title>{a}–{b}s {label[k]}</title></rect>' for a,b,k in tempo)
+cutl="".join(f'<line x1="{x(c):.1f}" x2="{x(c):.1f}" y1="64" y2="72" class="cut"/>' for c in cuts if c<42)
+partl="".join(f'<line x1="{x(off):.1f}" x2="{x(off):.1f}" y1="4" y2="76" class="pb"/><text x="{x(off)+4:.1f}" y="92" class="pl">{k} · {name}</text>' for k,name,_,off,_,_ in parts)+f'<line x1="{x(42):.1f}" x2="{x(42):.1f}" y1="4" y2="76" class="pb"/><text x="{x(42)+4:.1f}" y="92" class="pl">LOGO</text>'
+ticks="".join(f'<text x="{x(t):.1f}" y="108" class="tk" text-anchor="middle">{t}s</text>' for t in [0,6,11,17,22,32,37,42,45])
 svg=f'<svg viewBox="-10 0 1030 116" role="img" aria-label="全片节奏曲线：柱子越高越快">{segs}{cutl}{partl}{ticks}</svg>'
 sections=""
 for (k,name,cn,off,d,summary),b in zip(parts,blocks):
@@ -55,7 +55,7 @@ h2{{font-size:1.9rem;line-height:1.1}}
 .rhythm h3{{margin:0 0 6px;font-size:1rem}}
 .rhythm .tw{{overflow-x:auto}}
 svg{{width:100%;min-width:620px;height:auto;display:block}}
-.t-slow{{fill:var(--slow)}}.t-slowmo{{fill:var(--slowmo)}}.t-fast{{fill:var(--fast)}}.t-card{{fill:var(--card)}}
+.t-slow{{fill:var(--slow)}}.t-still{{fill:var(--fg)}}.t-slowmo{{fill:var(--slowmo)}}.t-fast{{fill:var(--fast)}}.t-card{{fill:var(--card)}}
 .cut{{stroke:var(--fg);stroke-width:1.2}}.pb{{stroke:var(--muted);stroke-dasharray:2 3}}
 .pl{{fill:var(--fg);font:600 13px var(--display);letter-spacing:.04em}}.tk{{fill:var(--muted);font:11px var(--mono)}}
 .legend{{display:flex;flex-wrap:wrap;gap:14px;margin:8px 0 0;padding:0;list-style:none;font-size:.85rem;color:var(--muted)}}
@@ -79,9 +79,9 @@ th{{color:var(--muted);font-weight:600;font-size:.78rem;letter-spacing:.04em}}
 </style>
 <main class="wrap">
 <header><p class="eyebrow">CoolFly Dream · 第 2 号片 · v08 待确认</p><h1>First Light v08</h1>
-<p class="lede">四段生成（11 + 11 + 10 + 8 秒），加 3 秒整屏橙色 logo 卡，全片 43 秒。下面是全片的节奏曲线和四段完整的英文提示词，提交给即梦的就是这些原文；提交前 @名字会换成画布节点。</p></header>
+<p class="lede">四段生成（11 + 11 + 10 + 10 秒），加 3 秒整屏橙色 logo 卡，全片 45 秒。结尾参考 Eletre 和 Xiaomi：快切之后用一个停得最久的英雄远景收住，再硬切 logo 卡。下面是全片的节奏曲线和四段完整的英文提示词，提交给即梦的就是这些原文；提交前 @名字会换成画布节点。</p></header>
 <section class="rhythm" aria-labelledby="rh"><h3 id="rh">全片节奏：柱子越高越快，短竖线是切点</h3><div class="tw">{svg}</div>
-<ul class="legend"><li><i style="background:var(--slow)"></i>慢</li><li><i style="background:var(--fast)"></i>快</li><li><i style="background:var(--slowmo)"></i>慢动作（升格）</li><li><i style="background:var(--card)"></i>logo 卡</li></ul></section>
+<ul class="legend"><li><i style="background:var(--slow)"></i>慢</li><li><i style="background:var(--fast)"></i>快</li><li><i style="background:var(--slowmo)"></i>慢动作（升格）</li><li><i style="background:var(--fg)"></i>定版静止</li><li><i style="background:var(--card)"></i>logo 卡</li></ul></section>
 {sections}
 </main>
 <script>

@@ -24,4 +24,4 @@ python3 tools/jm.py $S vid V8P2 --title "v08 P2 Coast $RES" --prompt "$(prompt 1
 python3 tools/jm.py $S vid V8P3 --title "v08 P3 Home $RES" --prompt "$(prompt 2)" --mode m2v \
   --ref char_pilot4 --ref char_pilot3 --ref char_family --ref prop_dream --ref loc_breakfast --dur 10 --res "$RES" --model "$MODEL"
 python3 tools/jm.py $S vid V8P4 --title "v08 P4 Finale $RES" --prompt "$(prompt 3)" --mode m2v \
-  --ref char_pilot3 --ref char_pilot4 --ref char_family --ref prop_dream --ref loc_breakfast --dur 8 --res "$RES" --model "$MODEL"
+  --ref char_pilot3 --ref char_pilot4 --ref char_family --ref prop_dream --ref loc_breakfast --dur 10 --res "$RES" --model "$MODEL"

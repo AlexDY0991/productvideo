@@ -2,7 +2,8 @@
 
 > 状态：**待用户确认**。故事、人物、20 米高度、家人至少离 40 米这些规则都沿用 v07。
 > 第二轮修改（用户意见）：① 从封闭车库里直接飞出去不现实，改成崖顶牧场的**开放式机库**（`@loc_hangar_us`），Dream 停在门外的起降圈上，从室外起飞；② 全片要有快慢切换，新增「节奏设计」一节，按它重排了镜头长度。
-> 结构：4 次 Seedance 2.5 生成（11 + 11 + 10 + 8 = 40 s），后期接 3 s 整屏橙色 logo 卡，全片 43 s，16:9。
+> 结构：4 次 Seedance 2.5 生成（11 + 11 + 10 + 10 = 42 s），后期接 3 s 整屏橙色 logo 卡，全片 45 s，16:9。
+> 第三轮修改（用户意见）：定版不一定要橙色铺满，参考两条汽车片的结尾。第 4 段结尾改成一个安静、停得久的英雄远景，再硬切到 logo 卡。
 
 ## 用户对 v07 的意见
 
@@ -30,7 +31,7 @@
   - 第 1 段结尾，FPV 镜头跟着 Dream 从停机坪起飞、俯冲出崖边到海面；第 2 段开头接着同一个方向、同样的速度继续追（运动匹配）。
   - 第 2 段结尾，Dream 朝画面右侧的崖顶飞去；第 3 段开头，它从画面右侧进来降落（方向一致）。
   - 第 3 段结尾是他看着女儿笑；第 4 段开头是一杯咖啡放在桌上，呼应片头放咖啡的动作，前后首尾呼应。
-  - 第 4 段结尾，镜头推进橙色整流罩，直到橙色漆面铺满画面；后期直接切到同样橙色的整屏 logo 卡（颜色匹配）。
+  - 第 4 段结尾，按两条汽车片的做法收：快切之后，用全片最安静、最长的一个英雄远景收住（约 5 秒），再硬切到整屏橙色 logo 卡。
 
 ## 四段一览
 
@@ -39,7 +40,7 @@
 | 1 · TAKEOFF | 11 s | 机库里，他放下咖啡、推开巨大的推拉门，门板扫过画面当前景遮挡，门外是停在起降圈上的 Dream → 横移跟拍检查螺旋桨 → 切在他坐下的动作上 → 环绕拍戴头盔 → **三个 0.5–0.7 秒快切**：螺旋桨转起来、手推操纵杆、下洗气流吹开尘土 → 从停机坪起飞，升降镜头跟拍 → 机腹从头顶掠过，镜头翻转 180°，跟着俯冲出崖边 | 仪式感 → 爆发 |
 | 2 · THE COAST | 11 s | FPV 贴海追飞 → 贴着水面，飞行器从镜头旁呼啸而过 → 侧拍大笑 → 甩镜到拱桥 → 跟着从桥下穿过，冲进阳光 → **升格慢动作 2.6 秒**：张开左手感受风，声音只剩风声 → 速度和声音同时猛地恢复：越过防滚架顶部向下穿进驾驶舱，看到脚下的海浪 → 拉出，目送他飞向崖顶 | 速度 → 喘息 → 自由 |
 | 3 · HOME | 10 s | 穿过前景野花的升降镜头，落在家人身上 → 低机位滑向远处降落的 Dream → 从停住的螺旋桨移焦到远处跑来的女儿 → 环绕拍：摘头盔、抱起女儿 → 切在动作上 → 推近，移焦到他的笑 | 温暖 |
-| 4 · FINALE | 8 s | 微距：咖啡杯放下 → 横移露出一家人在早餐桌旁，远处停着 Dream → 低机位慢慢环绕 Dream 的英雄镜头 → **三个 0.5 秒细节快切**：碳纤维机臂、共轴电机、05 号 → 慢慢推进橙色整流罩，直到橙色铺满画面 → 后期切到橙色 logo 卡 | 回味 → 品牌 |
+| 4 · FINALE | 10 s | 微距：咖啡杯放下 → 横移露出一家人在早餐桌旁，远处停着 Dream → 低机位慢慢环绕 Dream → **三个 0.5 秒细节快切**：碳纤维机臂、共轴电机、05 号 → **定版英雄远景，静止约 5 秒**：一家人和 Dream 站在崖边，背对镜头看海和朝阳，女儿骑在爸爸肩上，上方三分之一留给后期文字 → 硬切到橙色 logo 卡 | 回味 → 品牌 |
 
 ## 节奏设计（快慢切换）
 
@@ -53,22 +54,24 @@
 | 17–19.6 s | 2 | **慢动作喘息**：张开手，全片唯一的升格 | 2.6 s | 突然只剩风声和呼吸 |
 | 19.6–22 s | 2 | **再快**：脚下的海浪，拉出 | 1.0–1.4 s | 声音猛地恢复 |
 | 22–32 s | 3 | **慢、温柔**：降落、女儿跑来、戴头盔 | 1.6–2.4 s | 草地、风、笑声 |
-| 32–36.4 s | 4 | **慢**：咖啡、一家人、环绕 Dream | 2.0–2.4 s | 安静 |
-| 36.4–37.9 s | 4 | **三个快拍**：机臂、电机、05 | 0.5 s | 配乐踩点 |
-| 37.9–40 s | 4 | **慢推**到橙色铺满 | 2.1 s | 收 |
-| 40–43 s | 卡 | 整屏橙色 + 黑色 logo | 3 s | 最后一拍 |
+| 32–35.6 s | 4 | **慢**：咖啡、一家人、环绕 Dream | 1.6–2.0 s | 安静 |
+| 35.6–37.1 s | 4 | **三个快拍**：机臂、电机、05 | 0.5 s | 配乐踩点 |
+| 37.1–42 s | 4 | **定版静止**：一家人和 Dream 在崖边看海，全片最长的镜头 | 4.9 s | 只剩风声，配乐收尾 |
+| 42–45 s | 卡 | 整屏橙色 + 黑色 logo（像 Eletre 的整屏品牌黄色） | 3 s | 最后一拍 |
 
-后期配乐会在 6 秒（起飞爆发）、17 秒（慢动作）、19.6 秒（恢复）和 36.4 秒（三个快拍）这几处踩点。
+后期配乐会在 6 秒（起飞爆发）、17 秒（慢动作）、19.6 秒（恢复）、35.6 秒（三个快拍）和 37.1 秒（定版）这几处踩点。
+
+**定版画面上的文字（后期加，英文）：** 大约 38.5 秒，在天空位置淡入产品名 `Dream`，参考 Eletre 的「车型名 + 标语」排法。标语那一行先空着，等 slogan 定了再加。42 秒硬切到整屏橙色 logo 卡。
 
 ## 积分
 
 | 项目 | 计算 | 积分 |
 |---|---|---|
-| 四段样片模式 | 40 s × 9 | 360 |
-| 1080p 直出 | 40 s × 64 | 约 2,560 |
-| 合计 | | 约 2,920 |
+| 四段样片模式 | 42 s × 9 | 378 |
+| 1080p 直出 | 42 s × 64 | 约 2,688 |
+| 合计 | | 约 3,066 |
 
-今天剩 3,180，扣掉上面两项还剩约 260，大约够返修一段样片。
+今天剩 3,172，扣掉上面两项还剩约 106，不够返修。返修要先报价，可能要用第二天的积分。
 
 ---
 
@@ -240,50 +243,50 @@ KEEP CONSISTENT
 ## 第 4 段 · FINALE · 8.0 s
 
 ```
-An 8-second live-action commercial finale, 16:9, the same sunny clifftop morning, a little later. A coffee mug is set down on the breakfast table and the camera glides past it to reveal the family laughing together at breakfast, the Dream parked far away on the meadow in the golden light; then the camera circles the parked aircraft in a slow hero move, glides over its details, and pushes into the glossy orange fairing until the orange fills the whole frame. The camera never stops moving.
+A 10-second live-action commercial finale, 16:9, the same sunny clifftop morning, a little later. A coffee mug is set down on the breakfast table and the camera glides past it to reveal the family laughing together at breakfast, the Dream parked far away on the meadow; a slow orbit around the parked aircraft, three quick macro beats of its details, and then the stillest, longest shot of the film: the family standing beside the Dream at the cliff edge, seen from behind, looking out at the ocean and the morning sun, held for five seconds with open sky above for the title.
 
 REFERENCES
 @prop_dream — the aircraft; every detail of shape, livery, carbon arms, coaxial motors, propellers and the number 05; ignore the grey backdrop.
-@char_pilot3 — the pilot without a helmet, still in his black flight suit with the CoolFly wordmark on the left chest (as @char_pilot4).
+@char_pilot3 — the pilot without a helmet, still in his black flight suit with the CoolFly wordmarks (as @char_pilot4).
 @char_pilot4 — the flight suit and both CoolFly wordmarks.
 @char_family — his wife and their 8-year-old daughter, exactly as their sheet.
-@loc_breakfast — the clifftop meadow with the breakfast table on the left and the long open meadow to the right.
+@loc_breakfast — the clifftop meadow with the breakfast table on the left, the long open meadow to the right and the cliff edge above the ocean.
 
 LOOK
-High-end automotive commercial packshot, clean modern digital cinema, 35–100mm lenses including macro, shallow depth of field. Warm low golden sun backlighting the aircraft, a soft natural sheen on the orange clear coat, real carbon weave, morning mist over the ocean beyond the cliff edge. Natural light only; nothing on the aircraft glows. The camera is always moving: a slow lateral glide, a slow orbit, three quick macro beats of 0.5s, a final slow push-in. Calm, confident, premium. RHYTHM: slow 0.0–4.4s, three quick beats 4.4–5.9s, slow final push 5.9–8.0s.
+High-end automotive commercial finale, clean modern digital cinema, 35–100mm lenses including macro, shallow depth of field. Warm low golden morning sun over the ocean, a soft natural sheen on the orange clear coat, real carbon weave, morning mist on the ocean beyond the cliff edge. Natural light only; nothing on the aircraft glows. RHYTHM: slow 0.0–3.6s, three quick beats 3.6–5.1s, then complete stillness 5.1–10.0s — the calm after the energy, like the held final shot of a car commercial. The camera keeps a barely perceptible drift in the final shot; no handheld shake.
 
 CHARACTERS
 The pilot — the same American man as @char_pilot3, no helmet, black flight suit, relaxed, laughing with his family. Never looks into the lens.
-The wife and the daughter — as @char_family, at the table with him, happy and relaxed.
+The wife and the daughter — as @char_family, happy and relaxed.
 No one speaks.
 
 AIRCRAFT RULE
-Exactly one CoolFly Dream, identical to @prop_dream in every frame, parked and switched off on the grass at the far end of the meadow, at least 40 metres from the table; all eight propellers are completely still; it never moves. Orange glossy front fairing with two white vertical stripes and the number 05, dark-grey tubular roll cage, white seat, four carbon arms, coaxial motor pairs. Never redesigned, no added logos or text.
+Exactly one CoolFly Dream, identical to @prop_dream in every frame, parked and switched off on the grass near the cliff edge at the far end of the meadow, at least 40 metres from the table, nose toward the ocean; all eight propellers are completely still; it never moves. Orange glossy front fairing with two white vertical stripes and the number 05, dark-grey tubular roll cage, white seat, four carbon arms, coaxial motor pairs. Never redesigned, no added logos or text.
 
 SHOTS
-0.0–2.0s — THE VERY FIRST FRAME OF THE CLIP IS THIS: a 100mm macro of the wife's hand setting a steaming ceramic coffee mug down on the white linen tablecloth, in the near foreground. The camera glides sideways past the mug; the focus pulls to reveal the family at the breakfast table — the pilot laughing, the daughter on his knee, the wife sitting down beside them — and, far behind them at the end of the meadow, the parked orange Dream in the golden light. BACKGROUND: the meadow, the parked aircraft, the misty ocean.
+0.0–2.0s — THE VERY FIRST FRAME OF THE CLIP IS THIS: a 100mm macro of the wife's hand setting a steaming ceramic coffee mug down on the white linen tablecloth, in the near foreground. The camera glides sideways past the mug; the focus pulls to reveal the family at the breakfast table — the pilot laughing, the daughter on his knee, the wife sitting down beside them — and, far behind them at the end of the meadow, the parked orange Dream in the golden light. SLOW. BACKGROUND: the meadow, the parked aircraft, the misty ocean.
 
-2.0–4.4s — 35mm low hero orbit around the parked aircraft on the grass, the camera circling slowly from its front three-quarter to its side, the low sun behind it flaring softly through the roll cage and rimming the arms, the grass moving in the breeze; far behind, the family at the table, soft and small.
+2.0–3.6s — 35mm low, a slow orbit around the parked aircraft on the grass, from its front three-quarter toward its side, the low sun flaring softly through the roll cage and rimming the arms, the grass moving in the breeze. SLOW.
 
-4.4–4.9s — QUICK: 100mm macro gliding along a carbon-fibre arm, the real weave catching the light.
+3.6–4.1s — QUICK: 100mm macro gliding along a carbon-fibre arm, the real weave catching the light.
 
-4.9–5.4s — QUICK: 100mm macro sliding over the black coaxial motor pair and a still two-blade propeller.
+4.1–4.6s — QUICK: 100mm macro sliding over the black coaxial motor pair and a still two-blade propeller.
 
-5.4–5.9s — QUICK: 100mm macro across the two white stripes and the number 05 on the orange fairing.
+4.6–5.1s — QUICK: 100mm macro across the two white stripes and the number 05 on the orange fairing.
 
-5.9–8.0s — SLOW: the camera pushes straight and slowly into the glossy orange fairing between the stripes, the reflection of the sky sliding across the clear coat, until the orange paint fills the whole frame, every edge and corner, softly out of focus. The clip ends on the full orange frame.
+5.1–10.0s — THE FINAL HERO SHOT, STILL: a wide 35mm from low behind, a calm symmetrical composition. The parked Dream stands at the cliff edge in the right half of frame, seen from behind, nose to the ocean, its arms and still propellers in silhouette, a warm rim of sunlight along the roll cage. Beside it on the left, the family stands with their backs to camera looking out to sea: the pilot with his daughter riding on his shoulders, the wife leaning against him. Beyond them the glittering ocean, the morning mist and the low sun just above the horizon at the centre. The upper third of the frame is open, clean sky. The camera pushes in so slowly that it is almost still; nobody moves except the girl's hair and the grass in the wind. The clip ends on this held frame at 10.0s.
 
 SOUND
-No music: the score is added in post. Diegetic sound only: the soft knock of the mug on the table at 0.4s; the family's quiet laughter at 1.0s, no words; meadow wind, distant surf and birdsong; then only a soft breeze. No dialogue, words, narrator, stings or added whooshes.
+No music: the score is added in post. Diegetic sound only: the soft knock of the mug on the table at 0.4s; the family's quiet laughter at 1.0s, no words; meadow wind, distant surf and birdsong; in the final shot only a soft wind and the far surf. No dialogue, words, narrator, stings or added whooshes.
 
 KEEP CONSISTENT
 - The clip opens on the macro of the coffee mug being set down, never on a wide.
-- The aircraft is parked, switched off and completely still at least 40 metres from the table; it never moves.
+- The aircraft is parked, switched off and completely still near the cliff edge, at least 40 metres from the table; it never moves.
 - Exactly one aircraft, identical to @prop_dream; eight still propellers; the number 05 and the two white stripes exact.
-- Exactly three people at the table; no one else, no vehicles.
-- The camera never stops; the clip ends on the orange paint filling the whole frame.
+- Exactly three people; no one else, no vehicles.
+- The final shot from 5.1s is the stillest and longest shot: composed, symmetrical, open sky in the upper third, held to 10.0s.
 - Warm, rich colour, never washed out.
-- Apart from the CoolFly wordmark on the suit and the number 05 on the fairing, no subtitles, on-screen text, other logos or watermarks.
+- Apart from the CoolFly wordmarks on the suit and the number 05 on the fairing, no subtitles, on-screen text, other logos or watermarks.
 ```
 
 ## 时间码校验
@@ -291,5 +294,5 @@ KEEP CONSISTENT
 - 第 1 段：0.0–2.4 · 2.4–4.0 · 4.0–6.2 · 6.2–6.8 · 6.8–7.3 · 7.3–8.0 · 8.0–9.4 · 9.4–11.0，连续，结束 = 11.0 s
 - 第 2 段：0.0–1.4 · 1.4–2.2 · 2.2–3.8 · 3.8–4.2 · 4.2–6.0 · 6.0–8.6 · 8.6–9.6 · 9.6–11.0，连续，结束 = 11.0 s
 - 第 3 段：0.0–2.2 · 2.2–4.0 · 4.0–5.6 · 5.6–7.6 · 7.6–10.0，连续，结束 = 10.0 s
-- 第 4 段：0.0–2.0 · 2.0–4.4 · 4.4–4.9 · 4.9–5.4 · 5.4–5.9 · 5.9–8.0，连续，结束 = 8.0 s
+- 第 4 段：0.0–2.0 · 2.0–3.6 · 3.6–4.1 · 4.1–4.6 · 4.6–5.1 · 5.1–10.0，连续，结束 = 10.0 s
 - 没有台词；SOUND 里的时间点与镜头动作一致
