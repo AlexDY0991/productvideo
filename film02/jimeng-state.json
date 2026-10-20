@@ -685,6 +685,21 @@
    "submitted": true,
    "resourceId": "5f537226-f9d2-484f-8455-3648398b0eb3",
    "result": "film02/clips/v08-draft/V8P4.mp4"
+  },
+  "prop_dream2": {
+   "updateId": "556922ed-def3-4d77-ad01-5c3f29922716",
+   "nodeId": "node_bscsfrr2t8",
+   "title": "@prop_dream2 · Dream 三视图 无编号",
+   "submitId": "5b114918-cbeb-40c6-9506-aa2b9dbbd4c3",
+   "submitted": true,
+   "resourceId": "8fe784f5-fbe0-4b64-94fd-4d8367502214",
+   "result": "film02/assets/prop_dream2.png"
+  },
+  "p1_end": {
+   "uploadResourceId": "587c4931-1975-45e5-9348-02add8558133",
+   "updateId": "8ce22f95-c0e1-4ea7-aa41-6aead92b8d43",
+   "nodeId": "node_ej0kgvje6f",
+   "title": "REF · p1_end"
   }
  },
  "ledger": {
@@ -1163,6 +1178,12 @@
     "credits": 90,
     "submitId": "3c135bb3-25df-45e2-87f0-776161b21b40",
     "at": "2026-10-20 15:01"
+   },
+   {
+    "key": "prop_dream2",
+    "credits": 8,
+    "submitId": "5b114918-cbeb-40c6-9506-aa2b9dbbd4c3",
+    "at": "2026-10-20 15:29"
    }
   ]
  }

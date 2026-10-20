@@ -1,12 +1,12 @@
-# Build the prompt-review page (rhythm curve + full prompts) from film02/SCRIPT-v08.md.
+# Build the prompt-review page (rhythm curve + full prompts) from film02/SCRIPT-v09.md.
 import re, html, json
-src = open('/home/user/productvideo/film02/SCRIPT-v08.md').read()
+src = open('/home/user/productvideo/film02/SCRIPT-v09.md').read()
 blocks = re.findall(r"```\n(.*?)```", src, re.S)
 parts = [
   ("P1", "TAKEOFF", "起飞", 0, 11, "机库推门 → 室外检查、戴头盔（慢） → 三个快切 → 起飞俯冲（爆发）"),
-  ("P2", "THE COAST", "海岸", 11, 11, "贴海追飞、擦身而过、甩镜、穿桥（快） → 张手慢动作（喘息） → 脚下海浪（快）"),
-  ("P3", "HOME", "回家", 22, 10, "远处降落、螺旋桨停稳 → 女儿跑来 → 戴头盔 → 父亲的笑（慢、温柔）"),
-  ("P4", "FINALE", "收尾", 32, 10, "咖啡、一家人、环绕 Dream（慢） → 三个细节快拍 → 定版：一家人和 Dream 在崖边看海，静止约 5 秒"),
+  ("P2", "THE COAST", "海岸", 11, 11, "从第 1 段最后一帧接着俯冲 → 贴海追飞、擦身而过、甩镜、穿桥（快） → 镜头沿手臂移到张开的手（慢动作） → 脚下海浪 → 跟着下降"),
+  ("P3", "HOME", "回家", 22, 10, "接着第 2 段的下降运镜落到草地 → 远处降落 → 女儿跑来 → 戴头盔 → 父亲的笑 → 跟着女儿的视线摇向天空"),
+  ("P4", "FINALE", "收尾", 32, 10, "从同一片天空摇下来，落到咖啡杯 → 一家人 → 环绕 Dream → 三个细节快拍（无 05） → 定版静止约 5 秒"),
 ]
 tempo = [(0,6,"slow"),(6,11,"fast"),(11,17,"fast"),(17,19.6,"slowmo"),(19.6,22,"fast"),(22,32,"slow"),(32,35.6,"slow"),(35.6,37.1,"fast"),(37.1,42,"still"),(42,45,"card")]
 label = {"slow":"慢","fast":"快","slowmo":"慢动作","still":"定版静止","card":"logo 卡"}
@@ -33,7 +33,7 @@ for (k,name,cn,off,d,summary),b in zip(parts,blocks):
 <pre id="pr-{k}" class="prompt">{html.escape(b.strip())}</pre>
 <p class="meta">{len(b.strip())} 字符 · seedance_2.5_draft（样片模式） · 16:9 · 480p · {d} s</p>
 </section>'''
-page=f'''<title>First Light v08</title>
+page=f'''<title>First Light v09</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;700&family=Noto+Sans+SC:wght@400;600&family=JetBrains+Mono:wght@400&display=swap">
@@ -78,8 +78,8 @@ th{{color:var(--muted);font-weight:600;font-size:.78rem;letter-spacing:.04em}}
 @media (prefers-reduced-motion:reduce){{*{{scroll-behavior:auto}}}}
 </style>
 <main class="wrap">
-<header><p class="eyebrow">CoolFly Dream · 第 2 号片 · v08 待确认</p><h1>First Light v08</h1>
-<p class="lede">四段生成（11 + 11 + 10 + 10 秒），加 3 秒整屏橙色 logo 卡，全片 45 秒。结尾参考 Eletre 和 Xiaomi：快切之后用一个停得最久的英雄远景收住，再硬切 logo 卡。下面是全片的节奏曲线和四段完整的英文提示词，提交给即梦的就是这些原文；提交前 @名字会换成画布节点。</p></header>
+<header><p class="eyebrow">CoolFly Dream · 第 2 号片 · v09 待确认</p><h1>First Light v09</h1>
+<p class="lede">四段生成（11 + 11 + 10 + 10 秒），加 3 秒整屏橙色 logo 卡，全片 45 秒。每段的第一帧就是上一段的最后一帧，按顺序生成，段与段之间用同一个运镜接上；第 1 段沿用 v08 样片。全片不出现 05。下面是全片的节奏曲线和四段完整的英文提示词，提交给即梦的就是这些原文；提交前 @名字会换成画布节点。</p></header>
 <section class="rhythm" aria-labelledby="rh"><h3 id="rh">全片节奏：柱子越高越快，短竖线是切点</h3><div class="tw">{svg}</div>
 <ul class="legend"><li><i style="background:var(--slow)"></i>慢</li><li><i style="background:var(--fast)"></i>快</li><li><i style="background:var(--slowmo)"></i>慢动作（升格）</li><li><i style="background:var(--fg)"></i>定版静止</li><li><i style="background:var(--card)"></i>logo 卡</li></ul></section>
 {sections}
@@ -89,5 +89,5 @@ document.querySelectorAll('.copy').forEach(function(b){{b.addEventListener('clic
 var fallback=function(){{var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='已选中，请手动复制'}};
 try{{navigator.clipboard.writeText(t).then(done,fallback)}}catch(e){{fallback()}}}})}});
 </script>'''
-open('/tmp/claude-0/-home-user-productvideo/35f88542-6807-5370-9772-9248e254fcf9/scratchpad/page/first-light-v08.html','w').write(page)
+open('/tmp/claude-0/-home-user-productvideo/35f88542-6807-5370-9772-9248e254fcf9/scratchpad/page/first-light-v09.html','w').write(page)
 print(len(page), len(cuts))
