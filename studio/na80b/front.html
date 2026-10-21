@@ -1,0 +1,26 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"><style>
+.model { position: absolute; left: 38px; top: 100px; font-family: Archivo; font-weight: 800; font-size: 244px; line-height: .82; letter-spacing: -.045em; }
+.model span { color: var(--o); }
+.band { position: absolute; left: var(--m); right: var(--m); top: 318px; height: 64px; background: var(--ink); display: flex; align-items: center; padding: 0 20px; box-sizing: border-box; }
+.band b { font-family: Archivo; font-weight: 800; font-size: 40px; letter-spacing: .01em; color: #fff; }
+.band i { margin-left: auto; width: 46px; height: 46px; background: var(--o); clip-path: polygon(30% 0, 100% 0, 70% 100%, 0 100%); }
+.photo { position: absolute; left: var(--m); right: var(--m); top: 398px; height: 470px; background: #111 url(na80_hardware.png) 50% 55% / cover; }
+.call { position: absolute; display: flex; align-items: center; }
+.call .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--o); border: 2px solid #fff; flex: none; }
+.call .ln { height: 1.5px; background: #fff; flex: none; }
+.call .lab { background: #fff; color: var(--ink); padding: 5px 9px; font-family: Archivo; font-weight: 700; font-size: 12px; letter-spacing: .16em; white-space: nowrap; }
+.call .lab em { font-style: normal; color: var(--o); margin-right: 7px; }
+.call.left { flex-direction: row-reverse; }
+.duo { position: absolute; left: var(--m); right: var(--m); top: 890px; display: grid; grid-template-columns: 1fr 1fr; }
+.duo div { font-family: Archivo; font-weight: 800; font-size: 31px; line-height: 1.05; letter-spacing: -.01em; padding-top: 14px; border-top: 1.5px solid var(--ink); }
+.duo div + div { color: var(--o); border-top-color: var(--o); padding-left: 16px; }
+</style></head><body><div class="sheet"><div class="tick tl"></div><div class="tick tr"></div><div class="tick bl"></div><div class="tick br"></div>
+<div class="top"><svg class="logo" viewBox="0 0 1709 357"><path fill="#111" fill-rule="evenodd" d="M1709,72 L1643,72 L1551,296 L1503,297 L1478,357 L1551,357 L1609,315Z M1498,72 L1550,247 L1586,164 L1586,158 L1559,72Z M789,71 L735,71 L713,133 L753,133 L754,135 L719,226 L625,225 L658,134 L695,133 L717,71 L667,71 L602,119 L560,235 L561,241 L593,286 L711,286 L778,238 L822,121 L822,117Z M521,71 L467,71 L445,133 L485,133 L486,135 L451,226 L357,225 L390,134 L427,133 L449,71 L399,71 L334,119 L292,235 L293,241 L325,286 L443,286 L510,238 L554,121 L554,117Z M1460,0 L1391,0 L1292,248 L1292,252 L1315,286 L1388,286 L1416,226 L1369,226 L1368,224Z M987,0 L918,0 L819,248 L819,252 L842,286 L915,286 L943,226 L896,226 L895,224Z M160,60 L313,60 L338,0 L185,0Z M129,0 L90,23 L0,252 L23,286 L249,287 L249,224 L77,223 L168,0Z"/><path fill="#FF5A00" fill-rule="evenodd" d="M1165,60 L1318,60 L1343,0 L1190,0Z M1172,0 L1106,0 L989,286 L1055,286 L1100,178 L1246,178 L1271,118 L1124,117Z"/></svg><span class="small">FLIGHT CONTROL SYSTEM</span></div>
+<div class="model">NA<span>8</span>0</div>
+<div class="band"><b>DUAL-REDUNDANT</b><i></i></div>
+<div class="photo"></div>
+<div class="call left" style="right: 435px; top: 500px;"><span class="dot"></span><span class="ln" style="width:70px"></span><span class="lab"><em>01</em>PRIMARY FC</span></div>
+<div class="call" style="left: 462px; top: 615px;"><span class="dot"></span><span class="ln" style="width:30px"></span><span class="lab"><em>02</em>SECONDARY FC</span></div>
+<div class="call left" style="right: 485px; top: 760px;"><span class="dot"></span><span class="ln" style="width:70px"></span><span class="lab"><em>03</em>VOTER</span></div>
+<div class="duo"><div>If one fails,</div><div>the other still flies.</div></div>
+</div></body></html>

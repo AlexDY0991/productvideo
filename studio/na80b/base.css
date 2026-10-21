@@ -1,0 +1,18 @@
+@font-face { font-family: Archivo; font-weight: 500; src: url(../fonts/Archivo500.ttf); }
+@font-face { font-family: Archivo; font-weight: 700; src: url(../fonts/Archivo700.ttf); }
+@font-face { font-family: Archivo; font-weight: 800; src: url(../fonts/Archivo800.ttf); }
+@font-face { font-family: BarlowC; font-weight: 700; src: url(../fonts/BarlowCondensed700.ttf); }
+@font-face { font-family: Barlow; font-weight: 500; src: url(../fonts/Barlow500.ttf); }
+@font-face { font-family: Barlow; font-weight: 600; src: url(../fonts/Barlow600.ttf); }
+:root { --o: #FF5A00; --ink: #111; --paper: #E9E7E2; --rule: #111; --m: 44px; }
+html, body { margin: 0; background: var(--paper); }
+.sheet { position: relative; width: 737px; height: 1000px; overflow: hidden; background: var(--paper); color: var(--ink); font-family: Barlow, sans-serif; }
+/* registration ticks in the four corners */
+.tick { position: absolute; width: 14px; height: 14px; border-color: var(--ink); border-style: solid; border-width: 0; }
+.tl { left: 18px; top: 18px; border-left-width: 1px; border-top-width: 1px; }
+.tr { right: 18px; top: 18px; border-right-width: 1px; border-top-width: 1px; }
+.bl { left: 18px; bottom: 18px; border-left-width: 1px; border-bottom-width: 1px; }
+.br { right: 18px; bottom: 18px; border-right-width: 1px; border-bottom-width: 1px; }
+.top { position: absolute; left: var(--m); right: var(--m); top: 40px; height: 34px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1.5px solid var(--rule); padding-bottom: 12px; }
+.top svg { width: 128px; }
+.small { font-family: Archivo; font-weight: 700; font-size: 12px; letter-spacing: .28em; }
