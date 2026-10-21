@@ -1,0 +1,27 @@
+@font-face { font-family: BarlowC; font-weight: 600; src: url(../fonts/BarlowCondensed600.ttf); }
+@font-face { font-family: BarlowC; font-weight: 700; src: url(../fonts/BarlowCondensed700.ttf); }
+@font-face { font-family: Barlow; font-weight: 500; src: url(../fonts/Barlow500.ttf); }
+@font-face { font-family: Barlow; font-weight: 600; src: url(../fonts/Barlow600.ttf); }
+@font-face { font-family: Barlow; font-weight: 700; src: url(../fonts/Barlow700.ttf); }
+
+:root { --orange: #FF5A00; --bg: #0b0c0e; --line: rgba(255,255,255,.14); --m: 52px; }
+html, body { margin: 0; background: var(--bg); }
+.sheet {
+  position: relative; width: 737px; height: 1000px; overflow: hidden; color: #fff;
+  font-family: Barlow, sans-serif;
+  background:
+    radial-gradient(ellipse 70% 45% at 85% 8%, rgba(255,90,0,.16), transparent 70%),
+    linear-gradient(var(--bg), var(--bg));
+}
+/* faint engineering grid */
+.sheet::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size: 36.85px 36.85px;
+  mask-image: linear-gradient(#000 0%, rgba(0,0,0,.4) 60%, transparent 100%);
+}
+.logo { position: absolute; left: var(--m); top: 46px; width: 150px; }
+.corner { position: absolute; right: var(--m); top: 54px; width: 26px; height: 26px;
+  border-top: 2px solid var(--orange); border-right: 2px solid var(--orange); }

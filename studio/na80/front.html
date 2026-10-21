@@ -1,0 +1,38 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="base.css">
+<style>
+  .eyebrow { position: absolute; left: var(--m); top: 128px; font-family: BarlowC; font-weight: 700; font-size: 58px; line-height: 1; color: var(--orange); letter-spacing: .01em; }
+  .sys { position: absolute; left: var(--m); top: 194px; font-weight: 600; font-size: 19px; letter-spacing: .32em; color: #fff; }
+  .model { position: absolute; left: 44px; top: 200px; font-family: BarlowC; font-weight: 700; font-size: 214px; line-height: 1; letter-spacing: -.01em; color: #fff; }
+  .tag { position: absolute; left: var(--m); top: 410px; font-family: BarlowC; font-weight: 600; font-size: 40px; line-height: 1.12; }
+  .tag b { font-weight: 600; color: var(--orange); }
+
+  .photo { position: absolute; left: 0; right: 0; bottom: 0; height: 480px;
+    background: url(na80_hardware.png) center / cover;
+    mask-image: linear-gradient(transparent 0, #000 110px); }
+  .photo::after { content: ""; position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgba(11,12,14,.55), transparent 22%, transparent 78%, rgba(11,12,14,.55)); }
+
+  .call { position: absolute; display: flex; align-items: center; gap: 0; }
+  .call .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 0 4px rgba(255,90,0,.25); flex: none; }
+  .call .ln { height: 1px; background: rgba(255,255,255,.85); flex: none; }
+  .call .lab { padding: 6px 11px; background: rgba(11,12,14,.78); border: 1px solid rgba(255,255,255,.25);
+    font-weight: 600; font-size: 14px; letter-spacing: .16em; white-space: nowrap; }
+  .call .lab i { font-style: normal; color: var(--orange); margin-right: 8px; }
+  .call.left { flex-direction: row-reverse; }
+</style></head>
+<body><div class="sheet">
+  <svg class="logo" viewBox="0 0 1709 357"><path fill="#fff" fill-rule="evenodd" d="M1709,72 L1643,72 L1551,296 L1503,297 L1478,357 L1551,357 L1609,315Z M1498,72 L1550,247 L1586,164 L1586,158 L1559,72Z M789,71 L735,71 L713,133 L753,133 L754,135 L719,226 L625,225 L658,134 L695,133 L717,71 L667,71 L602,119 L560,235 L561,241 L593,286 L711,286 L778,238 L822,121 L822,117Z M521,71 L467,71 L445,133 L485,133 L486,135 L451,226 L357,225 L390,134 L427,133 L449,71 L399,71 L334,119 L292,235 L293,241 L325,286 L443,286 L510,238 L554,121 L554,117Z M1460,0 L1391,0 L1292,248 L1292,252 L1315,286 L1388,286 L1416,226 L1369,226 L1368,224Z M987,0 L918,0 L819,248 L819,252 L842,286 L915,286 L943,226 L896,226 L895,224Z M160,60 L313,60 L338,0 L185,0Z M129,0 L90,23 L0,252 L23,286 L249,287 L249,224 L77,223 L168,0Z"/><path fill="#FF5A00" fill-rule="evenodd" d="M1165,60 L1318,60 L1343,0 L1190,0Z M1172,0 L1106,0 L989,286 L1055,286 L1100,178 L1246,178 L1271,118 L1124,117Z"/></svg>
+  <div class="corner"></div>
+  <div class="eyebrow">DUAL-REDUNDANT</div>
+  <div class="sys">FLIGHT CONTROL SYSTEM</div>
+  <div class="model">NA80</div>
+  <div class="tag">If one fails,<br><b>the other still flies.</b></div>
+
+  <div class="photo"></div>
+  <!-- callouts: dot sits on the unit, line runs out to the label -->
+  <div class="call left" style="right: calc(737px - 318px); top: 580px;"><span class="dot"></span><span class="ln" style="width:90px"></span><span class="lab"><i>01</i>PRIMARY FC</span></div>
+  <div class="call" style="left: 482px; top: 678px;"><span class="dot"></span><span class="ln" style="width:30px"></span><span class="lab"><i>02</i>SECONDARY FC</span></div>
+  <div class="call left" style="right: calc(737px - 262px); top: 852px;"><span class="dot"></span><span class="ln" style="width:90px"></span><span class="lab"><i>03</i>VOTER</span></div>
+</div></body></html>

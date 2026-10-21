@@ -137,6 +137,21 @@
    "submitted": true,
    "resourceId": "fd148814-6e56-4b95-9b93-1aa0a68f75ae",
    "result": "studio/out/I007.png"
+  },
+  "R_na80": {
+   "uploadResourceId": "0b79f8c8-ce1b-4c89-acde-53710b45b799",
+   "updateId": "2ce83285-1ef6-40d9-98fa-79aa60e63dac",
+   "nodeId": "node_422mgmqbpq",
+   "title": "REF · R_na80"
+  },
+  "I008": {
+   "updateId": "3d9db3e1-07c9-47af-9f6d-0fae872f1302",
+   "nodeId": "node_z26v1akthk",
+   "title": "I008 · NA80 硬件照高清重建",
+   "submitId": "a4570804-619e-4604-b2c8-357562a86cf5",
+   "submitted": true,
+   "resourceId": "7e1a438e-2de8-42a8-acdc-c8675d85b6da",
+   "result": "studio/out/I008.png"
   }
  },
  "ledger": {
@@ -202,6 +217,12 @@
     "credits": 8,
     "submitId": "fc96c45b-136b-4367-8562-43390abfcbbb",
     "at": "2026-10-20 17:38"
+   },
+   {
+    "key": "I008",
+    "credits": 8,
+    "submitId": "a4570804-619e-4604-b2c8-357562a86cf5",
+    "at": "2026-10-21 03:09"
    }
   ]
  }
