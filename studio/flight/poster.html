@@ -1,0 +1,39 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face { font-family: BarlowC; font-weight: 500; src: url(../fonts/BarlowCondensed500.ttf); }
+@font-face { font-family: BarlowC; font-weight: 600; src: url(../fonts/BarlowCondensed600.ttf); }
+@font-face { font-family: BarlowC; font-weight: 700; src: url(../fonts/BarlowCondensed700.ttf); }
+@font-face { font-family: Barlow; font-weight: 500; src: url(../fonts/Barlow500.ttf); }
+@font-face { font-family: Barlow; font-weight: 600; src: url(../fonts/Barlow600.ttf); }
+:root { --o: #FF6A1A; }
+html, body { margin: 0; background: #06302f; }
+.sheet { position: relative; width: 864px; height: 1152px; overflow: hidden; color: #fff; font-family: Barlow, sans-serif;
+  background: url(bg.png) center / cover; }
+.sheet::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(rgba(2,24,26,.55), transparent 14%, transparent 60%, rgba(2,22,24,.82) 86%, rgba(2,20,22,.92)); }
+.z { position: absolute; z-index: 2; }
+.logo { left: 48px; top: 44px; width: 150px; }
+.expo { right: 46px; top: 34px; width: 150px; }
+.kick { left: 48px; top: 92px; font-weight: 600; font-size: 13px; letter-spacing: .32em; color: rgba(255,255,255,.85); }
+.date { left: 0; width: 735px; top: 382px; text-align: center; }
+.date .s { font-family: BarlowC; font-weight: 600; font-size: 26px; letter-spacing: .5em; padding-left: .5em; }
+.date .b { font-family: BarlowC; font-weight: 500; font-size: 178px; line-height: .9; letter-spacing: .01em; margin-top: 6px;
+  text-shadow: 0 4px 30px rgba(0,30,30,.45); }
+.date .b i { font-style: normal; color: var(--o); }
+.date .y { font-family: BarlowC; font-weight: 600; font-size: 22px; letter-spacing: .6em; padding-left: .6em; margin-top: 10px; color: rgba(255,255,255,.9); }
+.bottom { left: 0; right: 0; top: 820px; text-align: center; }
+.bottom .t { font-family: BarlowC; font-weight: 700; font-size: 58px; line-height: 1; letter-spacing: .01em; }
+.bottom .t b { color: var(--o); font-weight: 700; }
+.info { margin: 26px auto 0; display: inline-flex; align-items: center; gap: 22px; font-family: BarlowC; font-weight: 600; font-size: 26px; letter-spacing: .12em; }
+.info span + span { border-left: 1.5px solid rgba(255,255,255,.6); padding-left: 22px; }
+.emb { margin-top: 30px; font-weight: 500; font-size: 13.5px; letter-spacing: .14em; color: rgba(255,255,255,.82); }
+</style></head><body><div class="sheet">
+<div class="z logo"><svg style="width:150px" viewBox="0 0 1709 357"><path fill="#fff" fill-rule="evenodd" d="M1709,72 L1643,72 L1551,296 L1503,297 L1478,357 L1551,357 L1609,315Z M1498,72 L1550,247 L1586,164 L1586,158 L1559,72Z M789,71 L735,71 L713,133 L753,133 L754,135 L719,226 L625,225 L658,134 L695,133 L717,71 L667,71 L602,119 L560,235 L561,241 L593,286 L711,286 L778,238 L822,121 L822,117Z M521,71 L467,71 L445,133 L485,133 L486,135 L451,226 L357,225 L390,134 L427,133 L449,71 L399,71 L334,119 L292,235 L293,241 L325,286 L443,286 L510,238 L554,121 L554,117Z M1460,0 L1391,0 L1292,248 L1292,252 L1315,286 L1388,286 L1416,226 L1369,226 L1368,224Z M987,0 L918,0 L819,248 L819,252 L842,286 L915,286 L943,226 L896,226 L895,224Z M160,60 L313,60 L338,0 L185,0Z M129,0 L90,23 L0,252 L23,286 L249,287 L249,224 L77,223 L168,0Z"/><path fill="#FF5A00" fill-rule="evenodd" d="M1165,60 L1318,60 L1343,0 L1190,0Z M1172,0 L1106,0 L989,286 L1055,286 L1100,178 L1246,178 L1271,118 L1124,117Z"/></svg></div>
+<img class="z expo" src="expo.png">
+<div class="z kick">MALDIVES EXPO 2026</div>
+<div class="z date"><div class="s">FIRST FLIGHT</div><div class="b">11<i>.</i>02</div><div class="y">2026</div></div>
+<div class="z bottom">
+  <div class="t">MALDIVES’ FIRST<br>PERSONAL AIRCRAFT <b>FLIGHT DISPLAY</b></div>
+  <div class="info"><span>NOV 2, 2026</span><span>HULHUMALÉ, MALDIVES</span></div>
+  <div class="emb">INVITED BY THE EMBASSY OF THE PEOPLE’S REPUBLIC OF CHINA IN THE REPUBLIC OF MALDIVES</div>
+</div>
+</div></body></html>

@@ -152,6 +152,21 @@
    "submitted": true,
    "resourceId": "7e1a438e-2de8-42a8-acdc-c8675d85b6da",
    "result": "studio/out/I008.png"
+  },
+  "R_s7": {
+   "uploadResourceId": "aaa633ff-63d7-4ce1-9d5d-e187a0e113fd",
+   "updateId": "557aa633-1a78-422d-85a4-056bb27237e3",
+   "nodeId": "node_4zbqqqtkbn",
+   "title": "REF · R_s7"
+  },
+  "I009": {
+   "updateId": "dd33f376-e59f-4996-8e81-daa123cd2434",
+   "nodeId": "node_q563pbwfzf",
+   "title": "I009 · 马代首飞 圆形尾迹",
+   "submitId": "ae7b6a27-e46d-430f-b932-f50eee29555e",
+   "submitted": true,
+   "resourceId": "4936ea92-dc17-4940-a8ee-25753918eb17",
+   "result": "studio/out/I009.png"
   }
  },
  "ledger": {
@@ -223,6 +238,12 @@
     "credits": 8,
     "submitId": "a4570804-619e-4604-b2c8-357562a86cf5",
     "at": "2026-10-21 03:09"
+   },
+   {
+    "key": "I009",
+    "credits": 8,
+    "submitId": "ae7b6a27-e46d-430f-b932-f50eee29555e",
+    "at": "2026-10-21 08:15"
    }
   ]
  }
