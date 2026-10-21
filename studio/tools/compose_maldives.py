@@ -252,18 +252,35 @@ def i006():
     p.save()
 
 
-def i010():
-    """I006 regenerated with four blades per motor. Title runs straight into the water, so logos sit in the top margin."""
-    p = Poster("I010")
+def water_panel(img):
+    """Bounding box of the teal water panel, found from the teal pixels along its edges."""
+    a = np.asarray(img.convert("RGB")).astype(int)
+    teal = (a[..., 1] > a[..., 0] + 30) & (a[..., 2] > a[..., 0] + 20)
+    rows = np.where(teal.mean(axis=1) > 0.5)[0]
+    cols = np.where(teal[rows.max() - 40])[0]
+    return cols.min(), rows.min(), cols.max() + 1, rows.max() + 1
+
+
+def first_flight(key):
+    """I006 regenerated with four blades per motor. Title runs into the water, so logos sit in the top margin."""
+    p = Poster(key)
     W = p.W
     teal, cream, orange = (20, 58, 66), (248, 240, 224), (255, 128, 48)
-    p.paste(coolfly(200, (24, 30, 32)), 210, 70)
-    p.paste(expo(210), W - 215, 70)
-    p.shade(1880, 2145, (4, 30, 34), 210, box=(168, 1089, 1598, 2146))
-    p.text((W / 2, 2010), HEADLINE, font("Archivo800.ttf", 37), cream, spacing=3)
-    p.text((W / 2, 2072), "MALDIVES EXPO 2026  ·  " + DATES, font("Archivo800.ttf", 31), orange, spacing=3)
-    p.text((W / 2, 2228), EMBASSY, font("Archivo700.ttf", 24), teal, spacing=2)
+    x0, y0, x1, y1 = water_panel(p.im)
+    # the title fills the top margin, so the partner lockup sits on the water above the copy
+    p.shade(y1 - 360, y1, (4, 30, 34), 225, box=(x0, y0, x1, y1))
+    p.paste(coolfly(190, (255, 255, 255)), W / 2 - 140, y1 - 222)
+    ImageDraw.Draw(p.im).line([(W / 2, y1 - 250), (W / 2, y1 - 194)], fill=(255, 255, 255), width=2)
+    p.paste(expo(200), W / 2 + 140, y1 - 222)
+    p.text((W / 2, y1 - 136), HEADLINE, font("Archivo800.ttf", 37), cream, spacing=3)
+    p.text((W / 2, y1 - 74), "MALDIVES EXPO 2026  ·  " + DATES, font("Archivo800.ttf", 31), orange, spacing=3)
+    p.text((W / 2, (y1 + p.H) / 2), EMBASSY, font("Archivo700.ttf", 24), teal, spacing=2)
     p.save()
+
+
+i010 = i011 = i012 = i013 = i014 = None
+for _k in ("I010", "I011", "I012", "I013", "I014"):
+    globals()[_k.lower()] = (lambda k: lambda: first_flight(k))(_k)
 
 
 def i007():

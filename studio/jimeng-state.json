@@ -176,6 +176,42 @@
    "submitted": true,
    "resourceId": "419056a9-3576-4b6b-92d5-8bc11b61b30d",
    "result": "studio/out/I010.png"
+  },
+  "I011": {
+   "updateId": "064bf441-9213-4bc3-8a9a-4dbaa0404523",
+   "nodeId": "node_h7zqeacere",
+   "title": "Maldives 品牌海报 A3 · THE EDGE 风格",
+   "submitId": "bad5effc-2493-4f86-bbe6-37dcf5d78f8f",
+   "submitted": true,
+   "resourceId": "8a0be282-871d-4d35-a499-d257ef25711b",
+   "result": "studio/out/I011.png"
+  },
+  "I012": {
+   "updateId": "9f92668c-e11c-43c0-b073-8a9efabc73d2",
+   "nodeId": "node_5t5a22da10",
+   "title": "Maldives 品牌海报 A4 · THE EDGE 风格",
+   "submitId": "1c2ef974-a95e-4dcb-8b40-cad220aff770",
+   "submitted": true,
+   "resourceId": "0faa78b4-a2ba-42e7-9520-05ccdfe7d876",
+   "result": "studio/out/I012.png"
+  },
+  "I013": {
+   "updateId": "52bf8827-ebdc-4512-8b9c-277d7cf0eab8",
+   "nodeId": "node_ttxxmvr9c4",
+   "title": "Maldives 品牌海报 A5 · THE EDGE 风格",
+   "submitId": "cd798093-ca97-477d-b0d9-91d9d8ca20dc",
+   "submitted": true,
+   "resourceId": "d9c11d1e-c903-49b1-9cae-30bf00c1201e",
+   "result": "studio/out/I013.png"
+  },
+  "I014": {
+   "updateId": "4b2d4e3f-38c2-4766-a56d-4749e032f841",
+   "nodeId": "node_w9911xr2rq",
+   "title": "Maldives 品牌海报 A6 · THE EDGE 风格",
+   "submitId": "2f15f86e-d8a6-403e-97fe-afe6f33365e9",
+   "submitted": true,
+   "resourceId": "0e4a118b-645b-44ac-8706-1b3f35b3a73e",
+   "result": "studio/out/I014.png"
   }
  },
  "ledger": {
@@ -265,6 +301,30 @@
     "credits": 8,
     "submitId": "7226258a-4058-47dd-aaad-2a20e09b4806",
     "at": "2026-10-21 09:35"
+   },
+   {
+    "key": "I011",
+    "credits": 8,
+    "submitId": "bad5effc-2493-4f86-bbe6-37dcf5d78f8f",
+    "at": "2026-10-21 09:43"
+   },
+   {
+    "key": "I012",
+    "credits": 8,
+    "submitId": "1c2ef974-a95e-4dcb-8b40-cad220aff770",
+    "at": "2026-10-21 09:43"
+   },
+   {
+    "key": "I013",
+    "credits": 8,
+    "submitId": "cd798093-ca97-477d-b0d9-91d9d8ca20dc",
+    "at": "2026-10-21 09:43"
+   },
+   {
+    "key": "I014",
+    "credits": 8,
+    "submitId": "2f15f86e-d8a6-403e-97fe-afe6f33365e9",
+    "at": "2026-10-21 09:43"
    }
   ]
  }

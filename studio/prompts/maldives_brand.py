@@ -42,6 +42,17 @@ P["I010"] = (P["I006"][0].replace("A ·", "A2 ·"), P["I006"][1], P["I006"][2].r
     "so from directly above every motor shows exactly FOUR blades crossing in an X, all four equal in length and evenly "
     "spaced at 90 degrees, never three. Absolutely no other text"))
 
+# I011-I014: four more tries at I010, also pinning the stripes to the nose only
+for i, k in enumerate(["I011", "I012", "I013", "I014"], 2):
+    P[k] = (P["I010"][0].replace("A2 ·", f"A{i + 1} ·"), P["I010"][1], P["I010"][2].replace(
+        " Absolutely no other text",
+        " Stripes on the nose only; the rear fairing is plain orange. Absolutely no other text").replace(
+        "ROTORS: each of the four motors carries TWO separate two-blade propellers stacked coaxially (one above, one below), "
+        "so from directly above every motor shows exactly FOUR blades crossing in an X, all four equal in length and evenly "
+        "spaced at 90 degrees, never three.",
+        "ROTORS: each motor has two coaxial two-blade props, so from above every motor shows exactly FOUR equal blades in an X "
+        "at 90 degrees, never three."))
+
 for key in (sys.argv[1:] or P):
     title, refs, text = P[key]
     print(key, len(text))
