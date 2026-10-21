@@ -35,7 +35,7 @@ for (hx, hy), (tx, ty), (gx, gy) in MOTORS:
     d = np.abs((xx - hx) * u[1] - (yy - hy) * u[0])
     # taper the wedge toward the hub so the motor housing and its LED are not copied
     front = hy < 1400  # donor is a whole upper-prop blade: take it right from the hub
-    wedge = (t > (0.04 if front else 0.17)) & (t < 1.06) & (d < 34 * np.clip((t - 0.1) / 0.3, 0.6 if front else 0.35, 1))
+    wedge = (t > (0.04 if front else 0.08)) & (t < 1.06) & (d < 34 * np.clip((t - 0.1) / 0.3, 0.6 if front else 0.35, 1))
     blade = wedge & (lum < 100) & (sat < 34)
     m = Image.fromarray((blade * 255).astype(np.uint8)).filter(ImageFilter.MaxFilter(3)).filter(ImageFilter.GaussianBlur(1.2))
     layer = src.convert("RGBA")
