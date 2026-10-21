@@ -35,6 +35,13 @@ P = {
   "the frame is calm water with nothing on it." % (N["R_s6"], DREAM) + END),
 }
 
+# I010: I006 regenerated with explicit coaxial rotor geometry (I006 showed three blades per motor)
+P["I010"] = (P["I006"][0].replace("A ·", "A2 ·"), P["I006"][1], P["I006"][2].replace(
+    " Absolutely no other text",
+    " ROTORS: each of the four motors carries TWO separate two-blade propellers stacked coaxially (one above, one below), "
+    "so from directly above every motor shows exactly FOUR blades crossing in an X, all four equal in length and evenly "
+    "spaced at 90 degrees, never three. Absolutely no other text"))
+
 for key in (sys.argv[1:] or P):
     title, refs, text = P[key]
     print(key, len(text))

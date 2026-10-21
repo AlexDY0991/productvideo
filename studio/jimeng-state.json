@@ -167,6 +167,15 @@
    "submitId": "b2414292-3490-4ba6-92ae-60961e229906",
    "submitted": true,
    "resourceId": "e7012ffd-0aa5-4460-be0a-88c63c1a494a"
+  },
+  "I010": {
+   "updateId": "078bd8f2-029d-4067-b30e-c73da4f441ed",
+   "nodeId": "node_p10t0sctgm",
+   "title": "Maldives 品牌海报 A2 · THE EDGE 风格",
+   "submitId": "7226258a-4058-47dd-aaad-2a20e09b4806",
+   "submitted": true,
+   "resourceId": "419056a9-3576-4b6b-92d5-8bc11b61b30d",
+   "result": "studio/out/I010.png"
   }
  },
  "ledger": {
@@ -250,6 +259,12 @@
     "credits": 8,
     "submitId": "b2414292-3490-4ba6-92ae-60961e229906",
     "at": "2026-10-21 08:21"
+   },
+   {
+    "key": "I010",
+    "credits": 8,
+    "submitId": "7226258a-4058-47dd-aaad-2a20e09b4806",
+    "at": "2026-10-21 09:35"
    }
   ]
  }

@@ -44,9 +44,9 @@ def expo(width, mono=None):
 
 
 class Poster:
-    def __init__(self, key):
+    def __init__(self, key, src=None):
         self.key = key
-        self.im = Image.open(f"studio/out/{key}.png").convert("RGBA")
+        self.im = Image.open(f"studio/out/{src or key}.png").convert("RGBA")
         self.W, self.H = self.im.size
 
     def shade(self, y0, y1, rgb, max_alpha, box=None):
@@ -239,7 +239,7 @@ HEADLINE = "MALDIVES’ FIRST PERSONAL AIRCRAFT FLIGHT DISPLAY"
 
 def i006():
     """Editorial (THE EDGE): masthead in the paper band, copy on the water, embassy credit at the foot."""
-    p = Poster("I006")
+    p = Poster("I006", "I006-fixed")  # rotor blades repaired by fix_I006_blades.py
     W = p.W
     teal, cream, orange = (20, 58, 66), (248, 240, 224), (255, 128, 48)
     p.paste(coolfly(240, (24, 30, 32)), 190, 1095)
@@ -249,6 +249,20 @@ def i006():
     p.text((W / 2, 2085), HEADLINE, font("Archivo800.ttf", 42), cream, spacing=3)
     p.text((W / 2, 2152), "MALDIVES EXPO 2026  ·  " + DATES, font("Archivo800.ttf", 34), orange, spacing=3)
     p.text((W / 2, 2272), EMBASSY, font("Archivo700.ttf", 26), teal, spacing=2)
+    p.save()
+
+
+def i010():
+    """I006 regenerated with four blades per motor. Title runs straight into the water, so logos sit in the top margin."""
+    p = Poster("I010")
+    W = p.W
+    teal, cream, orange = (20, 58, 66), (248, 240, 224), (255, 128, 48)
+    p.paste(coolfly(200, (24, 30, 32)), 210, 70)
+    p.paste(expo(210), W - 215, 70)
+    p.shade(1880, 2145, (4, 30, 34), 210, box=(168, 1089, 1598, 2146))
+    p.text((W / 2, 2010), HEADLINE, font("Archivo800.ttf", 37), cream, spacing=3)
+    p.text((W / 2, 2072), "MALDIVES EXPO 2026  ·  " + DATES, font("Archivo800.ttf", 31), orange, spacing=3)
+    p.text((W / 2, 2228), EMBASSY, font("Archivo700.ttf", 24), teal, spacing=2)
     p.save()
 
 
