@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face { font-family: Poppins; font-weight: 300; src: url(../fonts/Poppins300.ttf); }
+  @font-face { font-family: Poppins; font-weight: 400; src: url(../fonts/Poppins400.ttf); }
+  @font-face { font-family: Poppins; font-weight: 500; src: url(../fonts/Poppins500.ttf); }
+  @font-face { font-family: Poppins; font-weight: 600; src: url(../fonts/Poppins600.ttf); }
+  @font-face { font-family: NotoSC; font-weight: 400; src: url(../fonts/NotoSansSC400-card.ttf); }
+  @font-face { font-family: NotoSC; font-weight: 500; src: url(../fonts/NotoSansSC500-card.ttf); }
+
+  :root { --orange: #FF5A00; --ink: #141414; --grey: #7a7a7a; --m: 7mm; }
+  @page { size: 90mm 54mm; margin: 0; }
+  html, body { margin: 0; background: #fff; }
+  .card {
+    position: relative; width: 90mm; height: 54mm; overflow: hidden; background: #fff;
+    font-family: Poppins, NotoSC, sans-serif; color: var(--ink);
+  }
+  .logo { position: absolute; left: var(--m); top: 6.6mm; width: 19mm; }
+
+  /* the orange F from the wordmark, cropped by the card edge as a brand accent */
+  .accent { position: absolute; right: -6mm; bottom: -3.5mm; height: 25mm; }
+
+  .who { position: absolute; left: var(--m); top: 17mm; }
+  .name { display: flex; align-items: baseline; gap: 1.8mm; }
+  .name .en { font-weight: 600; font-size: 11pt; letter-spacing: -0.005em; line-height: 1; }
+  .name .zh { font-family: NotoSC; font-weight: 500; font-size: 7pt; color: var(--ink); }
+  .title { margin-top: 1.6mm; font-weight: 500; font-size: 5.5pt; letter-spacing: 0.05em; color: var(--orange); }
+  .title-zh { margin-top: 0.3mm; font-family: NotoSC; font-weight: 400; font-size: 5.2pt; letter-spacing: 0.08em; color: var(--grey); }
+
+  .rule { position: absolute; left: var(--m); top: 32mm; width: 6mm; height: 0.4mm; background: var(--orange); }
+
+  .contact { position: absolute; left: var(--m); bottom: 6.2mm; font-size: 5pt; line-height: 1.45; color: #2a2a2a; }
+  .row { display: flex; gap: 1.6mm; align-items: flex-start; }
+  .row + .row { margin-top: 0.7mm; }
+  .row svg { flex: none; width: 1.9mm; height: 1.9mm; margin-top: 0.3mm; fill: var(--orange); }
+  .row .num { letter-spacing: 0.04em; }
+  .row > div > div { height: 10px; line-height: 10px; white-space: nowrap; }  /* whole px: fractional line boxes snap unevenly */
+</style>
+</head>
+<body>
+<div class="card">
+  <svg class="logo" viewBox="0 0 1709 357">
+    <path fill="#141414" fill-rule="evenodd" d="M1709,72 L1643,72 L1551,296 L1503,297 L1478,357 L1551,357 L1609,315Z M1498,72 L1550,247 L1586,164 L1586,158 L1559,72Z M789,71 L735,71 L713,133 L753,133 L754,135 L719,226 L625,225 L658,134 L695,133 L717,71 L667,71 L602,119 L560,235 L561,241 L593,286 L711,286 L778,238 L822,121 L822,117Z M521,71 L467,71 L445,133 L485,133 L486,135 L451,226 L357,225 L390,134 L427,133 L449,71 L399,71 L334,119 L292,235 L293,241 L325,286 L443,286 L510,238 L554,121 L554,117Z M1460,0 L1391,0 L1292,248 L1292,252 L1315,286 L1388,286 L1416,226 L1369,226 L1368,224Z M987,0 L918,0 L819,248 L819,252 L842,286 L915,286 L943,226 L896,226 L895,224Z M160,60 L313,60 L338,0 L185,0Z M129,0 L90,23 L0,252 L23,286 L249,287 L249,224 L77,223 L168,0Z"/>
+    <path fill="#FF5A00" fill-rule="evenodd" d="M1165,60 L1318,60 L1343,0 L1190,0Z M1172,0 L1106,0 L989,286 L1055,286 L1100,178 L1246,178 L1271,118 L1124,117Z"/>
+  </svg>
+
+  <svg class="accent" viewBox="989 0 354 286">
+    <path fill="#FF5A00" fill-rule="evenodd" d="M1165,60 L1318,60 L1343,0 L1190,0Z M1172,0 L1106,0 L989,286 L1055,286 L1100,178 L1246,178 L1271,118 L1124,117Z"/>
+  </svg>
+
+  <div class="who">
+    <div class="name"><span class="en">Pauline Huang</span><span class="zh">黄昱原</span></div>
+    <div class="title">Digital Marketing Manager</div>
+    <div class="title-zh">海外运营经理</div>
+  </div>
+
+  <div class="rule"></div>
+
+  <div class="contact">
+    <div class="row">
+      <svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>
+      <span class="num">+86 181 7058 6626</span>
+    </div>
+    <div class="row">
+      <svg viewBox="0 0 24 24"><path d="M2 5h20v14H2zm2 2v.5l8 5 8-5V7zm0 2.9V17h16V9.9l-8 5z"/></svg>
+      <span>pauline@coolflyaircraft.com</span>
+    </div>
+    <div class="row">
+      <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+      <div><div>6th Floor, Building 3, No. 129 Yunzhou Lane,</div><div>Kangqiao Sub-district, Gongshu District, Hangzhou City,</div><div>Zhejiang Province, China</div></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
