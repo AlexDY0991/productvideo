@@ -160,13 +160,13 @@
    "title": "REF · R_s7"
   },
   "I009": {
-   "updateId": "dd33f376-e59f-4996-8e81-daa123cd2434",
+   "updateId": "dec3fe3e-75b0-47b5-8bda-d83f49948886",
    "nodeId": "node_q563pbwfzf",
-   "title": "I009 · 马代首飞 圆形尾迹",
-   "submitId": "ae7b6a27-e46d-430f-b932-f50eee29555e",
+   "title": "I009 · 马代首飞 圆形尾迹 v2",
+   "result": "studio/out/I009.png",
+   "submitId": "b2414292-3490-4ba6-92ae-60961e229906",
    "submitted": true,
-   "resourceId": "4936ea92-dc17-4940-a8ee-25753918eb17",
-   "result": "studio/out/I009.png"
+   "resourceId": "e7012ffd-0aa5-4460-be0a-88c63c1a494a"
   }
  },
  "ledger": {
@@ -244,6 +244,12 @@
     "credits": 8,
     "submitId": "ae7b6a27-e46d-430f-b932-f50eee29555e",
     "at": "2026-10-21 08:15"
+   },
+   {
+    "key": "I009",
+    "credits": 8,
+    "submitId": "b2414292-3490-4ba6-92ae-60961e229906",
+    "at": "2026-10-21 08:21"
    }
   ]
  }
