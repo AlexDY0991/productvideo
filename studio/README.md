@@ -31,6 +31,19 @@ python3 tools/jm.py $S ledger              # 本画布积分账本
 - 视频：先 `quote` 报价，用户同意后再 `run`。Seedance 2.5 约 20 积分/秒（720p）、64 积分/秒（1080p）。
 - `ledger.budget` 是本画布的上限（默认 1000，用户可调）。账户与视频项目共用。
 
+## 找素材
+
+需要真实照片做参考或入画时，用仓库内 Skill `asset-discovery` 的 `scripts/images.py`（Openverse/NASA 免 Key，Pexels/Pixabay 需环境变量里的 API Key）：
+
+```bash
+I=.claude/skills/asset-discovery/scripts/images.py
+python3 $I search openverse "maldives overwater villas" --out studio/refs/web/q.json
+python3 $I sheet studio/refs/web/q.json --out studio/refs/web/q.jpg   # 先看拼板再选
+python3 $I download studio/refs/web/q.json 2 5 --dir studio/refs/web   # 附 .license.json 和 CREDITS.md
+```
+
+CC BY 素材在成品中要署名；NC/ND 不用。
+
 ## 规则
 
 - 画面文字一律英文；人物尽量真实。

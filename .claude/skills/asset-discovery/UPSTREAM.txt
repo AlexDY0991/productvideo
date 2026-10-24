@@ -1,0 +1,2 @@
+Upstream: https://github.com/guangjun5952/asset-discovery @ 898423db9eed873d3aa222bf976c617ea9461470 (MIT)
+Local additions: scripts/images.py and the "扩展：静态图片素材" section of SKILL.md.
