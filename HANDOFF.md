@@ -259,3 +259,21 @@
    - 9:16 竖版：有些镜头可能需要按竖构图重新生成；
    - 下个月的片子：Urban；
    - 定下 slogan 后，考虑加旁白或文字。
+
+---
+
+## 补充：素材检索 Skill `asset-discovery`（2026-10-24）
+
+- 来源：https://github.com/guangjun5952/asset-discovery （MIT），已审读代码后装在 `.claude/skills/asset-discovery/`，新对话会自动加载。只用 Python 标准库和 ffmpeg；网络只访问白名单主机；Key 只从环境变量读。
+- 本仓库在原版基础上扩展了两项，并补了 10 个测试（共 52 个，全部通过）：
+  - **Openverse 来源**：无需 Key 检索 CC 音效和音乐，汇总 Freesound、Wikimedia、Jamendo。`online-search openverse "查询" --kind audio`，`download openverse <UUID>`。
+  - **`mixkit-item 条目URL`**：读一个指定的 Mixkit 视频条目页，copyrightNotice 和 license 两处都指向 Free 才下载并登记；说法矛盾时停止（实测存在这种矛盾页）。Mixkit 条目页最高只链接 720p。
+- 云端环境现状：Openverse、Mixkit 可用；Wikimedia Commons 被共享出口限流（429）；Pexels / Pixabay 需要 `PEXELS_API_KEY` / `PIXABAY_API_KEY`，在环境设置里加成环境变量后，新对话才能用。
+- 用法示例（项目状态目录放在草稿区或 `film02/` 下的忽略目录，不提交下载的原始素材）：
+  ```bash
+  A=.claude/skills/asset-discovery/scripts/assets.py; P=<项目目录>
+  python3 $A --project $P init       # 然后在 $P/config.json 里设 online.enabled=true、online.contact=仓库地址
+  python3 $A --project $P online-search openverse "helicopter rotor" --kind audio --out $P/ov.json
+  python3 $A --project $P download openverse <UUID>
+  python3 $A --project $P index $P/downloads && python3 $A --project $P review --limit 10
+  ```
