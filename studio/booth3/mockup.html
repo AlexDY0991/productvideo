@@ -1,0 +1,25 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+/* 1 px = 2.5 mm. Booth: 3050 wide, 2440 deep, backdrop 2440 high; counter 3050 x 460 x 910 at the front edge. */
+html, body { margin: 0; background: #d9dcdf; }
+.stage { width: 1600px; height: 1100px; perspective: 5200px; perspective-origin: 50% 35%; overflow: hidden;
+  background: linear-gradient(#eef0f2, #cfd3d6); }
+.world { position: absolute; left: 820px; top: 830px; transform-style: preserve-3d; transform: scale3d(.62,.62,.62) rotateX(-12deg) rotateY(-26deg); }
+.face { position: absolute; transform-style: preserve-3d; backface-visibility: hidden; }
+.floor { width: 1220px; height: 976px; left: -610px; top: -488px; background: #9aa0a6; transform: rotateX(-90deg); }
+.back { width: 1220px; height: 976px; left: -610px; top: -976px; background: url(face-backdrop.jpg) center / 100% 100%;
+  transform: translateZ(-488px); box-shadow: 0 0 0 1px rgba(0,0,0,.15); }
+.cf { width: 1220px; height: 364px; left: -610px; top: -364px; background: url(face-counter.jpg) center / 100% 100%; transform: translateZ(488px); }
+.ct { width: 1220px; height: 184px; left: -610px; top: -92px; background: #f4f4f4; transform: translateY(-364px) translateZ(396px) rotateX(90deg); }
+.cl { width: 184px; height: 364px; left: -92px; top: -364px; background: #e2e2e2; transform: translateX(-610px) translateZ(396px) rotateY(-90deg); }
+.cr { width: 184px; height: 364px; left: -92px; top: -364px; background: #d0d0d0; transform: translateX(610px) translateZ(396px) rotateY(90deg); }
+.person { position: absolute; width: 150px; height: 680px; left: 160px; top: -680px; transform: translateZ(180px);
+  background: radial-gradient(circle at 50% 9%, #3a3a3a 0 38px, transparent 39px), linear-gradient(transparent 92px, #2b2f33 92px); border-radius: 60px 60px 8px 8px; opacity: .55; }
+.note { position: absolute; left: 24px; bottom: 18px; font: 600 15px/1.4 sans-serif; color: #555; }
+.real { width: 860px; left: -430px; top: -470px; transform: translateZ(40px); }
+.note2{position:absolute;right:24px;bottom:18px;font:600 15px/1.4 sans-serif;color:#555}</style></head><body><div class="stage">
+<div class="world">
+  <div class="face floor"></div><div class="face back"></div>
+  <div class="face ct"></div><div class="face cl"></div><div class="face cr"></div><div class="face cf"></div><img class="face real" src="dream_standin.png">
+</div>
+<div class="note">Mock-up · backdrop 3.05 × 2.44 m · counter front 3.05 × 0.91 m</div>
+<div class="note2">Aircraft in front of the wall = stand-in for the real Dream (size indicative)</div></div></body></html>

@@ -272,6 +272,24 @@
    "submitted": true,
    "resourceId": "f19ef8ff-e3fc-4998-a05e-61438d994c5a",
    "result": "studio/out/W001.png"
+  },
+  "D003": {
+   "updateId": "1cbc5ec6-759b-4b5d-92dd-dd95269cd13b",
+   "nodeId": "node_myj6wzrbv7",
+   "title": "D003 · Dream 飞行 3/4 抠图素材",
+   "submitId": "e4b9bb62-8e09-4fe0-b9b5-f93ee60d7879",
+   "submitted": true,
+   "resourceId": "f94f4fd7-0e34-44cb-8139-548703aed7b8",
+   "result": "studio/out/D003.png"
+  },
+  "D004": {
+   "updateId": "26df70ff-06ea-45ab-8e44-08424f6dba22",
+   "nodeId": "node_bqec820esa",
+   "title": "D004 · Dream 飞行 3/4 抠图素材",
+   "submitId": "8099115d-6f3b-479d-aa6e-664400ed50d0",
+   "submitted": true,
+   "resourceId": "dda6eb57-4a2e-45ca-8838-351174eb11ad",
+   "result": "studio/out/D004.png"
   }
  },
  "ledger": {
@@ -421,6 +439,18 @@
     "credits": 12,
     "submitId": "d6b26fc1-6268-48fa-b965-a201884f8e81",
     "at": "2026-10-24 11:17"
+   },
+   {
+    "key": "D003",
+    "credits": 12,
+    "submitId": "e4b9bb62-8e09-4fe0-b9b5-f93ee60d7879",
+    "at": "2026-10-24 13:17"
+   },
+   {
+    "key": "D004",
+    "credits": 12,
+    "submitId": "8099115d-6f3b-479d-aa6e-664400ed50d0",
+    "at": "2026-10-24 13:17"
    }
   ]
  }
