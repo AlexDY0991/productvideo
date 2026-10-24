@@ -212,6 +212,33 @@
    "submitted": true,
    "resourceId": "0e4a118b-645b-44ac-8706-1b3f35b3a73e",
    "result": "studio/out/I014.png"
+  },
+  "B001": {
+   "updateId": "aabd66f2-eafd-4a61-b7ca-a71d809ee6dd",
+   "nodeId": "node_wkx2p4tx4m",
+   "title": "B001 · 展位背景板 主视觉",
+   "submitId": "1593ed8c-50b5-4b45-8adb-a63bff920758",
+   "submitted": true,
+   "resourceId": "b51bc783-6c20-43a5-b1d9-5a73f74aa987",
+   "result": "studio/out/B001.png"
+  },
+  "B002": {
+   "updateId": "e52c5872-f3f9-4331-a673-5ab6f3fe58ca",
+   "nodeId": "node_32rprmq1zq",
+   "title": "B002 · 展台正面 海面底图",
+   "submitId": "6cbbba5c-aeb1-4b85-a655-cc7b83d73864",
+   "submitted": true,
+   "resourceId": "1ac27015-220b-4379-8384-ebf0afe5a484",
+   "result": "studio/out/B002.png"
+  },
+  "B003": {
+   "updateId": "1f10c169-cda3-4f9d-babb-fbe23feb9da4",
+   "nodeId": "node_3rqb3c9ywn",
+   "title": "B003 · 展位背景板 主视觉 v2（机身抬高）",
+   "submitId": "dbb6fe09-9586-4648-a239-ba4b651ba00c",
+   "submitted": true,
+   "resourceId": "9f8ab965-1ecd-4ee2-b39b-3e3233707034",
+   "result": "studio/out/B003.png"
   }
  },
  "ledger": {
@@ -325,6 +352,24 @@
     "credits": 8,
     "submitId": "2f15f86e-d8a6-403e-97fe-afe6f33365e9",
     "at": "2026-10-21 09:43"
+   },
+   {
+    "key": "B001",
+    "credits": 12,
+    "submitId": "1593ed8c-50b5-4b45-8adb-a63bff920758",
+    "at": "2026-10-24 11:05"
+   },
+   {
+    "key": "B002",
+    "credits": 12,
+    "submitId": "6cbbba5c-aeb1-4b85-a655-cc7b83d73864",
+    "at": "2026-10-24 11:05"
+   },
+   {
+    "key": "B003",
+    "credits": 12,
+    "submitId": "dbb6fe09-9586-4648-a239-ba4b651ba00c",
+    "at": "2026-10-24 11:09"
    }
   ]
  }
