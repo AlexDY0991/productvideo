@@ -1,6 +1,6 @@
 ---
 name: asset-discovery
-description: 为 AI 视频剪辑和平面设计找素材：分析素材需求，检索本地拍摄、录屏和音视频，从 Pexels、Pixabay、Mixkit、Commons、Freesound 按许可检索素材，审片后输出片段时间码、Remotion 清单和 Resolve XML；扩展 scripts/images.py 按许可搜索下载照片（Openverse、Commons、NASA、Pexels、Pixabay），生成看图拼板和署名清单。用于寻找可剪辑素材，不用于素材站镜像或批量抓取。
+description: 为 AI 视频剪辑和平面设计找素材：分析素材需求，检索本地拍摄、录屏和音视频，从 Pexels、Pixabay、Mixkit、Commons、Freesound 按许可检索素材，审片后输出片段时间码、Remotion 清单和 Resolve XML；扩展 scripts/images.py 按许可搜索下载照片（Openverse、Commons、NASA、Unsplash、Pexels、Pixabay），生成看图拼板和署名清单。用于寻找可剪辑素材，不用于素材站镜像或批量抓取。
 ---
 
 # 素材发现
@@ -34,8 +34,8 @@ description: 为 AI 视频剪辑和平面设计找素材：分析素材需求，
 
 做海报、名片、桌牌等平面物料时，用 `scripts/images.py` 找参考图或可直接入画的照片。上面的视频流程不变。
 
-1. **搜索。** `images.py search <openverse|commons|nasa|pexels|pixabay> "英文描述" --limit 12 [--orientation portrait] [--min-width 1600] --out 结果.json`。Openverse（聚合 Flickr/Commons 等 CC 图库）和 NASA 无需 Key；Pexels/Pixabay 需环境变量 `PEXELS_API_KEY` / `PIXABAY_API_KEY`。少量、针对具体需求查询，不翻页抓库。
+1. **搜索。** `images.py search <openverse|commons|nasa|pexels|pixabay> "英文描述" --limit 12 [--orientation portrait] [--min-width 1600] --out 结果.json`。Openverse（聚合 Flickr/Commons 等 CC 图库）和 NASA 无需 Key；Unsplash、Pexels、Pixabay 需环境变量 `UNSPLASH_ACCESS_KEY`、`PEXELS_API_KEY`、`PIXABAY_API_KEY`（Unsplash 下载时会按其 API 规范回报下载，署名链接带 UTM）。少量、针对具体需求查询，不翻页抓库。
 2. **看图。** `images.py sheet 结果.json --out sheet.jpg` 生成带编号的缩略图拼板，Agent 必须实际查看拼板（必要时下载原图放大）再选，不凭标题判断。
 3. **下载。** `images.py download 结果.json 3 7 --dir 目标目录` 按编号下载，每个文件旁写 `.license.json`（来源、作者、许可、SHA-256），并刷新 `CREDITS.md`。
-4. **许可。** 默认 `commercial`：CC0、公有领域、CC BY（须署名，见 CREDITS.md）、Pexels/Pixabay 平台许可、NASA 媒体（不得暗示 NASA 背书）。NC、ND、未知许可一律拒绝；ShareAlike 需 `--allow-sa` 并人工确认。画面里的人物、商标、建筑另需判断。
+4. **许可。** 默认 `commercial`：CC0、公有领域、CC BY（须署名，见 CREDITS.md）、Unsplash/Pexels/Pixabay 平台许可、NASA 媒体（不得暗示 NASA 背书）。NC、ND、未知许可一律拒绝；ShareAlike 需 `--allow-sa` 并人工确认。画面里的人物、商标、建筑另需判断。
 5. **用法边界。** 下载的照片可作即梦参考图（如构图、地标、光线）或排版底图；作为参考时不把真实品牌/人物原样复刻进成品。Wikimedia 匿名请求限流严格，可设 `ASSET_CONTACT` 标识身份（需用户同意分享的联系方式）。

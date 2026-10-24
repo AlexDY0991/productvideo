@@ -9,6 +9,7 @@ sheets the agent actually looks at before using anything as a design reference o
   images.py search nasa      "maldives atoll"       --out results.json
   images.py search pexels    "turquoise lagoon"     --out results.json   # needs PEXELS_API_KEY
   images.py search pixabay   "coral reef top view"  --out results.json   # needs PIXABAY_API_KEY
+  images.py search unsplash  "maldives aerial"      --out results.json   # needs UNSPLASH_ACCESS_KEY
   images.py sheet  results.json --out sheet.jpg            # thumbnails, numbered, for visual review
   images.py download results.json 3 7 --dir refs/          # by sheet number or record id
   images.py credits refs/                                  # rebuild CREDITS.md from the evidence files
@@ -39,6 +40,7 @@ MAX_BYTES = 40 * 1024 * 1024
 PLATFORM = {
     'pexels': ('Pexels License', 'https://www.pexels.com/license/'),
     'pixabay': ('Pixabay Content License', 'https://pixabay.com/service/license-summary/'),
+    'unsplash': ('Unsplash License', 'https://unsplash.com/license'),
     'nasa': ('NASA Media Usage Guidelines', 'https://www.nasa.gov/nasa-brand-center/images-and-media/'),
 }
 
@@ -166,7 +168,21 @@ def search_pixabay(q, limit, a):
                 author=x.get('user', ''), source_page=x['pageURL']) for x in d.get('hits', [])[:limit]]
 
 
-PROVIDERS = {'openverse': search_openverse, 'commons': search_commons, 'nasa': search_nasa,
+def search_unsplash(q, limit, a):
+    params = {'query': q, 'per_page': min(limit, 30), 'content_filter': 'high'}
+    if a.orientation:
+        params['orientation'] = {'square': 'squarish'}.get(a.orientation, a.orientation)
+    d = get_json('https://api.unsplash.com/search/photos?' + urllib.parse.urlencode(params),
+                 {'Authorization': 'Client-ID ' + key('UNSPLASH_ACCESS_KEY'), 'Accept-Version': 'v1'})
+    utm = '?utm_source=coolfly_studio&utm_medium=referral'  # API guidelines: credit links carry UTM params
+    return [rec('unsplash', x['id'], title=x.get('alt_description') or x.get('description') or '', thumb=x['urls']['small'],
+                url=x['urls']['raw'] + '&q=90&fm=jpg&w=4000', width=x['width'], height=x['height'], license='unsplash',
+                license_url=PLATFORM['unsplash'][1], author=x['user']['name'], source_page=x['links']['html'] + utm,
+                author_page=x['user']['links']['html'] + utm, download_location=x['links']['download_location'])
+            for x in d.get('results', [])]
+
+
+PROVIDERS = {'openverse': search_openverse, 'unsplash': search_unsplash, 'commons': search_commons, 'nasa': search_nasa,
              'pexels': search_pexels, 'pixabay': search_pixabay}
 
 
@@ -174,7 +190,7 @@ def policy(r, allow_sa=False, mode='commercial'):
     lic = (r.get('license') or '').lower()
     if mode == 'cc0':
         return (lic in ('cc0', 'pdm', 'nasa'), 'strict mode: public domain only')
-    if lic in ('cc0', 'pdm', 'pexels', 'pixabay', 'nasa'):
+    if lic in ('cc0', 'pdm', 'pexels', 'pixabay', 'unsplash', 'nasa'):
         return True, ''
     if re.fullmatch(r'cc-by-[\d.]+', lic):
         return (bool(r.get('author') and r.get('source_page')), 'CC BY needs author and source page for attribution')
@@ -259,6 +275,8 @@ def cmd_download(a):
             print(f"skip {r['id']}: {why}")
             continue
         try:
+            if r['provider'] == 'unsplash':  # API guidelines require pinging the download endpoint
+                get_json(r['download_location'], {'Authorization': 'Client-ID ' + key('UNSPLASH_ACCESS_KEY')})
             url = nasa_original(r['id']) if r['provider'] == 'nasa' else r['url']
             data, ctype = http(url)
         except (RuntimeError, ValueError) as e:  # one failed host must not abort the batch

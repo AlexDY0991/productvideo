@@ -33,7 +33,7 @@ python3 tools/jm.py $S ledger              # 本画布积分账本
 
 ## 找素材
 
-需要真实照片做参考或入画时，用仓库内 Skill `asset-discovery` 的 `scripts/images.py`（Openverse/NASA 免 Key，Pexels/Pixabay 需环境变量里的 API Key）：
+需要真实照片做参考或入画时，用仓库内 Skill `asset-discovery` 的 `scripts/images.py`（Openverse/NASA 免 Key；Unsplash/Pexels/Pixabay 需环境变量 `UNSPLASH_ACCESS_KEY` 等）：
 
 ```bash
 I=.claude/skills/asset-discovery/scripts/images.py
