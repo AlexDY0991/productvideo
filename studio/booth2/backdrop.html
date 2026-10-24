@@ -1,0 +1,32 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face { font-family: Archivo; font-weight: 800; src: url(../fonts/Archivo800.ttf); }
+@font-face { font-family: Archivo; font-weight: 700; src: url(../fonts/Archivo700.ttf); }
+@page { size: 3150mm 2540mm; margin: 0; }
+html, body { margin: 0; }
+/* trim 3050 x 2440 mm; everything positioned in trim coordinates inside a 50 mm bleed */
+.sheet { position: relative; width: 3150mm; height: 2540mm; overflow: hidden; background: #F1E8DA; }
+.t { position: absolute; left: 50mm; top: 50mm; width: 3050mm; height: 2440mm; }
+.grain { position: absolute; inset: 0; background: url(grain_overlay.png) 0 0 / 400mm 400mm; pointer-events: none; z-index: 9; }
+.logo { position: absolute; left: 110mm; top: 96mm; width: 560mm; }
+.kick { position: absolute; right: 110mm; top: 92mm; text-align: right; font-family: Archivo; font-weight: 700; font-size: 44mm; line-height: 1.25; letter-spacing: .08em; color: #173f45; }
+.rule { position: absolute; left: 110mm; right: 110mm; top: 250mm; height: 3mm; background: #173f45; opacity: .85; }
+.big { position: absolute; left: 0; width: 3050mm; top: 286mm; text-align: center; font-family: Archivo; font-weight: 800; color: #F26A21;
+  line-height: .78; letter-spacing: -.035em; white-space: nowrap; }
+.water { position: absolute; left: 110mm; right: 110mm; top: 1000mm; bottom: 110mm; background: #0d5c62 url(water_shadow.jpg) 50% 50% / cover; }
+.shadow { position: absolute; left: 50%; top: 455mm; width: 1763mm; transform: translateX(-50%) translate(70mm, 110mm); z-index: 1; } .dream { z-index: 2; } .water { z-index: 0; }
+.dream { position: absolute; left: 50%; top: 455mm; width: 1640mm; transform: translateX(-50%); }
+</style></head><body><div class="sheet"><div class="t">
+<div class="logo"><svg style="width:100%;display:block" viewBox="0 0 1709 357"><path fill="#141414" fill-rule="evenodd" d="M1709,72 L1643,72 L1551,296 L1503,297 L1478,357 L1551,357 L1609,315Z M1498,72 L1550,247 L1586,164 L1586,158 L1559,72Z M789,71 L735,71 L713,133 L753,133 L754,135 L719,226 L625,225 L658,134 L695,133 L717,71 L667,71 L602,119 L560,235 L561,241 L593,286 L711,286 L778,238 L822,121 L822,117Z M521,71 L467,71 L445,133 L485,133 L486,135 L451,226 L357,225 L390,134 L427,133 L449,71 L399,71 L334,119 L292,235 L293,241 L325,286 L443,286 L510,238 L554,121 L554,117Z M1460,0 L1391,0 L1292,248 L1292,252 L1315,286 L1388,286 L1416,226 L1369,226 L1368,224Z M987,0 L918,0 L819,248 L819,252 L842,286 L915,286 L943,226 L896,226 L895,224Z M160,60 L313,60 L338,0 L185,0Z M129,0 L90,23 L0,252 L23,286 L249,287 L249,224 L77,223 L168,0Z"/><path fill="#FF5A00" fill-rule="evenodd" d="M1165,60 L1318,60 L1343,0 L1190,0Z M1172,0 L1106,0 L989,286 L1055,286 L1100,178 L1246,178 L1271,118 L1124,117Z"/></svg></div>
+<div class="kick">MALDIVES’ FIRST PERSONAL<br>AIRCRAFT FLIGHT DISPLAY</div>
+<div class="rule"></div>
+<div class="big" id="big">FIRST FLIGHT</div>
+<div class="water"></div>
+
+<img class="dream" src="dream_top.png">
+</div><div class="grain"></div></div>
+<script>
+// fit FIRST FLIGHT to the trim width minus margins
+const el = document.getElementById('big'); const mm = 96/25.4; let s = 800;
+el.style.fontSize = s+'mm';
+document.fonts.ready.then(() => { s = s * (2830*mm) / el.scrollWidth; el.style.fontSize = s+'mm'; document.body.dataset.ready = 1; });
+</script></body></html>

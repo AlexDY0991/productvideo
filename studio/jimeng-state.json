@@ -239,6 +239,39 @@
    "submitted": true,
    "resourceId": "9f8ab965-1ecd-4ee2-b39b-3e3233707034",
    "result": "studio/out/B003.png"
+  },
+  "R_top": {
+   "uploadResourceId": "b004173a-8198-454e-9eda-9acb3732f080",
+   "updateId": "6368610d-6714-41fb-80cb-de4855f279f0",
+   "nodeId": "node_9az25cswgn",
+   "title": "REF · R_top"
+  },
+  "D001": {
+   "updateId": "f7c2957b-fd53-492f-86d5-84926333f9fd",
+   "nodeId": "node_zj843k0n7j",
+   "title": "D001 · Dream 俯视抠图素材",
+   "submitId": "90c4d5fa-8bdb-40fd-8071-0cb64e38cb61",
+   "submitted": true,
+   "resourceId": "c2d4bf8f-bc21-42ed-b5bc-9b992b3b9142",
+   "result": "studio/out/D001.png"
+  },
+  "D002": {
+   "updateId": "ad4a6e4e-3571-42c6-a9d7-4998bec82f44",
+   "nodeId": "node_cg84qtkm09",
+   "title": "D002 · Dream 俯视抠图素材",
+   "submitId": "4bb6fdd7-62e2-4c19-b0f4-e1eb57a243c4",
+   "submitted": true,
+   "resourceId": "cf221c4d-0e9e-4c85-a336-7337b067f478",
+   "result": "studio/out/D002.png"
+  },
+  "W001": {
+   "updateId": "26cd6ca1-8d55-4b93-a860-bb69b564a862",
+   "nodeId": "node_gqwnj05xpf",
+   "title": "W001 · 背景板海面色块",
+   "submitId": "d6b26fc1-6268-48fa-b965-a201884f8e81",
+   "submitted": true,
+   "resourceId": "f19ef8ff-e3fc-4998-a05e-61438d994c5a",
+   "result": "studio/out/W001.png"
   }
  },
  "ledger": {
@@ -370,6 +403,24 @@
     "credits": 12,
     "submitId": "dbb6fe09-9586-4648-a239-ba4b651ba00c",
     "at": "2026-10-24 11:09"
+   },
+   {
+    "key": "D001",
+    "credits": 12,
+    "submitId": "90c4d5fa-8bdb-40fd-8071-0cb64e38cb61",
+    "at": "2026-10-24 11:17"
+   },
+   {
+    "key": "D002",
+    "credits": 12,
+    "submitId": "4bb6fdd7-62e2-4c19-b0f4-e1eb57a243c4",
+    "at": "2026-10-24 11:17"
+   },
+   {
+    "key": "W001",
+    "credits": 12,
+    "submitId": "d6b26fc1-6268-48fa-b965-a201884f8e81",
+    "at": "2026-10-24 11:17"
    }
   ]
  }

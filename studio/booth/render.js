@@ -8,7 +8,7 @@ const path = require('path');
   const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
   const page = await browser.newPage({ viewport: { width: Math.ceil(wmm * pxPerMm), height: Math.ceil(hmm * pxPerMm) }, deviceScaleFactor: scale });
   await page.goto('file://' + path.resolve(src));
-  await page.evaluate(() => document.fonts.ready);
+  await page.evaluate(() => document.fonts.ready); await page.waitForTimeout(300);
   await page.screenshot({ path: out + '.png' });
   await page.pdf({ path: out + '.pdf', width: wmm + 'mm', height: hmm + 'mm', printBackground: true, pageRanges: '1' });
   await browser.close();
