@@ -407,7 +407,8 @@
    "title": "v10 N2 Saddle to sky 480p",
    "submitId": "7b7cd772-a090-4839-9214-f491cc885da3",
    "submitted": true,
-   "resourceId": "ef859238-6385-4c6e-9b73-73fcfb523302"
+   "resourceId": "ef859238-6385-4c6e-9b73-73fcfb523302",
+   "result": "film02/v10/gen/V10N2.mp4"
   },
   "V10N4": {
    "updateId": "da6e2362-4b77-4005-841f-0ec86311e532",
@@ -415,7 +416,8 @@
    "title": "v10 N4 Landing far 480p",
    "submitId": "af508f5c-6976-4591-a7db-5c80e40c9a3c",
    "submitted": true,
-   "resourceId": "abcd21e5-bf9d-46bb-82e8-a2c96dd71f8c"
+   "resourceId": "abcd21e5-bf9d-46bb-82e8-a2c96dd71f8c",
+   "result": "film02/v10/gen/V10N4.mp4"
   },
   "V10N5": {
    "updateId": "4f4b10d2-6ef8-4064-9f1c-c42b3c186a9c",
@@ -423,7 +425,8 @@
    "title": "v10 N5 Dog runs in 480p",
    "submitId": "74b493f7-6dc0-4850-b7fb-a8359cc1e27a",
    "submitted": true,
-   "resourceId": "3b7f5f49-5135-47d2-a511-e6962c8072f7"
+   "resourceId": "3b7f5f49-5135-47d2-a511-e6962c8072f7",
+   "result": "film02/v10/gen/V10N5.mp4"
   },
   "M10a": {
    "updateId": "0a66476f-397e-47cb-a8a0-473a35663b37",
@@ -431,7 +434,8 @@
    "title": "v10 score a",
    "submitId": "82980204-3bd3-4661-a213-0e64b0636aa3",
    "submitted": true,
-   "resourceId": "e00b4770-fa01-46c4-be37-6cd9a3a2e192"
+   "resourceId": "e00b4770-fa01-46c4-be37-6cd9a3a2e192",
+   "result": "film02/v10/gen/M10a.wav"
   },
   "M10b": {
    "updateId": "76df8ec3-b068-479d-8f96-caf82bad4831",
@@ -439,7 +443,8 @@
    "title": "v10 score b",
    "submitId": "c5f0fae9-260b-47cd-acb9-58608813ad27",
    "submitted": true,
-   "resourceId": "c1ded63c-5571-4a70-8af9-9818fe2cfc29"
+   "resourceId": "c1ded63c-5571-4a70-8af9-9818fe2cfc29",
+   "result": "film02/v10/gen/M10b.wav"
   },
   "M10c": {
    "updateId": "9f6ec309-c69f-451a-8594-efc920129e36",
@@ -447,7 +452,8 @@
    "title": "v10 score c",
    "submitId": "f9818aaf-d7de-4130-afa6-3417afe5ff44",
    "submitted": true,
-   "resourceId": "92d0c3ad-3346-4217-a9dd-157dad56332d"
+   "resourceId": "92d0c3ad-3346-4217-a9dd-157dad56332d",
+   "result": "film02/v10/gen/M10c.wav"
   }
  },
  "ledger": {
