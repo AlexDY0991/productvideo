@@ -1,7 +1,295 @@
 {
  "projectId": "aaadd86c-6906-4e93-ba7a-062885fdee47",
  "webUrl": "https://jimeng.jianying.com/ai-tool/ai-canvas/aaadd86c-6906-4e93-ba7a-062885fdee47",
- "nodes": {},
+ "nodes": {
+  "sc14": {
+   "nodeId": "node_dbytjehvjc",
+   "title": "sc14",
+   "resourceId": "2c5cc9ac-4b95-4b73-b4ff-24ef13451339",
+   "result": "film02/v10/source/sc14.mp4",
+   "kind": "video"
+  },
+  "sc16": {
+   "nodeId": "node_yejkp8hsff",
+   "title": "sc16",
+   "resourceId": "c1652341-96b0-4dc7-a789-70461d50cee9",
+   "result": "film02/v10/source/sc16.mp4",
+   "kind": "video"
+  },
+  "sc15": {
+   "nodeId": "node_96hk48s106",
+   "title": "sc15",
+   "resourceId": "ee40585a-001e-48b0-8d52-75b74ab4c8d4",
+   "result": "film02/v10/source/sc15.mp4",
+   "kind": "video"
+  },
+  "sc11": {
+   "nodeId": "node_4tnzsfcva3",
+   "title": "sc11",
+   "resourceId": "779387e1-7f5f-4385-a87d-2af72224412b",
+   "result": "film02/v10/source/sc11.mp4",
+   "kind": "video"
+  },
+  "sc11-1": {
+   "nodeId": "node_adv5qn910h",
+   "title": "sc11-1",
+   "resourceId": "1468bd60-5cbf-4225-8221-ccac3f4b03f3",
+   "result": "film02/v10/source/sc11-1.mp4",
+   "kind": "video"
+  },
+  "sc12": {
+   "nodeId": "node_ehxkx7j3k4",
+   "title": "sc12",
+   "resourceId": "63b946ea-9fd0-4727-a735-04a68f6c2bf3",
+   "result": "film02/v10/source/sc12.mp4",
+   "kind": "video"
+  },
+  "sc13": {
+   "nodeId": "node_yye7bgfyav",
+   "title": "sc13",
+   "resourceId": "9216cbb7-b147-43f8-9d2d-15568d527aa6",
+   "result": "film02/v10/source/sc13.mp4",
+   "kind": "video"
+  },
+  "sc10": {
+   "nodeId": "node_qv1wtqkeg5",
+   "title": "sc10",
+   "resourceId": "b6b6df38-1de0-4585-9695-f3331065843b",
+   "result": "film02/v10/source/sc10.mp4",
+   "kind": "video"
+  },
+  "sc7": {
+   "nodeId": "node_jtbs5t0vmg",
+   "title": "sc7",
+   "resourceId": "9a820b0f-84d4-4cb6-ab14-7ac87bd7b780",
+   "result": "film02/v10/source/sc7.mp4",
+   "kind": "video"
+  },
+  "sc6": {
+   "nodeId": "node_st56kjqjz1",
+   "title": "sc6",
+   "resourceId": "464a00f2-d829-4259-b157-e6d0bdd20d15",
+   "result": "film02/v10/source/sc6.mp4",
+   "kind": "video"
+  },
+  "sc8": {
+   "nodeId": "node_vaea7w8716",
+   "title": "sc8",
+   "resourceId": "157b7e9b-6ba0-4ee6-ae79-f40ab0d0b1e0",
+   "result": "film02/v10/source/sc8.mp4",
+   "kind": "video"
+  },
+  "sc9": {
+   "nodeId": "node_f7mn93p165",
+   "title": "sc9",
+   "resourceId": "d1a6f2c4-7cc0-47bd-acec-3f9bc0c1776b",
+   "result": "film02/v10/source/sc9.mp4",
+   "kind": "video"
+  },
+  "sc2": {
+   "nodeId": "node_51ejxjnenm",
+   "title": "sc2",
+   "resourceId": "b170a109-0ade-4b53-88c4-53d6dec94305",
+   "result": "film02/v10/source/sc2.mp4",
+   "kind": "video"
+  },
+  "sc4": {
+   "nodeId": "node_5twpp5y910",
+   "title": "sc4",
+   "resourceId": "339de133-4acf-4698-8cf2-ea0efe43c459",
+   "result": "film02/v10/source/sc4.mp4",
+   "kind": "video"
+  },
+  "sc1": {
+   "nodeId": "node_pdt8jr1bpc",
+   "title": "sc1",
+   "resourceId": "3f25e08a-668b-442a-8d77-af48f34224eb",
+   "result": "film02/v10/source/sc1.mp4",
+   "kind": "video"
+  },
+  "sc5": {
+   "nodeId": "node_0hq3f3c7x1",
+   "title": "sc5",
+   "resourceId": "cbbd28b9-5db9-4d1e-9f23-614625d1070b",
+   "result": "film02/v10/source/sc5.mp4",
+   "kind": "video"
+  },
+  "sc3": {
+   "nodeId": "node_gm0hyhgh9d",
+   "title": "sc3",
+   "resourceId": "15fdd7bc-068f-485f-b0fd-a6b0a5eff175",
+   "result": "film02/v10/source/sc3.mp4",
+   "kind": "video"
+  },
+  "TapNow_1793239344132___1": {
+   "nodeId": "node_pj53wch10t",
+   "title": "TapNow_1793239344132_图片生成_1",
+   "resourceId": "0a769821-1c5e-4781-bb2a-3641c542eaf4",
+   "result": "film02/v10/refs/TapNow_1793239344132___1.png",
+   "kind": "image"
+  },
+  "TapNow_1793002601242___1": {
+   "nodeId": "node_yan15vn50k",
+   "title": "TapNow_1793002601242_图片生成_1",
+   "resourceId": "e7f5d9f6-08df-4411-98a8-1dc5bbacb397",
+   "result": "film02/v10/refs/TapNow_1793002601242___1.png",
+   "kind": "image"
+  },
+  "TapNow_1792988422866___1": {
+   "nodeId": "node_eg5df7nqa5",
+   "title": "TapNow_1792988422866_图片生成_1",
+   "resourceId": "012f0e57-4f4c-4473-a8b8-bd2559287649",
+   "result": "film02/v10/refs/TapNow_1792988422866___1.png",
+   "kind": "image"
+  },
+  "TapNow_1792741234212___1": {
+   "nodeId": "node_ke12sx5ngf",
+   "title": "TapNow_1792741234212_图片生成_1",
+   "resourceId": "ffef141f-e0cd-44dc-909a-aaf1cdb9f161",
+   "result": "film02/v10/refs/TapNow_1792741234212___1.png",
+   "kind": "image"
+  },
+  "TapNow_1792742822555___1": {
+   "nodeId": "node_fc7d1ajc2j",
+   "title": "TapNow_1792742822555_图片生成_1",
+   "resourceId": "e6e05644-689e-4bf5-81ec-58fe35330f0d",
+   "result": "film02/v10/refs/TapNow_1792742822555___1.png",
+   "kind": "image"
+  },
+  "TapNow_1792736792136___1": {
+   "nodeId": "node_tefa6tfda6",
+   "title": "TapNow_1792736792136_图片生成_1",
+   "resourceId": "e88bd608-55e0-45fa-88fe-db29cab4b0ef",
+   "result": "film02/v10/refs/TapNow_1792736792136___1.png",
+   "kind": "image"
+  },
+  "TapNow_1792576493992___1": {
+   "nodeId": "node_25w9yjt8nz",
+   "title": "TapNow_1792576493992_图片生成_1",
+   "resourceId": "eaed9969-2f23-4f54-8b84-9c23691caa07",
+   "result": "film02/v10/refs/TapNow_1792576493992___1.png",
+   "kind": "image"
+  },
+  "TapNow_1792569384099___1": {
+   "nodeId": "node_48rhdawtkw",
+   "title": "TapNow_1792569384099_图片生成_1",
+   "resourceId": "aa261f90-a116-4f5e-ba92-c26dbd483df5",
+   "result": "film02/v10/refs/TapNow_1792569384099___1.png",
+   "kind": "image"
+  },
+  "TapNow_1792570249278___1": {
+   "nodeId": "node_akc4ermpjd",
+   "title": "TapNow_1792570249278_图片生成_1",
+   "resourceId": "f63b7fa3-8084-4569-8c1e-71176bc38760",
+   "result": "film02/v10/refs/TapNow_1792570249278___1.png",
+   "kind": "image"
+  },
+  "TapNow_1792570065483___1": {
+   "nodeId": "node_ghscn62m9k",
+   "title": "TapNow_1792570065483_图片生成_1",
+   "resourceId": "8a11ae8d-bb54-44e5-8ef4-23628468bbf4",
+   "result": "film02/v10/refs/TapNow_1792570065483___1.png",
+   "kind": "image"
+  },
+  "TapNow_1792565766731___1": {
+   "nodeId": "node_xjwxp8g8pz",
+   "title": "TapNow_1792565766731_图片生成_1",
+   "resourceId": "b82c9b00-bc50-4d4d-84eb-37bea8334df1",
+   "result": "film02/v10/refs/TapNow_1792565766731___1.png",
+   "kind": "image"
+  },
+  "TapNow_1792564621368___1": {
+   "nodeId": "node_1kyq1j3zrt",
+   "title": "TapNow_1792564621368_图片生成_1",
+   "resourceId": "ae8e2883-0557-405c-a60c-fad9f990ace6",
+   "result": "film02/v10/refs/TapNow_1792564621368___1.png",
+   "kind": "image"
+  },
+  "TapNow_1792566125721___1": {
+   "nodeId": "node_zdge1s9nb2",
+   "title": "TapNow_1792566125721_图片生成_1",
+   "resourceId": "d927a968-f565-4f26-8229-d53812d3674a",
+   "result": "film02/v10/refs/TapNow_1792566125721___1.png",
+   "kind": "image"
+  },
+  "TapNow_1792554833040___1": {
+   "nodeId": "node_gxvfz7yn22",
+   "title": "TapNow_1792554833040_图片生成_1",
+   "resourceId": "555b73b2-e6eb-4336-9c00-ce010d71601e",
+   "result": "film02/v10/refs/TapNow_1792554833040___1.png",
+   "kind": "image"
+  },
+  "TapNow_1792556906832___1": {
+   "nodeId": "node_xzb3rgx4zy",
+   "title": "TapNow_1792556906832_图片生成_1",
+   "resourceId": "1fc4f048-b993-4d01-b46b-49b6cf850868",
+   "result": "film02/v10/refs/TapNow_1792556906832___1.png",
+   "kind": "image"
+  },
+  "TapNow_1792555179693___1": {
+   "nodeId": "node_zpdjfqwgqy",
+   "title": "TapNow_1792555179693_图片生成_1",
+   "resourceId": "d51688a3-5e0f-42de-b6b2-d004df03511e",
+   "result": "film02/v10/refs/TapNow_1792555179693___1.png",
+   "kind": "image"
+  },
+  "_": {
+   "nodeId": "node_ax2zhza6ga",
+   "title": "侧面俯视",
+   "resourceId": "b936d522-7590-47dc-b743-28b634c60696",
+   "result": "film02/v10/refs/_.png",
+   "kind": "image"
+  },
+  "_-441949331210084353_00192": {
+   "nodeId": "node_drzhvyc3r0",
+   "title": "视频-441949331210084353_00192",
+   "resourceId": "fc60115d-9d95-4188-91b4-17b5046feaf4",
+   "result": "film02/v10/refs/_-441949331210084353_00192.png",
+   "kind": "image"
+  },
+  "Screenshot_2026-10-12-14-18-54-916_org.coolfly.evtol": {
+   "nodeId": "node_zg5xrvcr9k",
+   "title": "Screenshot_2026-10-12-14-18-54-916_org.coolfly.evtol",
+   "resourceId": "05e0b256-893c-46be-8b11-2252ae3327da",
+   "result": "film02/v10/refs/Screenshot_2026-10-12-14-18-54-916_org.coolfly.evtol.png",
+   "kind": "image"
+  },
+  "_-441891838874314753_00174": {
+   "nodeId": "node_k3z66yvez9",
+   "title": "视频-441891838874314753_00174",
+   "resourceId": "681e81dd-c0de-4752-9da0-af2b8549437a",
+   "result": "film02/v10/refs/_-441891838874314753_00174.png",
+   "kind": "image"
+  },
+  "node_y1s61hxhz1": {
+   "nodeId": "node_y1s61hxhz1",
+   "title": "后侧视",
+   "resourceId": "6d03f631-40e0-4525-bf9e-99c00d629f3b",
+   "result": "film02/v10/refs/node_y1s61hxhz1.png",
+   "kind": "image"
+  },
+  "node_ax2zhza6ga": {
+   "nodeId": "node_ax2zhza6ga",
+   "title": "侧面俯视",
+   "resourceId": "b936d522-7590-47dc-b743-28b634c60696",
+   "result": "film02/v10/refs/node_ax2zhza6ga.png",
+   "kind": "image"
+  },
+  "node_n4gss3vqjp": {
+   "nodeId": "node_n4gss3vqjp",
+   "title": "第一人称",
+   "resourceId": "9101b823-ec7a-44a4-90e0-e56c640db567",
+   "result": "film02/v10/refs/node_n4gss3vqjp.png",
+   "kind": "image"
+  },
+  "node_gcdgnkc2pg": {
+   "nodeId": "node_gcdgnkc2pg",
+   "title": "正侧面俯视",
+   "resourceId": "126e7315-1985-4dbf-ac7c-9091c3db2db7",
+   "result": "film02/v10/refs/node_gcdgnkc2pg.png",
+   "kind": "image"
+  }
+ },
  "ledger": {
   "budget": 4000,
   "runs": []
