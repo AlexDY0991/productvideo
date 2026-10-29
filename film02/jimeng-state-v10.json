@@ -288,10 +288,207 @@
    "resourceId": "126e7315-1985-4dbf-ac7c-9091c3db2db7",
    "result": "film02/v10/refs/node_gcdgnkc2pg.png",
    "kind": "image"
+  },
+  "ref_actor": {
+   "nodeId": "node_gxvfz7yn22",
+   "title": "TapNow_1792554833040_图片生成_1",
+   "resourceId": "555b73b2-e6eb-4336-9c00-ce010d71601e",
+   "result": "film02/v10/refs/TapNow_1792554833040___1.png",
+   "kind": "image"
+  },
+  "ref_actor_face": {
+   "nodeId": "node_zpdjfqwgqy",
+   "title": "TapNow_1792555179693_图片生成_1",
+   "resourceId": "d51688a3-5e0f-42de-b6b2-d004df03511e",
+   "result": "film02/v10/refs/TapNow_1792555179693___1.png",
+   "kind": "image"
+  },
+  "ref_pilot_suit": {
+   "nodeId": "node_xzb3rgx4zy",
+   "title": "TapNow_1792556906832_图片生成_1",
+   "resourceId": "1fc4f048-b993-4d01-b46b-49b6cf850868",
+   "result": "film02/v10/refs/TapNow_1792556906832___1.png",
+   "kind": "image"
+  },
+  "ref_wife": {
+   "nodeId": "node_1kyq1j3zrt",
+   "title": "TapNow_1792564621368_图片生成_1",
+   "resourceId": "ae8e2883-0557-405c-a60c-fad9f990ace6",
+   "result": "film02/v10/refs/TapNow_1792564621368___1.png",
+   "kind": "image"
+  },
+  "ref_girl": {
+   "nodeId": "node_xjwxp8g8pz",
+   "title": "TapNow_1792565766731_图片生成_1",
+   "resourceId": "b82c9b00-bc50-4d4d-84eb-37bea8334df1",
+   "result": "film02/v10/refs/TapNow_1792565766731___1.png",
+   "kind": "image"
+  },
+  "ref_girl_face": {
+   "nodeId": "node_zdge1s9nb2",
+   "title": "TapNow_1792566125721_图片生成_1",
+   "resourceId": "d927a968-f565-4f26-8229-d53812d3674a",
+   "result": "film02/v10/refs/TapNow_1792566125721___1.png",
+   "kind": "image"
+  },
+  "ref_pasture": {
+   "nodeId": "node_48rhdawtkw",
+   "title": "TapNow_1792569384099_图片生成_1",
+   "resourceId": "aa261f90-a116-4f5e-ba92-c26dbd483df5",
+   "result": "film02/v10/refs/TapNow_1792569384099___1.png",
+   "kind": "image"
+  },
+  "ref_horses": {
+   "nodeId": "node_ghscn62m9k",
+   "title": "TapNow_1792570065483_图片生成_1",
+   "resourceId": "8a11ae8d-bb54-44e5-8ef4-23628468bbf4",
+   "result": "film02/v10/refs/TapNow_1792570065483___1.png",
+   "kind": "image"
+  },
+  "ref_dog": {
+   "nodeId": "node_akc4ermpjd",
+   "title": "TapNow_1792570249278_图片生成_1",
+   "resourceId": "f63b7fa3-8084-4569-8c1e-71176bc38760",
+   "result": "film02/v10/refs/TapNow_1792570249278___1.png",
+   "kind": "image"
+  },
+  "ref_coast": {
+   "nodeId": "node_tefa6tfda6",
+   "title": "TapNow_1792736792136_图片生成_1",
+   "resourceId": "e88bd608-55e0-45fa-88fe-db29cab4b0ef",
+   "result": "film02/v10/refs/TapNow_1792736792136___1.png",
+   "kind": "image"
+  },
+  "ref_pilot_seated": {
+   "nodeId": "node_ke12sx5ngf",
+   "title": "TapNow_1792741234212_图片生成_1",
+   "resourceId": "ffef141f-e0cd-44dc-909a-aaf1cdb9f161",
+   "result": "film02/v10/refs/TapNow_1792741234212___1.png",
+   "kind": "image"
+  },
+  "ref_dream_fly": {
+   "nodeId": "node_fc7d1ajc2j",
+   "title": "TapNow_1792742822555_图片生成_1",
+   "resourceId": "e6e05644-689e-4bf5-81ec-58fe35330f0d",
+   "result": "film02/v10/refs/TapNow_1792742822555___1.png",
+   "kind": "image"
+  },
+  "ref_picnic": {
+   "nodeId": "node_yan15vn50k",
+   "title": "TapNow_1793002601242_图片生成_1",
+   "resourceId": "e7f5d9f6-08df-4411-98a8-1dc5bbacb397",
+   "result": "film02/v10/refs/TapNow_1793002601242___1.png",
+   "kind": "image"
+  },
+  "ref_dream_side": {
+   "nodeId": "node_ax2zhza6ga",
+   "title": "侧面俯视",
+   "resourceId": "b936d522-7590-47dc-b743-28b634c60696",
+   "result": "film02/v10/refs/node_ax2zhza6ga.png",
+   "kind": "image"
+  },
+  "ref_dream_top": {
+   "nodeId": "node_gcdgnkc2pg",
+   "title": "正侧面俯视",
+   "resourceId": "126e7315-1985-4dbf-ac7c-9091c3db2db7",
+   "result": "film02/v10/refs/node_gcdgnkc2pg.png",
+   "kind": "image"
+  },
+  "ref_dream_rear": {
+   "nodeId": "node_y1s61hxhz1",
+   "title": "后侧视",
+   "resourceId": "6d03f631-40e0-4525-bf9e-99c00d629f3b",
+   "result": "film02/v10/refs/node_y1s61hxhz1.png",
+   "kind": "image"
+  },
+  "V10N2": {
+   "updateId": "9e656690-9815-4fab-9029-8f1e84913ff7",
+   "nodeId": "node_expasgxay9",
+   "title": "v10 N2 Saddle to sky 480p",
+   "submitId": "7b7cd772-a090-4839-9214-f491cc885da3",
+   "submitted": true,
+   "resourceId": "ef859238-6385-4c6e-9b73-73fcfb523302"
+  },
+  "V10N4": {
+   "updateId": "da6e2362-4b77-4005-841f-0ec86311e532",
+   "nodeId": "node_79473v3vyg",
+   "title": "v10 N4 Landing far 480p",
+   "submitId": "af508f5c-6976-4591-a7db-5c80e40c9a3c",
+   "submitted": true,
+   "resourceId": "abcd21e5-bf9d-46bb-82e8-a2c96dd71f8c"
+  },
+  "V10N5": {
+   "updateId": "4f4b10d2-6ef8-4064-9f1c-c42b3c186a9c",
+   "nodeId": "node_pdjswdkqca",
+   "title": "v10 N5 Dog runs in 480p",
+   "submitId": "74b493f7-6dc0-4850-b7fb-a8359cc1e27a",
+   "submitted": true,
+   "resourceId": "3b7f5f49-5135-47d2-a511-e6962c8072f7"
+  },
+  "M10a": {
+   "updateId": "0a66476f-397e-47cb-a8a0-473a35663b37",
+   "nodeId": "node_msjfz9vdhh",
+   "title": "v10 score a",
+   "submitId": "82980204-3bd3-4661-a213-0e64b0636aa3",
+   "submitted": true,
+   "resourceId": "e00b4770-fa01-46c4-be37-6cd9a3a2e192"
+  },
+  "M10b": {
+   "updateId": "76df8ec3-b068-479d-8f96-caf82bad4831",
+   "nodeId": "node_3zfvzp7sfw",
+   "title": "v10 score b",
+   "submitId": "c5f0fae9-260b-47cd-acb9-58608813ad27",
+   "submitted": true,
+   "resourceId": "c1ded63c-5571-4a70-8af9-9818fe2cfc29"
+  },
+  "M10c": {
+   "updateId": "9f6ec309-c69f-451a-8594-efc920129e36",
+   "nodeId": "node_8szfnhek53",
+   "title": "v10 score c",
+   "submitId": "f9818aaf-d7de-4130-afa6-3417afe5ff44",
+   "submitted": true,
+   "resourceId": "92d0c3ad-3346-4217-a9dd-157dad56332d"
   }
  },
  "ledger": {
   "budget": 4000,
-  "runs": []
+  "runs": [
+   {
+    "key": "V10N2",
+    "credits": 72,
+    "submitId": "7b7cd772-a090-4839-9214-f491cc885da3",
+    "at": "2026-10-29 03:38"
+   },
+   {
+    "key": "V10N4",
+    "credits": 54,
+    "submitId": "af508f5c-6976-4591-a7db-5c80e40c9a3c",
+    "at": "2026-10-29 03:38"
+   },
+   {
+    "key": "V10N5",
+    "credits": 45,
+    "submitId": "74b493f7-6dc0-4850-b7fb-a8359cc1e27a",
+    "at": "2026-10-29 03:38"
+   },
+   {
+    "key": "M10a",
+    "credits": 6,
+    "submitId": "82980204-3bd3-4661-a213-0e64b0636aa3",
+    "at": "2026-10-29 03:38"
+   },
+   {
+    "key": "M10b",
+    "credits": 6,
+    "submitId": "c5f0fae9-260b-47cd-acb9-58608813ad27",
+    "at": "2026-10-29 03:38"
+   },
+   {
+    "key": "M10c",
+    "credits": 6,
+    "submitId": "f9818aaf-d7de-4130-afa6-3417afe5ff44",
+    "at": "2026-10-29 03:38"
+   }
+  ]
  }
 }
