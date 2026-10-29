@@ -1,13 +1,16 @@
 """Gate for a shot table before anything is rendered.
 
-A shot is (film_start, film_end, source_path, source_in, speed). check() raises with every
+A shot is (film_start, film_end, source_path, source_in, speed[, beat]). check() raises with every
 problem it finds; build scripts call it first so a cut that repeats footage never renders.
 
 Rules (from the v10.1 review: "大量的重复镜头"):
 - shots are contiguous and no shorter than MIN_LEN;
 - no two shots use overlapping source time (the same picture twice);
-- one source clip feeds at most MAX_USES shots;
-- two neighbouring shots never come from the same source clip.
+- one source clip feeds at most MAX_USES shots (raise it only for clips that are themselves
+  multi-shot edits, and then tag beats);
+- two neighbouring shots never come from the same source clip;
+- a beat tag (what the shot shows, e.g. 'smile', 'belly-pass') appears once: two takes of
+  the same action are a repeat even when they come from different files.
 """
 from pathlib import Path
 
@@ -16,9 +19,13 @@ MAX_USES = 2
 
 
 def check(shots, dur=None, min_len=MIN_LEN, max_uses=MAX_USES, allow_adjacent=()):
-    errors, uses, prev_end = [], {}, None
-    for i, (a, b, src, sin, speed) in enumerate(shots):
+    errors, uses, beats, prev_end = [], {}, {}, None
+    for i, (a, b, src, sin, speed, *tag) in enumerate(shots):
         name = Path(src).name
+        if tag:
+            if tag[0] in beats:
+                errors.append(f"shot {i} repeats beat '{tag[0]}' already shown in shot {beats[tag[0]]}")
+            beats.setdefault(tag[0], i)
         if prev_end is not None and abs(a - prev_end) > 1e-6:
             errors.append(f'shot {i} starts at {a} but the previous one ends at {prev_end}')
         if b - a < min_len - 1e-6:
