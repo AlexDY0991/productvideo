@@ -198,8 +198,8 @@ def master(name):
 
 
 if __name__ == '__main__':
-    for i in range(len(SHOTS) - 1):
-        assert abs(SHOTS[i][1] - SHOTS[i+1][0]) < 1e-6, f'gap after shot {i}'
-    assert abs(SHOTS[-1][1] - DUR) < 1e-6
+    sys.path.insert(0, str(ROOT.parents[1]/'tools'))
+    from edl_check import check
+    print(check(SHOTS, DUR))
     segments(); subtitles(); audio_mix(); master('DREAM-FromTheSaddle-v10.1-draft.mp4')
     print(OUT/'DREAM-FromTheSaddle-v10.1-draft.mp4')
