@@ -699,6 +699,57 @@
    "submitted": true,
    "resourceId": "2c8c5969-4752-4e36-8b8f-bbabdfd8c6a2",
    "result": "film03/cast/MS3.png"
+  },
+  "ref_logo_rev": {
+   "uploadResourceId": "c46e4283-3b20-4e55-95b8-83f134916690",
+   "updateId": "c4543fbd-1452-4612-a246-bb2baa319493",
+   "nodeId": "node_bpzawp9fx2",
+   "title": "REF · ref_logo_rev"
+  },
+  "PA1": {
+   "updateId": "957fb9eb-de98-42bb-b4a7-86fe50436477",
+   "nodeId": "node_ndd183m8z0",
+   "title": "cast PA1",
+   "submitId": "86fddac3-57bc-45b3-aae6-0281b85a339a",
+   "submitted": true,
+   "resourceId": "d73c69c0-55e4-4ed1-a3e7-458e9fc552ea",
+   "result": "film03/cast/PA1.png"
+  },
+  "PF1": {
+   "updateId": "32575b3d-dbc5-42cc-b50b-aedbbb71e1ae",
+   "nodeId": "node_hdr7wh31rw",
+   "title": "cast PF1",
+   "submitId": "29421c2a-abe6-4c61-a0cf-2c027cd3ed94",
+   "submitted": true,
+   "resourceId": "3342e23f-d032-4a9f-ba67-ce802d6d2ff3",
+   "result": "film03/cast/PF1.png"
+  },
+  "PF2": {
+   "updateId": "ab97a137-21f6-4d2d-88b2-c76fb42927cf",
+   "nodeId": "node_xtvx17mgpp",
+   "title": "cast PF2",
+   "submitId": "7ff9c32d-60df-4fa5-aea0-6065f2615a00",
+   "submitted": true,
+   "resourceId": "d59f620c-efc4-4d69-a71c-3261b2b86a4d",
+   "result": "film03/cast/PF2.png"
+  },
+  "PS1": {
+   "updateId": "5bfc28c5-9dbc-4369-b9d3-ca5dd379174a",
+   "nodeId": "node_mwdpk6v8q3",
+   "title": "cast PS1",
+   "submitId": "dac52a8e-2794-4608-bb76-7559827d015c",
+   "submitted": true,
+   "resourceId": "35b9e4e3-a6c4-4171-bc69-7a0319d765be",
+   "result": "film03/cast/PS1.png"
+  },
+  "PS2": {
+   "updateId": "cba58dbd-2206-4db2-a8f7-d6e684a02a7d",
+   "nodeId": "node_apajkj8em3",
+   "title": "cast PS2",
+   "submitId": "30788fcb-71cd-49a0-a67f-30008018ed78",
+   "submitted": true,
+   "resourceId": "74d7a2b6-55ee-43f6-921c-df0683bdd3f3",
+   "result": "film03/cast/PS2.png"
   }
  },
  "ledger": {
@@ -1189,6 +1240,36 @@
     "credits": 8,
     "submitId": "4ecd1a73-2882-48a3-8d2d-78d3afd9fe0f",
     "at": "2026-10-30 11:15"
+   },
+   {
+    "key": "PA1",
+    "credits": 8,
+    "submitId": "86fddac3-57bc-45b3-aae6-0281b85a339a",
+    "at": "2026-10-30 11:35"
+   },
+   {
+    "key": "PF1",
+    "credits": 8,
+    "submitId": "29421c2a-abe6-4c61-a0cf-2c027cd3ed94",
+    "at": "2026-10-30 11:37"
+   },
+   {
+    "key": "PF2",
+    "credits": 8,
+    "submitId": "7ff9c32d-60df-4fa5-aea0-6065f2615a00",
+    "at": "2026-10-30 11:39"
+   },
+   {
+    "key": "PS1",
+    "credits": 8,
+    "submitId": "dac52a8e-2794-4608-bb76-7559827d015c",
+    "at": "2026-10-30 11:41"
+   },
+   {
+    "key": "PS2",
+    "credits": 8,
+    "submitId": "30788fcb-71cd-49a0-a67f-30008018ed78",
+    "at": "2026-10-30 11:44"
    }
   ]
  }

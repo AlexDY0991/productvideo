@@ -74,12 +74,77 @@ FIX_HAND = (
     '@prop_glb_pov. Her RIGHT gloved hand wraps around that vertical grip, fingers curled around it, thumb on top, wrist relaxed, '
     'forearm resting along the rail. Her left hand stays on the far armrest as it is. One stick only, on her right. ')
 
+TRIPTYCH_M = (TRIPTYCH.replace('the ponytail tip is visible on her upper back', 'the back of his neck and hairline just cropped')
+              .replace('frontal head-and-shoulders portrait of her', 'frontal head-and-shoulders portrait of him')
+              .replace('shows her face', 'shows his face').replace('the same woman', 'the same man')
+              .replace(' her head is cropped', ' his head is cropped').replace('at her sides', 'at his sides'))
+
+# ── v2 lead (user, 2026-10-30): a man who looks about 40 — the core US buyer, not a stated ex-pilot. Maya (MA*/MS*) retired. ──
+ETHAN = ('Ethan, a 40-year-old American man, lean and fit, about 1.82 m tall; short dark-brown hair, neatly cut, greying at the '
+         'temples; short well-kept stubble with a little grey; light tan, fine crow\'s feet, blue-grey eyes; handsome in an '
+         'ordinary, lived-in way, not a model; the calm, confident look of a self-made founder who spends weekends outdoors. ')
+EVERYDAY = ('Everyday wardrobe: a charcoal-grey fine merino crew-neck sweater, sleeves pushed slightly up the forearms; dark indigo '
+            'straight-leg jeans; tan suede chukka boots; a steel pilot chronograph on a brown leather strap on the LEFT wrist. '
+            'No logos anywhere on the clothes. ')
+VEST = ('Flying kit, worn over the everyday clothes: a CoolFly airbag vest, a slim fitted matte-black technical vest like a '
+        'motorcycle electronic airbag vest, smooth stretch shell with subtle quilted panels over the chest and back, a rounded '
+        'padded collar that wraps the base of the neck, a front zip with one black chest buckle strap, a slim adjuster strap at '
+        'each hip; the CoolFly wordmark exactly as in @ref_logo_rev (off-white letters, orange F) printed small on the left chest '
+        'and large across the upper back, no other text or graphics. A matte white open-face helmet with a clear flip-down visor '
+        'and a thin black chin strap, no graphics. Thin black leather flying gloves. ')
+
+TRIPTYCH_FLY = (
+    'Character reference sheet, one 16:9 image split into three equal vertical panels side by side, separated by thin gaps, '
+    'all on the same mid-grey seamless studio backdrop with large soft frontal light and gentle fill. Same man as @PA1. '
+    'LEFT panel: frontal head-and-shoulders portrait wearing the white helmet with the visor flipped up, face fully visible, '
+    'chin strap fastened, the vest collar and the small chest logo visible. This is the ONLY panel that shows his face. '
+    'CENTRE panel: full body from the front, framed from the neck down to the boots, wearing the vest over the sweater, gloves on, '
+    'arms relaxed at his sides; head cropped off at the neck by the top of the frame. '
+    'RIGHT panel: full body from behind, framed from the neck down to the boots at exactly the same scale and floor line as the '
+    'centre panel, the large CoolFly wordmark across the upper back of the vest clearly readable. ')
+
+PLATE_E = (
+    'Photo edit of @prop_glb_seat. Keep the aircraft EXACTLY as it is in @prop_glb_seat: the same camera angle and framing, every '
+    'tube of the black roll cage, the white parachute pod on the roof, the pearl-white fairings, the CoolFly lettering, the arms, '
+    'propellers, airbags and skids, all in the same positions. Do not add, remove, move or redesign any part of the aircraft. '
+    'In particular the cockpit is a closed tub: the dark side panel below the near white fairing, the side tubes and the front of '
+    'the cage stay exactly as in @prop_glb_seat and fully enclose the footwell; nothing of the pilot passes through or outside them. '
+    'Only two changes: (1) turn the 3D render into a real photograph of the real aircraft in a photo studio with a mid-grey seamless '
+    'floor and backdrop and soft overhead light, real materials, real reflections, soft contact shadows; '
+    '(2) seat Ethan, the man in @PA1 and @PF2, in the light-grey seat, wearing the flying kit exactly as in @PF2 (CoolFly airbag '
+    'vest, white open-face helmet with the visor up, black gloves) over his everyday clothes. '
+    'He sits LOW and slightly reclined, back and helmet against the seat, the black shoulder harness buckled over the vest. '
+    'His legs go forward INSIDE the tub into the footwell and are hidden behind the near side panel and the white fairing; at most '
+    'his knees show just above the side rail; his boots are not visible. The top of his helmet stays well below the cage roof. '
+    'His RIGHT gloved hand wraps around the single vertical black side-stick on the near (right) side rail, exactly where the stick '
+    'is in @prop_glb_stick and @prop_glb_pov; his LEFT forearm and hand rest on the LEFT armrest panel on the far side. One stick '
+    'only; nothing in front of him, no yoke, no wheel. Calm, focused, eyes ahead past the camera. ')
+
+FIX_FLY = (
+    'Precise edit of @PF2. Keep everything exactly the same: the man, his face, helmet, vest, clothes, gloves, boots, poses, light, '
+    'background and the three-panel layout. Two changes only, both in the CENTRE panel: (1) the vest gets the same small CoolFly '
+    'wordmark as in the LEFT panel and @ref_logo_rev (off-white letters, orange F), printed on HIS LEFT chest, which is on the '
+    'right-hand side of the image, just beside the zip; (2) the top of the centre panel crops at the base of his neck, so no mouth, '
+    'chin or face is visible in the centre panel. ')
+
+FIX_BELT = (
+    'Precise edit of @PS1. Keep everything exactly the same: the man, his face, helmet, vest, hands, pose, the aircraft, camera, '
+    'light and background. One change only: he is strapped in with the seat\'s black four-point harness, the same black webbing as '
+    'the straps on the seat in @prop_glb_seat: two black shoulder straps come over his shoulders from the seat back, run down over '
+    'the CoolFly airbag vest and lock into a round black buckle at his lap together with the black lap belt. The small chest logo '
+    'on the vest stays visible beside the left strap. ')
+
 C = {
     'MA1': ([], f'{TRIPTYCH}{MAYA} {REAL}', 'seedream_5.0_pro'),
     'MA2': ([], f'{TRIPTYCH}{MAYA} {REAL}', 'jm_image_model_gg_bp'),
     'MS1': ([], f'{SEATED}{MAYA} {HELMET} {REAL}', 'seedream_5.0_pro'),   # rejected: the model redesigned the aircraft
     'MS2': ([], f'{PLATE}{MAYA} {HELMET} {REAL}', 'seedream_5.0_pro'),     # 3D plate + identity: aircraft stays as rendered
     'MS3': ([], f'{FIX_HAND}{REAL}', 'seedream_5.0_pro'),                  # MS2 with the right hand gripping the side-stick
+    'PA1': ([], f'{TRIPTYCH_M}{ETHAN}{EVERYDAY}{REAL}', 'seedream_5.0_pro'),        # Ethan, everyday clothes
+    'PF1': (['PA1'], f'{TRIPTYCH_FLY}{ETHAN}{EVERYDAY}{VEST}{REAL}', 'seedream_5.0_pro'),   # Ethan, flying kit
+    'PF2': ([], f'{FIX_FLY}{REAL}', 'seedream_5.0_pro'),                   # PF1 with the chest logo + neck crop in the centre panel
+    'PS1': (['prop_glb_seat'], f'{PLATE_E}{ETHAN}{REAL}', 'seedream_5.0_pro'),     # Ethan seated, from the 3D plate
+    'PS2': ([], f'{FIX_BELT}{REAL}', 'seedream_5.0_pro'),                  # PS1 with the four-point harness on
 }
 
 
