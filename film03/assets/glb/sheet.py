@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[3]
 FB = '/usr/share/fonts/opentype/inter/Inter-Bold.otf'
 FM = '/usr/share/fonts/opentype/inter/Inter-Medium.otf'
 CW, CH, PAD, HEAD = 853, 480, 14, 110
-W, H = 3 * CW + 4 * PAD, HEAD + 3 * (CH + 44) + PAD
+W, H = 3 * CW + 4 * PAD, HEAD + 3 * (CH + 44) + PAD + 150
 ORANGE, INK, BG = (255, 122, 26), (245, 245, 242), (28, 28, 30)
 L = json.loads((D / 'labels.json').read_text())
 
@@ -22,8 +22,8 @@ sheet = Image.new('RGB', (W, H), BG)
 d = ImageDraw.Draw(sheet)
 f_title, f_cap, f_lab, f_rule = (ImageFont.truetype(FB, 44), ImageFont.truetype(FB, 24),
                                  ImageFont.truetype(FB, 22), ImageFont.truetype(FM, 26))
-d.text((PAD + 6, 22), 'DREAM  ·  COCKPIT PROP SHEET', font=f_title, fill=INK)
-d.text((PAD + 8, 74), 'Rendered from brand/models/dream.glb  ·  livery matched to the runway photo  ·  film03 step 1',
+d.text((PAD + 6, 22), 'DREAM PRO  ·  COCKPIT PROP SHEET', font=f_title, fill=INK)
+d.text((PAD + 8, 74), 'Rendered from brand/models/dream.glb + Pro modules (parachute, 3 airbags, skids) matched to the 2026 product render  ·  film03 step 1',
        font=ImageFont.truetype(FM, 22), fill=(170, 170, 168))
 
 
@@ -59,7 +59,7 @@ def callout(x0, y0, view, part, text, dx, dy):
 
 cells = [
     ('glb_hero.png', 'A · 3D MODEL, FRONT 3/4 (PILOT\'S LEFT)'),
-    (ROOT / 'brand/refs/45°侧视外观特写.png', 'B · REAL AIRCRAFT (RUNWAY PHOTO)'),
+    (ROOT / 'brand/refs/ref-dream-pro-2026-modules.webp', 'B · LATEST PRODUCT RENDER (REFERENCE)'),
     ('glb_left.png', 'C · LEFT SIDE'),
     ('glb_top.png', 'D · TOP  (FORWARD = UP)'),
     ('glb_stick.png', 'E · SIDE-STICK CLOSE-UP'),
@@ -72,6 +72,15 @@ for i, (src, cap) in enumerate(cells):
     sheet.paste(img, (x0, y0))
     d.text((x0 + 4, y0 + CH + 8), cap, font=f_cap, fill=INK)
 
+# A · hero
+x0, y0 = cell(0)
+callout(x0, y0, 'hero', 'chute', 'PARACHUTE', 170, -10)
+# C · left side: modules
+x0, y0 = cell(2)
+callout(x0, y0, 'left', 'chute', 'PARACHUTE POD', 190, 10)
+callout(x0, y0, 'left', 'bagF', 'AIRBAG FRONT', -60, 105)
+callout(x0, y0, 'left', 'bagM', 'AIRBAG MID', 0, 125)
+callout(x0, y0, 'left', 'bagR', 'AIRBAG REAR', 80, 105)
 # D · top
 x0, y0 = cell(3)
 callout(x0, y0, 'top', 'stick', 'R SIDE-STICK', 150, 40)
@@ -82,7 +91,7 @@ d.polygon([(x0 + 60, y0 + 40), (x0 + 44, y0 + 76), (x0 + 76, y0 + 76)], fill=ORA
 d.text((x0 + 28, y0 + 82), 'FWD', font=f_lab, fill=ORANGE)
 # E · stick
 x0, y0 = cell(4)
-callout(x0, y0, 'stick', 'stick', 'RIGHT HAND ONLY', 190, -120)
+callout(x0, y0, 'stick', 'stick', 'RIGHT HAND ONLY', 200, 70)
 # G · POV
 x0, y0 = cell(6)
 callout(x0, y0, 'pov', 'stick', 'R SIDE-STICK', 110, -40)
@@ -91,7 +100,7 @@ callout(x0, y0, 'pov', 'vbars', 'V ROLL BARS', -230, -20)
 
 # rules panel spans the last two cells
 x0, y0 = cell(7)
-d.rectangle([x0, y0, x0 + 2 * CW + PAD, y0 + CH], outline=ORANGE, width=3)
+d.rectangle([x0, y0, x0 + 2 * CW + PAD, y0 + CH + 130], outline=ORANGE, width=3)
 rules = [
     ('ONE STICK. RIGHT SIDE. RIGHT HAND.', True),
     ('Single side-stick on the right rail, grip top ~1.1 m above ground.', False),
@@ -104,6 +113,10 @@ rules = [
     ('Two V roll bars ahead of the pilot. Pilot sits low, slightly reclined, legs', False),
     ('forward into the footwell; helmet stays below the top of the cage.', False),
     ('No numbers on the body (no "05", no "20").', False),
+    ('', False),
+    ('DREAM PRO MODULES', True),
+    ('Whole-aircraft parachute pod on the rear of the roof. Three belly airbags: front,', False),
+    ('middle, rear. Two skids with spring bumpers at both ends.', False),
 ]
 y = y0 + 26
 for t, bold in rules:
