@@ -29,7 +29,7 @@
 
 | 资产 | 位置 | 状态 |
 |---|---|---|
-| **Ethan 定妆（film03 主角，step 1.2）**：日常装三联 `film03/cast/PA1.png`（PA1 node_ndd183m8z0）、飞行装三联 `PF2.png`（PF2 node_xtvx17mgpp）、坐姿 `PS2.png`（PS2 node_apajkj8em3）、总图 `film03/cast/CAST_ethan_sheet.jpg`；提示词 `film03/prompts/cast.py`；背心 logo 参考 `brand/coolfly-logo-reverse.jpg`（画布 ref_logo_rev） | 看起来 40 岁的美国男性，精干，深棕短发、鬓角灰白、短胡茬，创业者气质（用户定：贴近核心买家，不点明是否前飞行员）。日常：炭灰美丽诺圆领毛衣、深靛蓝直筒牛仔裤、棕褐麂皮沙漠靴、左腕钢壳飞行员计时表（棕皮表带），无标志。飞行：黑色 CoolFly 安全气囊背心（立体充气领、胸扣、侧调节带，左胸小 logo、背后大 logo），哑光白开放式头盔+透明翻盖面罩，黑色皮手套。坐姿：3D 底图 + 身份参考编辑，腿在座舱内，四点式安全带。PF2 中格露出一点嘴和下巴 | 🟡 待用户确认 |
+| **Ethan 定妆（film03 主角，step 1.2）**：日常装三联 `film03/cast/PA1.png`（PA1 node_ndd183m8z0）、飞行装三联 `PF2.png`（PF2 node_xtvx17mgpp）、坐姿 `PS2.png`（PS2 node_apajkj8em3）、总图 `film03/cast/CAST_ethan_sheet.jpg`；提示词 `film03/prompts/cast.py`；背心 logo 参考 `brand/coolfly-logo-reverse.jpg`（画布 ref_logo_rev） | 看起来 40 岁的美国男性，精干，深棕短发、鬓角灰白、短胡茬，创业者气质（用户定：贴近核心买家，不点明是否前飞行员）。日常：炭灰美丽诺圆领毛衣、深靛蓝直筒牛仔裤、棕褐麂皮沙漠靴、左腕钢壳飞行员计时表（棕皮表带），无标志。飞行：黑色 CoolFly 安全气囊背心（立体充气领、胸扣、侧调节带，左胸小 logo、背后大 logo），哑光白开放式头盔+透明翻盖面罩，黑色皮手套。坐姿：3D 底图 + 身份参考编辑，腿在座舱内，四点式安全带。PF2 中格露出一点嘴和下巴 | 人物和日常装 ✅ 用户确认（2026-10-30）；飞行装（气囊背心）🟡 用户质疑真实性，待重做 |
 | Maya（34 岁女驾驶员，`film03/cast/MA1.png`、`MS3.png`、`CAST_maya_sheet.jpg`） | 用户认为不贴近核心买家，MS3 座舱前端被生成模型改开了 | ⚠️ 已弃用 |
 | Maya（film03 v2 旧版，女驾驶员，34 岁，深金色低马尾，雀斑，橄榄绿飞行夹克、灰色连帽衫、黑裤、棕色短靴、白色头盔配彩虹色面罩） | `film03/board/char_maya.jpg`，film03 画布 `char_maya`（node_87mf3kbv9p） | 🟡 只有一张四格定妆图，**不符合 Higgsfield 三联规格**，要重做 |
 | Ray（film03 教练，50 多岁） | `film03/board/char_ray.jpg`，`char_ray`（node_0thhvst771） | 🟡 |
