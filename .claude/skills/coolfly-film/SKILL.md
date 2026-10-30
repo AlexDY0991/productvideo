@@ -161,7 +161,7 @@ description: CoolFly（酷飞）品牌片/产品片的完整制作规则和流�
 | `tools/jm.py` | 即梦生成和积分账本 |
 | `film03/animatic.py` | 动态分镜和临时配乐的写法 |
 | higgsfield-motion skill 的 `music_window.py` | 测音乐结构、节奏点、各段电平 |
-| higgsfield-motion skill 的 `render_audio.mjs` + `score.html` | 代码合成临时配乐，节奏点可精确设定。云端运行时设 `HFT_BROWSER=/tmp/coolfly-tools/chrome`；这是一个加了 `--no-sandbox` 的 Chromium 包装脚本，`setup.sh` 之后要手动创建一次 |
+| higgsfield-motion skill 的 `render_audio.mjs` + `score.html` | 代码合成临时配乐，节奏点可精确设定。云端运行时设 `HFT_BROWSER=/tmp/coolfly-tools/chrome`；这是一个加了 `--no-sandbox` 的 Chromium 包装脚本，由 `setup.sh` 自动创建 |
 | `.claude/skills/higgsfield-timed-prompts` | 写带时间码的视频提示词 |
 | `.claude/skills/asset-discovery` | 检索免版权素材（Openverse、Mixkit 可用） |
 
