@@ -20,6 +20,9 @@ Read `HANDOFF.md` first for the current film, the budget and open decisions. Thi
 
 ## Pipeline
 
+Order follows a normal commercial production: pitch (3-8 directions) -> script + still storyboard with a continuity bible -> **animatic: the stills cut to a temp track** (judge rhythm before any video credits) -> generation -> offline cut to the temp track -> picture lock -> final music (licensed track edited to picture; Seed Music does not follow a requested timeline, so it is a sketch at best) + sound design + mix -> 1080p only for locked shots.
+
+
 1. **Study references.** `tools/setup.sh` once per container. Then `$COOLFLY_TOOLS/venv/bin/python tools/ref_analyze.py REF.mp4 OUT/` gives shot count, shot-length stats, a numbered contact sheet and a first-guess camera move per shot. Read the sheet; the labels are a hint, not a fact.
    - Benchmark (CoolFly's own Yuanji film, `brand/refs/yuanji.mp4`): 44 shots in 60 s, median 1.25 s, 14 shots under 1 s, **no shot repeated**.
    - Downloading YouTube or Vimeo from the cloud container is blocked (googlevideo 403; Vimeo requires login). Do not try to get around it. Ask the user to upload the file (to the repo, e.g. `brand/refs/`, or to the canvas), or to connect their computer with Remote Control and run `yt-dlp` there.
