@@ -16,6 +16,8 @@ const VIEWS = {
   left:    { pos: [8.5, 1.25, 0], target: [0, 0.95, 0], fov: 30 },         // pilot's left side
   right:   { pos: [-8.5, 1.25, 0], target: [0, 0.95, 0], fov: 30 },        // pilot's right side
   stick:   { pos: [-1.25, 2.05, 1.35], target: [-0.45, 0.95, 0.2], fov: 30 },   // from front-right, down onto the side-stick
+  r34:     { pos: [-5.6, 3.0, 1.6], target: [0, 0.95, 0.1], fov: 30 },          // front 3/4 from pilot's right, eye level: seated-pilot reference
+  seat:    { pos: [-4.6, 2.62, 4.4], target: [-0.1, 1.02, -0.25], fov: 24 },   // seated-pilot plate: front-right, elevated, clear view of seat + right stick
   pov:     { pos: [0, 1.5, -0.65], target: [0, 0.75, 2.5], fov: 78 },       // pilot eye
 };
 const b = await chromium.launch({ args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });

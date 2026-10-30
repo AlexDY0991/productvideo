@@ -59,6 +59,19 @@ class State:
         return sum(r["credits"] for r in self.d["ledger"]["runs"])
 
 
+def sniff(f, kind):
+    """rename a download to the extension its bytes say it is (png/jpg/webp/mp4/mp3/wav); returns the extension"""
+    try:
+        h = open(f, "rb").read(16)
+    except OSError:
+        return kind
+    real = ("png" if h[:4] == b"\x89PNG" else "jpg" if h[:3] == b"\xff\xd8\xff" else "webp" if h[8:12] == b"WEBP"
+            else "mp4" if h[4:8] == b"ftyp" else "wav" if h[:4] == b"RIFF" else "mp3" if h[:3] == b"ID3" or h[:2] == b"\xff\xfb" else kind)
+    if real != kind:
+        os.replace(f, f[: -len(kind)] + real)
+    return real
+
+
 def opt(argv, name, default=None, many=False):
     vals, out, i = [], [], 0
     while i < len(argv):
@@ -188,6 +201,7 @@ def main():
                 kind = "mp4" if "video" in e.get("title", "").lower() or k.startswith("V") else ("wav" if k.startswith("M") else "png")
                 o = cli(["resource", "download", rid, "--project-id", st.P, "-o", f"{out}/{k}.{kind}"])
                 print(k, "downloaded" if o.get("ok") else f"download failed {o.get('error')}", flush=True)
+                kind = sniff(f"{out}/{k}.{kind}", kind)  # the key-prefix guess is wrong for e.g. image keys starting with M
                 fresh = State(path)  # other jm.py processes may have written meanwhile: merge, don't clobber
                 fresh.node(k)["result"] = f"{out}/{k}.{kind}"; fresh.save()
             else:

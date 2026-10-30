@@ -13,7 +13,7 @@
 |---|---|---|
 | 3D 模型 | `brand/models/dream.glb` | 完整的 CAD 结构模型，含座椅、安全带骨架和座椅两侧的操控件。渲染脚本是 `film02/refs-glb/studio.js`，页面是 `v1–v6*.html`，用 three.js，库在 `vendor/three/`。**座舱视图还没渲染过，下一步要做** |
 | 模型渲染图（橙色涂装） | `film02/refs-glb/out/v1-front34 … v6-low.png`、`dream-views-sheet.png` | 前 3/4、侧、正、俯、后 3/4、低角度。俯视图能看到座椅、安全带和两侧的操控件 |
-| **film03 Dream Pro 座舱道具图** | `film03/assets/prop/PROP_cockpit_sheet.jpg`（带标注总图）；干净渲染 `glb_hero / top / left / right / stick / pov.png` | 🟡 待用户确认。`film03/assets/glb/render.mjs` 从 dream.glb 渲染：`cockpit.js` 改成真机涂装（珍珠白整流罩、黑管架、浅灰座椅、黑安全带，去掉 05/20），并按 2026 产品图手工补了 Pro 模块：顶部后方降落伞舱、机腹前/中/后 3 个气囊、带弹簧缓冲的双滑橇、顶管 4 个传感器、机头球形摄像头（结构部门没有轻量模型，尺寸为估算）。坐标：驾驶员面朝 +z，**右手边是 −x**，握把顶离地约 1.4 m |
+| **film03 Dream Pro 座舱道具图** | `film03/assets/prop/PROP_cockpit_sheet.jpg`（带标注总图）；干净渲染 `glb_hero / top / left / right / stick / pov.png` | ✅ 用户确认（2026-10-30）。`film03/assets/glb/render.mjs` 从 dream.glb 渲染：`cockpit.js` 改成真机涂装（珍珠白整流罩、黑管架、浅灰座椅、黑安全带，去掉 05/20），并按 2026 产品图手工补了 Pro 模块：顶部后方降落伞舱、机腹前/中/后 3 个气囊、带弹簧缓冲的双滑橇、顶管 4 个传感器、机头球形摄像头（结构部门没有轻量模型，尺寸为估算）。坐标：驾驶员面朝 +z，**右手边是 −x**，握把顶离地约 1.4 m |
 | Dream Pro 2026 产品图 | `brand/refs/ref-dream-pro-2026-modules.webp`（红框标出新模块）、`ref-dream-pro-2026-parachute-airbag.webp`（中文标注：整机降落伞、安全气囊） | ✅ 用户提供，Pro 外形以此为准 |
 | 真实产品照 | `brand/refs/45°侧视外观特写.png` | 停在机场跑道上的实拍照。白色机身，最能代表真实质感 |
 | 白底产品图 | `brand/refs/ref-dream-white.webp`、`film02/v10/refs/node_ax2zhza6ga.png`（前 3/4）、`node_gcdgnkc2pg.png`（侧）、`node_n4gss3vqjp.png`（驾驶位视角）、`node_y1s61hxhz1.png`（后 3/4） | 在 film03 画布上分别是：`ref_dream_34front`（node_f6vjnq7gm7）、`ref_dream_side`（node_zwahy7j8v3）、`ref_dream_cockpit`（node_gk20gkbsm7）、`ref_dream_34rear`（node_07epe8v4jn） |
@@ -29,7 +29,8 @@
 
 | 资产 | 位置 | 状态 |
 |---|---|---|
-| Maya（film03 女驾驶员，34 岁，深金色低马尾，雀斑，橄榄绿飞行夹克、灰色连帽衫、黑裤、棕色短靴、白色头盔配彩虹色面罩） | `film03/board/char_maya.jpg`，film03 画布 `char_maya`（node_87mf3kbv9p） | 🟡 只有一张四格定妆图，**不符合 Higgsfield 三联规格**，要重做 |
+| **Maya 定妆（film03 step 1.2）**：三联 `film03/cast/MA1.png`（画布 MA1 node_jbahft3q0k），坐姿 `film03/cast/MS3.png`（MS3 node_ha8wr4qmsv），总图 `film03/cast/CAST_maya_sheet.jpg`；提示词 `film03/prompts/cast.py` | 34 岁，深金色低马尾、浅雀斑、榛色眼；橄榄绿 MA-1 夹克（无标）、灰色圆领卫衣、黑色修身裤、棕色系带短靴、左腕黑色手表；飞行时：哑光白开放式头盔+透明翻盖面罩、黑色薄皮手套。坐姿图做法：3D 底图 `prop_glb_seat`（render.mjs 的 seat 机位）+ 三联身份参考做编辑，再单独修右手握杆（MS1 纯参考生成会改坐飞行器结构，弃用；MA2 用 N-Pro，中格露脸，弃用） | 🟡 待用户确认 |
+| Maya（film03 v2 旧版，女驾驶员，34 岁，深金色低马尾，雀斑，橄榄绿飞行夹克、灰色连帽衫、黑裤、棕色短靴、白色头盔配彩虹色面罩） | `film03/board/char_maya.jpg`，film03 画布 `char_maya`（node_87mf3kbv9p） | 🟡 只有一张四格定妆图，**不符合 Higgsfield 三联规格**，要重做 |
 | Ray（film03 教练，50 多岁） | `film03/board/char_ray.jpg`，`char_ray`（node_0thhvst771） | 🟡 |
 | film02 男主（格子衬衫、黑色背心带黄色反光条、白色头盔） | `film02/v10/refs/TapNow_1792554833040…`（全身）、`…1792555179693…`（脸）、`…1792556906832…`（飞行服三视图），在 film02 v10 画布上 | ✅ 用户自己做的 |
 | film02 妻子、女儿、牧羊犬 | `film02/v10/refs/TapNow_1792564621368…`、`…1792565766731…`、`…1792566125721…`、`…1792570249278…` | ✅ 用户自己做的 |
