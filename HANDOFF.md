@@ -97,6 +97,25 @@ v10.1 之后加了检查：`tools/edl_check.py`。同一段画面用两次、一
 
 ---
 
+## 5b. 当前进度（film03，2026-10-30）
+
+- 画布：「CoolFly film03」，projectId `d7176c30-5f8b-4e8d-a3ed-b2f41df12a46`，状态文件 `film03/jimeng-state.json`，预算 7,000，已用 600。
+- film02 交给用户自己剪，film03 从头做。方向几经调整：
+  1. 先做了 v1「FIRST FLIGHT」，用户意见：坐姿不对、场景单一。
+  2. 改为 v2「OPEN SKY」：五种西部地貌，节奏和代入感优先，见 `film03/BRIEF-v2-OpenSky.md`、`film03/out/OPENSKY-animatic-v2.mp4`。
+- **用户对 v2 的意见（必须先解决）：**
+  - 一致性差：有的镜头左手去握右侧的杆，有的镜头杆跑到了左边；
+  - 没用 3D 模型；
+  - **跳过了 Higgsfield 第一步**：应该先做人物、场景、道具资产，逐个确认，再做分镜。
+- 下一步，严格按 `brand/refs/higgsfield-realism-workflow-notes.md`：
+  1. **道具：** 用 `brand/models/dream.glb`（three.js 渲染，`film02/refs-glb/studio.js`）渲染座舱：俯视、左侧视、驾驶位 POV，标明右侧操纵杆的位置。做成座舱三视图，给用户确认。
+  2. **人物：** Maya 的三联定妆照（Higgsfield 规格：左正面头肩，中正面全身、脖子以下，右背面全身；中灰背景）。再加一张坐进座舱的定妆照：右手握杆，左手放扶手。给用户确认。
+  3. **场景：** 五个地貌各出一张按动作设计好布局的场景图（3/4 视角，前、中、背景都有；标出飞行路线和镜头位置）。给用户确认。
+  4. 资产全部确认后，再做分镜和动态分镜，然后按场生成，一次生成就是一场完整的戏。
+- 配乐：Seed Music 不按指定时间走。临时配乐用 higgsfield-motion 的 score.html 代码合成（`film03/animatic.py` 的 `sound()`，浏览器用 `/tmp/coolfly-tools/chrome` 这个不开沙箱的包装脚本）。定剪后购买正版授权曲。
+
+---
+
 ## 6. 即梦画布 CLI（dreamina-canvas）
 
 - **安装：** `curl -fsSL https://jimeng.jianying.com/canvas-cli/install.sh | bash`。先读一遍脚本再运行（用户已允许）。CLI 装到 `~/.local/bin/dreamina-canvas`，上次用的是 v1.0.3。

@@ -57,3 +57,5 @@ Order follows a normal commercial production: pitch (3-8 directions) -> script +
 - v01–v03: 4 s single-action clips with effects added in post looked fake. One generation should be one scene with moves written into the prompt.
 - v10.1: 47 cuts from 17 clips (sc8 ×5, sc12 ×4 with the same frames twice). The user called it "大量的重复镜头". The fix is the edl_check gate plus planning shots from footage, not from the beat grid.
 - Logo over the family's heads; helmet appearing from nowhere; empty aircraft landing; an "exhale" beat with no meaning; glow on the cage; flying out of a room. Each was flagged once. Check for these.
+- film03 v1/v2 (2026-10-30): went straight from a character sheet to 35 storyboard frames and lost consistency (stick switching sides, left hand on the right stick, wardrobe copied from a male reference). **Never skip asset step 1:** render the cockpit from `brand/models/dream.glb` (single side-stick on the RIGHT, right hand), make the character turnaround and a seated sheet, and make one blocking plate per location. Get the user's approval on each, and only then storyboard.
+
