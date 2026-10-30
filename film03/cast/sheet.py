@@ -10,8 +10,8 @@ s = Image.new('RGB', (W, H), BG); d = ImageDraw.Draw(s)
 d.text((PAD + 4, 22), 'ETHAN  ·  PILOT CAST SHEET', font=ImageFont.truetype(FB, 44), fill=INK)
 d.text((PAD + 6, 74), 'film03 step 1.2  ·  Higgsfield triptychs (everyday / flying kit) + seated in Dream Pro (from the confirmed 3D prop plate)',
        font=ImageFont.truetype(FM, 22), fill=DIM)
-cells = [('PA1', 'A · EVERYDAY: FACE / FRONT FROM NECK DOWN / BACK'), ('PF2', 'B · FLYING KIT: COOLFLY AIRBAG VEST, HELMET, GLOVES'),
-         ('PS2', 'C · SEATED: RIGHT HAND ON RIGHT STICK, LEFT ON ARMREST, HARNESS ON')]
+cells = [('PA1', 'A · EVERYDAY: FACE / FRONT FROM NECK DOWN / BACK'), ('PF3', 'B · FLYING KIT: COOLFLY INFLATABLE LIFE VEST, HELMET, GLOVES'),
+         ('PS4', 'C · SEATED: RIGHT HAND ON RIGHT STICK, LEFT ON ARMREST, HARNESS ON')]
 for i, (f, cap) in enumerate(cells):
     x, y = PAD + (i % 2) * (IW + PAD), HEAD + (i // 2) * (IH + 50)
     s.paste(Image.open(f'film03/cast/{f}.png').convert('RGB').resize((IW, IH), Image.LANCZOS), (x, y))
@@ -21,11 +21,12 @@ spec = [('ETHAN', True), ('Looks 40. American, lean and fit, ~1.82 m. Short dark
         ('greying temples, short stubble. Self-made founder, outdoors on weekends.', False), ('', False),
         ('EVERYDAY (FIXED)', True), ('Charcoal merino crew-neck, dark indigo jeans, tan suede chukkas,', False),
         ('steel pilot chronograph on brown leather, LEFT wrist. No logos.', False), ('', False),
-        ('FLYING KIT (FIXED)', True), ('Black CoolFly airbag vest: padded collar, chest buckle, hip straps,', False),
-        ('small logo on his left chest, large logo across the back.', False),
+        ('FLYING KIT (FIXED)', True), ('Slim slate-grey inflatable life vest (yoke PFD): collar band, two flat', False),
+        ('front panels + zip, waist belt with buckle. Round CoolFly patch on his', False),
+        ('RIGHT chest, white safety label on his left chest, small logo on the back.', False),
         ('Matte white open-face helmet, clear flip-up visor. Black leather gloves.', False), ('', False),
         ('IN THE SEAT', True), ('Low and slightly reclined; legs inside the tub, hidden by the side panel.', False),
-        ('Black four-point harness over the vest. RIGHT hand on the RIGHT stick,', False),
+        ('Black four-point harness over the life vest. RIGHT hand on the RIGHT stick,', False),
         ('LEFT hand on the LEFT armrest. Helmet below the cage roof.', False)]
 for t, bold in spec:
     d.text((x, y), t, font=ImageFont.truetype(FB if bold else FM, 28 if bold else 24), fill=ORANGE if bold else INK)

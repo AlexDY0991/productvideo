@@ -134,6 +134,22 @@ FIX_BELT = (
     'the CoolFly airbag vest and lock into a round black buckle at his lap together with the black lap belt. The small chest logo '
     'on the vest stays visible beside the left strap. ')
 
+# v3 flying kit (user ref, 2026-10-30): a slim inflatable life vest (PFD) like the one in the user's photos, CoolFly round patch.
+PFD = ('a slim dark slate-grey inflatable life vest (yoke-style PFD), exactly the type in @ref_vest_a and @ref_vest_b: soft flat '
+       'nylon shell, a smooth padded collar band that wraps behind the neck and runs down the chest as two flat vertical front panels '
+       'about 12 cm wide with a zip between them, a thin black waist belt with a black side-release buckle, a short pull-tab cord at '
+       'the right hip; on the panel over HIS RIGHT chest (as in @ref_vest_a; PF3 came out this way) a round black rubber patch with the CoolFly '
+       'wordmark exactly as in @ref_patch; on the panel over his left chest a small block of fine white printed safety-label lines (illegible small print, '
+       'no numbers, no brand). No other logos; no Mustang branding, no seahorse. The vest is thin and flat, not puffy. ')
+FIX_PFD = (
+    'Precise edit of @PF2. Keep everything exactly the same: the man, his face, helmet, sweater, jeans, gloves, boots, poses, light, '
+    'background and the three-panel layout. Change ONLY the vest in all three panels: replace the black padded vest with ' + PFD +
+    'In the back panel the vest shows a narrow flat back yoke and the waist belt, with a small CoolFly wordmark at the upper back. ')
+FIX_PFD_SEAT = (
+    'Precise edit of @PS2. Keep everything exactly the same: the man, his face, helmet, hands on the stick and armrest, the black '
+    'four-point harness, the aircraft, camera, light and background. Change ONLY the vest under the harness: replace the black '
+    'padded vest with the CoolFly life vest from @PF3, which is ' + PFD + 'The harness straps run over the vest. ')
+
 C = {
     'MA1': ([], f'{TRIPTYCH}{MAYA} {REAL}', 'seedream_5.0_pro'),
     'MA2': ([], f'{TRIPTYCH}{MAYA} {REAL}', 'jm_image_model_gg_bp'),
@@ -145,6 +161,9 @@ C = {
     'PF2': ([], f'{FIX_FLY}{REAL}', 'seedream_5.0_pro'),                   # PF1 with the chest logo + neck crop in the centre panel
     'PS1': (['prop_glb_seat'], f'{PLATE_E}{ETHAN}{REAL}', 'seedream_5.0_pro'),     # Ethan seated, from the 3D plate
     'PS2': ([], f'{FIX_BELT}{REAL}', 'seedream_5.0_pro'),                  # PS1 with the four-point harness on
+    'PF3': ([], f'{FIX_PFD}{REAL}', 'seedream_5.0_pro'),                   # flying kit v3: CoolFly inflatable life vest (user ref)
+    'PS3': ([], f'{FIX_PFD_SEAT}{REAL}', 'seedream_5.0_pro'),              # seated with the v3 vest
+    'PS4': ([], f"{FIX_BELT.replace('@PS1', '@PS3').replace('the CoolFly airbag vest', 'the slate-grey life vest').replace('The small chest logo on the vest stays visible beside the left strap.', 'The round CoolFly patch on his right chest and the white label on his left chest stay visible beside the straps.')}{REAL}", 'seedream_5.0_pro'),   # PS3 lost the harness: put it back
 }
 
 

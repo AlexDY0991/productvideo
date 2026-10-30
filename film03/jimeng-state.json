@@ -750,6 +750,51 @@
    "submitted": true,
    "resourceId": "74d7a2b6-55ee-43f6-921c-df0683bdd3f3",
    "result": "film03/cast/PS2.png"
+  },
+  "ref_vest_a": {
+   "uploadResourceId": "f3d5da5f-eea6-4245-ac0f-744d7815a061",
+   "updateId": "04987189-8c4c-45e4-8d06-d789cba10190",
+   "nodeId": "node_vfpr22skqt",
+   "title": "REF · ref_vest_a"
+  },
+  "ref_vest_b": {
+   "uploadResourceId": "a3b05fed-f558-49d0-9d9a-9d88e6737294",
+   "updateId": "b6c98bd8-9ac1-46a1-b151-3fd36913910a",
+   "nodeId": "node_hfx1y5ntt6",
+   "title": "REF · ref_vest_b"
+  },
+  "ref_patch": {
+   "uploadResourceId": "93e94d35-644b-4456-ad21-5b4a1095c5c2",
+   "updateId": "3f040e06-8271-4f4b-9b7a-5f9023c8dc0d",
+   "nodeId": "node_ejtxhf09rb",
+   "title": "REF · ref_patch"
+  },
+  "PF3": {
+   "updateId": "554149ae-8f02-4786-8092-32b96679795d",
+   "nodeId": "node_w6zycyjpvh",
+   "title": "cast PF3",
+   "submitId": "50b4eda4-8834-4472-b998-535c44133f97",
+   "submitted": true,
+   "resourceId": "b8381598-e137-4cf8-9e3f-3741b3c4f293",
+   "result": "film03/cast/PF3.png"
+  },
+  "PS3": {
+   "updateId": "5c6af25a-76fd-4553-9b1b-b66de647129f",
+   "nodeId": "node_s8z4tjxezq",
+   "title": "cast PS3",
+   "submitId": "252add5d-37d9-486d-bee0-b7509babd2f8",
+   "submitted": true,
+   "resourceId": "47fc4403-9372-431c-82da-719d20bf6a38",
+   "result": "film03/cast/PS3.png"
+  },
+  "PS4": {
+   "updateId": "beb28c00-1e27-4ae2-9771-908636f1db41",
+   "nodeId": "node_pbydfg8xnh",
+   "title": "cast PS4",
+   "submitId": "70a04d95-bbf5-4ba8-80c7-fc7e51db664c",
+   "submitted": true,
+   "resourceId": "13cad371-cd9d-4d75-84ac-b20409c401f4",
+   "result": "film03/cast/PS4.png"
   }
  },
  "ledger": {
@@ -1270,6 +1315,24 @@
     "credits": 8,
     "submitId": "30788fcb-71cd-49a0-a67f-30008018ed78",
     "at": "2026-10-30 11:44"
+   },
+   {
+    "key": "PF3",
+    "credits": 8,
+    "submitId": "50b4eda4-8834-4472-b998-535c44133f97",
+    "at": "2026-10-30 12:14"
+   },
+   {
+    "key": "PS3",
+    "credits": 8,
+    "submitId": "252add5d-37d9-486d-bee0-b7509babd2f8",
+    "at": "2026-10-30 12:17"
+   },
+   {
+    "key": "PS4",
+    "credits": 8,
+    "submitId": "70a04d95-bbf5-4ba8-80c7-fc7e51db664c",
+    "at": "2026-10-30 12:20"
    }
   ]
  }
