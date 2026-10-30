@@ -1,0 +1,254 @@
+{
+ "hero": {
+  "stick": [
+   807.8,
+   477.8,
+   true
+  ],
+  "panel": [
+   960.2,
+   548.1,
+   true
+  ],
+  "seat": [
+   979.2,
+   609.4,
+   true
+  ],
+  "harness": [
+   1062.3,
+   514.2,
+   true
+  ],
+  "headrest": [
+   1148,
+   341.2,
+   true
+  ],
+  "footwell": [
+   714.3,
+   743.8,
+   true
+  ],
+  "vbars": [
+   693.5,
+   277.7,
+   true
+  ],
+  "nose": [
+   304.2,
+   592.1,
+   true
+  ]
+ },
+ "top": {
+  "stick": [
+   1163.1,
+   468.3,
+   true
+  ],
+  "panel": [
+   745.7,
+   403.6,
+   true
+  ],
+  "seat": [
+   960,
+   632.3,
+   true
+  ],
+  "harness": [
+   960,
+   811.5,
+   true
+  ],
+  "headrest": [
+   960,
+   1054.1,
+   true
+  ],
+  "footwell": [
+   960,
+   187.2,
+   true
+  ],
+  "vbars": [
+   960,
+   63.7,
+   true
+  ],
+  "nose": [
+   960,
+   -417.6,
+   true
+  ]
+ },
+ "left": {
+  "stick": [
+   886.2,
+   498,
+   true
+  ],
+  "panel": [
+   833.3,
+   537.3,
+   true
+  ],
+  "seat": [
+   983.7,
+   618,
+   true
+  ],
+  "harness": [
+   1090.3,
+   540,
+   true
+  ],
+  "headrest": [
+   1207.1,
+   380.9,
+   true
+  ],
+  "footwell": [
+   688.2,
+   693.5,
+   true
+  ],
+  "vbars": [
+   674.5,
+   314.2,
+   true
+  ],
+  "nose": [
+   343.8,
+   528.2,
+   true
+  ]
+ },
+ "right": {
+  "stick": [
+   1043.2,
+   501.7,
+   true
+  ],
+  "panel": [
+   1071.3,
+   529,
+   true
+  ],
+  "seat": [
+   936.3,
+   618,
+   true
+  ],
+  "harness": [
+   829.7,
+   540,
+   true
+  ],
+  "headrest": [
+   712.9,
+   380.9,
+   true
+  ],
+  "footwell": [
+   1231.8,
+   693.5,
+   true
+  ],
+  "vbars": [
+   1245.5,
+   314.2,
+   true
+  ],
+  "nose": [
+   1576.2,
+   528.2,
+   true
+  ]
+ },
+ "stick": {
+  "stick": [
+   992.2,
+   480,
+   true
+  ],
+  "panel": [
+   1950.9,
+   316.1,
+   true
+  ],
+  "seat": [
+   1127.7,
+   496.6,
+   true
+  ],
+  "harness": [
+   911.9,
+   99.8,
+   true
+  ],
+  "headrest": [
+   672,
+   -577.6,
+   true
+  ],
+  "footwell": [
+   1997.5,
+   1489,
+   true
+  ],
+  "vbars": [
+   3484,
+   -530.6,
+   true
+  ],
+  "nose": [
+   9664.8,
+   5636.5,
+   true
+  ]
+ },
+ "pov": {
+  "stick": [
+   1286.6,
+   631.4,
+   true
+  ],
+  "panel": [
+   664,
+   668.9,
+   true
+  ],
+  "seat": [
+   960,
+   1197.6,
+   true
+  ],
+  "harness": [
+   960,
+   2059.3,
+   true
+  ],
+  "headrest": [
+   960,
+   583.2,
+   false
+  ],
+  "footwell": [
+   960,
+   786.6,
+   true
+  ],
+  "vbars": [
+   960,
+   220.6,
+   true
+  ],
+  "nose": [
+   960,
+   485.8,
+   true
+  ]
+ }
+}
