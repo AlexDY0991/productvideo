@@ -1,0 +1,94 @@
+{
+ "projectId": "d7176c30-5f8b-4e8d-a3ed-b2f41df12a46",
+ "webUrl": "https://jimeng.jianying.com/ai-tool/ai-canvas/d7176c30-5f8b-4e8d-a3ed-b2f41df12a46",
+ "nodes": {
+  "ref_dream_34front": {
+   "uploadResourceId": "b92257ff-a8a3-41a3-a769-2a01744f3ab1",
+   "updateId": "83b3d223-a0e6-4ce2-8758-5ade5133406c",
+   "nodeId": "node_f6vjnq7gm7",
+   "title": "REF · ref_dream_34front"
+  },
+  "ref_dream_side": {
+   "uploadResourceId": "cf24ce96-9326-46f4-9631-a0836a35402f",
+   "updateId": "b9391548-04f3-4d7f-baac-3b638871afd2",
+   "nodeId": "node_zwahy7j8v3",
+   "title": "REF · ref_dream_side"
+  },
+  "ref_dream_cockpit": {
+   "uploadResourceId": "3e7e0363-64c5-48e5-a2ac-99362e05c275",
+   "updateId": "e8799a35-7ffb-4e32-8ac8-77b8aada2561",
+   "nodeId": "node_gk20gkbsm7",
+   "title": "REF · ref_dream_cockpit"
+  },
+  "ref_dream_34rear": {
+   "uploadResourceId": "908a3aad-3b1e-4f7b-94f5-697cae95886c",
+   "updateId": "8fc0f3c8-1a6a-472c-a70f-fbd9c3d267cd",
+   "nodeId": "node_07epe8v4jn",
+   "title": "REF · ref_dream_34rear"
+  },
+  "M1": {
+   "updateId": "aebda5df-0d9c-42c9-87b3-5d76dee53e4f",
+   "nodeId": "node_s2y07qdde4",
+   "title": "M1 hybrid cinematic 100bpm",
+   "submitId": "74bdb10c-02d4-4d6e-906a-6b6b3df4e172",
+   "submitted": true,
+   "resourceId": "c1e017ac-3e52-44ae-a65c-11dacdf421d1",
+   "result": "film03/gen/M1.wav"
+  },
+  "M2": {
+   "updateId": "da2f4b9f-9448-4204-9b71-8068792316fd",
+   "nodeId": "node_w1s223v012",
+   "title": "M2 anthemic indie 120bpm",
+   "submitId": "4348d2de-0ec2-4e8e-983b-754526ddc404",
+   "submitted": true,
+   "resourceId": "ea60f711-c40e-49d6-8c93-34b7c347d0b4"
+  },
+  "M3": {
+   "updateId": "fc631e3d-72bc-4d5e-b072-2758bd8cd2b2",
+   "nodeId": "node_4t26z0be79",
+   "title": "M3 cinematic electronic 110bpm",
+   "submitId": "80eae895-dcc3-415c-abec-15fa7333a390",
+   "submitted": true,
+   "resourceId": "a84b5b33-f92a-415a-81a0-3afc153445e0",
+   "result": "film03/gen/M3.wav"
+  },
+  "M4": {
+   "updateId": "2252976b-b50b-49f3-b352-1a364989375c",
+   "nodeId": "node_q3y3np0eqe",
+   "title": "M4 epic orchestral trailer 96bpm",
+   "submitId": "390ccc0d-1888-4a50-a169-58d52ba379df",
+   "submitted": true,
+   "resourceId": "97932390-3b2b-4998-ad17-3cdd6660c890",
+   "result": "film03/gen/M4.wav"
+  }
+ },
+ "ledger": {
+  "budget": 4000,
+  "runs": [
+   {
+    "key": "M1",
+    "credits": 6,
+    "submitId": "74bdb10c-02d4-4d6e-906a-6b6b3df4e172",
+    "at": "2026-10-30 02:26"
+   },
+   {
+    "key": "M2",
+    "credits": 6,
+    "submitId": "4348d2de-0ec2-4e8e-983b-754526ddc404",
+    "at": "2026-10-30 02:26"
+   },
+   {
+    "key": "M3",
+    "credits": 6,
+    "submitId": "80eae895-dcc3-415c-abec-15fa7333a390",
+    "at": "2026-10-30 02:26"
+   },
+   {
+    "key": "M4",
+    "credits": 6,
+    "submitId": "390ccc0d-1888-4a50-a169-58d52ba379df",
+    "at": "2026-10-30 02:26"
+   }
+  ]
+ }
+}
