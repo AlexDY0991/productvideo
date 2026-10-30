@@ -103,7 +103,7 @@ x0, y0 = cell(7)
 d.rectangle([x0, y0, x0 + 2 * CW + PAD, y0 + CH + 130], outline=ORANGE, width=3)
 rules = [
     ('ONE STICK. RIGHT SIDE. RIGHT HAND.', True),
-    ('Single side-stick on the right rail, grip top ~1.1 m above ground.', False),
+    ('Single side-stick on the right rail, grip top ~1.4 m above ground (on skids).', False),
     ('Left hand rests on the left armrest panel (buttons, grab handle).', False),
     ('Never on the left. Never the left hand. Never two hands. No yoke, no wheel.', False),
     ('', False),

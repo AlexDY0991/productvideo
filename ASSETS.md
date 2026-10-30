@@ -13,7 +13,8 @@
 |---|---|---|
 | 3D 模型 | `brand/models/dream.glb` | 完整的 CAD 结构模型，含座椅、安全带骨架和座椅两侧的操控件。渲染脚本是 `film02/refs-glb/studio.js`，页面是 `v1–v6*.html`，用 three.js，库在 `vendor/three/`。**座舱视图还没渲染过，下一步要做** |
 | 模型渲染图（橙色涂装） | `film02/refs-glb/out/v1-front34 … v6-low.png`、`dream-views-sheet.png` | 前 3/4、侧、正、俯、后 3/4、低角度。俯视图能看到座椅、安全带和两侧的操控件 |
-| **film03 座舱道具图** | `film03/assets/prop/PROP_cockpit_sheet.jpg`（带标注总图）；干净渲染 `glb_hero / top / left / right / stick / pov.png` | 🟡 待用户确认。由 `film03/assets/glb/render.mjs` 从 dream.glb 渲染（`cockpit.js` 里把整流罩改成真机的珍珠白、管架改黑、去掉 05/20 号码），`sheet.py` 拼图。坐标：驾驶员面朝 +z，**右手边是 −x**，操纵杆握把顶约离地 1.1 m |
+| **film03 Dream Pro 座舱道具图** | `film03/assets/prop/PROP_cockpit_sheet.jpg`（带标注总图）；干净渲染 `glb_hero / top / left / right / stick / pov.png` | 🟡 待用户确认。`film03/assets/glb/render.mjs` 从 dream.glb 渲染：`cockpit.js` 改成真机涂装（珍珠白整流罩、黑管架、浅灰座椅、黑安全带，去掉 05/20），并按 2026 产品图手工补了 Pro 模块：顶部后方降落伞舱、机腹前/中/后 3 个气囊、带弹簧缓冲的双滑橇、顶管 4 个传感器、机头球形摄像头（结构部门没有轻量模型，尺寸为估算）。坐标：驾驶员面朝 +z，**右手边是 −x**，握把顶离地约 1.4 m |
+| Dream Pro 2026 产品图 | `brand/refs/ref-dream-pro-2026-modules.webp`（红框标出新模块）、`ref-dream-pro-2026-parachute-airbag.webp`（中文标注：整机降落伞、安全气囊） | ✅ 用户提供，Pro 外形以此为准 |
 | 真实产品照 | `brand/refs/45°侧视外观特写.png` | 停在机场跑道上的实拍照。白色机身，最能代表真实质感 |
 | 白底产品图 | `brand/refs/ref-dream-white.webp`、`film02/v10/refs/node_ax2zhza6ga.png`（前 3/4）、`node_gcdgnkc2pg.png`（侧）、`node_n4gss3vqjp.png`（驾驶位视角）、`node_y1s61hxhz1.png`（后 3/4） | 在 film03 画布上分别是：`ref_dream_34front`（node_f6vjnq7gm7）、`ref_dream_side`（node_zwahy7j8v3）、`ref_dream_cockpit`（node_gk20gkbsm7）、`ref_dream_34rear`（node_07epe8v4jn） |
 | 橙色款 | `brand/refs/ref-dream-orange.webp`、`film02/assets/prop_dream*.png` | film02 早期用过 |
