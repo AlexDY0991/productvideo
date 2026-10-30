@@ -12,7 +12,7 @@
 ## 0. 新对话的第一步
 
 1. `git fetch origin claude/peaceful-goldberg-upekrl`，在这个分支的最新提交上继续。
-2. 读本文件和 `coolfly-film` skill。
+2. 读本文件、`coolfly-film` skill（完整规则）和 `ASSETS.md`（资产清单）。
 3. `bash tools/setup.sh`：装拉片、配音和下载用的工具环境，装在 `/tmp/coolfly-tools`。
 4. 重装并登录即梦画布 CLI（见第 6 节），把授权链接发给用户。
 5. 从第 5 节「当前进度」继续。

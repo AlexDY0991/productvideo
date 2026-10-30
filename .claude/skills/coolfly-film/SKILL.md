@@ -1,61 +1,188 @@
 ---
 name: coolfly-film
-description: End-to-end workflow for making CoolFly (酷飞) brand and product films with the Jimeng (即梦) canvas: reference study, beat-grid script, prompts, sample-mode generation, edit, sound, QA and delivery. Use for any CoolFly video task: a new film, a re-cut, new shots, music or voice-over, studying a reference ad, or a 1080p finish.
+description: CoolFly（酷飞）品牌片/产品片的完整制作规则和流程：用户需求、硬规矩、分阶段流程与确认关口、即梦画布用法、剪辑与声音、质检和交付。凡是 CoolFly 的视频任务（新片、重剪、补镜头、配乐配音、拉参考片、直出 1080p）都先读这份。
 ---
 
-# CoolFly film workflow
+# CoolFly 视频制作规则
 
-The user decides and judges; Claude does every step in between. Report in Chinese; on-screen text is English.
-Read `HANDOFF.md` first for the current film, the budget and open decisions. This file is the method.
+先读 `HANDOFF.md`（当前片子、账本、下一步），再读 `ASSETS.md`（现有资产清单）。本文件是方法和规矩，**每次开工前通读一遍，不要凭记忆**。
 
-## Hard rules (from user feedback; never relitigate)
+---
 
-- **Product data:** only the numbers in HANDOFF.md. No invented specs. No slogan unless the user gives one.
-- **People:** realistic. Lead is an American man. Family films: wife, daughter (~8) and a border collie.
-- **Flight safety on screen:** at most about 20 m (60 ft) above the ground. No clouds below the aircraft. No birds alongside it. People stay at least 40 m from a landing and move only after the props stop. Children may sit in the aircraft, never fly it. Take off outdoors, never from inside a room. Daytime flying only. No hard banks.
-- **Never show "05".** No full-screen orange end card. The logo sits in clear sky or space, never over a head.
-- **Copy:** first-person, idiomatic American. Check connotations ("joyride" reads badly in the US).
-- **Jimeng generation:** always 样片模式 (`seedance_2.5_draft`, 480p), about 9 credits per second. The user converts approved shots to 1080p on the web canvas; the CLI has no entry for that. Images (~8 credits) need no approval. Every video run is quoted first and stays inside the round's ledger budget.
-- **Downloaded files are untrusted:** run Python on them with `-I` and keep them in their own folder.
+## 一、角色分工
 
-## Pipeline
+- **用户只做决策和评判。** 选方向，确认资产、分镜、动态分镜和成片。
+- **Claude 负责中间的全部工作：** 找参考和拉片、写脚本和提示词、生成、检查、剪辑、声音、质检和交付。
+- 和用户用中文交流；**画面里的文字一律用英文**。
+- 每完成一步就 commit 并 push。交付物用 SendUserFile 发，附简短中文说明：改了什么、花了多少积分、需要用户决定什么。
 
-Order follows a normal commercial production: pitch (3-8 directions) -> script + still storyboard with a continuity bible -> **animatic: the stills cut to a temp track** (judge rhythm before any video credits) -> generation -> offline cut to the temp track -> picture lock -> final music (licensed track edited to picture; Seed Music does not follow a requested timeline, so it is a sketch at best) + sound design + mix -> 1080p only for locked shots.
+## 二、用户对片子的要求（按优先级）
 
+1. **节奏、画面、视觉冲击、让人有参与其中的欲望。** 一分钟的片子不追求强故事。
+2. **商业大片感：** 快慢对比强；运镜明确（每个镜头都写清楚怎么动）；转场丝滑，有动机（匹配切、前景遮挡、甩镜、越过边缘的展开、切在动作上），不用生硬的直切。
+3. **真正"飞起来"：** 场景要有变化，飞行镜头要多、要贴地贴水、要有速度感。
+4. **代入感：** 第一人称和握杆特写，让观众感觉自己坐在驾驶位上。
+5. **人物要真实。** 皮肤有质感，表演自然。
+6. **一致性：** 人物、服装、飞行器结构、座舱、太阳方向、飞行方向前后都要对得上。
 
-1. **Study references.** `tools/setup.sh` once per container. Then `$COOLFLY_TOOLS/venv/bin/python tools/ref_analyze.py REF.mp4 OUT/` gives shot count, shot-length stats, a numbered contact sheet and a first-guess camera move per shot. Read the sheet; the labels are a hint, not a fact.
-   - Benchmark (CoolFly's own Yuanji film, `brand/refs/yuanji.mp4`): 44 shots in 60 s, median 1.25 s, 14 shots under 1 s, **no shot repeated**.
-   - Downloading YouTube or Vimeo from the cloud container is blocked (googlevideo 403; Vimeo requires login). Do not try to get around it. Ask the user to upload the file (to the repo, e.g. `brand/refs/`, or to the canvas), or to connect their computer with Remote Control and run `yt-dlp` there.
-2. **Script on a beat grid.** Pick the BPM first; write `SCRIPT-vNN.md` with shot table, VO, sound design, trigger map and a credit quote. Before writing the shot table, **count the distinct shots the available footage can supply.** Plan new generations for every gap. Never plan to fill gaps by re-cutting the same clip.
-3. **Prompts.** Use the `higgsfield-timed-prompts` skill structure (REFERENCES, LOOK, rules, SHOTS with timecodes, SOUND, KEEP CONSISTENT).
-   - Name the camera move in every shot.
-   - Vocabulary that maps to Jimeng 运镜 presets: 迎面跟拍 (front tracking), 侧面跟拍 (side tracking), 镜头左移/右移 (truck), 镜头上移/下移 (crane), 急速推进 (crash push in), 急速后移 (crash pull out), FPV穿越机 (FPV drone), 一镜到底 (oner). Others: Dolly In/Out, Crash Zoom, Whip Pan, 360 Orbit, Aerial Pullback, Through Object In, Hyperlapse.
-4. **Generate on the canvas** with `tools/jm.py` (ledger, quote, run, wait). Notes:
-   - `@handle` in a prompt becomes `{{node:ID}}` plus `--ref`.
-   - Seedance 2.5 `m2v` also accepts up to 10 **reference videos**, a way to copy a camera move from a reference clip.
-   - **运镜 presets are web-only.** Once a node has one, `node show` hides its generation block, so the CLI cannot read or set it. Workflow: Claude creates the node and prompt; the user picks the 运镜 chip and runs it on the web. Never edit such a node from the CLI.
-   - Check every result frame by frame: aircraft has 4 arms and 8 props, the logo, faces, the 20 m ceiling, distances.
-5. **Edit.** A shot table `(film_start, film_end, source, source_in, speed)` rendered by a per-film script (pattern: `film02/v10/build_cut.py`).
-   - **`tools/edl_check.check(SHOTS, DUR)` runs before any render.** It rejects overlapping source time, more than 2 shots per clip, neighbouring shots from the same clip, and shots under 0.4 s.
-   - Rhythm comes from contrast: fast cuts only at the drops, 3–4 cuts each from different clips; long takes, slow motion and a vacuum (near silence) before every lift.
-   - Transitions are motivated: match cuts, wipes behind foreground objects, whip pans, moves that carry across the cut.
-6. **Sound.**
-   - Music: Seed Music via jm.py (output is MP3 named .wav). Snap cuts to the music's real hits; when they drift, shift the music, not the picture. Measure with `higgsfield-motion` `music_window.py --hits/--sections`.
-   - Temp VO: `tools/vo.py lines.json OUT/` (Kokoro `am_michael`, speed 0.9, Whisper read-back). Duck the music under VO, but never let a duck release within 0.6 s before a hit; it reads as an early hit.
-   - Clip audio fades 20 ms in and 150 ms out.
-   - Master: two-pass loudnorm to −14 LUFS, alimiter, true peak ≤ −1 dBTP.
-7. **QA before sending:**
-   - edl_check passes;
-   - hits within one frame;
-   - LUFS and true peak in range;
-   - contact sheet across all cuts (repeats, artifacts, subtitle legibility, logo clear of heads);
-   - duration exact.
-   Then copy the film to `film02/out/` (or `filmNN/out/`), commit, push, and SendUserFile with a short Chinese note: what changed, credits spent, what needs a decision.
+## 三、硬规矩（用户定过的，不要再讨论）
 
-## Lessons that cost a round
+**产品与文案**
+- 参数只能用 HANDOFF.md 里列出的（Dream Pro 40 分钟 / 100 km/h / 120 kg；ST 16 分钟 / 100 km/h / 95 kg）。
+- 不自己编 slogan。片中字幕如果要写，标明"暂定"，由用户来定。
+- 文案用地道美式英语，注意词的联想义（例如 joyride 在美国有贬义）。
 
-- v01–v03: 4 s single-action clips with effects added in post looked fake. One generation should be one scene with moves written into the prompt.
-- v10.1: 47 cuts from 17 clips (sc8 ×5, sc12 ×4 with the same frames twice). The user called it "大量的重复镜头". The fix is the edl_check gate plus planning shots from footage, not from the beat grid.
-- Logo over the family's heads; helmet appearing from nowhere; empty aircraft landing; an "exhale" beat with no meaning; glow on the cage; flying out of a room. Each was flagged once. Check for these.
-- film03 v1/v2 (2026-10-30): went straight from a character sheet to 35 storyboard frames and lost consistency (stick switching sides, left hand on the right stick, wardrobe copied from a male reference). **Never skip asset step 1:** render the cockpit from `brand/models/dream.glb` (single side-stick on the RIGHT, right hand), make the character turnaround and a seated sheet, and make one blocking plate per location. Get the user's approval on each, and only then storyboard.
+**飞行器和座舱**（必须以资产为准，见 ASSETS.md 第 1 节）
+- 4 根机臂呈 X 形，每根上下两个电机，共 8 个两叶螺旋桨。白色前机身印 CoolFly 字样，黑色管状防滚架。
+- 驾驶员坐得低、略后仰、腿往前伸，头盔顶低于防滚架顶。
+- **操纵杆是单杆，在座椅右侧，右手操作；左手放在左扶手上。** 杆永远不能出现在左边，永远不能左手握杆或双手握杆，没有方向盘。
 
+**飞行安全**（画面里必须成立）
+- 离地或离水约 20 米（60 英尺）以内。下方不能有云，不能和鸟一起飞，不做大坡度侧倾。
+- 降落时人离降落点至少 40 米，螺旋桨停了才能走近。孩子可以坐进去，但不能飞。
+- 在户外起飞，不从封闭的房间里飞出去。只在白天飞。
+
+**画面**
+- 任何地方都不出现 "05"。
+- 不用整屏橙色结尾卡。logo 放在干净的天空或空白处，不能压在人头上。
+
+**积分**
+- 即梦一律用**样片模式**（`seedance_2.5_draft`，480p，约 9 积分 / 秒）。用户在网页画布上把定剪用到的镜头直出 1080p，命令行工具没有这个入口。
+- 做图（约 8 积分 / 张）可以直接做。视频生成每次都要先报价，并在本轮预算内运行。
+- 以 `python3 tools/jm.py <状态文件> ledger` 为准。
+
+## 四、制作流程和确认关口
+
+**不能跳步骤。** 每个"✅ 用户确认"之前，不进入下一步。
+
+### 第 0 步 · 简报与参考
+- 先读 HANDOFF.md、ASSETS.md、`brand/refs/higgsfield-realism-workflow-notes.md`（Higgsfield「3-Step Workflow」笔记）。
+- 拉参考片：`bash tools/setup.sh` 装好工具后，运行 `$COOLFLY_TOOLS/venv/bin/python tools/ref_analyze.py 参考片.mp4 输出目录/`。
+  - 标杆是 CoolFly 自己的元际片（`brand/refs/yuanji.mp4`）：60 秒 44 个镜头，中位镜头长 1.25 秒，没有一个镜头重复。
+  - 云端下载不了 YouTube 和 Vimeo，不要尝试绕过。请用户自己下载，选 480p，拖到画布上或放进 `brand/refs/`。
+- 出 3–8 个创意方向。每个写清：一句话、洞察、怎么展开、为什么能做出冲击力和代入感、一致性风险，并给出推荐。
+- ✅ **用户选方向。**
+
+### 第 1 步 · 资产（Higgsfield 第一步）：先做资产，逐个确认
+1. **飞行器和座舱道具图：**
+   - 用 `brand/models/dream.glb` 渲染（three.js，参考 `film02/refs-glb/studio.js`）：俯视、左侧视、右侧视、驾驶位视角。
+   - 标明右侧操纵杆、扶手、座椅、安全带的位置。
+   - 加上真实产品照（`brand/refs/45°侧视外观特写.png`）和白底参考图，拼成一张道具三视图。
+   - ✅ **用户确认。**
+2. **人物定妆：** 每个角色出一张三联定妆照（16:9）：
+   - 左：正面头肩，人脸只出现在这一格；
+   - 中：正面全身，从脖子以下裁切；
+   - 右：背面全身，和中间同比例、同地平线；
+   - 中灰无缝背景、柔光、真实皮肤毛孔，不磨皮。
+   - 驾驶员另出一张**坐进座舱的定妆照**（以第 1 项的座舱图为参考）：右手握右侧杆，左手放扶手，坐得低。
+   - ✅ **用户确认。**
+3. **场景布局图：** 每个地点一张，按动作设计布局：
+   - 3/4 视角，前景、中景、背景分明；
+   - 写死太阳方位、地标、飞行路线和机位；
+   - 复杂站位另画一张俯视示意图，用百分比坐标标位置。
+   - ✅ **用户确认。**
+4. 确认后的资产登记进 ASSETS.md（文件路径、画布节点 ID、用途）。
+
+### 第 2 步 · 连贯性设定 + 分镜
+- **连贯性设定（continuity bible）：** 太阳方位、飞行方向（例如全程从左往右）、服装、道具位置、高度、时间推进。每条提示词都原样附上。
+- 分镜图每个镜头一张，**只能引用已确认的资产**。
+- 画完逐张对照连贯性设定检查，不合格的先重画，再给用户：
+  - 杆的位置和握杆的手；
+  - 服装、发型；
+  - 飞行器结构；
+  - 太阳方向、飞行方向；
+  - 高度和云；
+  - 人与飞行器的距离；
+  - 地面和场景对不对。
+- ✅ **用户确认分镜。**
+
+### 第 3 步 · 动态分镜（animatic）
+- 用分镜图卡临时配乐，剪成和成片等长的动态分镜：静态图加推拉摇移，标出分镜号和时间。
+- 临时配乐用代码合成，节奏点按镜头表精确设置（见第七节）。也可以用用户提供的参考曲（只在内部用）。
+- 质检：节奏点误差在一帧以内，响度 −14 LUFS，真峰值 ≤ −1 dBTP。
+- ✅ **用户确认节奏和叙事。** 这一步不花视频积分。
+
+### 第 4 步 · 生成视频（Higgsfield 第二步）
+- **一次生成就是一场完整的戏（约 15 秒）。** 镜头内的运镜和转场写进提示词，用 `higgsfield-timed-prompts` skill 的结构：一句话总述、CAST、道具规则、各地点布局、LOOK、带时间码的 SHOTS、SOUND、CONTINUITY。
+- 每条提示词都完整重复人物、服装、座舱规则，不依赖上一条。
+- 场与场之间的衔接：用上一场的最后一帧作为下一场的首帧，或者用动作驱动的匹配切。
+- 运镜：
+  - 即梦的运镜预设（迎面跟拍、侧面跟拍、镜头左移/右移/上移/下移、急速推进/后移、FPV 穿越机、一镜到底）**只能在网页上设置**。由 Claude 建好节点，告诉用户每个节点选哪个预设，用户在网页上点选并运行。设过运镜的节点不能再用命令行改。
+  - Seedance 2.5 的全能参考模式（m2v）最多可以挂 10 段参考视频，可以用参考视频来指定运镜。
+- 先跑一场测试，逐帧检查合格后再跑其余各场。
+- 每次先报价。✅ **用户确认后才运行。**
+
+### 第 5 步 · 剪辑
+- 剪辑脚本参考 `film02/v10/build_cut_v102.py`。镜头表格式：`(开始, 结束, 素材, 入点, 速度, 内容标签)`。
+- **出片前必须通过 `tools/edl_check.check(SHOTS, DUR)`**：同一段画面不能用两次，同一内容只出现一次，相邻镜头不能来自同一段素材，镜头不短于 0.4 秒。
+- 剪辑的节奏点卡音乐的真实重拍。对不上时移动音乐，不移动画面。
+- 渲染后出逐镜头缩略图自查：画面重复、相邻镜头的衔接（方向、光线、服装）、瑕疵、字幕、logo 位置。
+- ✅ **用户定剪。**
+
+### 第 6 步 · 音乐、声音、终版
+- 定剪后：
+  - 最终音乐用正版授权曲（Artlist、Musicbed 等允许剪辑的曲库），由用户购买，Claude 按画面剪辑；
+  - 音效；
+  - 混音：两遍响度标准化到 −14 LUFS，加限幅器，真峰值 ≤ −1 dBTP。
+- 用户在网页上把定剪用到的样片直出 1080p，Claude 替换素材并重新合成。
+- 再出 30 秒、15 秒版本和竖版（需要的话）。
+
+## 五、即梦画布工具要点
+
+- **安装：** `curl -fsSL https://jimeng.jianying.com/canvas-cli/install.sh | bash`，先读脚本再运行。
+- **登录：** `auth login --force` 拿到授权链接 → 发给用户 → `auth wait --device-code <code>`。登录约一天后过期。
+- **每部片单独建画布和状态文件**（`filmNN/jimeng-state.json`，含账本）。命令：`tools/jm.py STATE upload|img|vid|music|quote|run|wait|ledger`。
+- **提示词里引用节点：** `jm.py` 本身不会转换 `@名字`。用 `film03/prompts/board.py` 里的 `resolve()`：它把 `@名字` 换成 `{{node:ID}}`，并把这些节点加进参考。
+- 一次报价或运行最多约 10 个节点，多了会被拒（service.2），要分批。
+- 上传报 `upload_state_unknown`：用同一个 resource id 重试。
+- 下载超过约 15 MB 会被拒（`download_too_large`）。参考片请用户传 480p 版本。
+- Seed Music 下载下来的是 MP3，后缀却是 `.wav`。它也不按提示词里的时间点走。
+
+## 六、检查清单（每次交付前逐项过）
+
+- [ ] 飞行器 4 臂 8 桨、CoolFly 字样，结构和资产一致
+- [ ] 操纵杆在右侧、右手握杆、坐得低；不出现左手握杆、杆在左边、双手握杆、方向盘
+- [ ] 服装和发型与定妆照一致，没有混进别的角色的衣服
+- [ ] 太阳方向、飞行方向与连贯性设定一致
+- [ ] 高度在 20 米以内，没有云在下方，没有鸟
+- [ ] 降落时人在 40 米以外，桨停了才有人靠近
+- [ ] 没有 "05"，logo 不压人头
+- [ ] 没有重复镜头，edl_check 通过
+- [ ] 节奏点误差在一帧以内，−14 LUFS，≤ −1 dBTP，时长准确
+
+## 七、工具
+
+| 工具 | 用途 |
+|---|---|
+| `tools/setup.sh` | 新容器的工具环境：yt-dlp、场景检测、OpenCV、Kokoro 配音、Whisper，装在 `/tmp/coolfly-tools` |
+| `tools/ref_analyze.py` | 拉片：镜头表、节奏统计、缩略图、运镜初判 |
+| `tools/edl_check.py` | 镜头表检查（重复画面、重复内容、相邻同素材） |
+| `tools/vo.py` | 临时英文配音，带 Whisper 回听逐字校对 |
+| `tools/jm.py` | 即梦生成和积分账本 |
+| `film03/animatic.py` | 动态分镜和临时配乐的写法 |
+| higgsfield-motion skill 的 `music_window.py` | 测音乐结构、节奏点、各段电平 |
+| higgsfield-motion skill 的 `render_audio.mjs` + `score.html` | 代码合成临时配乐，节奏点可精确设定。云端运行时设 `HFT_BROWSER=/tmp/coolfly-tools/chrome`；这是一个加了 `--no-sandbox` 的 Chromium 包装脚本，`setup.sh` 之后要手动创建一次 |
+| `.claude/skills/higgsfield-timed-prompts` | 写带时间码的视频提示词 |
+| `.claude/skills/asset-discovery` | 检索免版权素材（Openverse、Mixkit 可用） |
+
+## 八、教训（每条都让我们多返工了一轮）
+
+- **v01–v03：** 4 秒单动作片段拼接，再在后期加特效，显得假。应该一次生成一场戏，运镜写在提示词里。
+- **film02 v10.1：** 47 刀只用了 17 段素材，同一段画面出现两次，用户说"大量的重复镜头"。
+- **film02 v10.2：** 用现成素材拼接，节奏做出来了，但画面不连贯：人物和场景对不上，飞行方向、光线乱。Claude 靠缩略图判断不了镜头之间的衔接。**结论：衔接必须在生成时设计好，不能靠事后拼接。**
+- **film03 v1 / v2：** 跳过了资产这一步，直接从一张人物图画了 35 张分镜，结果：
+  - 杆跑到左边、左手去握右侧的杆；
+  - 衣服照搬了别的参考图；
+  - 沙滩上的影子成了客机的形状。
+  
+  而且 3D 模型和真实产品照都没用。**结论：第 1 步的资产必须做齐、逐个确认后，才能画分镜。**
+- 其他用户指出过的问题，不要再犯：
+  - 头盔凭空出现；
+  - 空机降落；
+  - 没有意义的"吹气"动作；
+  - 机身发光；
+  - 从房间里飞出去；
+  - logo 压在人头上；
+  - 飞得太高、有云、有鸟；
+  - 家人离降落点太近。
+- **对话太长时早期约定会被遗忘：** 每次开工都从这份文件和 HANDOFF.md 开始，不要凭记忆。
