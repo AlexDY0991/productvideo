@@ -29,7 +29,7 @@
 
 | 资产 | 位置 | 状态 |
 |---|---|---|
-| **Ethan 定妆（film03 主角，step 1.2）**：日常装三联 `film03/cast/PA1.png`（PA1 node_ndd183m8z0）、飞行装三联 `PF4.png`（PF4 node_9zrfqnzvb3）、坐姿 `PS5.png`（PS5 node_5pwp3avpr4）、背心设计 `VD1.png`（VD1 node_sk4ate0ckd）、总图 `film03/cast/CAST_ethan_sheet.jpg`；提示词 `film03/prompts/cast.py`；背心 logo 参考 `brand/coolfly-logo-reverse.jpg`（画布 ref_logo_rev） | 看起来 40 岁的美国男性，精干，深棕短发、鬓角灰白、短胡茬，创业者气质（用户定：贴近核心买家，不点明是否前飞行员）。日常：炭灰美丽诺圆领毛衣、深靛蓝直筒牛仔裤、棕褐麂皮沙漠靴、左腕钢壳飞行员计时表（棕皮表带），无标志。飞行（v4，用户定）：CoolFly 公司自己的网眼飞行员马甲（原版 `brand/refs/ref-coolfly-mesh-vest.jpg`，无气囊），改得更帅：哑光黑肩部/下摆/袋盖、石墨灰网眼、细橙色滚边，左胸小 logo、背后肩部大 logo。v1 摩托气囊背心、v3 充气救生背心（PF1–3、PS1–4）弃用。哑光白开放式头盔+透明翻盖面罩，黑色皮手套。坐姿：3D 底图 + 身份参考编辑，腿在座舱内，四点式安全带。PF2 中格露出一点嘴和下巴 | 人物和日常装 ✅ 用户确认（2026-10-30）；飞行装 v4 🟡 待确认 |
+| **Ethan 定妆（film03 主角，step 1.2）**：日常装三联 `film03/cast/PA1.png`（PA1 node_ndd183m8z0）、飞行装三联 `PF4.png`（PF4 node_9zrfqnzvb3）、坐姿 `PS5.png`（PS5 node_5pwp3avpr4）、背心设计 `VD1.png`（VD1 node_sk4ate0ckd）、总图 `film03/cast/CAST_ethan_sheet.jpg`；提示词 `film03/prompts/cast.py`；背心 logo 参考 `brand/coolfly-logo-reverse.jpg`（画布 ref_logo_rev） | 看起来 40 岁的美国男性，精干，深棕短发、鬓角灰白、短胡茬，创业者气质（用户定：贴近核心买家，不点明是否前飞行员）。日常：炭灰美丽诺圆领毛衣、深靛蓝直筒牛仔裤、棕褐麂皮沙漠靴、左腕钢壳飞行员计时表（棕皮表带），无标志。飞行（v4，用户定）：CoolFly 公司自己的网眼飞行员马甲（原版 `brand/refs/ref-coolfly-mesh-vest.jpg`，无气囊），改得更帅：哑光黑肩部/下摆/袋盖、石墨灰网眼、细橙色滚边，左胸小 logo、背后肩部大 logo。v1 摩托气囊背心、v3 充气救生背心（PF1–3、PS1–4）弃用。哑光白开放式头盔+透明翻盖面罩，黑色皮手套。坐姿：3D 底图 + 身份参考编辑，腿在座舱内，四点式安全带。PF2 中格露出一点嘴和下巴 | 人物、日常装、飞行装 v4 ✅ 用户确认（2026-10-31） |
 | Maya（34 岁女驾驶员，`film03/cast/MA1.png`、`MS3.png`、`CAST_maya_sheet.jpg`） | 用户认为不贴近核心买家，MS3 座舱前端被生成模型改开了 | ⚠️ 已弃用 |
 | Maya（film03 v2 旧版，女驾驶员，34 岁，深金色低马尾，雀斑，橄榄绿飞行夹克、灰色连帽衫、黑裤、棕色短靴、白色头盔配彩虹色面罩） | `film03/board/char_maya.jpg`，film03 画布 `char_maya`（node_87mf3kbv9p） | 🟡 只有一张四格定妆图，**不符合 Higgsfield 三联规格**，要重做 |
 | Ray（film03 教练，50 多岁） | `film03/board/char_ray.jpg`，`char_ray`（node_0thhvst771） | 🟡 |
@@ -44,6 +44,12 @@
 | 莫哈韦干湖床起降点（日出、皮卡在左边 60 米处、起降垫） | `film03/board/loc_base.jpg`，`loc_base`（node_2nrw0x9ke0） | 🟡 |
 | 加州海岸、牧场、崖顶野餐 | `film02/v10/refs/TapNow_1792736792136…`（海岸）、`…1792569384099…`（牧场）、`…1793002601242…`（野餐） | ✅ film02 用户做的 |
 | 更早的场景图 | `film02/assets/loc_*.png`（机库、海岸、起降台、车库、早餐） | ⚠️ 旧版 |
+| **film03 场景布局（step 1.3）**：提示词 `film03/prompts/locs.py`，标注脚本 `film03/locs/annotate.py`，总览 `film03/locs/LOC_all.jpg`。连贯性：全程从左往右（向西），太阳在画面左侧（东），≤ 20 m | | |
+| **L1 莫哈韦干湖床·日出·起飞点（8 m 起降垫，皮卡在左侧 60 m）** | `film03/locs/L1.png`（画布 node_azjvdsv3m2），标注图 `film03/locs/LOC_L1.jpg` | 🟡 待用户确认 |
+| **L2 红岩峡谷河道（河宽约 80 m，崖高约 50 m，贴水 8 m 飞）** | `film03/locs/L2.png`（画布 node_z6wfrq044s），标注图 `film03/locs/LOC_L2.jpg` | 🟡 待用户确认 |
+| **L3 高山湖+松林（镜面湖，贴水 3–5 m）** | `film03/locs/L3.png`（画布 node_m07tb19rgb），标注图 `film03/locs/LOC_L3.jpg` | 🟡 待用户确认 |
+| **L4 金色麦田丘陵（孤橡树做地标，贴麦浪约 3 m）** | `film03/locs/L4.png`（画布 node_m12s433nbr），标注图 `film03/locs/LOC_L4.jpg` | 🟡 待用户确认 |
+| **L5 太平洋海岸·崖顶草地·降落点（镜头朝南，陆地在左、海在右）** | `film03/locs/L5.png`（画布 node_s3wvp4n9af），标注图 `film03/locs/LOC_L5.jpg` | 🟡 待用户确认 |
 | film03 v2 的五种地貌 | 只在分镜图 `film03/board/C*.jpg` 里出现过：干湖床、红岩峡谷、高山湖、麦田、海岸 | ⚠️ 没有单独的场景布局图，要按 Higgsfield 第一步重做 |
 
 ## 4. 分镜和动态分镜（只作参考，不直接沿用）

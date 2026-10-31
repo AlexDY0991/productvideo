@@ -1,0 +1,61 @@
+#!/usr/bin/env python3
+"""film03 step 1.3 · location layout plates (Higgsfield step 1: scenes laid out for the action).
+
+Usage: python3 film03/prompts/locs.py [create|run|wait] [KEY ...]
+One empty plate per location (no aircraft, no people except where noted): 3/4 elevated view, clear foreground / midground /
+background, room left for the action. Flight path, camera positions and sun are drawn on afterwards by film03/locs/annotate.py.
+
+Continuity bible (applies to every plate and every later prompt):
+  - one morning, flying WEST: on screen the aircraft always travels LEFT → RIGHT;
+  - the sun is in the EAST = low, behind-left of frame; it climbs from sunrise (L1) to mid-morning (L5);
+  - clear sky, no cloud below the horizon, no birds; flight within ~20 m of ground or water.
+"""
+import subprocess, sys
+
+S = 'film03/jimeng-state.json'
+LOOK = ('Photoreal landscape location photograph for a premium commercial, 16:9, shot from a drone about 25 m up in a 3/4 view, '
+        '24 mm lens, deep focus, natural light only, rich but true colour, fine detail, no people, no vehicles unless named, '
+        'no aircraft, no birds, no text, no watermark.')
+SUN = 'The sun is low on the LEFT, behind the camera-left side, casting long shadows toward the right and slightly toward the camera.'
+
+L = {
+ 'L1': ('Location 1 · Mojave dry lake bed at sunrise, the take-off site. Vast flat white cracked clay lake bed. FOREGROUND right of centre: '
+        'a single square dark-grey rubber landing mat about 8 m wide lying on the clay, empty. MIDGROUND far LEFT, about 60 m from the mat: '
+        'a white pickup truck parked side-on, small in frame. The lake bed runs open and empty to the RIGHT for kilometres (the flight '
+        'direction). BACKGROUND: low brown-violet desert mountains along the horizon. Sky clear, pink-amber glow at the horizon on the left '
+        f'where the sun has just risen. {SUN}'),
+ 'L2': ('Location 2 · Red-rock sandstone canyon with a river, seen ACROSS the canyon from the near rim. The canyon runs straight '
+        'ACROSS the frame from LEFT to RIGHT, about 80 m wide between sheer red and orange sandstone walls about 50 m high. A calm '
+        'emerald-green river fills the canyon floor and runs from the LEFT edge of frame to the RIGHT edge, with open air above the water '
+        'for low flight along it. FOREGROUND: the near rim edge, sunlit sandstone ledges at the bottom of frame. MIDGROUND: the river with a '
+        'narrow pale sandbar on the near bank. BACKGROUND: the far canyon wall and, above it, a distant flat-topped plateau. '
+        f'Early-morning light coming down the canyon from the LEFT. {SUN}'),
+ 'L3': ('Location 3 · High alpine lake in the Sierra Nevada, morning. A long glassy deep-blue lake stretching from LEFT to RIGHT across '
+        'the frame, mirror-still, reflecting the peaks. FOREGROUND: a granite shore with a few boulders and short grass at the bottom left. '
+        'MIDGROUND: the open water, wide and empty for low flight; the far shore lined with dark-green pines. BACKGROUND: grey granite '
+        f'peaks with small patches of old snow. Crisp clear air, a thin mist just lifting off the water on the left. {SUN}'),
+ 'L4': ('Location 4 · Rolling golden wheat fields, mid-morning. Endless gently rolling hills of ripe golden wheat, a single lone oak tree '
+        'on a crest in the MIDGROUND right as a landmark. FOREGROUND: wheat heads in sharp detail at the bottom of frame. A faint farm track '
+        'runs from LEFT to RIGHT along the valley floor, the flight line. BACKGROUND: soft blue hills at the horizon, a wide pale-blue sky. '
+        f'Warm backlit glow on the wheat. {SUN}'),
+ 'L5': ('Location 5 · Pacific coast, Big Sur style, mid-morning, the landing site. Camera looks SOUTH along the coast: the land and '
+        'the coastal hills are on the LEFT, the ocean on the RIGHT. FOREGROUND left: a flat green-gold grassy clifftop meadow about 40 m above '
+        'the sea, open and empty, a large flat landing area; no fence, no people. MIDGROUND: below the cliff a long sandy beach with white '
+        'surf, running from the foreground into the distance; the flight line crosses from the clifftop on the LEFT out over the beach and '
+        'the surf toward the RIGHT. BACKGROUND: rugged headlands stepping away into the distance on the left, the deep-blue Pacific on the '
+        'right to a sharp horizon. The morning sun is LOW over the hills on the LEFT (east), lighting the sea and the beach from the left; '
+        'NO sun and NO sun glitter over the ocean on the right. Sky clear.'),
+}
+
+if __name__ == '__main__':
+    act, keys = (sys.argv[1] if len(sys.argv) > 1 else 'create'), (sys.argv[2:] or list(L))
+    if act == 'create':
+        for k in keys:
+            cmd = ['python3', 'tools/jm.py', S, 'img', k, '--title', f'location {k}', '--prompt', f'{L[k]} {LOOK}', '--model', 'seedream_5.0_pro']
+            for attempt in range(3):
+                if subprocess.run(cmd).returncode == 0:
+                    break
+    elif act == 'run':
+        subprocess.run(['python3', 'tools/jm.py', S, 'run'] + keys, input='y\n' * 5, text=True)
+    elif act == 'wait':
+        subprocess.run(['python3', 'tools/jm.py', S, 'wait', 'film03/locs'] + keys)

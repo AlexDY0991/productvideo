@@ -828,6 +828,51 @@
    "submitted": true,
    "resourceId": "cb4106cd-bbc0-4c9f-97d3-efbcf54201f4",
    "result": "film03/cast/PS5.png"
+  },
+  "L1": {
+   "updateId": "605ffd25-af7b-40da-b7b2-a69129523f8c",
+   "nodeId": "node_azjvdsv3m2",
+   "title": "location L1",
+   "submitId": "82933089-2567-4088-9296-7f3b903c6022",
+   "submitted": true,
+   "resourceId": "d53b9df5-b100-42ef-8ce7-93b04a3133d1",
+   "result": "film03/locs/L1.png"
+  },
+  "L2": {
+   "updateId": "b138531b-4377-4829-8645-2f5ece1646e5",
+   "nodeId": "node_z6wfrq044s",
+   "title": "location L2",
+   "result": "film03/locs/L2.png",
+   "submitId": "0aa6fdc4-102f-43cf-89d8-b438ef68d445",
+   "submitted": true,
+   "resourceId": "a4ab0716-ccb5-4d40-8ead-ddafddfcc37d"
+  },
+  "L3": {
+   "updateId": "e1341ff5-2503-42fd-bc27-be0a01a4e9a0",
+   "nodeId": "node_m07tb19rgb",
+   "title": "location L3",
+   "submitId": "b1d11251-b296-4169-b3f1-67e4552baf9e",
+   "submitted": true,
+   "resourceId": "540ee20f-23a3-4ac9-97c2-a41da034a1d8",
+   "result": "film03/locs/L3.png"
+  },
+  "L4": {
+   "updateId": "8a16f6c9-88b8-4b5e-904e-f9535bc6f16a",
+   "nodeId": "node_m12s433nbr",
+   "title": "location L4",
+   "submitId": "0ae163dd-6d6a-46f7-a130-45b5183e5f66",
+   "submitted": true,
+   "resourceId": "d486a1f2-82e7-4b64-a9a0-73439616c2d2",
+   "result": "film03/locs/L4.png"
+  },
+  "L5": {
+   "updateId": "776bb4e2-012f-4245-b782-48f2db945a87",
+   "nodeId": "node_s3wvp4n9af",
+   "title": "location L5",
+   "result": "film03/locs/L5.png",
+   "submitId": "d5f037bf-66dc-4131-a01e-207f00366e86",
+   "submitted": true,
+   "resourceId": "9b09f235-500f-4de1-b6ee-ba923f99b4cb"
   }
  },
  "ledger": {
@@ -1384,6 +1429,48 @@
     "credits": 8,
     "submitId": "dbb24320-99a9-480a-8b37-0928ec382477",
     "at": "2026-10-31 10:02"
+   },
+   {
+    "key": "L1",
+    "credits": 8,
+    "submitId": "82933089-2567-4088-9296-7f3b903c6022",
+    "at": "2026-10-31 10:21"
+   },
+   {
+    "key": "L2",
+    "credits": 8,
+    "submitId": "033771b9-f053-4d84-a27d-8e1750258348",
+    "at": "2026-10-31 10:21"
+   },
+   {
+    "key": "L3",
+    "credits": 8,
+    "submitId": "b1d11251-b296-4169-b3f1-67e4552baf9e",
+    "at": "2026-10-31 10:21"
+   },
+   {
+    "key": "L4",
+    "credits": 8,
+    "submitId": "0ae163dd-6d6a-46f7-a130-45b5183e5f66",
+    "at": "2026-10-31 10:21"
+   },
+   {
+    "key": "L5",
+    "credits": 8,
+    "submitId": "5a299a4d-606b-49b8-8e92-23f413aab7d2",
+    "at": "2026-10-31 10:21"
+   },
+   {
+    "key": "L2",
+    "credits": 8,
+    "submitId": "0aa6fdc4-102f-43cf-89d8-b438ef68d445",
+    "at": "2026-10-31 10:23"
+   },
+   {
+    "key": "L5",
+    "credits": 8,
+    "submitId": "d5f037bf-66dc-4131-a01e-207f00366e86",
+    "at": "2026-10-31 10:23"
    }
   ]
  }
