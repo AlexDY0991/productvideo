@@ -49,6 +49,15 @@ L = {
 
 # edits of confirmed plates (key: (refs, prompt))
 E = {
+ 'L1low': (['L1'], 'Background plate for compositing, same place and light as @L1: the Mojave dry lake at sunrise seen from a LOW '
+         'camera 1 m above the clay, 24 mm. Flat white cracked clay filling the lower half, a dark square landing mat on the clay '
+         'right of centre in the middle distance, the small white pickup truck far away on the left, low brown-violet mountains on the '
+         'horizon, the sun just above the horizon on the LEFT with a soft warm flare, long shadows toward the right. Empty: no aircraft, '
+         'no people, no birds. Photoreal, 16:9, no text.'),
+ 'L1pov': (['L1'], 'Background plate for compositing, same place as @L1: the Mojave dry lake in early-morning light, seen looking WEST '
+         'from 3 m above the clay, 24 mm, the sun BEHIND the camera (not in frame): flat white cracked clay streaking toward a far horizon '
+         'of low brown-violet mountains, clear blue sky with a warm haze low down, the light falling from behind. Empty: no aircraft, no '
+         'people, no truck, no birds. Photoreal, 16:9, no text.'),
  'L5B': (['L5', 'L1'], 'Precise edit of @L5. Keep everything exactly the same: camera, framing, light, the clifftop meadow, the beach, the '
          'surf, the headlands and the ocean. One addition only: the same white pickup truck as in @L1, parked side-on on a small dirt '
          'pull-off at the far back-left edge of the clifftop meadow, next to the hillside, at least 60 m from the open landing area in the '

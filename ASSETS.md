@@ -64,7 +64,7 @@
 
 | 资产 | 位置 | 状态 |
 |---|---|---|
-| S1 湖床分镜 D01–D10 | `film03/board3/BOARD_S1.jpg`；单张 `film03/board3/D*.png`（修正版带 b 后缀：D02b 去掉背景飞机、D08b 牛仔裤+太阳在身后、D09b 气囊改回多面体、D10b 面罩放下）；提示词 `film03/prompts/board3.py`；3D 底图 `film03/board3/plates/d06、d09` | 🟡 待用户确认 |
+| S1 湖床分镜 D01–D10 | `film03/board3/BOARD_S1.jpg`；单张 `film03/board3/D01–D10.png`（D02 用 D02b）。**飞行器用 3D 渲染像素锁定**：机位 `film03/board3/plates.json` → 渲染（`film03/assets/glb/probe.mjs`，含人体占位模型）→ `composite.py` 合背景 → 图片模型只把灰色占位人换成 Ethan → `finish.py --layered` 把 3D 飞行器盖回、人放回、前方部件再盖上；`check.py` 做边缘核对。旧版保留为 `*-v1.png`、`*b.png`、`*c.png`、`*m.png` | 🟡 待用户确认 |
 
 ## 5. 视频素材
 

@@ -7,7 +7,7 @@ import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 
 const W = 1920, H = 1080;
-const r = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+const r = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true, alpha: true });
 r.setSize(W, H);
 r.toneMapping = THREE.ACESFilmicToneMapping; r.toneMappingExposure = 1.05; r.outputColorSpace = THREE.SRGBColorSpace;
 r.shadowMap.enabled = true; r.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -120,13 +120,70 @@ put(new THREE.SphereGeometry(0.05, 24, 16, 0, Math.PI * 2, 0, Math.PI / 2), new 
 g.position.y = LIFT;
 g.updateMatrixWorld(true); box = new THREE.Box3().setFromObject(g);
 
+// ── seated-pilot proxy for storyboard plates (g coords = model coords before the skid lift) ──
+// Pose per the confirmed cast sheet: low and reclined, head at the headrest, RIGHT hand on the right side-stick (-x),
+// LEFT hand on the left armrest panel (+x), legs forward into the footwell. 'mannequin' draws it matte grey for the image
+// model to replace; 'hole' writes depth only, so the aircraft render gets a transparent hole wherever the pilot is in front.
+const pilot = new THREE.Group(); pilot.visible = false; g.add(pilot);
+const manMat = new THREE.MeshStandardMaterial({ color: 0x9a9a9a, roughness: 0.9 });
+const holeMat = new THREE.MeshBasicMaterial({ colorWrite: false });
+const V3 = (a) => new THREE.Vector3(...a);
+const limb = (a, b, r, part) => {
+  const A = V3(a), B = V3(b), len = A.distanceTo(B);
+  const m = new THREE.Mesh(new THREE.CapsuleGeometry(r, len, 6, 14), manMat);
+  m.position.copy(A).add(B).multiplyScalar(0.5);
+  m.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), B.clone().sub(A).normalize());
+  m.userData.part = part; pilot.add(m); return m;
+};
+const ball = (c, r, part) => { const m = new THREE.Mesh(new THREE.SphereGeometry(r, 20, 14), manMat); m.position.set(...c); m.userData.part = part; pilot.add(m); };
+ball([0, 1.56, -0.86], 0.16, 'head');                                   // helmet
+limb([0, 0.80, -0.42], [0, 1.30, -0.78], 0.19, 'torso');                // reclined torso
+limb([-0.20, 1.30, -0.74], [0.20, 1.30, -0.74], 0.08, 'torso');          // shoulders
+for (const sx of [-0.12, 0.12]) {
+  limb([sx, 0.74, -0.30], [sx, 0.98, 0.28], 0.085, 'legs');             // thighs up to the knees
+  limb([sx, 0.98, 0.28], [sx, 0.48, 0.86], 0.065, 'legs');              // shins down into the footwell
+}
+limb([-0.22, 1.28, -0.72], [-0.38, 1.04, -0.28], 0.06, 'arms');          // right upper arm
+limb([-0.38, 1.04, -0.28], [-0.51, 1.10, 0.30], 0.055, 'arms');          // right forearm to the stick grip
+ball([-0.51, 1.12, 0.33], 0.065, 'hands');                              // right hand on the stick
+limb([0.22, 1.28, -0.72], [0.40, 1.00, -0.25], 0.06, 'arms');            // left upper arm
+limb([0.40, 1.00, -0.25], [0.55, 0.99, 0.40], 0.055, 'arms');            // left forearm along the armrest
+ball([0.55, 0.99, 0.45], 0.065, 'hands');                               // left hand on the panel
+for (const sx of [-0.12, 0.12]) {                                       // boots at the bottom of the footwell
+  const b = new THREE.Mesh(new THREE.BoxGeometry(0.11, 0.12, 0.26), manMat); b.position.set(sx, 0.46, 0.95); b.userData.part = 'boots'; pilot.add(b);
+}
+// 'dressed' colours for first-person plates: the image model reads them as sleeves, gloves, jeans and boots, not as a person facing it
+const dress = { arms: 0x2c2c30, hands: 0x101012, legs: 0x2b3a5c, boots: 0x9a6a3c, torso: 0x2c2c30, head: 0xeeeeee };
+const dressMats = Object.fromEntries(Object.entries(dress).map(([k, c]) => [k, new THREE.MeshStandardMaterial({ color: c, roughness: 0.85 })]));
+window.pilot = (mode, parts, scale = 1) => {
+  // scale about the pilot's middle (hips/chest) so a 'fat' proxy covers a generated person who came out a little bigger
+  const c = new THREE.Vector3(0, 1.05, -0.35);
+  pilot.scale.setScalar(scale); pilot.position.copy(c).multiplyScalar(1 - scale);
+  pilot.visible = mode === 'mannequin' || mode === 'hole' || mode === 'dressed';
+  pilot.children.forEach((m) => {
+    m.visible = !parts || parts.includes(m.userData.part);
+    m.material = mode === 'hole' ? holeMat : mode === 'dressed' ? dressMats[m.userData.part] : manMat;
+    m.renderOrder = mode === 'hole' ? -1 : 0;   // depth-only proxy must be drawn before the aircraft
+  });
+  return pilot.children.filter((m) => m.visible).length;
+};
+
 const cam = new THREE.PerspectiveCamera(30, W / H, 0.02, 200);
 const ray = new THREE.Raycaster();
 const tinted = new Map();
 
 window.info = () => ({ min: box.min.toArray(), max: box.max.toArray() });
+// low warm sun for storyboard plates (off by default so the confirmed prop renders stay unchanged)
+const sun = new THREE.DirectionalLight(0xffd9a8, 0); sun.castShadow = true; sun.shadow.mapSize.set(2048, 2048);
+Object.assign(sun.shadow.camera, { left: -6, right: 6, top: 6, bottom: -6, near: 0.5, far: 60 }); scene.add(sun);
+window.png = () => r.domElement.toDataURL('image/png');
 window.shot = (v) => {
-  scene.background = new THREE.Color(v.bg ?? 0x5c5c5e);
+  scene.background = v.transparent ? null : new THREE.Color(v.bg ?? 0x5c5c5e);
+  r.setClearColor(0x000000, v.transparent ? 0 : 1);
+  window.pilot(v.pilot ?? 'off', v.parts, v.pscale ?? 1); g.position.y = LIFT + (v.hover ?? 0); g.updateMatrixWorld(true);   // hover: aircraft above the floor/shadow plane
+  sun.intensity = v.sun ? (v.sunI ?? 3.2) : 0;
+  if (v.sun) sun.position.set(...v.sun);
+  key.intensity = v.sun ? 300 : 900; scene.environmentIntensity = v.sun ? 0.45 : 0.7;
   floor.visible = v.floor !== false;
   cam.fov = v.fov ?? 30; cam.updateProjectionMatrix();
   cam.position.set(...v.pos); cam.up.set(...(v.up ?? [0, 1, 0])); cam.lookAt(new THREE.Vector3(...v.target));

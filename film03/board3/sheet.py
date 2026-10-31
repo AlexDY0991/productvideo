@@ -15,9 +15,9 @@ FRAMES = {
    ('D05', 'D05', '5.0–6.0', 'Green motor LED on, coaxial props spin up', 'Macro · motors start'),
    ('D06', 'D06', '6.0–8.0', 'Lift-off: dust ring, sun on the left horizon, pickup 60 m away', 'L1 cam 1 · push · rising tone'),
    ('D07', 'D07', '8.0–9.0', 'RIGHT hand pushes the RIGHT side-stick forward', 'Snap push'),
-   ('D08', 'D08b', '9.0–11.0', 'BEAT. POV skimming the clay, shadow ahead right', 'L1 cam 3 · forward rush · hit'),
-   ('D09', 'D09b', '11.0–12.5', 'FPV chase from low behind, travelling right', 'L1 cam 2 · follow'),
-   ('D10', 'D10b', '12.5–14.0', 'Wide grin behind the clear visor', 'CU · out: hand match cut → S2'),
+   ('D08', 'D08', '9.0–11.0', 'BEAT. POV skimming the clay at full speed', 'L1 cam 3 · forward rush · hit'),
+   ('D09', 'D09', '11.0–12.5', 'FPV chase from low behind, dust kicked up', 'L1 cam 2 · follow'),
+   ('D10', 'D10', '12.5–14.0', 'Wide grin behind the clear visor', 'CU · out: hand match cut → S2'),
  ]),
 }
 

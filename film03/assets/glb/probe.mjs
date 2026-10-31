@@ -9,7 +9,13 @@ await p.waitForFunction(() => window.__ready === true, null, { timeout: 180000 }
 console.log(JSON.stringify(await p.evaluate(() => window.info())));
 const cmds = JSON.parse(process.argv[2] || '[]');
 for (const c of cmds) {
-  if (c.shot) { await p.evaluate((v) => window.shot(v), c.shot); if (c.out) await p.screenshot({ path: c.out }); }
+  if (c.shot) {
+    await p.evaluate((v) => window.shot(v), c.shot);
+    if (c.out && c.shot.transparent) {   // keep alpha: read the canvas, not a page screenshot
+      const url = await p.evaluate(() => window.png());
+      (await import('fs')).writeFileSync(c.out, Buffer.from(url.split(',')[1], 'base64'));
+    } else if (c.out) await p.screenshot({ path: c.out });
+  }
   if (c.pick) console.log('pick', JSON.stringify(c.pick), JSON.stringify(await p.evaluate(([x, y]) => window.pick(x, y), c.pick)));
   if (c.within) console.log('within', JSON.stringify(await p.evaluate(([a, z]) => window.within(a, z), c.within)));
   if (c.tint) console.log('tint', await p.evaluate(([n, h]) => window.tint(n, h), c.tint));
