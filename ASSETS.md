@@ -45,11 +45,11 @@
 | 加州海岸、牧场、崖顶野餐 | `film02/v10/refs/TapNow_1792736792136…`（海岸）、`…1792569384099…`（牧场）、`…1793002601242…`（野餐） | ✅ film02 用户做的 |
 | 更早的场景图 | `film02/assets/loc_*.png`（机库、海岸、起降台、车库、早餐） | ⚠️ 旧版 |
 | **film03 场景布局（step 1.3）**：提示词 `film03/prompts/locs.py`，标注脚本 `film03/locs/annotate.py`，总览 `film03/locs/LOC_all.jpg`。连贯性：全程从左往右（向西），太阳在画面左侧（东），≤ 20 m | | |
-| **L1 莫哈韦干湖床·日出·起飞点（8 m 起降垫，皮卡在左侧 60 m）** | `film03/locs/L1.png`（画布 node_azjvdsv3m2），标注图 `film03/locs/LOC_L1.jpg` | 🟡 待用户确认 |
-| **L2 红岩峡谷河道（河宽约 80 m，崖高约 50 m，贴水 8 m 飞）** | `film03/locs/L2.png`（画布 node_z6wfrq044s），标注图 `film03/locs/LOC_L2.jpg` | 🟡 待用户确认 |
-| **L3 高山湖+松林（镜面湖，贴水 3–5 m）** | `film03/locs/L3.png`（画布 node_m07tb19rgb），标注图 `film03/locs/LOC_L3.jpg` | 🟡 待用户确认 |
-| **L4 金色麦田丘陵（孤橡树做地标，贴麦浪约 3 m）** | `film03/locs/L4.png`（画布 node_m12s433nbr），标注图 `film03/locs/LOC_L4.jpg` | 🟡 待用户确认 |
-| **L5 太平洋海岸·崖顶草地·降落点（镜头朝南，陆地在左、海在右）** | `film03/locs/L5.png`（画布 node_s3wvp4n9af），标注图 `film03/locs/LOC_L5.jpg` | 🟡 待用户确认 |
+| **L1 莫哈韦干湖床·日出·起飞点（8 m 起降垫，皮卡在左侧 60 m）** | `film03/locs/L1.png`（画布 node_azjvdsv3m2），标注图 `film03/locs/LOC_L1.jpg` | ✅ 用户确认（2026-10-31） |
+| **L2 红岩峡谷河道（河宽约 80 m，崖高约 50 m，贴水 8 m 飞）** | `film03/locs/L2.png`（画布 node_z6wfrq044s），标注图 `film03/locs/LOC_L2.jpg` | ✅ 用户确认（2026-10-31） |
+| **L3 高山湖+松林（镜面湖，贴水 3–5 m）** | `film03/locs/L3.png`（画布 node_m07tb19rgb），标注图 `film03/locs/LOC_L3.jpg` | ✅ 用户确认（2026-10-31） |
+| **L4 金色麦田丘陵（孤橡树做地标，贴麦浪约 3 m）** | `film03/locs/L4.png`（画布 node_m12s433nbr），标注图 `film03/locs/LOC_L4.jpg` | ✅ 用户确认（2026-10-31） |
+| **L5 太平洋海岸·崖顶草地·降落点（镜头朝南，陆地在左、海在右）** | `film03/locs/L5.png`（画布 node_s3wvp4n9af），标注图 `film03/locs/LOC_L5.jpg` | ✅ 用户确认（2026-10-31） |
 | film03 v2 的五种地貌 | 只在分镜图 `film03/board/C*.jpg` 里出现过：干湖床、红岩峡谷、高山湖、麦田、海岸 | ⚠️ 没有单独的场景布局图，要按 Higgsfield 第一步重做 |
 
 ## 4. 分镜和动态分镜（只作参考，不直接沿用）
