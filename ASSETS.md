@@ -60,6 +60,12 @@
 | film03 v2「OPEN SKY」：简报、35 张分镜、动态分镜 | `film03/BRIEF-v2-OpenSky.md`、`film03/board/C*.jpg`、`film03/out/OPENSKY-animatic-v2.mp4`。⚠️ 有一致性问题，见 skill 第八节 |
 | film03 创意方向（8 个） | `film03/CONCEPTS-v2.md` |
 
+## 4b. film03 v3 分镜（step 2）
+
+| 资产 | 位置 | 状态 |
+|---|---|---|
+| S1 湖床分镜 D01–D10 | `film03/board3/BOARD_S1.jpg`；单张 `film03/board3/D*.png`（修正版带 b 后缀：D02b 去掉背景飞机、D08b 牛仔裤+太阳在身后、D09b 气囊改回多面体、D10b 面罩放下）；提示词 `film03/prompts/board3.py`；3D 底图 `film03/board3/plates/d06、d09` | 🟡 待用户确认 |
+
 ## 5. 视频素材
 
 | 资产 | 位置 |
