@@ -5,6 +5,11 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { GTAOPass } from 'three/addons/postprocessing/GTAOPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
 
 const W = 1920, H = 1080;
 const r = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true, alpha: true });
@@ -177,17 +182,62 @@ window.info = () => ({ min: box.min.toArray(), max: box.max.toArray() });
 const sun = new THREE.DirectionalLight(0xffd9a8, 0); sun.castShadow = true; sun.shadow.mapSize.set(2048, 2048);
 Object.assign(sun.shadow.camera, { left: -6, right: 6, top: 6, bottom: -6, near: 0.5, far: 60 }); scene.add(sun);
 window.png = () => r.domElement.toDataURL('image/png');
+
+// ── 'real' look for storyboard plates: HDRI image-based light, physical materials, warm low sun, AO, 2x supersampling ──
+const roomEnv = scene.environment;
+let hdrEnv = null, composer = null, gtao = null;
+const realMats = {
+  paint: new THREE.MeshPhysicalMaterial({ color: 0xf3f2ee, roughness: 0.28, metalness: 0, clearcoat: 1, clearcoatRoughness: 0.08 }),
+  powder: new THREE.MeshPhysicalMaterial({ color: 0x18181a, roughness: 0.62, metalness: 0.15, clearcoat: 0.15, clearcoatRoughness: 0.6 }),
+  fabric: new THREE.MeshStandardMaterial({ color: 0x8a8a87, roughness: 1, metalness: 0 }),
+  strap: new THREE.MeshStandardMaterial({ color: 0x121213, roughness: 0.95 }),
+};
+const studioMat = new Map();
+src.traverse((o) => { if (o.isMesh) studioMat.set(o, o.material); });
+pro.traverse((o) => { if (o.isMesh) studioMat.set(o, o.material); });
+function applyReal(on) {
+  studioMat.forEach((m, o) => {
+    if (!on) { o.material = m; return; }
+    if (m === pearl || m === shellW) o.material = realMats.paint;
+    else if (m === cage || m === blk) o.material = realMats.powder;
+    else if (m === seatG) o.material = realMats.fabric;
+    else if (m === strap) o.material = realMats.strap;
+    else o.material = m;
+  });
+}
+window.loadHDR = async (url) => {
+  const tex = await new RGBELoader().loadAsync(url); tex.mapping = THREE.EquirectangularReflectionMapping;
+  hdrEnv = pm.fromEquirectangular(tex).texture; return true;
+};
+function realSetup(v) {
+  const on = !!v.real;
+  applyReal(on);
+  scene.environment = on && hdrEnv ? hdrEnv : roomEnv;
+  scene.environmentIntensity = on ? (v.envI ?? 0.9) : 0.7;
+  r.toneMappingExposure = on ? (v.exposure ?? 1.4) : 1.05;
+  if (scene.environmentRotation) scene.environmentRotation.y = on ? (v.envRot ?? 0) : 0;
+  [key, rimL, rimR, fill].forEach((l) => { l.visible = !on; });
+  r.setPixelRatio(on ? 2 : 1); r.setSize(W, H);
+  sun.shadow.radius = 6; sun.shadow.bias = -0.0004;
+  if (on && !composer) {
+    composer = new EffectComposer(r, new THREE.WebGLRenderTarget(W * 2, H * 2, { type: THREE.HalfFloatType, format: THREE.RGBAFormat, samples: 4 }));
+    composer.addPass(new RenderPass(scene, cam));
+    gtao = new GTAOPass(scene, cam, W * 2, H * 2); gtao.updateGtaoMaterial({ radius: 0.35, distanceFallOff: 1, thickness: 1, scale: 1.2 });
+    composer.addPass(gtao); composer.addPass(new OutputPass());
+  }
+  if (composer) composer.setSize(W, H);
+}
 window.shot = (v) => {
   scene.background = v.transparent ? null : new THREE.Color(v.bg ?? 0x5c5c5e);
   r.setClearColor(0x000000, v.transparent ? 0 : 1);
-  window.pilot(v.pilot ?? 'off', v.parts, v.pscale ?? 1); g.position.y = LIFT + (v.hover ?? 0); g.updateMatrixWorld(true);   // hover: aircraft above the floor/shadow plane
+  realSetup(v); window.pilot(v.pilot ?? 'off', v.parts, v.pscale ?? 1); g.position.y = LIFT + (v.hover ?? 0); g.updateMatrixWorld(true);   // hover: aircraft above the floor/shadow plane
   sun.intensity = v.sun ? (v.sunI ?? 3.2) : 0;
   if (v.sun) sun.position.set(...v.sun);
   key.intensity = v.sun ? 300 : 900; scene.environmentIntensity = v.sun ? 0.45 : 0.7;
   floor.visible = v.floor !== false;
   cam.fov = v.fov ?? 30; cam.updateProjectionMatrix();
   cam.position.set(...v.pos); cam.up.set(...(v.up ?? [0, 1, 0])); cam.lookAt(new THREE.Vector3(...v.target));
-  r.render(scene, cam);
+  if (v.real && composer) composer.render(); else r.render(scene, cam);
   return true;
 };
 window.pick = (x, y) => {

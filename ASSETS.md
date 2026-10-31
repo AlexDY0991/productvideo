@@ -64,7 +64,7 @@
 
 | 资产 | 位置 | 状态 |
 |---|---|---|
-| S1 湖床分镜 D01–D10 | `film03/board3/BOARD_S1.jpg`；单张 `film03/board3/D01–D10.png`（D02 用 D02b）。**飞行器用 3D 渲染像素锁定**：机位 `film03/board3/plates.json` → 渲染（`film03/assets/glb/probe.mjs`，含人体占位模型）→ `composite.py` 合背景 → 图片模型只把灰色占位人换成 Ethan → `finish.py --layered` 把 3D 飞行器盖回、人放回、前方部件再盖上；`check.py` 做边缘核对。旧版保留为 `*-v1.png`、`*b.png`、`*c.png`、`*m.png` | 🟡 待用户确认 |
+| S1 湖床分镜 D01–D10 | `film03/board3/BOARD_S1.jpg`；定稿单张 `film03/board3/D01.png`、`D02b.png`、`D03p2–D10p2.png`（N-Pro 实拍化）。**飞行器用 3D 渲染像素锁定**：机位 `film03/board3/plates.json` → 渲染（`film03/assets/glb/probe.mjs`，含人体占位模型）→ `composite.py` 合背景 → 图片模型只把灰色占位人换成 Ethan → `finish.py --layered` 把 3D 飞行器盖回、人放回、前方部件再盖上；`check.py` 做边缘核对。旧版保留为 `*-v1.png`、`*b.png`、`*c.png`、`*m.png` | 🟡 待用户确认 |
 
 ## 5. 视频素材
 

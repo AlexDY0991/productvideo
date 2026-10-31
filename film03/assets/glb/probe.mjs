@@ -9,6 +9,7 @@ await p.waitForFunction(() => window.__ready === true, null, { timeout: 180000 }
 console.log(JSON.stringify(await p.evaluate(() => window.info())));
 const cmds = JSON.parse(process.argv[2] || '[]');
 for (const c of cmds) {
+  if (c.hdr) console.log('hdr', await p.evaluate((u) => window.loadHDR(u), c.hdr));
   if (c.shot) {
     await p.evaluate((v) => window.shot(v), c.shot);
     if (c.out && c.shot.transparent) {   // keep alpha: read the canvas, not a page screenshot

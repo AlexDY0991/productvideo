@@ -165,12 +165,46 @@ B['D08p'] = ([], 'Photo edit of @pm_d08b. FIRST-PERSON VIEW: the camera is the p
              'indigo jeans, running forward to tan suede boots in the footwell. Keep the cockpit, roll bars, arms, propellers, sky and '
              'mountains exactly as they are, same framing; the clay below streaks past in motion blur. Photoreal, no text.')
 
+# v4 (user: D04 seams, overall CG look): a realism pass over the finished CG-locked composite. The image already has the right
+# aircraft and the right person in the right places; the model may only relight and retexture. check.py then verifies the structure.
+REAL_PASS = ('Make @{p} look like a real photograph shot on location with a cinema camera — as if this exact scene had been '
+             'photographed for real. Change ONLY the look: real sunlight and sky light on every surface, real materials (painted '
+             'composite fairings with soft reflections, matte black powder-coated steel tubes, carbon fibre, fabric, skin), contact '
+             'shadows and ambient occlusion, natural lens softness, fine film grain, and blend every edge naturally so nothing looks '
+             'cut out or pasted. Keep EVERYTHING exactly where and how it is: the camera, framing, the person, his pose, face, helmet, '
+             'clothes and hands, and the aircraft\'s exact design — every tube, panel, seat, headrest, stick, arm, motor, propeller, '
+             'airbag and skid with the same shape, size and position. Do not add, remove, move or redesign anything. No text.')
+for k in ('D04', 'D06', 'D07', 'D10'):
+    B[k + 'r'] = ([], REAL_PASS.format(p='fin_' + k))
+
+for k in ('D06', 'D07'):
+    B[k + 'n2'] = ([], REAL_PASS.format(p='fin_' + k))
+
+REPHOTO = ('Re-photograph @{p} for real: the same scene, the same instant, shot on location on an ARRI Alexa with a 35 mm lens by a '
+           'top commercial cinematographer. It must be indistinguishable from a real photograph: true sunlight and bounce light, '
+           'real painted composite with clear-coat reflections and fine dust, real matte black powder-coated steel tubing with '
+           'specular highlights and scuffs, real carbon-fibre weave, real webbing and fabric, natural skin, depth of field, '
+           'atmospheric haze, film grain. Geometry is locked: every object keeps exactly its shape, size, position and outline — the '
+           'aircraft\'s tubes, panels, seat, headrest, stick, arms, motors, propellers, airbags and skids, and the man\'s pose, face '
+           'and clothes. Only light, materials and photographic quality change. No text.')
+B['D07p2'] = ([], REPHOTO.format(p='fin_D07'))
+B['D04p2'] = ([], REPHOTO.format(p='fin_D04r'))
+
+# final realism pass for every aircraft frame (N-Pro keeps geometry): brand-new premium product, no wear
+REPHOTO_NEW = REPHOTO.replace('with clear-coat reflections and fine dust', 'with clear-coat reflections') \
+                     .replace('specular highlights and scuffs', 'soft specular highlights') \
+                     .replace('No text.', 'The aircraft is brand-new and spotless: no scratches, no scuffs, no wear, no dirt on it. No text.')
+for k, src in (('D03', 'fin_D03'), ('D04', 'fin_D04r'), ('D05', 'fin_D05'), ('D06', 'fin_D06'), ('D07', 'fin_D07'),
+               ('D08', 'fin_D08'), ('D09', 'fin_D09'), ('D10', 'fin_D10')):
+    B[k + 'p2'] = ([], REPHOTO_NEW.format(p=src))
+
 if __name__ == '__main__':
     act, keys = (sys.argv[1] if len(sys.argv) > 1 else 'create'), (sys.argv[2:] or [k for k in B if len(k) == 3])
     if act == 'create':
         for k in keys:
             refs, prompt = resolve(*B[k])
-            cmd = ['python3', 'tools/jm.py', S, 'img', k, '--title', f'board3 {k}', '--prompt', prompt, '--model', 'seedream_5.0_pro']
+            model = 'jm_image_model_gg_bp' if k.endswith(('n2', 'p2')) else 'seedream_5.0_pro'   # N-Pro test for the realism pass
+            cmd = ['python3', 'tools/jm.py', S, 'img', k, '--title', f'board3 {k}', '--prompt', prompt, '--model', model]
             for r in refs:
                 cmd += ['--ref', r]
             for attempt in range(3):

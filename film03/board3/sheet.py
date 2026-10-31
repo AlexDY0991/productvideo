@@ -10,14 +10,14 @@ FRAMES = {
  'S1': ('L1 MOJAVE DRY LAKE · 0–14 s · arrival, gear-up, lift-off, first full speed', [
    ('D01', 'D01', '0.0–1.5', 'Dawn. Pickup door opens, suede boot on the cracked clay', 'Low static · black open, wind, door'),
    ('D02', 'D02b', '1.5–3.0', 'Zips up the CoolFly vest, chest logo into frame', 'Slow push · zip'),
-   ('D03', 'D03', '3.0–4.0', 'In the seat: four-point harness buckle clicks shut', 'Static · click'),
-   ('D04', 'D04', '4.0–5.0', 'Pulls the clear visor down, eyes ahead', 'Slow push · visor snap'),
-   ('D05', 'D05', '5.0–6.0', 'Green motor LED on, coaxial props spin up', 'Macro · motors start'),
-   ('D06', 'D06', '6.0–8.0', 'Lift-off: dust ring, sun on the left horizon, pickup 60 m away', 'L1 cam 1 · push · rising tone'),
-   ('D07', 'D07', '8.0–9.0', 'RIGHT hand pushes the RIGHT side-stick forward', 'Snap push'),
-   ('D08', 'D08', '9.0–11.0', 'BEAT. POV skimming the clay at full speed', 'L1 cam 3 · forward rush · hit'),
-   ('D09', 'D09', '11.0–12.5', 'FPV chase from low behind, dust kicked up', 'L1 cam 2 · follow'),
-   ('D10', 'D10', '12.5–14.0', 'Wide grin behind the clear visor', 'CU · out: hand match cut → S2'),
+   ('D03', 'D03p2', '3.0–4.0', 'In the seat: four-point harness buckle clicks shut', 'Static · click'),
+   ('D04', 'D04p2', '4.0–5.0', 'Pulls the clear visor down, eyes ahead', 'Slow push · visor snap'),
+   ('D05', 'D05p2', '5.0–6.0', 'Green motor LED on, coaxial props spin up', 'Macro · motors start'),
+   ('D06', 'D06p2', '6.0–8.0', 'Lift-off: dust ring, sun on the left horizon, pickup 60 m away', 'L1 cam 1 · push · rising tone'),
+   ('D07', 'D07p2', '8.0–9.0', 'RIGHT hand pushes the RIGHT side-stick forward', 'Snap push'),
+   ('D08', 'D08p2', '9.0–11.0', 'BEAT. POV skimming the clay at full speed', 'L1 cam 3 · forward rush · hit'),
+   ('D09', 'D09p2', '11.0–12.5', 'FPV chase from low behind, dust kicked up', 'L1 cam 2 · follow'),
+   ('D10', 'D10p2', '12.5–14.0', 'Wide grin behind the clear visor', 'CU · out: hand match cut → S2'),
  ]),
 }
 
