@@ -2,7 +2,7 @@
 
 python3 film03/locs/annotate.py  →  film03/locs/LOC_L1..L5.jpg and LOC_all.jpg
 Coordinates are fractions of the plate (x right, y down) for the photo, and of the schematic box for the top view.
-Continuity: flight always LEFT → RIGHT on screen (westbound), sun low on the LEFT (east), ≤ 20 m above ground/water.
+Continuity: each flight reads LEFT → RIGHT on screen (an editing rule, not a route: the five locations are separate flights), sun low on the LEFT (east), ≤ 20 m.
 """
 from PIL import Image, ImageDraw, ImageFont
 
@@ -51,7 +51,7 @@ LOCS = {
           'Out: wheat-heads wipe across the lens → L5.']),
  'L5': dict(title='PACIFIC COAST · CLIFFTOP · LANDING', time='Mid-morning, sun over the hills on frame left (east); no glare on the sea',
    path=[(.05, .40), (.30, .48), (.72, .70), (.97, .80)], ret=[(.97, .80), (.70, .92), (.40, .80), (.20, .64)], sun=(.27, .17),
-   marks=[((.20, .66), 'LANDING SPOT'), ((.60, .86), 'BEACH + SURF'), ((.85, .40), 'PACIFIC')],
+   img='L5B', marks=[((.20, .66), 'LANDING SPOT'), ((.08, .47), 'PICKUP · ≥ 60 m'), ((.60, .86), 'BEACH + SURF'), ((.85, .40), 'PACIFIC')],
    cams=[((.45, .60), '1', 'HEAD-ON OVER SURF · climax'), ((.66, .80), '2', 'TOP-DOWN SLOW-MO · shadow on wet sand'),
          ((.10, .85), '3', 'FINAL WIDE · aircraft, pilot, ocean')],
    top=dict(bg=(90, 130, 70), feats=[('band', (.55, .0, .70, 1.0), (222, 200, 150), 'BEACH'), ('band', (.70, .0, 1.0, 1.0), (40, 90, 150), 'OCEAN'),
@@ -97,8 +97,8 @@ def sheet(k, c):
     s = Image.new('RGB', (W, H), BG)
     d = ImageDraw.Draw(s, 'RGBA')
     d.text((16, 22), f'{k} · {c["title"]}', font=f(40), fill=INK)
-    d.text((18, 72), 'film03 step 1.3 · location layout · flight LEFT → RIGHT (westbound) · ≤ 20 m AGL · ' + c['time'], font=f(21, False), fill=DIM)
-    ph = Image.open(f'{D}/{k}.png').convert('RGB').resize((PW, PH), Image.LANCZOS)
+    d.text((18, 72), 'film03 step 1.3 · location layout · screen direction LEFT → RIGHT · ≤ 20 m AGL · ' + c['time'], font=f(21, False), fill=DIM)
+    ph = Image.open(f'{D}/{c.get("img", k)}.png').convert('RGB').resize((PW, PH), Image.LANCZOS)
     s.paste(ph, (16, 110))
     P = lambda p: (16 + p[0] * PW, 110 + p[1] * PH)
     arrow(d, [P(p) for p in c['path']], OR, 9)

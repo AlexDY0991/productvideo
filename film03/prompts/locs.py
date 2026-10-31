@@ -6,8 +6,8 @@ One empty plate per location (no aircraft, no people except where noted): 3/4 el
 background, room left for the action. Flight path, camera positions and sun are drawn on afterwards by film03/locs/annotate.py.
 
 Continuity bible (applies to every plate and every later prompt):
-  - one morning, flying WEST: on screen the aircraft always travels LEFT → RIGHT;
-  - the sun is in the EAST = low, behind-left of frame; it climbs from sunrise (L1) to mid-morning (L5);
+  - five SEPARATE morning flights cut as a montage (not one journey); on screen each flight travels LEFT → RIGHT (editing rule only);
+  - the sun is in the EAST = low on the left of frame; L1 is sunrise, the others mid-morning;
   - clear sky, no cloud below the horizon, no birds; flight within ~20 m of ground or water.
 """
 import subprocess, sys
@@ -47,11 +47,26 @@ L = {
         'NO sun and NO sun glitter over the ocean on the right. Sky clear.'),
 }
 
+# edits of confirmed plates (key: (refs, prompt))
+E = {
+ 'L5B': (['L5', 'L1'], 'Precise edit of @L5. Keep everything exactly the same: camera, framing, light, the clifftop meadow, the beach, the '
+         'surf, the headlands and the ocean. One addition only: the same white pickup truck as in @L1, parked side-on on a small dirt '
+         'pull-off at the far back-left edge of the clifftop meadow, next to the hillside, at least 60 m from the open landing area in the '
+         'left foreground; small in frame, nobody near it. Photoreal, no text.'),
+}
+
 if __name__ == '__main__':
     act, keys = (sys.argv[1] if len(sys.argv) > 1 else 'create'), (sys.argv[2:] or list(L))
     if act == 'create':
         for k in keys:
-            cmd = ['python3', 'tools/jm.py', S, 'img', k, '--title', f'location {k}', '--prompt', f'{L[k]} {LOOK}', '--model', 'seedream_5.0_pro']
+            if k in E:
+                sys.path.insert(0, 'film03/prompts'); from board import resolve
+                refs, prompt = resolve(*E[k])
+                cmd = ['python3', 'tools/jm.py', S, 'img', k, '--title', f'location {k}', '--prompt', prompt, '--model', 'seedream_5.0_pro']
+                for r in refs:
+                    cmd += ['--ref', r]
+            else:
+                cmd = ['python3', 'tools/jm.py', S, 'img', k, '--title', f'location {k}', '--prompt', f'{L[k]} {LOOK}', '--model', 'seedream_5.0_pro']
             for attempt in range(3):
                 if subprocess.run(cmd).returncode == 0:
                     break

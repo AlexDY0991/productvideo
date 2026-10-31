@@ -873,6 +873,15 @@
    "submitId": "d5f037bf-66dc-4131-a01e-207f00366e86",
    "submitted": true,
    "resourceId": "9b09f235-500f-4de1-b6ee-ba923f99b4cb"
+  },
+  "L5B": {
+   "updateId": "1d27ca55-2de5-4a8a-bdb5-8beb23723b0e",
+   "nodeId": "node_yexzf1mt5z",
+   "title": "location L5B",
+   "submitId": "22ae4055-c565-40ba-a2a4-2116d67b0a07",
+   "submitted": true,
+   "resourceId": "20b224e2-efaf-4f00-9b64-0815f7d613d2",
+   "result": "film03/locs/L5B.png"
   }
  },
  "ledger": {
@@ -1471,6 +1480,12 @@
     "credits": 8,
     "submitId": "d5f037bf-66dc-4131-a01e-207f00366e86",
     "at": "2026-10-31 10:23"
+   },
+   {
+    "key": "L5B",
+    "credits": 8,
+    "submitId": "22ae4055-c565-40ba-a2a4-2116d67b0a07",
+    "at": "2026-10-31 11:02"
    }
   ]
  }
