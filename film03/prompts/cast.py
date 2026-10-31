@@ -150,6 +150,25 @@ FIX_PFD_SEAT = (
     'four-point harness, the aircraft, camera, light and background. Change ONLY the vest under the harness: replace the black '
     'padded vest with the CoolFly life vest from @PF3, which is ' + PFD + 'The harness straps run over the vest. ')
 
+# v4 flying kit (user, 2026-10-31): CoolFly's own mesh pilot vest (@ref_vest_cf, no airbag), restyled darker and sharper.
+VEST_CF = ('the CoolFly pilot vest: same cut and construction as @ref_vest_cf — sleeveless, round neck, front zip, solid shoulder '
+           'yoke, breathable mesh body, two flap pockets low on the front, solid lower band, a back yoke with a mesh panel and a tab '
+           'below it — restyled: matte black ripstop yoke, lower band and pocket flaps; graphite-grey technical mesh body; thin '
+           'orange piping along the yoke seams and pocket openings instead of the white piping; a black zip with an orange pull tab; '
+           'the CoolFly wordmark exactly as in @ref_logo_rev (white letters, orange F) small on HIS LEFT chest yoke and large across '
+           'the back yoke. No other logos or text. ')
+VEST_FLAT = ('Product design photo, 16:9: ' + VEST_CF + 'Shown laid flat side by side on a light-grey seamless background, front on '
+             'the left, back on the right, soft even studio light, crisp fabric detail, realistic stitching. ')
+FIX_CF = (
+    'Precise edit of @PF3. Keep everything exactly the same: the man, his face, helmet, sweater, jeans, gloves, boots, poses, light, '
+    'background and the three-panel layout. Change ONLY the vest in all three panels: replace the grey life vest with ' + VEST_CF +
+    'exactly as designed in @VD1, worn over the sweater, zipped up, fitted. ')
+FIX_CF_SEAT = (
+    'Precise edit of @PS4. Keep everything exactly the same: the man, his face, helmet, hands on the stick and armrest, the black '
+    'four-point harness with its shoulder straps and lap buckle, the aircraft, camera, light and background. Change ONLY the vest '
+    'under the harness: replace the grey life vest with ' + VEST_CF + 'exactly as in @VD1 and @PF4. The black harness straps stay '
+    'on top of the vest. ')
+
 C = {
     'MA1': ([], f'{TRIPTYCH}{MAYA} {REAL}', 'seedream_5.0_pro'),
     'MA2': ([], f'{TRIPTYCH}{MAYA} {REAL}', 'jm_image_model_gg_bp'),
@@ -163,6 +182,9 @@ C = {
     'PS2': ([], f'{FIX_BELT}{REAL}', 'seedream_5.0_pro'),                  # PS1 with the four-point harness on
     'PF3': ([], f'{FIX_PFD}{REAL}', 'seedream_5.0_pro'),                   # flying kit v3: CoolFly inflatable life vest (user ref)
     'PS3': ([], f'{FIX_PFD_SEAT}{REAL}', 'seedream_5.0_pro'),              # seated with the v3 vest
+    'VD1': (['ref_vest_cf'], f'{VEST_FLAT}', 'seedream_5.0_pro'),          # restyled CoolFly mesh vest, flat front/back
+    'PF4': ([], f'{FIX_CF}{REAL}', 'seedream_5.0_pro'),                    # flying kit v4: CoolFly mesh vest
+    'PS5': ([], f'{FIX_CF_SEAT}{REAL}', 'seedream_5.0_pro'),               # seated with the v4 vest
     'PS4': ([], f"{FIX_BELT.replace('@PS1', '@PS3').replace('the CoolFly airbag vest', 'the slate-grey life vest').replace('The small chest logo on the vest stays visible beside the left strap.', 'The round CoolFly patch on his right chest and the white label on his left chest stay visible beside the straps.')}{REAL}", 'seedream_5.0_pro'),   # PS3 lost the harness: put it back
 }
 
