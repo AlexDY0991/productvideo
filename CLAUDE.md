@@ -34,7 +34,13 @@
 
 ## 5. 平台
 - **Lovart**：环境变量里有 `LOVART_ACCESS_KEY` 和 `LOVART_SECRET_KEY`，用 `coolfly/film2/lovart_client.py` 调用。项目是"CoolFly Dream Pro 卖点片"（projectId `2upxgw4pgjk0`）。
-- **即梦**：用官方命令行 `dreamina`，登录方式是 `dreamina login --headless`，用户用抖音扫码授权。命令行只能提交到"对话"，**不能提交到"画布"**（1.4.22 版本没有这个功能）。项目对话的 ID 是 `24057390832396`。
+- **即梦**：用即梦画布命令行 `dreamina-canvas`（装在 `~/.local/bin`，它的 skill 在 `~/.agents/skills/dreamina-canvas-cli/`；安装命令 `curl -fsSL https://jimeng.jianying.com/canvas-cli/install.sh | bash`）。
+  - 登录：`dreamina-canvas --format json auth login` 拿到授权链接给用户，然后执行 `auth wait --device-code <deviceCode>`。
+  - 项目画布："CoolFly Dream Pro 卖点片"，projectId `301dcb30-6c66-4a06-a4d0-6bd193d982d7`，链接 https://jimeng.jianying.com/ai-tool/ai-canvas/301dcb30-6c66-4a06-a4d0-6bd193d982d7
+  - **样片**：模型用 `seedance_2.5_draft`（480p），满意后用 `node promote video-sample --resolution 1080p` 转成正片。**样片最长保存 7 天**，过期后不能再转正片，交付样片时必须提醒用户。
+  - 积分要先报价，用户批准消费上限后才能运行（`--credit-ceiling`）。不能用 `--yes` 绕过。
+  - 旧的 `dreamina` 命令行（只能提交到"对话"）不再使用。
+  - 图片仍然用 Lovart（用户定的分工）。即梦 skill 里"生成一律优先用即梦"那条，不适用于本项目。
 
 ## 6. Git
 - 仓库根目录有一个韩文长文件名的 mp4，Linux 建不出来。clone 时加 `GIT_LFS_SKIP_SMUDGE=1`。提交时**只 add 自己新建的文件**，不要用 `git add -A`，否则会把那个"删除"一起提交。
