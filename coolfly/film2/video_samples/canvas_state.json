@@ -1,0 +1,268 @@
+{
+ "images": {
+  "KF01": {
+   "resourceId": "fe99a34e-7c8c-462c-bb72-beea21e36811",
+   "submitId": "ecbaf783-8174-4bba-bd8e-30d69689a3b1",
+   "nodeIdReq": "node_2c9618184f7a4f7ba2e7af96",
+   "uploaded": true,
+   "nodeId": "node_cc41en8n1r"
+  },
+  "KF03": {
+   "resourceId": "407e0020-645d-4f94-81a4-16f4440eb6d9",
+   "submitId": "57205b4e-f804-490e-8a94-47cf208d40e9",
+   "nodeIdReq": "node_7291294c8c9440e7ac0d55c4",
+   "uploaded": true,
+   "nodeId": "node_0skpmch741"
+  },
+  "KF05": {
+   "resourceId": "b6e41772-b53e-40be-849d-27f8de855726",
+   "submitId": "067c7b81-0d41-4923-914b-9f59817f83e0",
+   "nodeIdReq": "node_9a25d9a5ae114a88b545d7e3",
+   "uploaded": true,
+   "nodeId": "node_52d6wn7vyc"
+  },
+  "KF06": {
+   "resourceId": "7e0e6def-889d-4db1-8b27-02c4db308e74",
+   "submitId": "ecc6ec17-80e8-4292-bdd2-85f76fb21113",
+   "nodeIdReq": "node_3f171fc12169423b84d7cf4c",
+   "uploaded": true,
+   "nodeId": "node_3srfgg067w"
+  },
+  "KF07": {
+   "resourceId": "3602fa8e-7c94-4200-a8c0-c0750ac71473",
+   "submitId": "0016adde-85c9-4735-b851-c0f83a31a447",
+   "nodeIdReq": "node_5cf5f95ea0984d848a48c55d",
+   "uploaded": true,
+   "nodeId": "node_x3t45vp6er"
+  },
+  "KF08": {
+   "resourceId": "56cc5da1-a1b6-4791-a7cb-6b3105706587",
+   "submitId": "920481e6-afd1-4373-8c5e-5918e4931c88",
+   "nodeIdReq": "node_691fe8b3417040de97469920",
+   "uploaded": true,
+   "nodeId": "node_jjh6rkxxgw"
+  },
+  "KF09": {
+   "resourceId": "19425eec-562e-41e5-a169-163de4527734",
+   "submitId": "a618f034-c735-4943-b72a-c8f0c0ff0e52",
+   "nodeIdReq": "node_ad946b7d3c9d4c7586d48e35",
+   "uploaded": true,
+   "nodeId": "node_t11vk8wnqv"
+  },
+  "KF10": {
+   "resourceId": "1b9a8ff8-3cdd-4a32-ae00-a29561c6d784",
+   "submitId": "d148d63f-e0bc-4bfa-8649-7ce3f0152dd1",
+   "nodeIdReq": "node_dca9ec4497064d67b262f77d",
+   "uploaded": true,
+   "nodeId": "node_gmzemafngz"
+  },
+  "KF11": {
+   "resourceId": "2a93d80b-aa55-46a3-adcf-c219428319c5",
+   "submitId": "07c27f89-b6aa-48d1-97d7-82a13f4c6fb3",
+   "nodeIdReq": "node_33ea3adc520a42e4be5d04b0",
+   "uploaded": true,
+   "nodeId": "node_1pbda0b4fy"
+  },
+  "KF12": {
+   "resourceId": "59714409-7583-4b22-941b-7c8b4a05fa90",
+   "submitId": "eb920be1-b17a-4e8a-ad4a-4958203c0949",
+   "nodeIdReq": "node_6edd7cb1488d4ead9945e0fd",
+   "uploaded": true,
+   "nodeId": "node_s2wkap75m4"
+  },
+  "KF13": {
+   "resourceId": "a41398f7-4ed0-47fa-b2df-b71da567286e",
+   "submitId": "ac263342-61e4-4695-b0c6-e0224fdbb561",
+   "nodeIdReq": "node_6a0a6039c868440594cf7ec8",
+   "uploaded": true,
+   "nodeId": "node_sx5xqa8qdb"
+  },
+  "KF16": {
+   "resourceId": "e9adac32-25b4-425f-a9bd-666ede1c9256",
+   "submitId": "06c98d1d-16be-4176-b786-54a7e6770b85",
+   "nodeIdReq": "node_3ddb66b63b6b4272ba57618c",
+   "uploaded": true,
+   "nodeId": "node_8q1ja8n9wd"
+  },
+  "KF17": {
+   "resourceId": "82e9cac5-5c3e-4f7f-a0aa-c0e31286c9bf",
+   "submitId": "f85c79a0-c0ff-4dfa-ae4f-c33fc96eda60",
+   "nodeIdReq": "node_7cc0c4c7d3404451a01e8aa8",
+   "uploaded": true,
+   "nodeId": "node_vnj4wdsy7g"
+  },
+  "KF19": {
+   "resourceId": "66c4bc8a-bed3-4ec5-9412-d857f2bba70d",
+   "submitId": "4d94073a-0a10-4bf5-93e8-a873326ea1d9",
+   "nodeIdReq": "node_153664bbeba5476fa37548ff",
+   "uploaded": true,
+   "nodeId": "node_y7de8wbvm8"
+  },
+  "KF20": {
+   "resourceId": "211020fe-bbac-4f7c-8bff-31e937dfbd20",
+   "submitId": "f6ff8bbe-87e7-4159-b736-e2f793aea26e",
+   "nodeIdReq": "node_0b61fb477f724668ad5b27bc",
+   "uploaded": true,
+   "nodeId": "node_mhvegppp79"
+  },
+  "P01_\u516d\u89c6\u56fe": {
+   "resourceId": "d60d3109-0943-4af7-b933-05304e8444a4",
+   "submitId": "087b89ff-ecc5-4ac9-8c61-ed6bfad1091b",
+   "nodeIdReq": "node_8b20522a0f7f4bd4a139be3b",
+   "uploaded": true,
+   "nodeId": "node_vfdg0qjxqx"
+  },
+  "A01_\u98de\u884c\u5458": {
+   "resourceId": "34aa5134-ded5-4f26-bb29-75dbd856d66c",
+   "submitId": "a26edd4b-56c9-477b-8849-2e66aada729c",
+   "nodeIdReq": "node_8b681cde70a64d3c954f409e",
+   "uploaded": true,
+   "nodeId": "node_525jy3yk46"
+  },
+  "C01_\u5934\u76d4": {
+   "resourceId": "b6e35d1f-aea5-4a45-b8d9-ff247f6c4bdf",
+   "submitId": "72b8d826-3134-4fd8-b8c5-6732162fca7a",
+   "nodeIdReq": "node_11db32b0af5d47fdafbaa5b2",
+   "uploaded": true,
+   "nodeId": "node_75fkhezrjt"
+  }
+ },
+ "videos": {
+  "V01": {
+   "updateId": "23824198-9c99-4d2e-af02-0e1ca33a8ec2",
+   "submitId": "c677b224-0fa5-46cb-a260-55de394e314b",
+   "nodeId": "node_vabbt9f4pt",
+   "model": "seedance_2.5_draft",
+   "res": "480p",
+   "dur": 6
+  },
+  "V03": {
+   "updateId": "a50b62bf-77bc-4d55-8aee-20b736689838",
+   "submitId": "933b5917-86c7-43ab-8112-210d58bedca9",
+   "nodeId": "node_v1kdsbkwhx",
+   "model": "seedance_2.5_draft",
+   "res": "480p",
+   "dur": 6
+  },
+  "V05": {
+   "updateId": "541939c0-9f67-4d68-8c95-1430a5e1fad5",
+   "submitId": "20310217-e4e8-498b-85a9-55efe751e491",
+   "nodeId": "node_b3pegg3wzs",
+   "model": "seedance_2.5_draft",
+   "res": "480p",
+   "dur": 6
+  },
+  "V06": {
+   "updateId": "abced627-445e-4541-ad13-eca8389343d9",
+   "submitId": "2713cbe2-4a64-46aa-a27d-20dce7bdf375",
+   "nodeId": "node_gyekezcqde",
+   "model": "seedance_2.5_draft",
+   "res": "480p",
+   "dur": 6
+  },
+  "V07": {
+   "updateId": "20ca93e6-ef4a-4f55-a52e-e76f23e92c43",
+   "submitId": "ab050de4-9d5e-4f7d-8c49-dfd5412424d0",
+   "nodeId": "node_mcc3cpc3wy",
+   "model": "seedance_2.5_draft",
+   "res": "480p",
+   "dur": 6
+  },
+  "V08": {
+   "updateId": "578195ce-13b4-439b-a01a-13273c349b99",
+   "submitId": "d4413afc-4846-407b-9684-f1fa71b17783",
+   "nodeId": "node_4czbznc7ms",
+   "model": "seedance_2.5_draft",
+   "res": "480p",
+   "dur": 6
+  },
+  "V09": {
+   "updateId": "c895c3e5-362f-46d6-bfb9-2e39aa8d9a2f",
+   "submitId": "66414fad-664c-456c-becc-32c0a9890467",
+   "nodeId": "node_p63vved939",
+   "model": "seedance_2.5_draft",
+   "res": "480p",
+   "dur": 6
+  },
+  "V10": {
+   "updateId": "49d364fa-2372-432f-a87f-e4dd0de3e4cf",
+   "submitId": "af9f92f3-dad4-4836-b133-f192eeda29ad",
+   "nodeId": "node_jkywxdry05",
+   "model": "seedance_2.5_draft",
+   "res": "480p",
+   "dur": 6
+  },
+  "V11": {
+   "updateId": "a7a5a884-3d59-452a-a46a-d7652f214106",
+   "submitId": "880fa7c8-3496-4558-8fc2-2207dba44afc",
+   "nodeId": "node_fsd0qy1pze",
+   "model": "seedance_2.5_draft",
+   "res": "480p",
+   "dur": 6
+  },
+  "V12": {
+   "updateId": "2418ef62-6c58-4cfa-af1e-530684b115ad",
+   "submitId": "cd9ac5af-241f-4926-8adb-c7bf750742e3",
+   "nodeId": "node_dxvpn49svj",
+   "model": "seedance_2.5_draft",
+   "res": "480p",
+   "dur": 6
+  },
+  "V13": {
+   "updateId": "7dc5a210-1b23-43e7-9277-41b4afb9e811",
+   "submitId": "acb46045-dec4-49fd-945b-dd6403c86c32",
+   "nodeId": "node_18xcp0dayx",
+   "model": "seedance_2.5_draft",
+   "res": "480p",
+   "dur": 10
+  },
+  "V16": {
+   "updateId": "11d57d81-817a-4e3b-afcc-7caffa1cf5a1",
+   "submitId": "d2668c15-f463-4d44-8223-63ee58365cf2",
+   "nodeId": "node_3vx6pxcq2w",
+   "model": "seedance_2.5_draft",
+   "res": "480p",
+   "dur": 6
+  },
+  "V17": {
+   "updateId": "ca37cf4f-d420-4e22-9536-9d1d2268b4f8",
+   "submitId": "5044dd21-d54a-4c86-86b1-7b1bfa520268",
+   "nodeId": "node_qbcckwjq34",
+   "model": "seedance_2.5_draft",
+   "res": "480p",
+   "dur": 6
+  },
+  "V19": {
+   "updateId": "ba34c066-5c6e-41d9-ac4d-882b805c3155",
+   "submitId": "fe6f1890-508d-49eb-bf80-1050fba770c1",
+   "nodeId": "node_08tbqvmdgv",
+   "model": "seedance_2.5_draft",
+   "res": "480p",
+   "dur": 6
+  },
+  "V20": {
+   "updateId": "66aa73e0-7740-4f83-a7e1-899478e02050",
+   "submitId": "346aab88-4a6a-47a2-bac1-8044baeb8a48",
+   "nodeId": "node_kx7ht4yj2m",
+   "model": "seedance_2.5_draft",
+   "res": "480p",
+   "dur": 6
+  },
+  "V08_s20": {
+   "updateId": "944072f9-8701-4ec9-8b11-b62b6c8cf459",
+   "submitId": "7ee7364c-d368-496d-9242-405d6cc5fbc6",
+   "nodeId": "node_6e2jdnspwz",
+   "model": "seedance_2.0_vip",
+   "res": "720p",
+   "dur": 6
+  },
+  "V08_hh": {
+   "updateId": "e6287b87-ec11-4b79-89ba-7e6a9183dd83",
+   "submitId": "98ccc9d7-1a8f-49ea-b9aa-5af97bb536dc",
+   "nodeId": "node_q4s0f8zjvb",
+   "model": "happyhorse_1.1",
+   "res": "720P",
+   "dur": 6
+  }
+ }
+}
