@@ -7,13 +7,6 @@
    "uploaded": true,
    "nodeId": "node_cc41en8n1r"
   },
-  "KF03": {
-   "resourceId": "407e0020-645d-4f94-81a4-16f4440eb6d9",
-   "submitId": "57205b4e-f804-490e-8a94-47cf208d40e9",
-   "nodeIdReq": "node_7291294c8c9440e7ac0d55c4",
-   "uploaded": true,
-   "nodeId": "node_0skpmch741"
-  },
   "KF05": {
    "resourceId": "b6e41772-b53e-40be-849d-27f8de855726",
    "submitId": "067c7b81-0d41-4923-914b-9f59817f83e0",
@@ -125,6 +118,20 @@
    "nodeIdReq": "node_11db32b0af5d47fdafbaa5b2",
    "uploaded": true,
    "nodeId": "node_75fkhezrjt"
+  },
+  "KF03_old": {
+   "resourceId": "407e0020-645d-4f94-81a4-16f4440eb6d9",
+   "submitId": "57205b4e-f804-490e-8a94-47cf208d40e9",
+   "nodeIdReq": "node_7291294c8c9440e7ac0d55c4",
+   "uploaded": true,
+   "nodeId": "node_0skpmch741"
+  },
+  "KF03": {
+   "resourceId": "97f9645d-7e96-4b29-b779-68a3301b198e",
+   "submitId": "a708b08d-c869-4890-9db7-4fbe6b5683d1",
+   "nodeIdReq": "node_0f5ef566f32f42389a57343a",
+   "uploaded": true,
+   "nodeId": "node_rktyp2mr40"
   }
  },
  "videos": {
@@ -142,7 +149,8 @@
    "nodeId": "node_v1kdsbkwhx",
    "model": "seedance_2.5_draft",
    "res": "480p",
-   "dur": 6
+   "dur": 6,
+   "updateId2": "a703be6f-9ceb-4363-aea1-d5e2e68a92b2"
   },
   "V05": {
    "updateId": "541939c0-9f67-4d68-8c95-1430a5e1fad5",
