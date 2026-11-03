@@ -1,0 +1,95 @@
+<!doctype html><html><head><meta charset="utf-8"><style>body{margin:0;background:#888}</style>
+<script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js","three/addons/":"./node_modules/three/examples/jsm/"}}</script></head><body>
+<script type="module">
+import * as THREE from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+const W=+new URLSearchParams(location.search).get('w')||1600, H=+new URLSearchParams(location.search).get('h')||1000;
+const r=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,logarithmicDepthBuffer:true});
+r.setSize(W,H); r.toneMapping=THREE.ACESFilmicToneMapping; r.outputColorSpace=THREE.SRGBColorSpace;
+r.shadowMap.enabled=true; document.body.appendChild(r.domElement);
+const scene=new THREE.Scene(); scene.background=new THREE.Color(0xd4d4d4);
+const pm=new THREE.PMREMGenerator(r); scene.environment=pm.fromScene(new RoomEnvironment(),0.04).texture;
+const sun=new THREE.DirectionalLight(0xffffff,1.2); sun.position.set(3,6,4); scene.add(sun);
+const cam=new THREE.PerspectiveCamera(20,W/H,1,2000);
+window.info=null;
+new GLTFLoader().load('model.glb',g=>{
+  const m=g.scene; scene.add(m);
+  const carbon=new THREE.MeshPhysicalMaterial({color:0x1a1a1a,roughness:0.35,metalness:0.1,clearcoat:1,clearcoatRoughness:0.15});
+  const blk=new THREE.MeshPhysicalMaterial({color:0x0c0c0c,roughness:0.45,metalness:0.2,clearcoat:0.6,clearcoatRoughness:0.3});
+  m.traverse(o=>{ if(o.isMesh&&o.material&&o.material.color){const c=o.material.color; if(Math.abs(c.r-c.g)<0.02&&c.r<0.6) o.material=blk; else if(o.material.roughness!==undefined&&o.material.roughness<0.2){o.material=o.material.clone();o.material.roughness=0.3;}} });
+  m.traverse(o=>{ if(o.name&&/^X-A16L-750-80/.test(o.name)) o.traverse(k=>{if(k.isMesh)k.material=carbon;}); });
+  const b=new THREE.Box3().setFromObject(m); const c=b.getCenter(new THREE.Vector3()); const s=b.getSize(new THREE.Vector3());
+  m.position.sub(c); window.box={size:s.toArray(),center:c.toArray()};
+  window.root=m; window.ready=true;
+});
+// view(dir:[x,y,z], up, fovDeg, dist multiplier, ortho?)
+window.shot=(dir,up=[0,1,0],fit=1.15,ortho=false)=>{
+  const s=new THREE.Vector3(...window.box.size); const R=s.length()/2*fit;
+  let c=cam;
+  const d=new THREE.Vector3(...dir).normalize();
+  if(ortho){const a=W/H; c=new THREE.OrthographicCamera(-R*a,R*a,R,-R,1,2000);}
+  else{ c.position.copy(d.clone().multiplyScalar(R/Math.tan(THREE.MathUtils.degToRad(cam.fov/2)))); }
+  if(ortho) c.position.copy(d.clone().multiplyScalar(R*5));
+  c.up.set(...up); c.lookAt(0,0,0); c.updateProjectionMatrix();
+  r.render(scene,c); return r.domElement.toDataURL('image/png');
+};
+window.shotAt=(t,dir,dist,fov=30)=>{const c=new THREE.PerspectiveCamera(fov,W/H,0.5,2000);const d=new THREE.Vector3(...dir).normalize();const T=new THREE.Vector3(...t);c.position.copy(T.clone().add(d.multiplyScalar(dist)));c.lookAt(T);c.updateProjectionMatrix();r.render(scene,c);return r.domElement.toDataURL('image/png');};
+window.foldFrontLeft=async(deg)=>{
+  const root=window.root; let grp=root; while(grp.children.length===1) grp=grp.children[0];
+  const piv=new THREE.Vector3(8.2,0,19.9); const ang=THREE.MathUtils.degToRad(deg); const picked=[];
+  for(const c of [...grp.children]){const bb=new THREE.Box3().setFromObject(c); if(bb.isEmpty())continue; const ctr=bb.getCenter(new THREE.Vector3());
+    if(ctr.x>12 && Math.abs(ctr.z-19.9)<3.5){picked.push(c);}}
+  for(const c of picked){ const g=new THREE.Group(); g.position.copy(piv); grp.add(g); g.attach(c); g.rotation.y=ang; }
+  return picked.length;};
+window.addMannequin=(x,z)=>{
+  const m=new THREE.MeshStandardMaterial({color:0xb0b0b0,roughness:0.8}); const G=-13.86; const U=1/0.0527;
+  const add=(geo,px,py,pz,rx=0,rz=0)=>{const o=new THREE.Mesh(geo,m);o.position.set(px,py,pz);o.rotation.x=rx;o.rotation.z=rz;scene.add(o);return o;};
+  const legH=0.9*U, r=0.075*U;
+  add(new THREE.CylinderGeometry(r,r,legH,16),x,G+legH/2,z-0.11*U); add(new THREE.CylinderGeometry(r,r,legH,16),x,G+legH/2,z+0.11*U);
+  const torsoH=0.62*U; add(new THREE.BoxGeometry(0.26*U,torsoH,0.46*U),x,G+legH+torsoH/2,z);
+  add(new THREE.SphereGeometry(0.12*U,24,16),x,G+legH+torsoH+0.17*U,z);
+  // arms reaching toward -X down to the folded arm tube
+  const sh=new THREE.Vector3(x,G+legH+torsoH-0.05*U,0);
+  for(const dz of [-0.2*U,0.2*U]){const a=new THREE.Vector3(x,sh.y,z+dz); const h=new THREE.Vector3(14.6,-0.2,13.6+dz*0.6); const len=a.distanceTo(h); const mid=a.clone().add(h).multiplyScalar(0.5);
+    const o=add(new THREE.CylinderGeometry(0.05*U,0.05*U,len,12),mid.x,mid.y,mid.z); o.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),h.clone().sub(a).normalize());}
+  return true;};
+window.addStanding=(x,z,rotY=0)=>{
+  const m=new THREE.MeshStandardMaterial({color:0xb0b0b0,roughness:0.8}); const G=-13.86; const U=1/0.0527;
+  const g=new THREE.Group(); g.position.set(x,0,z); g.rotation.y=rotY; scene.add(g);
+  const add=(geo,px,py,pz)=>{const o=new THREE.Mesh(geo,m);o.position.set(px,py,pz);g.add(o);return o;};
+  const legH=0.88*U,r=0.075*U,torsoH=0.62*U;
+  add(new THREE.CylinderGeometry(r,r,legH,16),0,G+legH/2,-0.11*U); add(new THREE.CylinderGeometry(r,r,legH,16),0,G+legH/2,0.11*U);
+  add(new THREE.BoxGeometry(0.26*U,torsoH,0.46*U),0,G+legH+torsoH/2,0);
+  add(new THREE.SphereGeometry(0.12*U,24,16),0,G+legH+torsoH+0.2*U,0);
+  const armL=0.62*U; add(new THREE.CylinderGeometry(0.05*U,0.05*U,armL,12),0,G+legH+torsoH-armL/2,-0.29*U); add(new THREE.CylinderGeometry(0.05*U,0.05*U,armL,12),0,G+legH+torsoH-armL/2,0.29*U);
+  // ground marker plane for shadow cue
+  return true;};
+window.addSeated=()=>{
+  const m=new THREE.MeshStandardMaterial({color:0xb8b8b8,roughness:0.8}); const U=1/0.0527;
+  const V=(x,y,z)=>new THREE.Vector3(x,y,z);
+  const seg=(a,b,r)=>{const len=a.distanceTo(b);const o=new THREE.Mesh(new THREE.CylinderGeometry(r,r,len,14),m);o.position.copy(a.clone().add(b).multiplyScalar(0.5));o.quaternion.setFromUnitVectors(V(0,1,0),b.clone().sub(a).normalize());scene.add(o);
+    const j=new THREE.Mesh(new THREE.SphereGeometry(r,12,10),m); j.position.copy(b); scene.add(j); return o;};
+  const H=V(0,-5.3,-1.5), Sh=V(0,4.5,-5.0), Hd=V(0,9.0,-6.6);
+  seg(H,Sh,0.16*U); // torso
+  const head=new THREE.Mesh(new THREE.SphereGeometry(0.125*U,24,16),m); head.position.copy(Hd); scene.add(head);
+  for(const sx of [-1,1]){ const hip=V(sx*1.9,-5.3,-1.0), knee=V(sx*1.9,-3.4,6.9), foot=V(sx*1.9,-8.4,10.6);
+    seg(hip,knee,0.075*U); seg(knee,foot,0.06*U); }
+  const shR=V(-3.6,3.6,-4.6), shL=V(3.6,3.6,-4.6);
+  const elR=V(-4.6,-1.4,-1.2), handR=V(-5.2,-1.6,2.7);  // right hand on side stick
+  const elL=V(4.4,-1.6,-1.0), handL=V(3.0,-3.6,3.2);    // left hand resting on thigh
+  seg(shR,elR,0.05*U); seg(elR,handR,0.045*U); seg(shL,elL,0.05*U); seg(elL,handL,0.045*U);
+  return true;};
+window.xray=()=>{
+  scene.background=new THREE.Color(0x050607); scene.environment=null;
+  scene.add(new THREE.AmbientLight(0xffffff,0.6)); window.root.updateMatrixWorld(true);
+  let grp=window.root; while(grp.children.length===1) grp=grp.children[0];
+  const ghost=new THREE.MeshBasicMaterial({color:0x9fb3c8,transparent:true,opacity:0.10,depthWrite:false});
+  const edge=new THREE.MeshBasicMaterial({color:0xcfe0f0,transparent:true,opacity:0.05,wireframe:true,depthWrite:false});
+  const bat=new THREE.MeshStandardMaterial({color:0xff6a00,emissive:0xff5a00,emissiveIntensity:0.9,roughness:0.4});
+  const isBat=(bb)=>{const sz=bb.getSize(new THREE.Vector3()),c=bb.getCenter(new THREE.Vector3()); return Math.abs(sz.x-6.3)<0.6&&sz.z>6.2&&sz.z<8&&sz.y>3&&sz.y<7&&Math.abs(Math.abs(c.x)-3.2)<0.6;};
+  let nb=0;
+  for(const c of grp.children){const bb=new THREE.Box3().setFromObject(c); if(bb.isEmpty())continue; const b=isBat(bb); if(b)nb++; c.traverse(o=>{if(o.isMesh){o.material=b?bat:ghost;}});}
+  return nb;};
+window.orbit=(i,n,startDeg,spanDeg,dist,elev,target)=>{const a=THREE.MathUtils.degToRad(startDeg+spanDeg*i/n);const T=new THREE.Vector3(...target);const c=new THREE.PerspectiveCamera(30,W/H,0.5,2000);c.position.set(T.x+dist*Math.sin(a),T.y+elev,T.z+dist*Math.cos(a));c.lookAt(T);r.render(scene,c);return r.domElement.toDataURL('image/png');};
+</script></body></html>
