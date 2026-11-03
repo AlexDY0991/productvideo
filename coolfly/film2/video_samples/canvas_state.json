@@ -353,7 +353,8 @@
    "v1_file": "samples/V09.mp4",
    "runSubmitId2": "5f82d71e-3472-40f0-8fcc-8e3b7d92cac5",
    "file2": "samples/V09_b2.mp4",
-   "resourceId2": "f33ce4ed-7003-497e-b2fa-5c90195c16a5"
+   "resourceId2": "f33ce4ed-7003-497e-b2fa-5c90195c16a5",
+   "promoteSubmitId": "d706a866-1507-4006-8a1c-5079884473b8"
   },
   "V10": {
    "updateId": "49d364fa-2372-432f-a87f-e4dd0de3e4cf",
@@ -364,7 +365,8 @@
    "dur": 6,
    "runSubmitId": "9173cdd1-45cf-47fd-bbe1-8ff47a06cdc5",
    "file": "samples/V10.mp4",
-   "resourceId": "3ebfbd5a-c4cc-4c66-adce-151e1bbf8c30"
+   "resourceId": "3ebfbd5a-c4cc-4c66-adce-151e1bbf8c30",
+   "promoteSubmitId": "27bc096a-dea5-4a4b-96a1-e4be8f4f4ed9"
   },
   "V11": {
    "updateId": "a7a5a884-3d59-452a-a46a-d7652f214106",
@@ -380,7 +382,8 @@
    "v1_file": "samples/V11.mp4",
    "runSubmitId2": "1eab0a33-0c50-48cb-8eb1-39224902e596",
    "file2": "samples/V11_b2.mp4",
-   "resourceId2": "5e0b37e6-7ff4-423d-8c47-ab7f46c7109e"
+   "resourceId2": "5e0b37e6-7ff4-423d-8c47-ab7f46c7109e",
+   "promoteSubmitId": "373dca11-f664-40a6-85d9-fb4c8c5573dd"
   },
   "V12": {
    "updateId": "2418ef62-6c58-4cfa-af1e-530684b115ad",
@@ -407,7 +410,8 @@
    "v1_file": "samples/V13.mp4",
    "runSubmitId2": "fc14c78d-480e-4d87-b9ba-603fcb5725d6",
    "file2": "samples/V13_b2.mp4",
-   "resourceId2": "2a273eb1-39f6-409d-b6a6-3d55e2b57b6f"
+   "resourceId2": "2a273eb1-39f6-409d-b6a6-3d55e2b57b6f",
+   "promoteSubmitId": "6ddf87ed-bc7e-498a-bd76-633bd0ab9e5c"
   },
   "V16": {
    "updateId": "11d57d81-817a-4e3b-afcc-7caffa1cf5a1",
@@ -423,7 +427,8 @@
    "v1_file": "samples/V16.mp4",
    "runSubmitId2": "316bffd5-6f8b-4af6-b3da-e56083c6b911",
    "file2": "samples/V16_b2.mp4",
-   "resourceId2": "a6d152b0-81a1-445e-9022-a3877d2b4805"
+   "resourceId2": "a6d152b0-81a1-445e-9022-a3877d2b4805",
+   "promoteSubmitId": "7d1ef1e3-ba7d-4fd6-8cae-943125f978df"
   },
   "V17": {
    "updateId": "ca37cf4f-d420-4e22-9536-9d1d2268b4f8",
@@ -434,7 +439,8 @@
    "dur": 6,
    "runSubmitId": "81432b65-920f-49ee-8fca-d6b0ff154c0b",
    "file": "samples/V17.mp4",
-   "resourceId": "28838a0f-a8d2-4b1f-a181-7afdf23d9488"
+   "resourceId": "28838a0f-a8d2-4b1f-a181-7afdf23d9488",
+   "promoteSubmitId": "efcc555b-14ce-44c3-8baf-57c617955264"
   },
   "V19": {
    "updateId": "ba34c066-5c6e-41d9-ac4d-882b805c3155",
@@ -521,7 +527,8 @@
    "updateId_c": "10388ca2-9227-43cc-8e6c-b02b6f7610bb",
    "runSubmitIdC": "df9cd5bb-b295-426f-93ac-1cf3d7530ff2",
    "fileC": "samples/W02b_led.mp4",
-   "resourceIdC": "3df4b6d2-3df0-48c6-9096-9d756701038c"
+   "resourceIdC": "3df4b6d2-3df0-48c6-9096-9d756701038c",
+   "promoteSubmitId": "a2447754-72bc-42c2-9a35-5daa09e0ca15"
   },
   "W02c_motor": {
    "updateId": "6b05cfed-cbd0-4121-b0ed-df82ef772631",
@@ -531,7 +538,8 @@
    "updateId_c": "977ae892-2160-4661-8f80-7dd85b9b17cd",
    "runSubmitIdC": "82b5e540-2bc0-47f2-8621-625f9e358518",
    "fileC": "samples/W02c_motor.mp4",
-   "resourceIdC": "804939d4-89d8-4f4a-8665-a6ac01fca3df"
+   "resourceIdC": "804939d4-89d8-4f4a-8665-a6ac01fca3df",
+   "promoteSubmitId": "118aa352-248a-4ad2-96f1-34224f2f8e69"
   },
   "W02d_visor": {
    "updateId": "e84d7119-8929-4d9e-9383-bdf5f28228f7",
@@ -591,7 +599,8 @@
    "updateId_c": "cde4cf60-9039-49fe-b23f-2ec08f8e14e5",
    "runSubmitIdC": "9752fb2e-96c2-4508-86bd-4bfea8daf41b",
    "fileC": "samples/W06b_horizon.mp4",
-   "resourceIdC": "e2a69080-8661-4b44-8136-04683bdd1a6c"
+   "resourceIdC": "e2a69080-8661-4b44-8136-04683bdd1a6c",
+   "promoteSubmitId": "af3671d0-ad2e-4460-960d-cbe318413311"
   }
  }
 }
