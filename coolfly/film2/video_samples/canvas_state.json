@@ -239,7 +239,8 @@
    "dur": 6,
    "runSubmitId": "0a7f58f4-16f3-417c-a3ff-af655ccca27b",
    "file": "samples/V06.mp4",
-   "resourceId": "618bbefe-9fa1-41a8-8ca0-7139ca494657"
+   "resourceId": "618bbefe-9fa1-41a8-8ca0-7139ca494657",
+   "promoteSubmitId": "913f5ef2-ad49-4a14-b299-818b26d75892"
   },
   "V07": {
    "updateId": "20ca93e6-ef4a-4f55-a52e-e76f23e92c43",
@@ -395,7 +396,9 @@
    "v1_file": "samples/V20.mp4",
    "runSubmitId2": "29f397ab-c42f-40c3-be8f-47e11af929f1",
    "file2": "samples/V20_b2.mp4",
-   "resourceId2": "81d39ac2-f9bc-426e-85ca-37d713b5f0ed"
+   "resourceId2": "81d39ac2-f9bc-426e-85ca-37d713b5f0ed",
+   "updateId_v3": "8689aa18-978d-41a8-8285-359622044531",
+   "prompt_v3": "\u4ee5{{node:node_dtqqrtzsbt}}\u4e3a\u9996\u5e27\u3002\u65e5\u843d\u540e\uff0c\u4ed6\u5750\u5728\u521a\u843d\u5730\u7684\u98de\u884c\u5668\u91cc\uff0c\u671b\u7740\u8fdc\u5904\u7684\u6d77\u9762\uff0c\u5b89\u9759\u5730\u5f85\u7740\uff0c\u6d77\u98ce\u5439\u52a8\u5934\u53d1\u3002\u771f\u5b9e\u3001\u81ea\u7136\u7684\u7eaa\u5f55\u7247\u8d28\u611f\uff0c16:9\u3002\u53ea\u8981\u73af\u5883\u58f0\uff1a\u98ce\u58f0\u548c\u8fdc\u5904\u7684\u6d77\u6d6a\u3002\u4e0d\u8981\u97f3\u4e50\uff0c\u4e0d\u8981\u5b57\u5e55\u3002"
   },
   "V08_s20": {
    "updateId": "944072f9-8701-4ec9-8b11-b62b6c8cf459",
