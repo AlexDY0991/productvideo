@@ -188,6 +188,76 @@
    "nodeIdReq": "node_904c8b634417485c8f89f8de",
    "uploaded": true,
    "nodeId": "node_dtqqrtzsbt"
+  },
+  "N01_altar": {
+   "resourceId": "472d1588-a73a-455c-835d-1a7348221c7f",
+   "submitId": "bea6b651-34ef-4a9f-a09e-f78f7333259d",
+   "nodeIdReq": "node_d2d0a5319b0648aaad19f437",
+   "uploaded": true,
+   "nodeId": "node_2d9qscrtsa"
+  },
+  "N02a_buckle": {
+   "resourceId": "58fe5f00-7ccf-47ef-b04b-95ba1e5717f9",
+   "submitId": "3fba81e8-7070-4174-8c95-dc5e9826c381",
+   "nodeIdReq": "node_37a917468eab4736ad01521c",
+   "uploaded": true,
+   "nodeId": "node_s9qdfnbz4x"
+  },
+  "N02b_led": {
+   "resourceId": "cfdb4ddb-f54f-4d66-87dc-0ff3066cba75",
+   "submitId": "185b6d64-9383-48ac-a488-a3803af5806e",
+   "nodeIdReq": "node_58bee77d776541d49db6a1ef",
+   "uploaded": true,
+   "nodeId": "node_srs18z9p6j"
+  },
+  "N02c_motor": {
+   "resourceId": "6616f60f-0bcc-4416-8b93-5c5a2f61c43b",
+   "submitId": "29174bd7-52f9-4c9f-9fc6-3e5c25e406f8",
+   "nodeIdReq": "node_bfbb954d5a584e99ab935a70",
+   "uploaded": true,
+   "nodeId": "node_8v7mfvnfpc"
+  },
+  "N02d_visor": {
+   "resourceId": "66b6485e-debf-4afb-8834-b2ba41e2637e",
+   "submitId": "c602392c-9430-419b-adf0-469c4066d961",
+   "nodeIdReq": "node_24e3b4c8a87e436e9614a953",
+   "uploaded": true,
+   "nodeId": "node_nrjd0yrqdg"
+  },
+  "N03_prop_pass": {
+   "resourceId": "2b103f35-fb47-4686-baaa-a418d8b85d1c",
+   "submitId": "b2c9b20d-c611-454e-b57b-6becb363104a",
+   "nodeIdReq": "node_71b922b692764c25b8d02bb1",
+   "uploaded": true,
+   "nodeId": "node_k2a4ea9spa"
+  },
+  "N04_visor_reflect": {
+   "resourceId": "f56c8018-5332-4a5b-bd22-6b8b23b7708f",
+   "submitId": "5f94d662-7f21-403f-86b7-a0bc47fd209f",
+   "nodeIdReq": "node_4a99b268e4fe4405814cee5f",
+   "uploaded": true,
+   "nodeId": "node_7atwjpqe3c"
+  },
+  "N05_rotor_disc": {
+   "resourceId": "3ddb9720-fa86-49a6-b8dd-a3d5e0f6cb3a",
+   "submitId": "a5590e43-eda1-4876-a7ef-99cbb0891548",
+   "nodeIdReq": "node_1deed55cc0c747d28e145876",
+   "uploaded": true,
+   "nodeId": "node_qjrzq6gj0h"
+  },
+  "N06a_textspace": {
+   "resourceId": "d91902b4-623f-42ef-8c94-83d17b831cdc",
+   "submitId": "6da83372-3a3a-45d0-a11c-d75a70763231",
+   "nodeIdReq": "node_23cbbb98ad314b95ae78a8f2",
+   "uploaded": true,
+   "nodeId": "node_ttzqwp9anw"
+  },
+  "N06b_horizon": {
+   "resourceId": "76205b94-6641-4b26-b1d7-334a02d91cdc",
+   "submitId": "aa0ffaaf-0ce8-459e-a277-a20473abab33",
+   "nodeIdReq": "node_2659abcc84df49f28d4d98c0",
+   "uploaded": true,
+   "nodeId": "node_6e9qxjkkth"
   }
  },
  "videos": {
@@ -422,6 +492,56 @@
    "runSubmitId": "fb3cbd6a-215a-4c96-89f1-b4290d29db83",
    "file": "samples/V08_hh.mp4",
    "resourceId": "3f2aae0c-291a-4397-87bd-f12f93b96f3d"
+  },
+  "W01_altar": {
+   "updateId": "2eb2b9e3-9da4-44b8-8c91-c64daada1a79",
+   "nodeId": "node_6338yjnkzn",
+   "prompt": "\u4ee5{{node:node_2d9qscrtsa}}\u4e3a\u9996\u5e27\u3002\u955c\u5934\u6cbf\u8f68\u9053\u7f13\u6162\u3001\u5e73\u7a33\u5730\u5411\u524d\u63a8\u8fd1\u505c\u5728\u8c37\u4ed3\u95e8\u53e3\u7684\u98de\u884c\u5668\uff0c\u9006\u5149\u91cc\u7684\u5149\u5c18\u7f13\u7f13\u98d8\u52a8\uff1b\u7b2c4\u79d2\uff0c\u673a\u5934\u7684LED\u706f\u5e26\u4eae\u8d77\uff0c\u56db\u4e2a\u7535\u673a\u7684\u7eff\u8272\u72b6\u6001\u706f\u4f9d\u6b21\u4eae\u8d77\u3002\u4fdd\u6301\u9996\u5e27\u7684\u4ea7\u54c1\u5916\u5f62\u3001\u96f6\u4ef6\u6570\u91cf\u3001\u6bd4\u4f8b\u548c\u914d\u8272\u4e0d\u53d8\uff1b\u4e0d\u51fa\u73b0\u4efb\u4f55\u6587\u5b57\u548c\u6807\u5fd7\u3002\u771f\u5b9e\u5546\u4e1a\u5e7f\u544a\u8d28\u611f\uff0c16:9\u3002\u53ea\u8981\u753b\u5185\u97f3\u6548\uff0c\u4e0d\u8981\u97f3\u4e50\uff0c\u4e0d\u8981\u5b57\u5e55\u3002"
+  },
+  "W02a_buckle": {
+   "updateId": "9e0f0eb8-e21b-4ba5-9dd3-8d212108f87d",
+   "nodeId": "node_q6pssfvmps",
+   "prompt": "\u4ee5{{node:node_s9qdfnbz4x}}\u4e3a\u9996\u5e27\u3002\u53cc\u624b\u628a\u5b89\u5168\u5e26\u5361\u6263\u7528\u529b\u6263\u5408\uff0c\"\u5494\"\u7684\u4e00\u58f0\uff0c\u7136\u540e\u62c9\u7d27\u80a9\u5e26\u3002\u4fdd\u6301\u9996\u5e27\u7684\u4ea7\u54c1\u5916\u5f62\u3001\u96f6\u4ef6\u6570\u91cf\u3001\u6bd4\u4f8b\u548c\u914d\u8272\u4e0d\u53d8\uff1b\u4e0d\u51fa\u73b0\u4efb\u4f55\u6587\u5b57\u548c\u6807\u5fd7\u3002\u771f\u5b9e\u5546\u4e1a\u5e7f\u544a\u8d28\u611f\uff0c16:9\u3002\u53ea\u8981\u753b\u5185\u97f3\u6548\uff0c\u4e0d\u8981\u97f3\u4e50\uff0c\u4e0d\u8981\u5b57\u5e55\u3002"
+  },
+  "W02b_led": {
+   "updateId": "15fe01ef-c6c8-45f5-8350-be31133e290a",
+   "nodeId": "node_mwq7xf5vqm",
+   "prompt": "\u4ee5{{node:node_srs18z9p6j}}\u4e3a\u9996\u5e27\u3002\u7b2c1\u79d2\uff0c\u673a\u5934\u4e0b\u6cbf\u7684\u767d\u8272LED\u706f\u5e26\u4ece\u4e00\u7aef\u5411\u53e6\u4e00\u7aef\u4f9d\u6b21\u70b9\u4eae\uff0c\u6700\u540e\u6574\u6761\u7a33\u5b9a\u53d1\u5149\u3002\u955c\u5934\u51e0\u4e4e\u9759\u6b62\u3002\u4fdd\u6301\u9996\u5e27\u7684\u4ea7\u54c1\u5916\u5f62\u3001\u96f6\u4ef6\u6570\u91cf\u3001\u6bd4\u4f8b\u548c\u914d\u8272\u4e0d\u53d8\uff1b\u4e0d\u51fa\u73b0\u4efb\u4f55\u6587\u5b57\u548c\u6807\u5fd7\u3002\u771f\u5b9e\u5546\u4e1a\u5e7f\u544a\u8d28\u611f\uff0c16:9\u3002\u53ea\u8981\u753b\u5185\u97f3\u6548\uff0c\u4e0d\u8981\u97f3\u4e50\uff0c\u4e0d\u8981\u5b57\u5e55\u3002"
+  },
+  "W02c_motor": {
+   "updateId": "6b05cfed-cbd0-4121-b0ed-df82ef772631",
+   "nodeId": "node_nn2fvtkg5m",
+   "prompt": "\u4ee5{{node:node_8v7mfvnfpc}}\u4e3a\u9996\u5e27\u3002\u7535\u673a\u4fa7\u9762\u7684\u72b6\u6001\u706f\u4eae\u8d77\u7eff\u8272\uff0c\u6868\u53f6\u5f00\u59cb\u7f13\u6162\u8f6c\u52a8\uff0c\u7136\u540e\u8d8a\u8f6c\u8d8a\u5feb\u3002\u4fdd\u6301\u9996\u5e27\u7684\u4ea7\u54c1\u5916\u5f62\u3001\u96f6\u4ef6\u6570\u91cf\u3001\u6bd4\u4f8b\u548c\u914d\u8272\u4e0d\u53d8\uff1b\u4e0d\u51fa\u73b0\u4efb\u4f55\u6587\u5b57\u548c\u6807\u5fd7\u3002\u771f\u5b9e\u5546\u4e1a\u5e7f\u544a\u8d28\u611f\uff0c16:9\u3002\u53ea\u8981\u753b\u5185\u97f3\u6548\uff0c\u4e0d\u8981\u97f3\u4e50\uff0c\u4e0d\u8981\u5b57\u5e55\u3002"
+  },
+  "W02d_visor": {
+   "updateId": "e84d7119-8929-4d9e-9383-bdf5f28228f7",
+   "nodeId": "node_pmttpms73b",
+   "prompt": "\u4ee5{{node:node_nrjd0yrqdg}}\u4e3a\u9996\u5e27\u3002\u98de\u884c\u5458\u628a\u62a4\u76ee\u955c\u5b8c\u5168\u62c9\u4e0b\uff0c\u624b\u653e\u56de\u4fa7\u6746\uff0c\u76ee\u5149\u770b\u5411\u524d\u65b9\u3002\u4fdd\u6301\u9996\u5e27\u7684\u4ea7\u54c1\u5916\u5f62\u3001\u96f6\u4ef6\u6570\u91cf\u3001\u6bd4\u4f8b\u548c\u914d\u8272\u4e0d\u53d8\uff1b\u4e0d\u51fa\u73b0\u4efb\u4f55\u6587\u5b57\u548c\u6807\u5fd7\u3002\u771f\u5b9e\u5546\u4e1a\u5e7f\u544a\u8d28\u611f\uff0c16:9\u3002\u53ea\u8981\u753b\u5185\u97f3\u6548\uff0c\u4e0d\u8981\u97f3\u4e50\uff0c\u4e0d\u8981\u5b57\u5e55\u3002"
+  },
+  "W03_prop": {
+   "updateId": "16094b0b-85ee-4f0f-b40c-6143de156747",
+   "nodeId": "node_23dp980d4k",
+   "prompt": "\u4ee5{{node:node_k2a4ea9spa}}\u4e3a\u9996\u5e27\u3002\u98de\u884c\u4e2d\uff0c\u955c\u5934\u4ece\u7535\u673a\u540e\u65b9\u5411\u524d\u5e73\u7a33\u63a8\u8fdb\uff0c\u7a7f\u8fc7\u9ad8\u901f\u65cb\u8f6c\u7684\u534a\u900f\u660e\u6868\u76d8\uff0c\u7a7f\u51fa\u540e\u770b\u5230\u5f00\u9614\u7684\u6d77\u5cb8\u548c\u6d77\u9762\u3002\u4fdd\u6301\u9996\u5e27\u7684\u4ea7\u54c1\u5916\u5f62\u3001\u96f6\u4ef6\u6570\u91cf\u3001\u6bd4\u4f8b\u548c\u914d\u8272\u4e0d\u53d8\uff1b\u4e0d\u51fa\u73b0\u4efb\u4f55\u6587\u5b57\u548c\u6807\u5fd7\u3002\u771f\u5b9e\u5546\u4e1a\u5e7f\u544a\u8d28\u611f\uff0c16:9\u3002\u53ea\u8981\u753b\u5185\u97f3\u6548\uff0c\u4e0d\u8981\u97f3\u4e50\uff0c\u4e0d\u8981\u5b57\u5e55\u3002"
+  },
+  "W04_reflect": {
+   "updateId": "244cab35-7fc9-4288-8147-da5eaaab3065",
+   "nodeId": "node_jp917v5084",
+   "prompt": "\u4ee5{{node:node_7atwjpqe3c}}\u4e3a\u9996\u5e27\u3002\u98de\u884c\u4e2d\uff0c\u62a4\u76ee\u955c\u4e0a\u6620\u51fa\u7684\u6d77\u5cb8\u7ebf\u7f13\u7f13\u5411\u540e\u6d41\u52a8\uff0c\u955c\u5934\u6781\u7f13\u6162\u5730\u63a8\u8fd1\u62a4\u76ee\u955c\u3002\u4fdd\u6301\u9996\u5e27\u7684\u4ea7\u54c1\u5916\u5f62\u3001\u96f6\u4ef6\u6570\u91cf\u3001\u6bd4\u4f8b\u548c\u914d\u8272\u4e0d\u53d8\uff1b\u4e0d\u51fa\u73b0\u4efb\u4f55\u6587\u5b57\u548c\u6807\u5fd7\u3002\u771f\u5b9e\u5546\u4e1a\u5e7f\u544a\u8d28\u611f\uff0c16:9\u3002\u53ea\u8981\u753b\u5185\u97f3\u6548\uff0c\u4e0d\u8981\u97f3\u4e50\uff0c\u4e0d\u8981\u5b57\u5e55\u3002"
+  },
+  "W05_disc": {
+   "updateId": "a546e8e2-724f-4144-8e4f-cdc315496d98",
+   "nodeId": "node_ftj87rnn49",
+   "prompt": "\u4ee5{{node:node_qjrzq6gj0h}}\u4e3a\u9996\u5e27\u3002\u56fa\u5b9a\u4ef0\u62cd\uff0c\u6868\u53f6\u4fdd\u6301\u9ad8\u901f\u65cb\u8f6c\u7684\u534a\u900f\u660e\u5706\u76d8\uff0c\u5915\u9633\u5728\u6868\u76d8\u4e2d\u5fc3\u540e\u65b9\uff0c\u4e91\u7f13\u7f13\u79fb\u52a8\uff0c\u6868\u76d8\u8fb9\u7f18\u7684\u5149\u6655\u8f7b\u8f7b\u95ea\u52a8\u3002\u4fdd\u6301\u9996\u5e27\u7684\u4ea7\u54c1\u5916\u5f62\u3001\u96f6\u4ef6\u6570\u91cf\u3001\u6bd4\u4f8b\u548c\u914d\u8272\u4e0d\u53d8\uff1b\u4e0d\u51fa\u73b0\u4efb\u4f55\u6587\u5b57\u548c\u6807\u5fd7\u3002\u771f\u5b9e\u5546\u4e1a\u5e7f\u544a\u8d28\u611f\uff0c16:9\u3002\u53ea\u8981\u753b\u5185\u97f3\u6548\uff0c\u4e0d\u8981\u97f3\u4e50\uff0c\u4e0d\u8981\u5b57\u5e55\u3002"
+  },
+  "W06a_side": {
+   "updateId": "9549feff-6721-4a3f-946b-e4dc07e9ae2f",
+   "nodeId": "node_4jcbta38eb",
+   "prompt": "\u4ee5{{node:node_ttzqwp9anw}}\u4e3a\u9996\u5e27\u3002\u6444\u5f71\u673a\u4e0e\u98de\u884c\u5668\u540c\u9ad8\u3001\u5e73\u884c\u540c\u901f\u8ddf\u62cd\uff0c\u98de\u884c\u5668\u59cb\u7ec8\u5728\u753b\u9762\u53f3\u4fa7\uff0c\u5e73\u7a33\u98de\u884c\uff0c8\u526f\u6868\u53f6\u9ad8\u901f\u65cb\u8f6c\uff1b\u753b\u9762\u5de6\u4fa7\u7684\u5929\u7a7a\u548c\u6d77\u9762\u4fdd\u6301\u5f00\u9614\u5e72\u51c0\u3002\u80cc\u666f\u6c34\u5e73\u8fd0\u52a8\u6a21\u7cca\u3002\u4fdd\u6301\u9996\u5e27\u7684\u4ea7\u54c1\u5916\u5f62\u3001\u96f6\u4ef6\u6570\u91cf\u3001\u6bd4\u4f8b\u548c\u914d\u8272\u4e0d\u53d8\uff1b\u4e0d\u51fa\u73b0\u4efb\u4f55\u6587\u5b57\u548c\u6807\u5fd7\u3002\u771f\u5b9e\u5546\u4e1a\u5e7f\u544a\u8d28\u611f\uff0c16:9\u3002\u53ea\u8981\u753b\u5185\u97f3\u6548\uff0c\u4e0d\u8981\u97f3\u4e50\uff0c\u4e0d\u8981\u5b57\u5e55\u3002"
+  },
+  "W06b_horizon": {
+   "updateId": "6923d040-7277-4ad4-bf5c-1b5af2211ae5",
+   "nodeId": "node_24g6c2hst3",
+   "prompt": "\u4ee5{{node:node_6e9qxjkkth}}\u4e3a\u9996\u5e27\u3002\u56fa\u5b9a\u8fdc\u666f\uff0c\u98de\u884c\u5668\u5728\u6d77\u9762\u4e0a\u7a7a\u5e73\u7a33\u5730\u4ece\u753b\u9762\u53f3\u4fa7\u5411\u4e2d\u95f4\u98de\u884c\uff0c\u6d77\u5e73\u7ebf\u4fdd\u6301\u6c34\u5e73\uff0c\u6d77\u9762\u7684\u9633\u5149\u95ea\u70c1\u3002\u4fdd\u6301\u9996\u5e27\u7684\u4ea7\u54c1\u5916\u5f62\u3001\u96f6\u4ef6\u6570\u91cf\u3001\u6bd4\u4f8b\u548c\u914d\u8272\u4e0d\u53d8\uff1b\u4e0d\u51fa\u73b0\u4efb\u4f55\u6587\u5b57\u548c\u6807\u5fd7\u3002\u771f\u5b9e\u5546\u4e1a\u5e7f\u544a\u8d28\u611f\uff0c16:9\u3002\u53ea\u8981\u753b\u5185\u97f3\u6548\uff0c\u4e0d\u8981\u97f3\u4e50\uff0c\u4e0d\u8981\u5b57\u5e55\u3002"
   }
  }
 }
