@@ -1,0 +1,135 @@
+<!doctype html><html><head><meta charset="utf-8"><style>body{margin:0;background:#888}</style>
+<script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js","three/addons/":"./node_modules/three/examples/jsm/"}}</script></head><body>
+<script type="module">
+import * as THREE from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+const W=+new URLSearchParams(location.search).get('w')||1600, H=+new URLSearchParams(location.search).get('h')||1000;
+const r=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,logarithmicDepthBuffer:true});
+r.setSize(W,H); r.toneMapping=THREE.ACESFilmicToneMapping; r.outputColorSpace=THREE.SRGBColorSpace;
+r.shadowMap.enabled=true; document.body.appendChild(r.domElement);
+const scene=new THREE.Scene(); scene.background=new THREE.Color(0xd4d4d4);
+const pm=new THREE.PMREMGenerator(r); scene.environment=pm.fromScene(new RoomEnvironment(),0.04).texture;
+const sun=new THREE.DirectionalLight(0xffffff,1.2); sun.position.set(3,6,4); scene.add(sun);
+const cam=new THREE.PerspectiveCamera(20,W/H,1,2000);
+window.info=null;
+window.U=1/0.0604; // v2 scale: 60.4 mm per model unit (seat-to-cage ergonomics + brand film + 4450 mm span)
+window.scene=scene;
+new GLTFLoader().load('model.glb',g=>{
+  const m=g.scene; scene.add(m);
+  const carbon=new THREE.MeshPhysicalMaterial({color:0x1a1a1a,roughness:0.35,metalness:0.1,clearcoat:1,clearcoatRoughness:0.15});
+  const blk=new THREE.MeshPhysicalMaterial({color:0x0c0c0c,roughness:0.45,metalness:0.2,clearcoat:0.6,clearcoatRoughness:0.3});
+  m.traverse(o=>{ if(o.isMesh&&o.material&&o.material.color){const c=o.material.color; if(Math.abs(c.r-c.g)<0.02&&c.r<0.6) o.material=blk; else if(o.material.roughness!==undefined&&o.material.roughness<0.2){o.material=o.material.clone();o.material.roughness=0.3;}} });
+  m.traverse(o=>{ if(o.name&&/^X-A16L-750-80/.test(o.name)) o.traverse(k=>{if(k.isMesh)k.material=carbon;}); });
+  const b=new THREE.Box3().setFromObject(m); const c=b.getCenter(new THREE.Vector3()); const s=b.getSize(new THREE.Vector3());
+  m.position.sub(c); window.box={size:s.toArray(),center:c.toArray()};
+  window.root=m; window.ready=true;
+});
+// view(dir:[x,y,z], up, fovDeg, dist multiplier, ortho?)
+window.shot=(dir,up=[0,1,0],fit=1.15,ortho=false)=>{
+  const s=new THREE.Vector3(...window.box.size); const R=s.length()/2*fit;
+  let c=cam;
+  const d=new THREE.Vector3(...dir).normalize();
+  if(ortho){const a=W/H; c=new THREE.OrthographicCamera(-R*a,R*a,R,-R,1,2000);}
+  else{ c.position.copy(d.clone().multiplyScalar(R/Math.tan(THREE.MathUtils.degToRad(cam.fov/2)))); }
+  if(ortho) c.position.copy(d.clone().multiplyScalar(R*5));
+  c.up.set(...up); c.lookAt(0,0,0); c.updateProjectionMatrix();
+  r.render(scene,c); return r.domElement.toDataURL('image/png');
+};
+window.shotAt=(t,dir,dist,fov=30)=>{scene.traverse(o=>{if(o.isMesh&&!o.userData.ground)o.castShadow=true;});const c=new THREE.PerspectiveCamera(fov,W/H,0.5,2000);const d=new THREE.Vector3(...dir).normalize();const T=new THREE.Vector3(...t);c.position.copy(T.clone().add(d.multiplyScalar(dist)));c.lookAt(T);c.updateProjectionMatrix();r.render(scene,c);return r.domElement.toDataURL('image/png');};
+window.foldFrontLeft=async(deg)=>{
+  const root=window.root; let grp=root; while(grp.children.length===1) grp=grp.children[0];
+  const piv=new THREE.Vector3(8.2,0,19.9); const ang=THREE.MathUtils.degToRad(deg); const picked=[];
+  for(const c of [...grp.children]){const bb=new THREE.Box3().setFromObject(c); if(bb.isEmpty())continue; const ctr=bb.getCenter(new THREE.Vector3());
+    if(ctr.x>12 && Math.abs(ctr.z-19.9)<3.5){picked.push(c);}}
+  for(const c of picked){ const g=new THREE.Group(); g.position.copy(piv); grp.add(g); g.attach(c); g.rotation.y=ang; }
+  return picked.length;};
+window.addMannequin=(x,z)=>{
+  const m=new THREE.MeshStandardMaterial({color:0xb0b0b0,roughness:0.8}); const G=-13.86; const U=window.U;
+  const add=(geo,px,py,pz,rx=0,rz=0)=>{const o=new THREE.Mesh(geo,m);o.position.set(px,py,pz);o.rotation.x=rx;o.rotation.z=rz;scene.add(o);return o;};
+  const legH=0.9*U, r=0.075*U;
+  add(new THREE.CylinderGeometry(r,r,legH,16),x,G+legH/2,z-0.11*U); add(new THREE.CylinderGeometry(r,r,legH,16),x,G+legH/2,z+0.11*U);
+  const torsoH=0.62*U; add(new THREE.BoxGeometry(0.26*U,torsoH,0.46*U),x,G+legH+torsoH/2,z);
+  add(new THREE.SphereGeometry(0.12*U,24,16),x,G+legH+torsoH+0.17*U,z);
+  // arms reaching toward -X down to the folded arm tube
+  const sh=new THREE.Vector3(x,G+legH+torsoH-0.05*U,0);
+  for(const dz of [-0.2*U,0.2*U]){const a=new THREE.Vector3(x,sh.y,z+dz); const h=new THREE.Vector3(14.6,-0.2,13.6+dz*0.6); const len=a.distanceTo(h); const mid=a.clone().add(h).multiplyScalar(0.5);
+    const o=add(new THREE.CylinderGeometry(0.05*U,0.05*U,len,12),mid.x,mid.y,mid.z); o.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),h.clone().sub(a).normalize());}
+  return true;};
+window.addStanding=(x,z,rotY=0,ps=1)=>{
+  const m=new THREE.MeshStandardMaterial({color:0xb0b0b0,roughness:0.8}); const G=-13.86; const U=window.U*ps;
+  const g=new THREE.Group(); g.position.set(x,0,z); g.rotation.y=rotY; scene.add(g);
+  const add=(geo,px,py,pz)=>{const o=new THREE.Mesh(geo,m);o.position.set(px,py,pz);g.add(o);return o;};
+  const legH=0.88*U,r=0.075*U,torsoH=0.62*U;
+  add(new THREE.CylinderGeometry(r,r,legH,16),0,G+legH/2,-0.11*U); add(new THREE.CylinderGeometry(r,r,legH,16),0,G+legH/2,0.11*U);
+  add(new THREE.BoxGeometry(0.26*U,torsoH,0.46*U),0,G+legH+torsoH/2,0);
+  add(new THREE.SphereGeometry(0.12*U,24,16),0,G+legH+torsoH+0.2*U,0);
+  const armL=0.62*U; add(new THREE.CylinderGeometry(0.05*U,0.05*U,armL,12),0,G+legH+torsoH-armL/2,-0.29*U); add(new THREE.CylinderGeometry(0.05*U,0.05*U,armL,12),0,G+legH+torsoH-armL/2,0.29*U);
+  // ground marker plane for shadow cue
+  return true;};
+window.addSeated=()=>{
+  const m=new THREE.MeshStandardMaterial({color:0xb8b8b8,roughness:0.8}); const U=window.U;
+  const V=(x,y,z)=>new THREE.Vector3(x,y,z);
+  const seg=(a,b,r)=>{const len=a.distanceTo(b);const o=new THREE.Mesh(new THREE.CylinderGeometry(r,r,len,14),m);o.position.copy(a.clone().add(b).multiplyScalar(0.5));o.quaternion.setFromUnitVectors(V(0,1,0),b.clone().sub(a).normalize());o.castShadow=true;scene.add(o);
+    const j=new THREE.Mesh(new THREE.SphereGeometry(r,12,10),m); j.position.copy(b); scene.add(j); return o;};
+  // seat pan y=-5.5 (z~-3); backrest reclined ~26deg: z_b(y)=-5.8-(y+4)*0.49 ; headrest top y=6.8
+  const t=V(0,0.898,-0.44), n=V(0,0.44,0.898);
+  const hip=V(0,-5.5+0.10*U,0); hip.z=-5.8-(hip.y+4)*0.49+0.12*U;
+  const sh=hip.clone().add(t.clone().multiplyScalar(0.50*U)).add(n.clone().multiplyScalar(0.6));
+  const hd=hip.clone().add(t.clone().multiplyScalar(0.72*U)).add(n.clone().multiplyScalar(1.0));
+  seg(hip,sh,0.15*U); seg(sh,hd,0.05*U);
+  const head=new THREE.Mesh(new THREE.SphereGeometry(0.12*U,24,16),m); head.position.copy(hd); head.castShadow=true; scene.add(head);
+  for(const sx of [-1,1]){ const h=V(sx*0.10*U,hip.y,hip.z); const knee=V(sx*0.11*U,-2.8,0); knee.z=h.z+Math.sqrt((0.57*U)**2-(knee.y-h.y)**2);
+    const ank=V(sx*0.12*U,-5.5+0.08*U,0); ank.z=knee.z+Math.sqrt((0.45*U)**2-(knee.y-ank.y)**2);
+    seg(h,knee,0.075*U); seg(knee,ank,0.055*U); }
+  const shR=sh.clone().add(V(-0.20*U,-0.3,0)), shL=sh.clone().add(V(0.20*U,-0.3,0));
+  const handR=V(-5.1,-0.4,2.7), elR=shR.clone().add(handR).multiplyScalar(0.5).add(V(-0.6,-1.4,0));
+  const handL=V(2.6,-2.6,1.5), elL=V(4.3,-0.5,-3.5);
+  seg(shR,elR,0.05*U); seg(elR,handR,0.045*U); seg(shL,elL,0.05*U); seg(elL,handL,0.045*U);
+  window.seatedInfo={hip:hip.toArray(),head:hd.toArray(),headTop:hd.y+0.12*U};
+  return true;};
+window.addGround=(grid=true,lift=0)=>{
+  const U=window.U, G=-13.86-lift*U;
+  const p=new THREE.Mesh(new THREE.PlaneGeometry(4000,4000),new THREE.MeshStandardMaterial({color:0xc9c4bb,roughness:1}));
+  p.rotation.x=-Math.PI/2; p.position.y=G-0.02; p.receiveShadow=true; p.userData.ground=true; scene.add(p);
+  if(grid){const g=new THREE.GridHelper(60*U,60,0x8a8478,0xa8a296); g.position.y=G-0.01; scene.add(g);}
+  sun.castShadow=true; sun.position.set(-60,90,40); sun.target.position.set(0,G,0); scene.add(sun.target);
+  const sc=sun.shadow.camera; sc.left=-120; sc.right=120; sc.top=120; sc.bottom=-120; sc.near=1; sc.far=400; sun.shadow.mapSize.set(2048,2048); sun.shadow.bias=-0.0005;
+  window.root.traverse(o=>{if(o.isMesh)o.castShadow=true;});
+  return true;};
+window.addBox=(cx,cz,lx,ly,lz,rotY=0,y0=0,col=0x9a9a9a)=>{ // meters, ground based
+  const U=window.U,G=-13.86; const o=new THREE.Mesh(new THREE.BoxGeometry(lx*U,ly*U,lz*U),new THREE.MeshStandardMaterial({color:col,roughness:0.9}));
+  o.position.set(cx,G+(y0+ly/2)*U,cz); o.rotation.y=rotY; o.castShadow=true; o.receiveShadow=true; scene.add(o); return o;};
+window.addTruck=(cx,cz,rotY=0)=>{ // full-size pickup, ~5.9 x 2.0 m; local +x = front
+  const U=window.U,G=-13.86; const g=new THREE.Group(); g.position.set(cx,0,cz); g.rotation.y=rotY; scene.add(g);
+  const mat=new THREE.MeshStandardMaterial({color:0x6d7175,roughness:0.6});
+  const box=(x,y0,lx,ly,lz=2.0)=>{const o=new THREE.Mesh(new THREE.BoxGeometry(lx*U,ly*U,lz*U),mat);o.position.set(x*U,G+(y0+ly/2)*U,0);o.castShadow=true;g.add(o);};
+  box(2.1,0.45,1.7,0.85); box(0.6,0.45,1.4,1.5); box(-1.6,0.55,2.0,0.08); // hood, cab, bed floor
+  for(const z of [-0.96,0.96]){const o=new THREE.Mesh(new THREE.BoxGeometry(2.0*U,0.7*U,0.08*U),mat);o.position.set(-1.6*U,G+0.95*U,z*U);g.add(o);}
+  {const o=new THREE.Mesh(new THREE.BoxGeometry(0.08*U,0.7*U,2.0*U),mat);o.position.set(-2.6*U,G+0.95*U,0);g.add(o);}
+  const wm=new THREE.MeshStandardMaterial({color:0x222222,roughness:0.9});
+  for(const x of [1.8,-1.6])for(const z of [-0.85,0.85]){const w=new THREE.Mesh(new THREE.CylinderGeometry(0.4*U,0.4*U,0.3*U,24),wm);w.rotation.x=Math.PI/2;w.position.set(x*U,G+0.4*U,z*U);g.add(w);}
+  return true;};
+window.xray=()=>{
+  scene.background=new THREE.Color(0x050607); scene.environment=null;
+  scene.add(new THREE.AmbientLight(0xffffff,0.6)); window.root.updateMatrixWorld(true);
+  let grp=window.root; while(grp.children.length===1) grp=grp.children[0];
+  const ghost=new THREE.MeshBasicMaterial({color:0x9fb3c8,transparent:true,opacity:0.10,depthWrite:false});
+  const edge=new THREE.MeshBasicMaterial({color:0xcfe0f0,transparent:true,opacity:0.05,wireframe:true,depthWrite:false});
+  const bat=new THREE.MeshStandardMaterial({color:0xff6a00,emissive:0xff5a00,emissiveIntensity:0.9,roughness:0.4});
+  const isBat=(bb)=>{const sz=bb.getSize(new THREE.Vector3()),c=bb.getCenter(new THREE.Vector3()); return Math.abs(sz.x-6.3)<0.6&&sz.z>6.2&&sz.z<8&&sz.y>3&&sz.y<7&&Math.abs(Math.abs(c.x)-3.2)<0.6;};
+  let nb=0;
+  for(const c of grp.children){const bb=new THREE.Box3().setFromObject(c); if(bb.isEmpty())continue; const b=isBat(bb); if(b)nb++; c.traverse(o=>{if(o.isMesh){o.material=b?bat:ghost;}});}
+  return nb;};
+window.orbit=(i,n,startDeg,spanDeg,dist,elev,target)=>{const a=THREE.MathUtils.degToRad(startDeg+spanDeg*i/n);const T=new THREE.Vector3(...target);const c=new THREE.PerspectiveCamera(30,W/H,0.5,2000);c.position.set(T.x+dist*Math.sin(a),T.y+elev,T.z+dist*Math.cos(a));c.lookAt(T);r.render(scene,c);return r.domElement.toDataURL('image/png');};
+window.addStandingReach=(x,z,rotY,hand,ps=1)=>{
+  const m=new THREE.MeshStandardMaterial({color:0xb0b0b0,roughness:0.8}); const G=-13.86; const U=window.U*ps; const V=(a,b,c)=>new THREE.Vector3(a,b,c);
+  const seg=(a,b,r)=>{const len=a.distanceTo(b);const o=new THREE.Mesh(new THREE.CylinderGeometry(r,r,len,14),m);o.position.copy(a.clone().add(b).multiplyScalar(0.5));o.quaternion.setFromUnitVectors(V(0,1,0),b.clone().sub(a).normalize());scene.add(o);};
+  const legH=0.88*U,torsoH=0.62*U; const fwd=V(Math.cos(rotY),0,-Math.sin(rotY)); const side=V(Math.sin(rotY),0,Math.cos(rotY));
+  const base=V(x,G,z); for(const s of [-0.11,0.11]){const f=base.clone().add(side.clone().multiplyScalar(s*U)); seg(f,f.clone().add(V(0,legH,0)),0.075*U);}
+  const hip=base.clone().add(V(0,legH,0)), sh=hip.clone().add(V(0,torsoH,0)); seg(hip,sh,0.15*U);
+  const hd=new THREE.Mesh(new THREE.SphereGeometry(0.12*U,24,16),m); hd.position.copy(sh.clone().add(V(0,0.2*U,0))); scene.add(hd);
+  const shR=sh.clone().add(side.clone().multiplyScalar(-0.22*U)).add(V(0,-0.05*U,0)), shL=sh.clone().add(side.clone().multiplyScalar(0.22*U)).add(V(0,-0.05*U,0));
+  const H=hand?V(...hand):shR.clone().add(V(0,-0.62*U,0)); seg(shR,H,0.05*U); seg(shL,shL.clone().add(V(0,-0.62*U,0)),0.05*U);
+  return true;};
+</script></body></html>
