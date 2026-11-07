@@ -45,6 +45,7 @@
   - 项目画布："CoolFly Dream Pro 卖点片"，projectId `301dcb30-6c66-4a06-a4d0-6bd193d982d7`，链接 https://jimeng.jianying.com/ai-tool/ai-canvas/301dcb30-6c66-4a06-a4d0-6bd193d982d7
   - **样片**：模型用 `seedance_2.5_draft`（480p），满意后用 `node promote video-sample --resolution 1080p` 转成正片。**样片最长保存 7 天**，过期后不能再转正片，交付样片时必须提醒用户。
   - 积分要先报价，用户批准消费上限后才能运行（`--credit-ceiling`）。不能用 `--yes` 绕过。
+  - 查积分余额和每笔的到期时间：`dreamina-canvas --format json auth account`，看 `credits.details`（`expiresAt` 是 UTC，换成北京时间要加 8 小时）。
   - 旧的 `dreamina` 命令行（只能提交到"对话"）不再使用。
   - 图片仍然用 Lovart（用户定的分工）。即梦 skill 里"生成一律优先用即梦"那条，不适用于本项目。
 
